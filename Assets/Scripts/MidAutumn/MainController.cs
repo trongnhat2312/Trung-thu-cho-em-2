@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.PackageManager;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -42,18 +41,20 @@ public class MainController : MonoBehaviour
 	    }
 		curPlace = placeNum;
 		placeInfo.SetActive(true);
+		activatedPlacePopup.gameObject.SetActive(false);
+		nonActivatedPlacePopup.gameObject.SetActive(false);
 		if (activated[placeNum])
 		{
-			activatedPlacePopup.SetActive(true);
-			nonActivatedPlacePopup.SetActive(false);
+			this.activePlacePopup = activatedPlacePopup;
 		}
 		else
 		{
-
-			activatedPlacePopup.SetActive(false);
-			nonActivatedPlacePopup.SetActive(true);
+			this.activePlacePopup = nonActivatedPlacePopup;
 		}
-    }
+		this.activePlacePopup.gameObject.SetActive(true);
+		this.activePlacePopup.SetPlaceNum(placeNum);
+
+	}
 
     public void ClickScan()
     {
@@ -70,8 +71,10 @@ public class MainController : MonoBehaviour
 	[SerializeField] public static int MAX_PLACE = 6;
 
 	public GameObject placeInfo;
-	public GameObject activatedPlacePopup;
-	public GameObject nonActivatedPlacePopup;
+	public PlaceInfo activatedPlacePopup;
+	public PlaceInfo nonActivatedPlacePopup;
+
+	private PlaceInfo activePlacePopup;
 
 	public static MainController Instance;
 }

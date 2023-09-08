@@ -44,8 +44,8 @@ PlayerSettings:
   m_HolographicTrackingLossScreen: {fileID: 0}
   defaultScreenWidth: 1024
   defaultScreenHeight: 768
-  defaultScreenWidthWeb: 960
-  defaultScreenHeightWeb: 600
+  defaultScreenWidthWeb: 720
+  defaultScreenHeightWeb: 1440
   m_StereoRenderingPath: 0
   m_ActiveColorSpace: 0
   m_MTRendering: 1
@@ -497,7 +497,10 @@ PlayerSettings:
     m_EncodingQuality: 1
   - m_BuildTarget: PS4
     m_EncodingQuality: 1
-  m_BuildTargetGroupLightmapSettings: []
+  m_BuildTargetGroupLightmapSettings:
+  - m_BuildTarget: WebGL
+    m_TextureStreamingEnabled: 1
+    m_TextureStreamingPriority: 0
   m_BuildTargetNormalMapEncoding: []
   m_BuildTargetDefaultTextureCompressionFormat: []
   playModeTestRunnerEnabled: 0
@@ -743,7 +746,7 @@ PlayerSettings:
   webGLTemplate: APPLICATION:Default
   webGLAnalyzeBuildSize: 0
   webGLUseEmbeddedResources: 0
-  webGLCompressionFormat: 1
+  webGLCompressionFormat: 2
   webGLWasmArithmeticExceptions: 0
   webGLLinkerTarget: 1
   webGLThreadsSupport: 0
@@ -866,7 +869,7 @@ PlayerSettings:
   luminVersion:
     m_VersionCode: 1
     m_VersionName: 
-  apiCompatibilityLevel: 6
+  apiCompatibilityLevel: 3
   activeInputHandler: 0
   windowsGamepadBackendHint: 0
   cloudProjectId: 8f47c944-78a0-48f6-9144-5e984956ebbd
