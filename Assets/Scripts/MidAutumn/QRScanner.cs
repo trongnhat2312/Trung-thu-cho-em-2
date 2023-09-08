@@ -54,7 +54,7 @@ public class QRScanner : MonoBehaviour {
 			{
 				TextHeader.text = "";
 			}
-			TextHeader.text += "Found: " + barCodeType + " / " + barCodeValue + "\n";
+			//TextHeader.text += "Found: " + barCodeType + " / " + barCodeValue + "\n";
 			String value = barCodeValue;
 			string[] arrayV = null;
 			if (value.Contains("CheckinPlace="))
@@ -75,17 +75,23 @@ public class QRScanner : MonoBehaviour {
 					{
 						StaticParamClass.CheckinPlace = Int32.Parse(d.Split("=")[1]);
 					}
+
+					if (PlayerPrefs.HasKey("CheckinName"))
+					{
+						// Check in and go to Main;
+						Checkin.CheckinPre(PlayerPrefs.GetString("CheckinName"), PlayerPrefs.GetString("CheckinNumber"), StaticParamClass.CheckinPlace);
+					}
+					else
+					{
+						GotoCheckin();
+					}
 				}
-			}
-			
-			if (PlayerPrefs.HasKey("CheckinName"))
-			{
-				// Check in and go to Main;
-				Checkin.CheckinPre(PlayerPrefs.GetString("CheckinName"), PlayerPrefs.GetString("CheckinNumber"), StaticParamClass.CheckinPlace);
 			} else
 			{
-				GotoCheckin();
+				TextHeader.text += "Error barcode: " + barCodeType + " / " + barCodeValue + "\n";
 			}
+			
+			
 			
 			// Save the place info here -- Redirect to Main or Checkin
 			//int place = (new System.Random()).Next(MainController.MAX_PLACE);

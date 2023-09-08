@@ -881,6 +881,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nickName: {fileID: 1150486390}
   phoneNumber: {fileID: 1139007042}
+  ErrorName: {fileID: 1337457003}
+  ErrorPhone: {fileID: 491201966}
 --- !u!4 &1093780023
 Transform:
   m_ObjectHideFlags: 0
