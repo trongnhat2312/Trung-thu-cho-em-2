@@ -34,15 +34,15 @@ namespace BarcodeScanner
 
 			WebcamDefaultDeviceName = "";
 
-			foreach (WebCamDevice wd in WebCamTexture.devices)
-			{
-				if (!wd.isFrontFacing)
-				{
-					WebcamDefaultDeviceName = wd.name;
-				}
-			}
+			//foreach (WebCamDevice wd in WebCamTexture.devices)
+			//{
+			//	if (!wd.isFrontFacing)
+			//	{
+			//		WebcamDefaultDeviceName = wd.name;
+			//	}
+			//}
 
-			//WebcamDefaultDeviceName = (WebCamTexture.devices.Length > 0) ? WebCamTexture.devices.First().name : "";
+			WebcamDefaultDeviceName = (WebCamTexture.devices.Length > 0) ? WebCamTexture.devices.First().name : "";
 			WebcamRequestedWidth = 512;
 			WebcamRequestedHeight = 512;
 			WebcamFilterMode = FilterMode.Trilinear;
