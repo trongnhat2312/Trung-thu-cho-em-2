@@ -54,16 +54,54 @@ public class QRScanner : MonoBehaviour {
 			{
 				TextHeader.text = "";
 			}
-			TextHeader.text += "Found: " + barCodeType + " / " + barCodeValue + "\n";
-			// Save the place info here
-			int place = (new System.Random()).Next(MainController.MAX_PLACE);
-			MainController.Instance.curPlace = place;
-			MainController.Instance.activated[place] = true;
+			//TextHeader.text += "Found: " + barCodeType + " / " + barCodeValue + "\n";
+			String value = barCodeValue;
+			string[] arrayV = null;
+			if (value.Contains("CheckinPlace="))
+			{
+				arrayV = value.Split("&");
+
+				foreach (String d in arrayV)
+				{
+					//if(d.Contains("CheckinName"))
+					//{
+					//	StaticParamClass.CheckinName = d.Split("=")[1];
+					//}
+					//if(d.Contains("CheckinNumber"))
+					//{
+					//	StaticParamClass.CheckinNumber = d.Split("=")[1];
+					//}
+					if (d.Contains("CheckinPlace"))
+					{
+						StaticParamClass.CheckinPlace = Int32.Parse(d.Split("=")[1]);
+					}
+
+					if (PlayerPrefs.HasKey("CheckinName"))
+					{
+						// Check in and go to Main;
+						Checkin.CheckinPre(PlayerPrefs.GetString("CheckinName"), PlayerPrefs.GetString("CheckinNumber"), StaticParamClass.CheckinPlace);
+					}
+					else
+					{
+						GotoCheckin();
+					}
+				}
+			} else
+			{
+				TextHeader.text += "Error barcode: " + barCodeType + " / " + barCodeValue + "\n";
+			}
+			
+			
+			
+			// Save the place info here -- Redirect to Main or Checkin
+			//int place = (new System.Random()).Next(MainController.MAX_PLACE);
+			//MainController.Instance.curPlace = place;
+			//MainController.Instance.activated[place] = true;
 			///
-			RestartTime += Time.realtimeSinceStartup + 1f;
+			//RestartTime += Time.realtimeSinceStartup + 1f;
 
 			// Feedback
-			Audio.Play();
+			//Audio.Play();
 
 			#if UNITY_ANDROID || UNITY_IOS
 			Handheld.Vibrate();
@@ -87,6 +125,13 @@ public class QRScanner : MonoBehaviour {
 			StartScanner();
 			RestartTime = 0;
 		}
+	}
+
+	public void GotoCheckin()
+	{
+		StartCoroutine(StopCamera(() => {
+			SceneManager.LoadScene("Checkin");
+		}));
 	}
 
 	#region UI Buttons

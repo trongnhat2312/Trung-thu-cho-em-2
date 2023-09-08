@@ -11,6 +11,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/QR Scanner.unity
     guid: 465a7443cc1ba6645b8ce5c4031eb420
+  - enabled: 1
+    path: Assets/Scenes/Checkin.unity
+    guid: 6972981b0a0ca4dbeaf7bc2db2727754
   - enabled: 0
     path: Assets/Samples/Boot.unity
     guid: e0a52783a8802784296549d34db8f6d6
