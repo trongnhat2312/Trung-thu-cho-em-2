@@ -66,7 +66,7 @@ public class Checkin : MonoBehaviour
 	public static void CheckinPre(string name, string number, int place)
 	{
 		// Save data to Azure and go to main;
-
+		Debug.Log("ABC");
 		SceneManager.LoadScene("Main");
 	}
 }

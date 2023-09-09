@@ -21,10 +21,15 @@ public class MainController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+		
+		curPlace = StaticParamClass.CheckinPlace;
 	    if (curPlace >= 0 && curPlace < MAX_PLACE)
 	    {
+			activated[curPlace] = true;
 			OpenPlaceInfo(curPlace);
 	    }
+
+		SetUsername();
     }
 
     // Update is called once per frame
@@ -40,6 +45,7 @@ public class MainController : MonoBehaviour
 	    {
 			Debug.LogError("Place number out of range [0, MAX_PLACE - 1]");
 	    }
+
 		curPlace = placeNum;
 		placeInfo.SetActive(true);
 		activatedPlacePopup.gameObject.SetActive(false);
@@ -61,6 +67,14 @@ public class MainController : MonoBehaviour
     {
 	    SceneManager.LoadScene("QR Scanner");
     }
+
+	private void SetUsername()
+	{
+		if(PlayerPrefs.HasKey(StaticParamClass.PrefCheckinName))
+		{
+			usernameText.text = PlayerPrefs.GetString(StaticParamClass.PrefCheckinName);
+		}
+	}
 
 	[SerializeField, HideInInspector]
 	public List<bool> activated = new List<bool>(MAX_PLACE);
