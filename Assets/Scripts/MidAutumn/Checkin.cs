@@ -51,8 +51,8 @@ public class Checkin : MonoBehaviour
 		} else
 		{
 			int place = StaticParamClass.CheckinPlace;
-			PlayerPrefs.SetString("CheckinName", nickName.text.Trim());
-			PlayerPrefs.SetString("CheckinNumber", phoneNumber.text.Trim());
+			PlayerPrefs.SetString(StaticParamClass.PrefCheckinName, nickName.text.Trim());
+			PlayerPrefs.SetString(StaticParamClass.PrefCheckinNumber, phoneNumber.text.Trim());
 			// Send data to Azure Prefab and go to main
 
 			Debug.Log("Name: " + PlayerPrefs.GetString("CheckinName"));

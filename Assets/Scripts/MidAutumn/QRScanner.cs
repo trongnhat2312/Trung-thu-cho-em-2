@@ -76,10 +76,10 @@ public class QRScanner : MonoBehaviour {
 						StaticParamClass.CheckinPlace = Int32.Parse(d.Split("=")[1]);
 					}
 
-					if (PlayerPrefs.HasKey("CheckinName"))
+					if (PlayerPrefs.HasKey(StaticParamClass.PrefCheckinName))
 					{
 						// Check in and go to Main;
-						Checkin.CheckinPre(PlayerPrefs.GetString("CheckinName"), PlayerPrefs.GetString("CheckinNumber"), StaticParamClass.CheckinPlace);
+						Checkin.CheckinPre(PlayerPrefs.GetString(StaticParamClass.PrefCheckinName), PlayerPrefs.GetString(StaticParamClass.PrefCheckinNumber), StaticParamClass.CheckinPlace);
 					}
 					else
 					{

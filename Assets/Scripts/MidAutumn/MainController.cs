@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MainController : MonoBehaviour
 {
@@ -73,6 +74,8 @@ public class MainController : MonoBehaviour
 	public GameObject placeInfo;
 	public PlaceInfo activatedPlacePopup;
 	public PlaceInfo nonActivatedPlacePopup;
+
+	public Text usernameText;
 
 	private PlaceInfo activePlacePopup;
 
