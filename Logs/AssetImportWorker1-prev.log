@@ -9,13 +9,13 @@ D:\Program Files\Unity Hub\Editor\2021.3.28f1\Editor\Unity.exe
 -batchMode
 -noUpm
 -name
-AssetImportWorker3
+AssetImportWorker1
 -projectPath
 G:/unity/Trung-thu-cho-em-2
 -logFile
-Logs/AssetImportWorker3.log
+Logs/AssetImportWorker1.log
 -srvPort
-56379
+56716
 Successfully changed project path to: G:/unity/Trung-thu-cho-em-2
 G:/unity/Trung-thu-cho-em-2
 [UnityMemory] Configuration Parameters - Can be set up in boot.config
@@ -47,11 +47,11 @@ G:/unity/Trung-thu-cho-em-2
     "memorysetup-temp-allocator-size-cloud-worker=32768"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Player connection [13784] Host "[IP] 192.168.1.8 [Port] 0 [Flags] 2 [Guid] 3232839121 [EditorId] 3232839121 [Version] 1048832 [Id] WindowsEditor(7,The_Sun) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
+Player connection [14164] Host "[IP] 192.168.1.8 [Port] 0 [Flags] 2 [Guid] 594015394 [EditorId] 594015394 [Version] 1048832 [Id] WindowsEditor(7,The_Sun) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
 
-Player connection [13784] Host "[IP] 192.168.1.8 [Port] 0 [Flags] 2 [Guid] 3232839121 [EditorId] 3232839121 [Version] 1048832 [Id] WindowsEditor(7,The_Sun) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
+Player connection [14164] Host "[IP] 192.168.1.8 [Port] 0 [Flags] 2 [Guid] 594015394 [EditorId] 594015394 [Version] 1048832 [Id] WindowsEditor(7,The_Sun) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
 
-Refreshing native plugins compatible for Editor in 88.99 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 90.45 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2021.3.28f1 (232e59c3f087)
 [Subsystems] Discovering subsystems at path D:/Program Files/Unity Hub/Editor/2021.3.28f1/Editor/Data/Resources/UnitySubsystems
@@ -67,52 +67,52 @@ Initialize mono
 Mono path[0] = 'D:/Program Files/Unity Hub/Editor/2021.3.28f1/Editor/Data/Managed'
 Mono path[1] = 'D:/Program Files/Unity Hub/Editor/2021.3.28f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
 Mono config path = 'D:/Program Files/Unity Hub/Editor/2021.3.28f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56564
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56176
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: D:/Program Files/Unity Hub/Editor/2021.3.28f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
 Register platform support module: D:/Program Files/Unity Hub/Editor/2021.3.28f1/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll
 Register platform support module: D:/Program Files/Unity Hub/Editor/2021.3.28f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
 Register platform support module: D:/Program Files/Unity Hub/Editor/2021.3.28f1/Editor/Data/PlaybackEngines/MetroSupport/UnityEditor.UWP.Extensions.dll
-Registered in 0.005105 seconds.
+Registered in 0.005477 seconds.
 Native extension for UWP target not found
 Native extension for WindowsStandalone target not found
 Native extension for Android target not found
-Android Extension - Scanning For ADB Devices 229 ms
+Android Extension - Scanning For ADB Devices 344 ms
 Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 75.74 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 101.96 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  0.934 seconds
+- Completed reload, in  1.283 seconds
 Domain Reload Profiling:
-	ReloadAssembly (935ms)
-		BeginReloadAssembly (100ms)
+	ReloadAssembly (1284ms)
+		BeginReloadAssembly (135ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (0ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
 			CreateAndSetChildDomain (1ms)
-		EndReloadAssembly (739ms)
-			LoadAssemblies (101ms)
+		EndReloadAssembly (1016ms)
+			LoadAssemblies (135ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (112ms)
+			SetupTypeCache (173ms)
 			ReleaseScriptCaches (0ms)
-			RebuildScriptCaches (34ms)
-			SetupLoadedEditorAssemblies (546ms)
+			RebuildScriptCaches (45ms)
+			SetupLoadedEditorAssemblies (725ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (335ms)
+				InitializePlatformSupportModulesInManaged (460ms)
 				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (76ms)
+				RefreshPlugins (102ms)
 				BeforeProcessingInitializeOnLoad (1ms)
-				ProcessInitializeOnLoadAttributes (87ms)
-				ProcessInitializeOnLoadMethodAttributes (46ms)
+				ProcessInitializeOnLoadAttributes (96ms)
+				ProcessInitializeOnLoadMethodAttributes (66ms)
 				AfterProcessingInitializeOnLoad (0ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
 			AwakeInstancesAfterBackupRestoration (0ms)
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.004089 seconds.
+Registered in 0.005791 seconds.
 Begin MonoManager ReloadAssembly
 Symbol file LoadedFromMemory doesn't match image G:\unity\Trung-thu-cho-em-2\Library\PackageCache\com.unity.visualscripting@1.8.0\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
 Symbol file LoadedFromMemory doesn't match image G:\unity\Trung-thu-cho-em-2\Library\PackageCache\com.unity.visualscripting@1.8.0\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
@@ -120,46 +120,46 @@ Native extension for UWP target not found
 Native extension for WindowsStandalone target not found
 Native extension for Android target not found
 Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 0.53 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 1.22 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  0.984 seconds
+- Completed reload, in  1.241 seconds
 Domain Reload Profiling:
-	ReloadAssembly (985ms)
-		BeginReloadAssembly (131ms)
+	ReloadAssembly (1242ms)
+		BeginReloadAssembly (180ms)
 			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (6ms)
+			DisableScriptedObjects (8ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
 			CreateAndSetChildDomain (19ms)
-		EndReloadAssembly (761ms)
-			LoadAssemblies (99ms)
+		EndReloadAssembly (932ms)
+			LoadAssemblies (149ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (258ms)
+			SetupTypeCache (308ms)
 			ReleaseScriptCaches (1ms)
-			RebuildScriptCaches (50ms)
-			SetupLoadedEditorAssemblies (332ms)
+			RebuildScriptCaches (64ms)
+			SetupLoadedEditorAssemblies (415ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (20ms)
-				SetLoadedEditorAssemblies (0ms)
+				InitializePlatformSupportModulesInManaged (32ms)
+				SetLoadedEditorAssemblies (1ms)
 				RefreshPlugins (1ms)
-				BeforeProcessingInitializeOnLoad (75ms)
-				ProcessInitializeOnLoadAttributes (210ms)
-				ProcessInitializeOnLoadMethodAttributes (24ms)
+				BeforeProcessingInitializeOnLoad (84ms)
+				ProcessInitializeOnLoadAttributes (269ms)
+				ProcessInitializeOnLoadMethodAttributes (25ms)
 				AfterProcessingInitializeOnLoad (3ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (5ms)
+			AwakeInstancesAfterBackupRestoration (6ms)
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.03 seconds
-Refreshing native plugins compatible for Editor in 0.77 ms, found 3 plugins.
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
+Refreshing native plugins compatible for Editor in 0.70 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 3417 Unused Serialized files (Serialized files now loaded: 0)
 Unloading 27 unused Assets / (46.3 KB). Loaded Objects now: 3876.
 Memory consumption went from 136.3 MB to 136.2 MB.
-Total: 3.302600 ms (FindLiveObjects: 0.308000 ms CreateObjectMapping: 0.220100 ms MarkObjects: 2.688700 ms  DeleteObjects: 0.084900 ms)
+Total: 5.350700 ms (FindLiveObjects: 0.464500 ms CreateObjectMapping: 0.549600 ms MarkObjects: 4.215200 ms  DeleteObjects: 0.119700 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
@@ -174,58 +174,34 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
-  Time since last request: 2596824.532657 seconds.
-  path: Assets/Fonts/Nunito/static/Nunito-Black.ttf
-  artifactKey: Guid(6f0d76aeb9d52bc42905790f624dfa4a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Fonts/Nunito/static/Nunito-Black.ttf using Guid(6f0d76aeb9d52bc42905790f624dfa4a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b7e53ebef45d9a10be11fdf95ff0e09a') in 0.179501 seconds 
+  Time since last request: 2419246.556134 seconds.
+  path: Assets/Images/map 2.png
+  artifactKey: Guid(6a97f424cee39824c95d40de2beaddec) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Images/map 2.png using Guid(6a97f424cee39824c95d40de2beaddec) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '82f9de7da59139f6a8aacef93ca99414') in 0.171354 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000119 seconds.
+  path: Assets/Images/scan button.png
+  artifactKey: Guid(23d8be3de17db144d860a20ab2f02e3b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Images/scan button.png using Guid(23d8be3de17db144d860a20ab2f02e3b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0e04118f4a4343a209302173ced0dadb') in 0.021989 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000031 seconds.
+  path: Assets/Images/map 6.png
+  artifactKey: Guid(7d021494ce13b8a4d9a699a76248d59e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Images/map 6.png using Guid(7d021494ce13b8a4d9a699a76248d59e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '946075b129626172bfa851b6cdcd7c3b') in 0.076818 seconds 
 ========================================================================
 Received Import Request.
   Time since last request: 0.000028 seconds.
-  path: Assets/Fonts/Nunito/static/Nunito-BoldItalic.ttf
-  artifactKey: Guid(6862a62598c546a4ab5ca6498b256917) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Fonts/Nunito/static/Nunito-BoldItalic.ttf using Guid(6862a62598c546a4ab5ca6498b256917) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3a90b5b36a7762351119d452f88ed635') in 0.043159 seconds 
+  path: Assets/Images/round btn 2.png
+  artifactKey: Guid(bc05299a05152e44eaa6e2a686a53bd0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Images/round btn 2.png using Guid(bc05299a05152e44eaa6e2a686a53bd0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7f1d6982507ed9675bd276825c578885') in 0.054949 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000028 seconds.
-  path: Assets/Fonts/Nunito/static/Nunito-SemiBoldItalic.ttf
-  artifactKey: Guid(741c13db94ef70e48925c95cee04bc6b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Fonts/Nunito/static/Nunito-SemiBoldItalic.ttf using Guid(741c13db94ef70e48925c95cee04bc6b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1b969440198441c21304c9b1c0d554d8') in 0.039272 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000038 seconds.
-  path: Assets/Fonts/Nunito/static/Nunito-ExtraBoldItalic.ttf
-  artifactKey: Guid(3f29a73d0c8e09d48806c318cd36d54d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Fonts/Nunito/static/Nunito-ExtraBoldItalic.ttf using Guid(3f29a73d0c8e09d48806c318cd36d54d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7017f50eab76bc2eb85fdb8f4e321287') in 0.036762 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000023 seconds.
-  path: Assets/Fonts/Nunito/static/Nunito-SemiBold.ttf
-  artifactKey: Guid(42efe995b1979a64eb01a495244dbb8b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Fonts/Nunito/static/Nunito-SemiBold.ttf using Guid(42efe995b1979a64eb01a495244dbb8b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ba0ffb542ec127423d9bfcdc9c5cebf9') in 0.018820 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000023 seconds.
-  path: Assets/Fonts/Nunito/static/Nunito-ExtraLight.ttf
-  artifactKey: Guid(28a75d5e8ff60bb489250a0ffbb642c1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Fonts/Nunito/static/Nunito-ExtraLight.ttf using Guid(28a75d5e8ff60bb489250a0ffbb642c1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8fdc3737c8a4840e8d2812e44118cc0d') in 0.029282 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000025 seconds.
-  path: Assets/Fonts/Nunito/static/Nunito-Bold.ttf
-  artifactKey: Guid(991665a374e7c50409135538e1c5ac20) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Fonts/Nunito/static/Nunito-Bold.ttf using Guid(991665a374e7c50409135538e1c5ac20) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1eff756b70c8659bd163d4782ffab7dd') in 0.044930 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000023 seconds.
-  path: Assets/Fonts/Nunito/Nunito-Italic-VariableFont_wght.ttf
-  artifactKey: Guid(1a1bb3f4a64dbf04ea00876f7de2faa5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Fonts/Nunito/Nunito-Italic-VariableFont_wght.ttf using Guid(1a1bb3f4a64dbf04ea00876f7de2faa5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '49a415b75072da8dc6f02be4227976ea') in 0.036526 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000026 seconds.
-  path: Assets/Fonts/Nunito/static/Nunito-ExtraBold.ttf
-  artifactKey: Guid(03b39b32ac3732441a45b1f8a62b9e0c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Fonts/Nunito/static/Nunito-ExtraBold.ttf using Guid(03b39b32ac3732441a45b1f8a62b9e0c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9019caee36b5997f8ef0ca7a0e3a9d7d') in 0.028904 seconds 
+  Time since last request: 0.000033 seconds.
+  path: Assets/Images/map 5.png
+  artifactKey: Guid(64fb335e21b083a4dabe9d6b0f0a524d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Images/map 5.png using Guid(64fb335e21b083a4dabe9d6b0f0a524d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '33c8fa3c70ed450cbcf37537802165e8') in 0.071458 seconds 
 Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
 AssetImportWorker is now disconnected from the server
 Process exiting
