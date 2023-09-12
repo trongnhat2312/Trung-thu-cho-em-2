@@ -753,7 +753,7 @@ PlayerSettings:
   webGLDecompressionFallback: 0
   webGLPowerPreference: 2
   scriptingDefineSymbols:
-    WebGL: 
+    WebGL: ENABLE_PLAYFABSERVER_API
   additionalCompilerArguments: {}
   platformArchitecture:
     iPhone: 1

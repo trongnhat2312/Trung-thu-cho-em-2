@@ -11,21 +11,26 @@ public class MainController : MonoBehaviour
 	private void Awake()
 	{
 		Instance = this;
-		for (int i = 0; i < MAX_PLACE; i++)
-		{
-			activated.Add(false);
-		}
+		//for (int i = 0; i < MAX_PLACE; i++)
+		//{
+		//	StaticParamClass.IsMapUnlocked.Add(false);
+		//}
 		// load user data here
 
+		//for(int i = 0; i < MAX_PLACE; i++)
+		//{
+
+		//}
+		//activated = StaticParamClass.IsMapUnlocked;
 	}
     // Start is called before the first frame update
     void Start()
     {
 		
 		curPlace = StaticParamClass.CheckinPlace;
-	    if (curPlace >= 0 && curPlace < MAX_PLACE)
+	    if (curPlace >= 0 && curPlace < StaticParamClass.MAX_PLACE)
 	    {
-			activated[curPlace] = true;
+			StaticParamClass.IsMapUnlocked[curPlace] = true;
 			OpenPlaceInfo(curPlace);
 	    }
 
@@ -41,7 +46,7 @@ public class MainController : MonoBehaviour
     public void OpenPlaceInfo(int placeNum)
     {
 		Debug.Log("place == " + placeNum);
-	    if (placeNum < 0 || placeNum > MAX_PLACE - 1)
+	    if (placeNum < 0 || placeNum > StaticParamClass.MAX_PLACE - 1)
 	    {
 			Debug.LogError("Place number out of range [0, MAX_PLACE - 1]");
 	    }
@@ -50,7 +55,7 @@ public class MainController : MonoBehaviour
 		placeInfo.SetActive(true);
 		activatedPlacePopup.gameObject.SetActive(false);
 		nonActivatedPlacePopup.gameObject.SetActive(false);
-		if (activated[placeNum])
+		if (StaticParamClass.IsMapUnlocked[placeNum])
 		{
 			this.activePlacePopup = activatedPlacePopup;
 		}
@@ -77,7 +82,7 @@ public class MainController : MonoBehaviour
 	}
 
 	[SerializeField, HideInInspector]
-	public List<bool> activated = new List<bool>(MAX_PLACE);
+	public List<bool> activated = new List<bool>(StaticParamClass.MAX_PLACE);
 
 	[HideInInspector] public int curPlace = -1;
 	[HideInInspector] public string userName;
