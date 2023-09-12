@@ -20,7 +20,7 @@ public class PlaceInfo : MonoBehaviour
 	public void SetPlaceNum(int placeNum)
 	{
 		this.placeNum = placeNum;
-		Title.text = "Bản đồ số " + (placeNum + 1);
+		//Title.text = "Bản đồ số " + (placeNum + 1);
 	}
 
 	public TMP_Text Title;
