@@ -55,7 +55,7 @@ public class MainController : MonoBehaviour
 		placeInfo.SetActive(true);
 		activatedPlacePopup.gameObject.SetActive(false);
 		nonActivatedPlacePopup.gameObject.SetActive(false);
-		if (activated[placeNum])
+		if (StaticParamClass.IsMapUnlocked[placeNum])
 		{
 			this.activePlacePopup = activatedPlacePopup;
 		}
