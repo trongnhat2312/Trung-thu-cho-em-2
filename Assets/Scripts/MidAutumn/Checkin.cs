@@ -13,6 +13,7 @@ public class Checkin : MonoBehaviour
 	public TMP_Text ErrorPhone;
 
 	public delegate void ResFromGet(string a);
+	public delegate void ResFromGet_(string a, string name);
 
 	// Use this for initialization
 	void Start()
@@ -33,6 +34,14 @@ public class Checkin : MonoBehaviour
 		StaticParamClass.CheckedIn = a;
 
 		Debug.Log(StaticParamClass.CheckedIn);
+
+		for(int i = 0; i < StaticParamClass.MAX_PLACE; i++)
+		{
+			if(a.Contains(i.ToString()))
+			{
+				StaticParamClass.IsMapUnlocked[i] = true;
+			}
+		}
 
 		SetTitleDataRequest title = new SetTitleDataRequest
 		{
@@ -85,13 +94,34 @@ public class Checkin : MonoBehaviour
 		
 	}
 
+	public static void setData_(string a, string name)
+	{
+		StaticParamClass.CheckedIn = a;
+
+		Debug.Log(StaticParamClass.CheckedIn);
+
+		for (int i = 0; i < StaticParamClass.MAX_PLACE; i++)
+		{
+			if (a.Contains(i.ToString()))
+			{
+				StaticParamClass.IsMapUnlocked[i] = true;
+			}
+		}
+
+		SetTitleDataRequest title = new SetTitleDataRequest
+		{
+			Key = name,
+			Value = StaticParamClass.CheckedIn + ";" + StaticParamClass.CheckinPlace
+		};
+
+		SetGetUserData.SetCheckinPlace(title);
+
+		SceneManager.LoadScene("Main");
+	}
+
 	public static void CheckinPre(string name, string number, int place)
 	{
-		// Save data to Azure and go to main;
-		Debug.Log("ABC");
-
-
-
+		SetGetUserData.GetCheckedinPlace_(name, setData_);
 		SceneManager.LoadScene("Main");
 	}
 }

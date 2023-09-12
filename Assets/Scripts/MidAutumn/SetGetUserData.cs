@@ -43,5 +43,25 @@ public static class SetGetUserData
 			});
 		yield return null;
 	}
-	
+
+	public static IEnumerator GetCheckedinPlace_(string username, Checkin.ResFromGet_ callback)
+	{
+		PlayFabServerAPI.GetTitleData(
+			new GetTitleDataRequest(),
+			result =>
+			{
+				Debug.Log("Get title data success:" + result.Data[username]);
+				if (result.Data != null && result.Data.ContainsKey(username))
+				{
+					StaticParamClass.CheckedIn = result.Data[username];
+					callback(result.Data[username], username);
+				}
+			},
+			error =>
+			{
+				Debug.LogError("Got error Get data:" + error.ToString());
+			});
+		yield return null;
+	}
+
 }
