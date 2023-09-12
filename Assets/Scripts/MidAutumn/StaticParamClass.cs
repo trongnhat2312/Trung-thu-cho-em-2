@@ -9,4 +9,6 @@ public static class StaticParamClass
 
 	public static string PrefCheckinName = "CheckinName";
 	public static string PrefCheckinNumber = "CheckinNumber";
+
+	public static string CheckedIn = "";
 }
