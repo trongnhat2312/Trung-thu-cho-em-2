@@ -15,6 +15,8 @@ public class QRScanner : MonoBehaviour {
 	public AudioSource Audio;
 	private float RestartTime;
 
+	public GameObject ChucmungObj;
+
 	// Disable Screen Rotation on that screen
 	void Awake()
 	{
@@ -23,6 +25,9 @@ public class QRScanner : MonoBehaviour {
 	}
 
 	void Start () {
+
+		ChucmungObj.SetActive(false);
+
 		// Create a basic scanner
 		BarcodeScanner = new Scanner();
 		BarcodeScanner.Camera.Play();
@@ -77,17 +82,23 @@ public class QRScanner : MonoBehaviour {
 
 					}
 
+
 					if (PlayerPrefs.HasKey(StaticParamClass.PrefCheckinName) && !PlayerPrefs.GetString(StaticParamClass.PrefCheckinName).Equals(""))
 					{
 						// Check in and go to Main;
 						Debug.Log("Go to main directly: " + PlayerPrefs.GetString(StaticParamClass.PrefCheckinName));
-						Checkin.CheckinPre(PlayerPrefs.GetString(StaticParamClass.PrefCheckinName), PlayerPrefs.GetString(StaticParamClass.PrefCheckinNumber), StaticParamClass.CheckinPlace);
+
+						StartCoroutine(GetData(PlayerPrefs.GetString(StaticParamClass.PrefCheckinName)));
+
+						
 					}
 					else
 					{
-
+						
 						GotoCheckin();
 					}
+
+
 				}
 			} else
 			{
@@ -112,6 +123,36 @@ public class QRScanner : MonoBehaviour {
 		});
 	}
 
+
+
+	public void getCheckIn(string a, string name)
+	{
+		StaticParamClass.CheckedIn = a;
+		if (!StaticParamClass.CheckedIn.Contains(StaticParamClass.CheckinPlace.ToString()))
+		{
+			ChucmungObj.SetActive(true);
+		}
+		else
+		{
+			//Checkin checkin = new Checkin();
+			//Debug.Log(checkin);
+			StartCoroutine(Checkin.CheckinPre(
+				PlayerPrefs.GetString(StaticParamClass.PrefCheckinName),
+				PlayerPrefs.GetString(StaticParamClass.PrefCheckinNumber),
+				StaticParamClass.CheckinPlace)
+				);
+		}
+	}
+
+	public IEnumerator GetData(string name)
+	{
+
+		SetGetUserData.GetCheckedinPlace_(name, getCheckIn);
+		yield return null;
+	}
+
+
+
 	/// <summary>
 	/// The Update method from unity need to be propagated
 	/// </summary>
@@ -132,9 +173,30 @@ public class QRScanner : MonoBehaviour {
 
 	public void GotoCheckin()
 	{
-		StartCoroutine(StopCamera(() => {
-			SceneManager.LoadScene("Checkin");
-		}));
+		ChucmungObj.SetActive(true);
+		//StartCoroutine(StopCamera(() => {
+		//	SceneManager.LoadScene("Checkin");
+		//}));
+	}
+
+	public void OKButtonChucmung()
+	{
+		if (PlayerPrefs.HasKey(StaticParamClass.PrefCheckinName) && !PlayerPrefs.GetString(StaticParamClass.PrefCheckinName).Equals(""))
+		{
+			StartCoroutine(Checkin.CheckinPre(
+				PlayerPrefs.GetString(StaticParamClass.PrefCheckinName),
+				PlayerPrefs.GetString(StaticParamClass.PrefCheckinNumber),
+				StaticParamClass.CheckinPlace)
+				);
+			
+		}
+		else
+		{
+
+			StartCoroutine(StopCamera(() => {
+				SceneManager.LoadScene("Checkin");
+			}));
+		}
 	}
 
 	#region UI Buttons

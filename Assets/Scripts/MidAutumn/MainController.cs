@@ -17,11 +17,6 @@ public class MainController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-	    StaticParamClass.IsMapUnlocked.Clear();
-		for (int i = 0; i < StaticParamClass.MAX_PLACE; i++)
-		{
-			StaticParamClass.IsMapUnlocked.Add(false);
-		}
 		//for (int i = 0; i < StaticParamClass.MAX_PLACE; i++)
 		//{
 		//	if (StaticParamClass.IsMapUnlocked[i])
@@ -33,7 +28,7 @@ public class MainController : MonoBehaviour
 		//	StaticParamClass.IsMapUnlocked[curPlace] = true;
 		//	OpenPlaceInfo(curPlace);
 		//   }
-		StaticParamClass.CheckinPlace = (new Random()).Next(StaticParamClass.MAX_PLACE);
+		//StaticParamClass.CheckinPlace = (new Random()).Next(StaticParamClass.MAX_PLACE);
 		OpenPlaceInfo(StaticParamClass.CheckinPlace);
 		SetUsername();
     }
