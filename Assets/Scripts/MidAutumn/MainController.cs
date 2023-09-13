@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using Random = System.Random;
 
 public class MainController : MonoBehaviour
 {
@@ -11,29 +12,29 @@ public class MainController : MonoBehaviour
 	private void Awake()
 	{
 		Instance = this;
-		//for (int i = 0; i < MAX_PLACE; i++)
-		//{
-		//	StaticParamClass.IsMapUnlocked.Add(false);
-		//}
-		// load user data here
 
-		//for(int i = 0; i < MAX_PLACE; i++)
-		//{
-
-		//}
-		//activated = StaticParamClass.IsMapUnlocked;
 	}
     // Start is called before the first frame update
     void Start()
     {
-		
-		curPlace = StaticParamClass.CheckinPlace;
-	    if (curPlace >= 0 && curPlace < StaticParamClass.MAX_PLACE)
-	    {
-			StaticParamClass.IsMapUnlocked[curPlace] = true;
-			OpenPlaceInfo(curPlace);
-	    }
-
+	    StaticParamClass.IsMapUnlocked.Clear();
+		for (int i = 0; i < StaticParamClass.MAX_PLACE; i++)
+		{
+			StaticParamClass.IsMapUnlocked.Add(false);
+		}
+		//for (int i = 0; i < StaticParamClass.MAX_PLACE; i++)
+		//{
+		//	if (StaticParamClass.IsMapUnlocked[i])
+		//		mapPieces[i].SetActive(false);
+		//}
+		//curPlace = StaticParamClass.CheckinPlace;
+		//   if (curPlace >= 0 && curPlace < StaticParamClass.MAX_PLACE)
+		//   {
+		//	StaticParamClass.IsMapUnlocked[curPlace] = true;
+		//	OpenPlaceInfo(curPlace);
+		//   }
+		StaticParamClass.CheckinPlace = (new Random()).Next(StaticParamClass.MAX_PLACE);
+		OpenPlaceInfo(StaticParamClass.CheckinPlace);
 		SetUsername();
     }
 
@@ -46,27 +47,26 @@ public class MainController : MonoBehaviour
     public void OpenPlaceInfo(int placeNum)
     {
 		Debug.Log("place == " + placeNum);
+		if (placeNum == -1)
+			return;
 	    if (placeNum < 0 || placeNum > StaticParamClass.MAX_PLACE - 1)
 	    {
 			Debug.LogError("Place number out of range [0, MAX_PLACE - 1]");
+			return;
 	    }
 
-		curPlace = placeNum;
-		placeInfo.SetActive(true);
-		activatedPlacePopup.gameObject.SetActive(false);
-		nonActivatedPlacePopup.gameObject.SetActive(false);
-		if (StaticParamClass.IsMapUnlocked[placeNum])
-		{
-			this.activePlacePopup = activatedPlacePopup;
-		}
-		else
-		{
-			this.activePlacePopup = nonActivatedPlacePopup;
-		}
-		this.activePlacePopup.gameObject.SetActive(true);
-		this.activePlacePopup.SetPlaceNum(placeNum);
+	    PlaceInfo = Instantiate(PlaceInfoPrefab);
+	    PlaceInfo.transform.SetParent(MainScreen.transform.parent, false);
+	    PlaceInfo.name = "Place Info";
+	    PlaceInfo.GetComponent<PlaceInfoHolder>().OpenPlaceInfo(placeNum, StaticParamClass.IsMapUnlocked[placeNum]);
+		MainScreen.SetActive(false);
+    }
 
-	}
+    public void ClosePlaceInfo()
+    {
+		MainScreen.SetActive(true);
+		Destroy(PlaceInfo);
+    }
 
     public void ClickScan()
     {
@@ -85,12 +85,8 @@ public class MainController : MonoBehaviour
 	public List<bool> activated = new List<bool>(StaticParamClass.MAX_PLACE);
 
 	[HideInInspector] public int curPlace = -1;
-	[HideInInspector] public string userName;
-	[HideInInspector] public string phoneNumber;
 
-	[SerializeField] public static int MAX_PLACE = 6;
-
-	public GameObject placeInfo;
+	public GameObject PlaceInfo;
 	public PlaceInfo activatedPlacePopup;
 	public PlaceInfo nonActivatedPlacePopup;
 
@@ -98,5 +94,11 @@ public class MainController : MonoBehaviour
 
 	private PlaceInfo activePlacePopup;
 
+	public List<GameObject> mapPieces;
+
+	public GameObject PlaceInfoPrefab;
+
 	public static MainController Instance;
+
+	public GameObject MainScreen;
 }

@@ -23,6 +23,10 @@ public class PlaceInfo : MonoBehaviour
 		//Title.text = "Bản đồ số " + (placeNum + 1);
 	}
 
+	public void ClosePopup()
+	{
+		MainController.Instance.ClosePlaceInfo();
+	}
 	public TMP_Text Title;
 	private int placeNum;
 }
