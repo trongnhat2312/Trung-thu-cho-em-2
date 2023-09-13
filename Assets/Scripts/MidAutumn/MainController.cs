@@ -26,7 +26,7 @@ public class MainController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-		
+		Debug.Log(StaticParamClass.IsMapUnlocked.Length + "_-" + StaticParamClass.IsMapUnlocked);
 		curPlace = StaticParamClass.CheckinPlace;
 	    if (curPlace >= 0 && curPlace < StaticParamClass.MAX_PLACE)
 	    {

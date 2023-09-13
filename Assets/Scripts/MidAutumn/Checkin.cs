@@ -4,6 +4,8 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
 using PlayFab.ServerModels;
+using System.Collections.Generic;
+using Unity.VisualScripting;
 
 public class Checkin : MonoBehaviour
 {
@@ -14,6 +16,14 @@ public class Checkin : MonoBehaviour
 
 	public delegate void ResFromGet(string a);
 	public delegate void ResFromGet_(string a, string name);
+
+	void Awake()
+	{
+		// Save a Reference to the component as our singleton instance
+		Instance = this;
+	}
+
+	public static Checkin Instance { get; private set; }
 
 	// Use this for initialization
 	void Start()
@@ -33,15 +43,20 @@ public class Checkin : MonoBehaviour
 	{
 		StaticParamClass.CheckedIn = a;
 
-		Debug.Log(StaticParamClass.CheckedIn);
+		Debug.Log(StaticParamClass.MAX_PLACE);
+		//StaticParamClass.IsMapUnlocked = new List<bool>(StaticParamClass.MAX_PLACE);
+		Debug.Log(StaticParamClass.IsMapUnlocked.Length);
 
-		for(int i = 0; i < StaticParamClass.MAX_PLACE; i++)
+		for (int i = 0; i < StaticParamClass.MAX_PLACE; i++)
 		{
 			if(a.Contains(i.ToString()))
 			{
+				Debug.Log(i + "--" + StaticParamClass.IsMapUnlocked);
 				StaticParamClass.IsMapUnlocked[i] = true;
 			}
 		}
+
+		Debug.Log(StaticParamClass.IsMapUnlocked.Length + "_-" + StaticParamClass.IsMapUnlocked);
 
 		SetTitleDataRequest title = new SetTitleDataRequest
 		{
@@ -98,7 +113,8 @@ public class Checkin : MonoBehaviour
 	{
 		StaticParamClass.CheckedIn = a;
 
-		Debug.Log(StaticParamClass.CheckedIn);
+		//Debug.Log(StaticParamClass.CheckedIn);
+		//StaticParamClass.IsMapUnlocked = new List<bool>(StaticParamClass.MAX_PLACE);
 
 		for (int i = 0; i < StaticParamClass.MAX_PLACE; i++)
 		{
@@ -107,6 +123,8 @@ public class Checkin : MonoBehaviour
 				StaticParamClass.IsMapUnlocked[i] = true;
 			}
 		}
+
+		Debug.Log(StaticParamClass.IsMapUnlocked.Length + "__-" + StaticParamClass.IsMapUnlocked);
 
 		SetTitleDataRequest title = new SetTitleDataRequest
 		{
@@ -119,10 +137,14 @@ public class Checkin : MonoBehaviour
 		SceneManager.LoadScene("Main");
 	}
 
-	public static void CheckinPre(string name, string number, int place)
+	public static IEnumerator CheckinPre(string name, string number, int place)
 	{
+
+		Debug.Log("come here" + name);
 		SetGetUserData.GetCheckedinPlace_(name, setData_);
-		SceneManager.LoadScene("Main");
+		yield return null;
+		//Debug.LogError("go continue");
+		//SceneManager.LoadScene("Main");
 	}
 }
 

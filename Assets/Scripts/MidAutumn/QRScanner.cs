@@ -81,7 +81,14 @@ public class QRScanner : MonoBehaviour {
 					{
 						// Check in and go to Main;
 						Debug.Log("Go to main directly: " + PlayerPrefs.GetString(StaticParamClass.PrefCheckinName));
-						Checkin.CheckinPre(PlayerPrefs.GetString(StaticParamClass.PrefCheckinName), PlayerPrefs.GetString(StaticParamClass.PrefCheckinNumber), StaticParamClass.CheckinPlace);
+						
+						//Checkin checkin = new Checkin();
+						//Debug.Log(checkin);
+						StartCoroutine(Checkin.CheckinPre(
+							PlayerPrefs.GetString(StaticParamClass.PrefCheckinName),
+							PlayerPrefs.GetString(StaticParamClass.PrefCheckinNumber),
+							StaticParamClass.CheckinPlace)
+							);
 					}
 					else
 					{
