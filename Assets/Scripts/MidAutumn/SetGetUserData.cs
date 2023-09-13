@@ -44,8 +44,9 @@ public static class SetGetUserData
 		yield return null;
 	}
 
-	public static IEnumerator GetCheckedinPlace_(string username, Checkin.ResFromGet_ callback)
+	public static void GetCheckedinPlace_(string username, Checkin.ResFromGet_ callback)
 	{
+		Debug.Log("name directly: " + username);
 		PlayFabServerAPI.GetTitleData(
 			new GetTitleDataRequest(),
 			result =>
@@ -61,7 +62,7 @@ public static class SetGetUserData
 			{
 				Debug.LogError("Got error Get data:" + error.ToString());
 			});
-		yield return null;
+		//yield return null;
 	}
 
 }

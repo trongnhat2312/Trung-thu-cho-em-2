@@ -15,6 +15,6 @@ public static class StaticParamClass
 	public static string PrefCheckinNumber = "CheckinNumber";
 
 	public static string CheckedIn = "";
-	public static List<bool> IsMapUnlocked = new List<bool>(MAX_PLACE);
+	public static bool[] IsMapUnlocked = new bool[MAX_PLACE];
 
 }
