@@ -1,5 +1,7 @@
 {
   "dependencies": {
+    "com.coffee.ui-effect": "https://github.com/mob-sakai/UIEffect.git",
+    "com.cysharp.unitask": "https://github.com/Cysharp/UniTask.git?path=src/UniTask/Assets/Plugins/UniTask",
     "com.unity.2d.sprite": "1.0.0",
     "com.unity.2d.spriteshape": "9.0.2",
     "com.unity.ai.navigation": "1.1.4",
@@ -42,7 +44,6 @@
     "com.unity.modules.video": "1.0.0",
     "com.unity.modules.vr": "1.0.0",
     "com.unity.modules.wind": "1.0.0",
-    "com.unity.modules.xr": "1.0.0",
-    "com.coffee.ui-effect": "https://github.com/mob-sakai/UIEffect.git"
+    "com.unity.modules.xr": "1.0.0"
   }
 }
