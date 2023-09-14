@@ -19,6 +19,7 @@ public class PlaceInfoHolder : MonoBehaviour
 
     public void OpenPlaceInfo(int i, bool isUnlocked)
     {
+	    numPlace = i;
 		int offset = isUnlocked ? StaticParamClass.MAX_PLACE : 0;
 	    var placeInfo = Instantiate(PlaceInfos[i + offset]);
 		placeInfo.transform.SetParent(transform, false);
@@ -30,5 +31,16 @@ public class PlaceInfoHolder : MonoBehaviour
 	    MainController.Instance.ClosePlaceInfo();
     }
 
+    public void OpenQuestion()
+    {
+		var question = Instantiate(Question);
+		question.transform.SetParent(transform.parent.transform, false);
+		question.name = "Question";
+    }
+
 	public GameObject[] PlaceInfos;
+
+	public GameObject Question;
+
+	private int numPlace;
 }
