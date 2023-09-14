@@ -31,6 +31,8 @@ public class Checkin : MonoBehaviour
 		Debug.Log("Checkin Loaded");
 		ErrorName.gameObject.SetActive(false);
 		ErrorPhone.gameObject.SetActive(false);
+
+		
 	}
 
 	// Update is called once per frame
@@ -60,12 +62,12 @@ public class Checkin : MonoBehaviour
 
 		SetTitleDataRequest title = new SetTitleDataRequest
 		{
-			Key = nickName.text.Trim(),
+			Key = phoneNumber.text.Trim(),
 			Value = StaticParamClass.CheckedIn + ";" + StaticParamClass.CheckinPlace
 		};
 
 		SetGetUserData.SetCheckinPlace(title);
-
+		StaticParamClass.GoFromInside = true;
 		SceneManager.LoadScene("Main");
 	}
 
@@ -104,7 +106,7 @@ public class Checkin : MonoBehaviour
 			Debug.Log("Name: " + PlayerPrefs.GetString("CheckinName"));
 			Debug.Log("Number: " + PlayerPrefs.GetString("CheckinNumber"));
 
-			StartCoroutine(SetGetUserData.GetCheckedinPlace(nickName.text.Trim(), setData));
+			StartCoroutine(SetGetUserData.GetCheckedinPlace(phoneNumber.text.Trim(), setData));
 		}
 		
 	}
@@ -133,7 +135,7 @@ public class Checkin : MonoBehaviour
 		};
 
 		SetGetUserData.SetCheckinPlace(title);
-
+		StaticParamClass.GoFromInside = true;
 		SceneManager.LoadScene("Main");
 	}
 
@@ -141,7 +143,7 @@ public class Checkin : MonoBehaviour
 	{
 
 		Debug.Log("come here" + name);
-		SetGetUserData.GetCheckedinPlace_(name, setData_);
+		SetGetUserData.GetCheckedinPlace_(number, setData_);
 		yield return null;
 		//Debug.LogError("go continue");
 		//SceneManager.LoadScene("Main");

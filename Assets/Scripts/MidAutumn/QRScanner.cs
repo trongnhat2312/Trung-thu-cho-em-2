@@ -88,7 +88,7 @@ public class QRScanner : MonoBehaviour {
 						// Check in and go to Main;
 						Debug.Log("Go to main directly: " + PlayerPrefs.GetString(StaticParamClass.PrefCheckinName));
 
-						StartCoroutine(GetData(PlayerPrefs.GetString(StaticParamClass.PrefCheckinName)));
+						StartCoroutine(GetData(PlayerPrefs.GetString(StaticParamClass.PrefCheckinNumber)));
 
 						
 					}
@@ -188,7 +188,6 @@ public class QRScanner : MonoBehaviour {
 				PlayerPrefs.GetString(StaticParamClass.PrefCheckinNumber),
 				StaticParamClass.CheckinPlace)
 				);
-			
 		}
 		else
 		{
@@ -205,6 +204,7 @@ public class QRScanner : MonoBehaviour {
 	{
 		// Try to stop the camera before loading another scene
 		StartCoroutine(StopCamera(() => {
+			//StaticParamClass.GoFromInside = true;
 			SceneManager.LoadScene("Main");
 		}));
 	}

@@ -13,6 +13,7 @@ public static class StaticParamClass
 	public static int MAX_PLACE = 6;
 	public static string PrefCheckinName = "CheckinName";
 	public static string PrefCheckinNumber = "CheckinNumber";
+	public static bool GoFromInside = false;
 
 	public static string CheckedIn = "";
 	public static bool[] IsMapUnlocked = new bool[MAX_PLACE];

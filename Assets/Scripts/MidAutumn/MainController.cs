@@ -17,6 +17,11 @@ public class MainController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+		// Main load. kiem tra xem user da co tai khoan va checkin ở địa điểm nào chưa
+		// Nếu đã có tài khoản: thực hiện checkin/set place num các thứ
+		// Nếu chưa có tài khoản: load checkin scene để nó checkin.
+
+
 		//for (int i = 0; i < StaticParamClass.MAX_PLACE; i++)
 		//{
 		//	if (StaticParamClass.IsMapUnlocked[i])
@@ -29,12 +34,41 @@ public class MainController : MonoBehaviour
 		//	OpenPlaceInfo(curPlace);
 		//   }
 		//StaticParamClass.CheckinPlace = (new Random()).Next(StaticParamClass.MAX_PLACE);
-		OpenPlaceInfo(StaticParamClass.CheckinPlace);
-		SetUsername();
+		if(StaticParamClass.GoFromInside)
+		{
+			OpenPlaceInfo(StaticParamClass.CheckinPlace);
+			SetUsername();
+		} else
+		{
+			//Check tai khoan
+			StartCoroutine(GetData(PlayerPrefs.GetString(StaticParamClass.PrefCheckinNumber)));
+			SetUsername();
+		}
+		
     }
 
-    // Update is called once per frame
-    void Update()
+	public IEnumerator GetData(string name)
+	{
+
+		SetGetUserData.GetCheckedinPlace_(name, getCheckIn);
+		yield return null;
+	}
+
+	public void getCheckIn(string a, string name)
+	{
+		StaticParamClass.CheckedIn = a;
+		Debug.Log(StaticParamClass.IsMapUnlocked.Length);
+		for (int i = 0; i < StaticParamClass.MAX_PLACE; i++)
+		{
+			if(a.Contains(i.ToString()))
+			{
+				StaticParamClass.IsMapUnlocked[i] = true;
+			}
+		}
+	}
+
+	// Update is called once per frame
+	void Update()
     {
         
     }
