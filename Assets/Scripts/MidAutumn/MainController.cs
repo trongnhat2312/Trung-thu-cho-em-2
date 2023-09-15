@@ -74,23 +74,37 @@ public class MainController : MonoBehaviour
 		{
 			return;
 		}
-		//if (IsAllMapUnlocked())
-		//{
-		if (_starLightCount <= 0)
+		if (IsAllMapUnlocked() && _isStarEffEnabled)
 		{
-			starLight.DoTransformToStarLight();
-			_isResetStarLight = false;
-			_starLightCount = StarLightInterval;
-		}
-		else
-		{
-			_starLightCount -= Time.deltaTime;
-			if (_starLightCount <= 2 && !_isResetStarLight)
+
+			if (_starLightCount <= 0)
 			{
-				starLight.ResetBeforeTransform();
+				starLight.DoTransformToStarLight();
+				_alreadyResetStarLight = false;
+				_starLightCount = StarLightInterval;
+			}
+			else
+			{
+				_starLightCount -= Time.deltaTime;
+				if (_starLightCount <= 2 && !_alreadyResetStarLight)
+				{
+					starLight.ResetBeforeTransform();
+					_alreadyResetStarLight = true;
+				}
 			}
 		}
-		//}
+
+		if (Input.touchCount > 0 || Input.GetMouseButtonDown(0))
+		{
+			if (!_alreadyResetStarLight)
+			{
+				starLight.ResetBeforeTransform();
+				_alreadyResetStarLight = true;
+			}
+
+			_isStarEffEnabled = false;
+
+		}
 	}
 
 	public IEnumerator OpenPlaceInfoWithEffect(int placeNum)
@@ -178,5 +192,6 @@ public class MainController : MonoBehaviour
 
 	public float StarLightInterval = 10f;
 	private float _starLightCount;
-	private bool _isResetStarLight;
+	private bool _alreadyResetStarLight;
+	private bool _isStarEffEnabled;
 }
