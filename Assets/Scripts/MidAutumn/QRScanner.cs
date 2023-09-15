@@ -80,7 +80,7 @@ public class QRScanner : MonoBehaviour {
 					if (d.Contains("CheckinPlace"))
 					{
 						StaticParamClass.CheckinPlace = Int32.Parse(d.Split("=")[1]);
-
+						StaticParamClass.IsMapUnlocked[StaticParamClass.CheckinPlace] = true;
 					}
 
 

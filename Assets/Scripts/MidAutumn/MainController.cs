@@ -31,6 +31,7 @@ public class MainController : MonoBehaviour
 		_isStarEffEnabled = true;
 		if (StaticParamClass.GoFromInside)
 		{
+			showMapPieces();
 			StartCoroutine(OpenPlaceInfoWithEffect(StaticParamClass.CheckinPlace));
 			SetUsername();
 		}
@@ -63,9 +64,9 @@ public class MainController : MonoBehaviour
 			{
 				Debug.Log("Come here moi dung: " + i);
 				StaticParamClass.IsMapUnlocked[i] = true;
-				mapPieces[i].GetComponent<UITransitionEffect>().effectFactor = 0;
 			}
 		}
+		showMapPieces();
 	}
 
 	// Update is called once per frame
@@ -175,6 +176,17 @@ public class MainController : MonoBehaviour
 			}
 		}
 		return b;
+	}
+
+	public void showMapPieces()
+	{
+		for (int i = 0; i < StaticParamClass.IsMapUnlocked.Length; i++)
+		{
+			if (StaticParamClass.IsMapUnlocked[i])
+			{
+				mapPieces[i].GetComponent<UITransitionEffect>().effectFactor = 0;
+			}
+		}
 	}
 
 	[HideInInspector]
