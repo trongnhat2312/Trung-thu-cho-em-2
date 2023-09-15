@@ -77,7 +77,7 @@ public class MainController : MonoBehaviour
 		}
 		if (IsAllMapUnlocked() && _isStarEffEnabled)
 		{
-			Debug.Log("_starLightCount:" + _starLightCount);
+			//Debug.Log("_starLightCount:" + _starLightCount);
 			if (_starLightCount <= 0)
 			{
 				starLight.DoTransformToStarLight();
@@ -169,7 +169,7 @@ public class MainController : MonoBehaviour
 		{
 			if (!StaticParamClass.IsMapUnlocked[i])
 			{
-				Debug.Log(i);
+				//Debug.Log(i);
 				b = false;
 				break;
 			}
