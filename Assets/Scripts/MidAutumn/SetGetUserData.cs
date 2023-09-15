@@ -51,7 +51,7 @@ public static class SetGetUserData
 			new GetTitleDataRequest(),
 			result =>
 			{
-				Debug.Log("Get title data success:" + result.Data[username]);
+				//Debug.Log("Get title data success:" + result.Data[username]);
 				if (result.Data != null && result.Data.ContainsKey(username))
 				{
 					StaticParamClass.CheckedIn = result.Data[username];

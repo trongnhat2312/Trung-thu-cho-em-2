@@ -20,4 +20,11 @@ public class Question : MonoBehaviour
     {
 		Destroy(gameObject);
     }
+
+    public void ChooseAnswer(int i)
+    {
+    }
+
+    public int CorrectAnswer;
+    public GameObject[] Answers;
 }

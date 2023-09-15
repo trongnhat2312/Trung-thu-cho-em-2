@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Coffee.UIEffects;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -21,22 +22,14 @@ public class MainController : MonoBehaviour
 		// Nếu đã có tài khoản: thực hiện checkin/set place num các thứ
 		// Nếu chưa có tài khoản: load checkin scene để nó checkin.
 
-
-		//for (int i = 0; i < StaticParamClass.MAX_PLACE; i++)
-		//{
-		//	if (StaticParamClass.IsMapUnlocked[i])
-		//		mapPieces[i].SetActive(false);
-		//}
-		//curPlace = StaticParamClass.CheckinPlace;
-		//   if (curPlace >= 0 && curPlace < StaticParamClass.MAX_PLACE)
-		//   {
-		//	StaticParamClass.IsMapUnlocked[curPlace] = true;
-		//	OpenPlaceInfo(curPlace);
-		//   }
+		// test
 		//StaticParamClass.CheckinPlace = (new Random()).Next(StaticParamClass.MAX_PLACE);
-		if(StaticParamClass.GoFromInside)
+		//StaticParamClass.GoFromInside = true;
+		StaticParamClass.IsMapUnlocked[StaticParamClass.CheckinPlace] = true;
+
+		if (StaticParamClass.GoFromInside)
 		{
-			OpenPlaceInfo(StaticParamClass.CheckinPlace);
+			StartCoroutine(OpenPlaceInfoWithEffect(StaticParamClass.CheckinPlace));
 			SetUsername();
 		} else
 		{
@@ -44,7 +37,6 @@ public class MainController : MonoBehaviour
 			StartCoroutine(GetData(PlayerPrefs.GetString(StaticParamClass.PrefCheckinNumber)));
 			SetUsername();
 		}
-		
     }
 
 	public IEnumerator GetData(string name)
@@ -70,10 +62,30 @@ public class MainController : MonoBehaviour
 	// Update is called once per frame
 	void Update()
     {
-        
+	    if (StaticParamClass.GoFromInside)
+	    {
+			return;
+	    }
     }
 
-    public void OpenPlaceInfo(int placeNum)
+	public IEnumerator OpenPlaceInfoWithEffect(int placeNum)
+	{
+		Debug.Log("place == " + placeNum);
+		if (placeNum == -1)
+			yield break;
+		if (placeNum < 0 || placeNum > StaticParamClass.MAX_PLACE - 1)
+		{
+			Debug.LogError("Place number out of range [0, MAX_PLACE - 1]");
+			yield break;
+		}
+		var effect = mapPieces[placeNum].GetComponent<UITransitionEffect>();
+		effect.Hide(false);
+		yield return new WaitForSeconds(effect.effectPlayer.duration);
+		StaticParamClass.GoFromInside = false;
+		OpenPlaceInfo(placeNum);
+
+	}
+public void OpenPlaceInfo(int placeNum)
     {
 		Debug.Log("place == " + placeNum);
 		if (placeNum == -1)
@@ -83,13 +95,13 @@ public class MainController : MonoBehaviour
 			Debug.LogError("Place number out of range [0, MAX_PLACE - 1]");
 			return;
 	    }
-
-	    PlaceInfo = Instantiate(PlaceInfoPrefab);
-	    PlaceInfo.transform.SetParent(MainScreen.transform.parent, false);
-	    PlaceInfo.name = "Place Info";
-	    PlaceInfo.GetComponent<PlaceInfoHolder>().OpenPlaceInfo(placeNum, StaticParamClass.IsMapUnlocked[placeNum]);
+		PlaceInfo = Instantiate(PlaceInfoPrefab);
+		PlaceInfo.transform.SetParent(MainScreen.transform.parent, false);
+		PlaceInfo.name = "Place Info";
+		PlaceInfo.GetComponent<PlaceInfoHolder>().OpenPlaceInfo(placeNum, StaticParamClass.IsMapUnlocked[placeNum]);
 		MainScreen.SetActive(false);
-    }
+	}
+
 
     public void ClosePlaceInfo()
     {
@@ -110,18 +122,24 @@ public class MainController : MonoBehaviour
 		}
 	}
 
-	[SerializeField, HideInInspector]
-	public List<bool> activated = new List<bool>(StaticParamClass.MAX_PLACE);
+	public bool IsAllMapUnlocked()
+	{
+		bool b = true;
+		for (int i = 0; i < StaticParamClass.IsMapUnlocked.Length; i++)
+		{
+			if (!StaticParamClass.IsMapUnlocked[i])
+			{
+				b = false;
+				break;
+			}
+		}
+		return b;
+	}
 
-	[HideInInspector] public int curPlace = -1;
-
+	[HideInInspector]
 	public GameObject PlaceInfo;
-	public PlaceInfo activatedPlacePopup;
-	public PlaceInfo nonActivatedPlacePopup;
 
 	public Text usernameText;
-
-	private PlaceInfo activePlacePopup;
 
 	public List<GameObject> mapPieces;
 
@@ -130,4 +148,6 @@ public class MainController : MonoBehaviour
 	public static MainController Instance;
 
 	public GameObject MainScreen;
+
+
 }
