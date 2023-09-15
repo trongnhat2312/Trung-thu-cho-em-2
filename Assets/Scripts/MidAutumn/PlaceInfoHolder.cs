@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlaceInfoHolder : MonoBehaviour
 {
@@ -24,6 +25,10 @@ public class PlaceInfoHolder : MonoBehaviour
 	    var placeInfo = Instantiate(PlaceInfos[i + offset]);
 		placeInfo.transform.SetParent(transform, false);
 		placeInfo.name = "PlaceInfo " + i;
+		if (!isUnlocked)
+		{
+			QuestionButton.gameObject.SetActive(false);
+		}
     }
 
     public void ClosePopup()
@@ -43,4 +48,5 @@ public class PlaceInfoHolder : MonoBehaviour
 	public GameObject Question;
 
 	private int numPlace;
+	public Button QuestionButton;
 }
