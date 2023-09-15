@@ -772,6 +772,7 @@ PlayerSettings:
   webGLMemoryGeometricGrowthCap: 96
   webGLPowerPreference: 2
   scriptingDefineSymbols:
+    Android: ENABLE_PLAYFABSERVER_API
     Standalone: ENABLE_PLAYFABSERVER_API
     WebGL: ENABLE_PLAYFABSERVER_API
   additionalCompilerArguments: {}
