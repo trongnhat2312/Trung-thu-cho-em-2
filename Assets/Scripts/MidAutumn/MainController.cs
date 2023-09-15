@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Coffee.UIEffects;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -39,6 +40,10 @@ public class MainController : MonoBehaviour
 			StartCoroutine(GetData(PlayerPrefs.GetString(StaticParamClass.PrefCheckinNumber)));
 			SetUsername();
 		}
+
+		_starLightCount = StarLightInterval;
+
+
 	}
 
 	public IEnumerator GetData(string name)
@@ -69,6 +74,23 @@ public class MainController : MonoBehaviour
 		{
 			return;
 		}
+		//if (IsAllMapUnlocked())
+		//{
+		if (_starLightCount <= 0)
+		{
+			starLight.DoTransformToStarLight();
+			_isResetStarLight = false;
+			_starLightCount = StarLightInterval;
+		}
+		else
+		{
+			_starLightCount -= Time.deltaTime;
+			if (_starLightCount <= 2 && !_isResetStarLight)
+			{
+				starLight.ResetBeforeTransform();
+			}
+		}
+		//}
 	}
 
 	public IEnumerator OpenPlaceInfoWithEffect(int placeNum)
@@ -152,5 +174,9 @@ public class MainController : MonoBehaviour
 
 	public GameObject MainScreen;
 
+	public StarLightTransformer starLight;
 
+	public float StarLightInterval = 10f;
+	private float _starLightCount;
+	private bool _isResetStarLight;
 }
