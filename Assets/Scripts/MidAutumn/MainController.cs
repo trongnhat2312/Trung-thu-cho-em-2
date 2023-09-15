@@ -15,29 +15,31 @@ public class MainController : MonoBehaviour
 		Instance = this;
 
 	}
-    // Start is called before the first frame update
-    void Start()
-    {
+	// Start is called before the first frame update
+	void Start()
+	{
 		// Main load. kiem tra xem user da co tai khoan va checkin ở địa điểm nào chưa
 		// Nếu đã có tài khoản: thực hiện checkin/set place num các thứ
 		// Nếu chưa có tài khoản: load checkin scene để nó checkin.
 
-		// test
+		// test //
 		//StaticParamClass.CheckinPlace = (new Random()).Next(StaticParamClass.MAX_PLACE);
 		//StaticParamClass.GoFromInside = true;
 		//StaticParamClass.IsMapUnlocked[StaticParamClass.CheckinPlace] = true;
+		// test //
 
 		if (StaticParamClass.GoFromInside)
 		{
 			StartCoroutine(OpenPlaceInfoWithEffect(StaticParamClass.CheckinPlace));
 			SetUsername();
-		} else
+		}
+		else
 		{
 			//Check tai khoan
 			StartCoroutine(GetData(PlayerPrefs.GetString(StaticParamClass.PrefCheckinNumber)));
 			SetUsername();
 		}
-    }
+	}
 
 	public IEnumerator GetData(string name)
 	{
@@ -52,21 +54,22 @@ public class MainController : MonoBehaviour
 		Debug.Log(StaticParamClass.IsMapUnlocked.Length);
 		for (int i = 0; i < StaticParamClass.MAX_PLACE; i++)
 		{
-			if(a.Contains(i.ToString()))
+			if (a.Contains(i.ToString()))
 			{
 				StaticParamClass.IsMapUnlocked[i] = true;
+				mapPieces[i].SetActive(false);
 			}
 		}
 	}
 
 	// Update is called once per frame
 	void Update()
-    {
-	    if (StaticParamClass.GoFromInside)
-	    {
+	{
+		if (StaticParamClass.GoFromInside)
+		{
 			return;
-	    }
-    }
+		}
+	}
 
 	public IEnumerator OpenPlaceInfoWithEffect(int placeNum)
 	{
@@ -85,16 +88,16 @@ public class MainController : MonoBehaviour
 		OpenPlaceInfo(placeNum);
 
 	}
-public void OpenPlaceInfo(int placeNum)
-    {
+	public void OpenPlaceInfo(int placeNum)
+	{
 		Debug.Log("place == " + placeNum);
 		if (placeNum == -1)
 			return;
-	    if (placeNum < 0 || placeNum > StaticParamClass.MAX_PLACE - 1)
-	    {
+		if (placeNum < 0 || placeNum > StaticParamClass.MAX_PLACE - 1)
+		{
 			Debug.LogError("Place number out of range [0, MAX_PLACE - 1]");
 			return;
-	    }
+		}
 		PlaceInfo = Instantiate(PlaceInfoPrefab);
 		PlaceInfo.transform.SetParent(MainScreen.transform.parent, false);
 		PlaceInfo.name = "Place Info";
@@ -103,20 +106,20 @@ public void OpenPlaceInfo(int placeNum)
 	}
 
 
-    public void ClosePlaceInfo()
-    {
+	public void ClosePlaceInfo()
+	{
 		MainScreen.SetActive(true);
 		Destroy(PlaceInfo);
-    }
+	}
 
-    public void ClickScan()
-    {
-	    SceneManager.LoadScene("QR Scanner");
-    }
+	public void ClickScan()
+	{
+		SceneManager.LoadScene("QR Scanner");
+	}
 
 	private void SetUsername()
 	{
-		if(PlayerPrefs.HasKey(StaticParamClass.PrefCheckinName))
+		if (PlayerPrefs.HasKey(StaticParamClass.PrefCheckinName))
 		{
 			usernameText.text = PlayerPrefs.GetString(StaticParamClass.PrefCheckinName);
 		}
