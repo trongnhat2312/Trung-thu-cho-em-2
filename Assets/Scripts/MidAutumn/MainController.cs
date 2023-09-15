@@ -63,7 +63,7 @@ public class MainController : MonoBehaviour
 			{
 				Debug.Log("Come here moi dung: " + i);
 				StaticParamClass.IsMapUnlocked[i] = true;
-				mapPieces[i].SetActive(false);
+				mapPieces[i].GetComponent<UITransitionEffect>().effectFactor = 0;
 			}
 		}
 	}
