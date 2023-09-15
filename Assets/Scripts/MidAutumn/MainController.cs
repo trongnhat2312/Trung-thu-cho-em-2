@@ -25,7 +25,7 @@ public class MainController : MonoBehaviour
 		// test
 		//StaticParamClass.CheckinPlace = (new Random()).Next(StaticParamClass.MAX_PLACE);
 		//StaticParamClass.GoFromInside = true;
-		StaticParamClass.IsMapUnlocked[StaticParamClass.CheckinPlace] = true;
+		//StaticParamClass.IsMapUnlocked[StaticParamClass.CheckinPlace] = true;
 
 		if (StaticParamClass.GoFromInside)
 		{

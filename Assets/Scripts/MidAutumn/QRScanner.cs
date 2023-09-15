@@ -54,16 +54,17 @@ public class QRScanner : MonoBehaviour {
 	private void StartScanner()
 	{
 		BarcodeScanner.Scan((barCodeType, barCodeValue) => {
-			BarcodeScanner.Stop();
-			if (TextHeader.text.Length > 250)
-			{
-				TextHeader.text = "";
-			}
+			
+			//if (TextHeader.text.Length > 250)
+			//{
+			//	TextHeader.text = "";
+			//}
 			//TextHeader.text += "Found: " + barCodeType + " / " + barCodeValue + "\n";
 			String value = barCodeValue;
 			string[] arrayV = null;
 			if (value.Contains("CheckinPlace="))
 			{
+				BarcodeScanner.Stop();
 				arrayV = value.Split("&");
 
 				foreach (String d in arrayV)
@@ -102,7 +103,8 @@ public class QRScanner : MonoBehaviour {
 				}
 			} else
 			{
-				TextHeader.text += "Error barcode: " + barCodeType + " / " + barCodeValue + "\n";
+				//TextHeader.text += "Error barcode: " + barCodeType + " / " + barCodeValue + "\n";
+				Debug.LogError("Error barcode: " + barCodeType + " / " + barCodeValue + "\n");
 			}
 			
 			
