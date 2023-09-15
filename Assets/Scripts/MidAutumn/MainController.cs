@@ -28,9 +28,10 @@ public class MainController : MonoBehaviour
 		//StaticParamClass.GoFromInside = true;
 		//StaticParamClass.IsMapUnlocked[StaticParamClass.CheckinPlace] = true;
 		// test //
-
+		_isStarEffEnabled = true;
 		if (StaticParamClass.GoFromInside)
 		{
+			showMapPieces();
 			StartCoroutine(OpenPlaceInfoWithEffect(StaticParamClass.CheckinPlace));
 			SetUsername();
 		}
@@ -41,7 +42,7 @@ public class MainController : MonoBehaviour
 			SetUsername();
 		}
 
-		_starLightCount = StarLightInterval;
+		_starLightCount = 0;
 
 
 	}
@@ -61,10 +62,11 @@ public class MainController : MonoBehaviour
 		{
 			if (a.Contains(i.ToString()))
 			{
+				Debug.Log("Come here moi dung: " + i);
 				StaticParamClass.IsMapUnlocked[i] = true;
-				mapPieces[i].SetActive(false);
 			}
 		}
+		showMapPieces();
 	}
 
 	// Update is called once per frame
@@ -76,7 +78,7 @@ public class MainController : MonoBehaviour
 		}
 		if (IsAllMapUnlocked() && _isStarEffEnabled)
 		{
-
+			//Debug.Log("_starLightCount:" + _starLightCount);
 			if (_starLightCount <= 0)
 			{
 				starLight.DoTransformToStarLight();
@@ -168,11 +170,23 @@ public class MainController : MonoBehaviour
 		{
 			if (!StaticParamClass.IsMapUnlocked[i])
 			{
+				//Debug.Log(i);
 				b = false;
 				break;
 			}
 		}
 		return b;
+	}
+
+	public void showMapPieces()
+	{
+		for (int i = 0; i < StaticParamClass.IsMapUnlocked.Length; i++)
+		{
+			if (StaticParamClass.IsMapUnlocked[i])
+			{
+				mapPieces[i].GetComponent<UITransitionEffect>().effectFactor = 0;
+			}
+		}
 	}
 
 	[HideInInspector]
@@ -193,5 +207,5 @@ public class MainController : MonoBehaviour
 	public float StarLightInterval = 10f;
 	private float _starLightCount;
 	private bool _alreadyResetStarLight;
-	private bool _isStarEffEnabled;
+	private bool _isStarEffEnabled = true;
 }

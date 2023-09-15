@@ -14,7 +14,7 @@ public static class PlayFabLogin
 		{
             PlayFabSettings.staticSettings.TitleId = "E4842";
 		}
-        var request = new RegisterPlayFabUserRequest { Username = name, DisplayName=phone, Password="abc12345", Email="default@email.com"};
+        var request = new RegisterPlayFabUserRequest { Username = phone, DisplayName= name, Password="abc12345", RequireBothUsernameAndEmail=false};
         PlayFabClientAPI.RegisterPlayFabUser(request, OnRegisterSuccess, OnRegisterFailure);
     }
 

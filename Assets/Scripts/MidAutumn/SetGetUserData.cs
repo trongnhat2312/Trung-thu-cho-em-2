@@ -26,15 +26,19 @@ public static class SetGetUserData
 
 	public static IEnumerator GetCheckedinPlace(string username, Checkin.ResFromGet callback)
 	{
+		Debug.Log("ABC: " + username);
 		PlayFabServerAPI.GetTitleData(
 			new GetTitleDataRequest(),
 			result => 
 			{
-				Debug.Log("Get title data success:" + result.Data[username]);
+				//Debug.Log("Get title data success:" + result.Data[username]);
 				if (result.Data != null && result.Data.ContainsKey(username))
 				{
 					StaticParamClass.CheckedIn = result.Data[username];
 					callback(result.Data[username]);
+				} else
+				{
+					callback("");
 				}
 			},
 			error =>
