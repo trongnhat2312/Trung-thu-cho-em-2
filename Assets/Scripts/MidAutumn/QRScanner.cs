@@ -54,12 +54,16 @@ public class QRScanner : MonoBehaviour {
 	private void StartScanner()
 	{
 		BarcodeScanner.Scan((barCodeType, barCodeValue) => {
-			
+
 			//if (TextHeader.text.Length > 250)
 			//{
 			//	TextHeader.text = "";
 			//}
-			//TextHeader.text += "Found: " + barCodeType + " / " + barCodeValue + "\n";
+			if (TextHeader != null)
+			{
+				TextHeader.text += "Found: " + barCodeType + " / " + barCodeValue + "\n";
+			}
+			
 			String value = barCodeValue;
 			string[] arrayV = null;
 			if (value.Contains("CheckinPlace="))
