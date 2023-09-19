@@ -1,7 +1,9 @@
 using BarcodeScanner;
 using BarcodeScanner.Scanner;
+using Coffee.UIEffects;
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Assertions.Must;
 using UnityEngine.SceneManagement;
@@ -15,6 +17,7 @@ public class QRScanner : MonoBehaviour {
 	public AudioSource Audio;
 	private float RestartTime;
 	public Text ListCamera;
+	public List<GameObject> areaPieces;
 
 	public GameObject ChucmungObj;
 
@@ -104,7 +107,7 @@ public class QRScanner : MonoBehaviour {
 					else
 					{
 						
-						GotoCheckin();
+						GotoCheckin(StaticParamClass.CheckinPlace);
 					}
 
 
@@ -142,6 +145,17 @@ public class QRScanner : MonoBehaviour {
 		if (!StaticParamClass.CheckedIn.Contains(StaticParamClass.CheckinPlace.ToString()))
 		{
 			ChucmungObj.SetActive(true);
+			for (int i = 0; i < areaPieces.Count; i++)
+			{
+				if (i == StaticParamClass.CheckinPlace)
+				{
+					areaPieces[i].SetActive(true);
+				}
+				else
+				{
+					areaPieces[i].SetActive(false);
+				}
+			}
 		}
 		else
 		{
@@ -182,9 +196,22 @@ public class QRScanner : MonoBehaviour {
 		}
 	}
 
-	public void GotoCheckin()
+	public void GotoCheckin(int place)
 	{
 		ChucmungObj.SetActive(true);
+		
+		for(int i = 0; i < areaPieces.Count; i++)
+		{
+			if(i == place)
+			{
+				areaPieces[i].SetActive(true);
+			} else
+			{
+				areaPieces[i].SetActive(false);
+			}
+		}
+		
+		
 		//StartCoroutine(StopCamera(() => {
 		//	SceneManager.LoadScene("Checkin");
 		//}));
