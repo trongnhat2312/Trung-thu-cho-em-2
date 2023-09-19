@@ -14,6 +14,7 @@ public class QRScanner : MonoBehaviour {
 	public RawImage Image;
 	public AudioSource Audio;
 	private float RestartTime;
+	public Text ListCamera;
 
 	public GameObject ChucmungObj;
 
@@ -53,7 +54,12 @@ public class QRScanner : MonoBehaviour {
 	/// </summary>
 	private void StartScanner()
 	{
-		BarcodeScanner.Scan((barCodeType, barCodeValue) => {
+		foreach (WebCamDevice wd in WebCamTexture.devices)
+		{
+			ListCamera.text += wd.name + "-" + wd.isFrontFacing + "\n";
+		}
+
+			BarcodeScanner.Scan((barCodeType, barCodeValue) => {
 			Debug.Log(barCodeType + " -- " + barCodeValue);
 			
 			//if (TextHeader.text.Length > 250)

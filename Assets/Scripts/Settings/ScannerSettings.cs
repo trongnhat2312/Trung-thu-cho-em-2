@@ -34,8 +34,10 @@ namespace BarcodeScanner
 
 			WebcamDefaultDeviceName = "";
 
+
 			foreach (WebCamDevice wd in WebCamTexture.devices)
 			{
+				Console.WriteLine("Camera: " + wd.name);
 				if (!wd.isFrontFacing)
 				{
 					WebcamDefaultDeviceName = wd.name;
