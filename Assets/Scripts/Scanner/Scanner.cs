@@ -52,6 +52,7 @@ namespace BarcodeScanner.Scanner
 		private int webcamLastChecksum = -1;
 		private bool decodeInterrupted = true;
 
+		
 		public Scanner() : this(null, null, null) { }
 		public Scanner(ScannerSettings settings) : this(settings, null, null) {}
 		public Scanner(IParser parser, IWebcam webcam) : this(null, parser, webcam) {}

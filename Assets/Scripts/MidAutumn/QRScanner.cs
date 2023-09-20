@@ -20,6 +20,7 @@ public class QRScanner : MonoBehaviour {
 	public List<GameObject> areaPieces;
 
 	public GameObject ChucmungObj;
+	private bool isChange = false;
 
 	// Disable Screen Rotation on that screen
 	void Awake()
@@ -101,8 +102,6 @@ public class QRScanner : MonoBehaviour {
 						Debug.Log("Go to main directly: " + PlayerPrefs.GetString(StaticParamClass.PrefCheckinName));
 
 						StartCoroutine(GetData(PlayerPrefs.GetString(StaticParamClass.PrefCheckinNumber)));
-
-						
 					}
 					else
 					{
@@ -115,7 +114,7 @@ public class QRScanner : MonoBehaviour {
 			} else
 			{
 				//TextHeader.text += "Error barcode: " + barCodeType + " / " + barCodeValue + "\n";
-				Debug.LogError("Error barcode: " + barCodeType + " / " + barCodeValue + "\n");
+				Debug.Log("Error barcode: " + barCodeType + " / " + barCodeValue + "\n");
 				StartScanner();
 			}
 			
@@ -135,6 +134,43 @@ public class QRScanner : MonoBehaviour {
 			Handheld.Vibrate();
 			#endif
 		});
+	}
+
+	public void ChangeCamera()
+	{
+		isChange = true;
+		ScannerSettings cSetting = BarcodeScanner.Settings;
+		string name = cSetting.WebcamDefaultDeviceName;
+		StartCoroutine(StopCamera(() => {
+			ScannerSettings ss = new ScannerSettings(name);
+			Debug.Log(ss.WebcamDefaultDeviceName);
+			BarcodeScanner = new Scanner(ss);
+			BarcodeScanner.Camera.Play();
+
+			// Display the camera texture through a RawImage
+			BarcodeScanner.OnReady += (sender, arg) => {
+				// Set Orientation & Texture
+				
+				Image.transform.localEulerAngles = BarcodeScanner.Camera.GetEulerAngles();
+				Image.transform.localScale = BarcodeScanner.Camera.GetScale();
+				Image.texture = BarcodeScanner.Camera.Texture;
+
+				// Keep Image Aspect Ratio
+				var rect = Image.GetComponent<RectTransform>();
+				var newHeight = rect.sizeDelta.x * BarcodeScanner.Camera.Height / BarcodeScanner.Camera.Width;
+				rect.sizeDelta = new Vector2(rect.sizeDelta.x, newHeight);
+
+				RestartTime = Time.realtimeSinceStartup;
+			};
+
+			//if (RestartTime != 0 && RestartTime < Time.realtimeSinceStartup)
+			//{
+			//	StartScanner();
+			//	RestartTime = 0;
+			isChange = false;
+			Debug.Log(isChange);
+			//}
+		}));
 	}
 
 
@@ -183,10 +219,14 @@ public class QRScanner : MonoBehaviour {
 	/// </summary>
 	void Update()
 	{
-		if (BarcodeScanner != null)
+		if(!isChange)
 		{
-			BarcodeScanner.Update();
+			if (BarcodeScanner != null)
+			{
+				BarcodeScanner.Update();
+			}
 		}
+		
 
 		// Check if the Scanner need to be started or restarted
 		if (RestartTime != 0 && RestartTime < Time.realtimeSinceStartup)
@@ -256,7 +296,7 @@ public class QRScanner : MonoBehaviour {
 	public IEnumerator StopCamera(Action callback)
 	{
 		// Stop Scanning
-		Image = null;
+		//Image = null;
 		BarcodeScanner.Destroy();
 		BarcodeScanner = null;
 
