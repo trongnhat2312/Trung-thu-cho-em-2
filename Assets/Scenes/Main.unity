@@ -1336,7 +1336,7 @@ MonoBehaviour:
   MainScreen: {fileID: 60662164}
   starLight: {fileID: 2135990033}
   ScanButton: {fileID: 371111737}
-  StarLightInterval: 5
+  StarLightInterval: 30
 --- !u!4 &887162540
 Transform:
   m_ObjectHideFlags: 0

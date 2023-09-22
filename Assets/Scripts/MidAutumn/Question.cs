@@ -43,31 +43,54 @@ public class Question : MonoBehaviour
 			if (i == QuestionConfig.Categories[numPlace].Questions[count].CorrectIndex)
 			{
 				// Chinh' xac'
+				ShowResult(true, i, i);
 			}
 			else
 			{
 				// Sai roi
+				ShowResult(false, i, QuestionConfig.Categories[numPlace].Questions[count].CorrectIndex);
 			}
 			count++;
-			//Go to next question
-			if(count < maxQuestion)
+			////Go to next question
+			if(count == maxQuestion)
 			{
-				GoToNextQuestion(count);
+				GoToNext.SetActive(false);
+
 			}
-		} else
-		{
-			ClosePopup();
 		}
 	}
 
-    public void GoToNextQuestion(int questionIndex)
+	public void ShowResult(bool isCorrect,int selectedIndex, int correctIndex)
 	{
-		Debug.Log("go to next: " + questionIndex);
-        QuestionContent.text = QuestionConfig.Categories[numPlace].Questions[questionIndex].Question;
-		ListAnswers[0].text = QuestionConfig.Categories[numPlace].Questions[questionIndex].Answer1;
-		ListAnswers[1].text = QuestionConfig.Categories[numPlace].Questions[questionIndex].Answer2;
-		ListAnswers[2].text = QuestionConfig.Categories[numPlace].Questions[questionIndex].Answer3;
-		ListAnswers[3].text = QuestionConfig.Categories[numPlace].Questions[questionIndex].Answer4;
+		if(isCorrect)
+		{
+			ListAnswers[selectedIndex].color = Color.blue;
+		} else
+		{
+			ListAnswers[correctIndex].color = Color.blue;
+			ListAnswers[selectedIndex].color = Color.red;
+		}
+	}
+
+    public void GoToNextQuestion()
+	{
+		if(count < maxQuestion)
+		{
+			for(int i = 0; i < ListAnswers.Length; i++)
+			{
+				ListAnswers[i].color = Color.black;
+			}
+
+			QuestionContent.text = QuestionConfig.Categories[numPlace].Questions[count].Question;
+			ListAnswers[0].text = QuestionConfig.Categories[numPlace].Questions[count].Answer1;
+			ListAnswers[1].text = QuestionConfig.Categories[numPlace].Questions[count].Answer2;
+			ListAnswers[2].text = QuestionConfig.Categories[numPlace].Questions[count].Answer3;
+			ListAnswers[3].text = QuestionConfig.Categories[numPlace].Questions[count].Answer4;
+		} else
+		{
+			// Ket thuc
+		}
+        
 		// Set lai hieu ung
 	}
 
@@ -85,4 +108,5 @@ public class Question : MonoBehaviour
     public GameObject[] Answers;
     public Text[] ListAnswers;
     public GameModel QuestionConfig;
+	public GameObject GoToNext;
 }
