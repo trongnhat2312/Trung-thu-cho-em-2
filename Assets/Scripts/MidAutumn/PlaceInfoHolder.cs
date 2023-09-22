@@ -39,6 +39,7 @@ public class PlaceInfoHolder : MonoBehaviour
     public void OpenQuestion()
     {
 		var question = Instantiate(Question);
+        question.GetComponent<Question>().SetPlaceInfoHolder(numPlace);
 		question.transform.SetParent(transform.parent.transform, false);
 		question.name = "Question";
     }
@@ -49,4 +50,5 @@ public class PlaceInfoHolder : MonoBehaviour
 
 	private int numPlace;
 	public Button QuestionButton;
+    public int getNumPlace() { return numPlace; }
 }
