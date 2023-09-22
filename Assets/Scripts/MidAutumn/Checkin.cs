@@ -9,10 +9,10 @@ using Unity.VisualScripting;
 
 public class Checkin : MonoBehaviour
 {
-	public TMP_InputField nickName;
-	public TMP_InputField phoneNumber;
-	public TMP_Text ErrorName;
-	public TMP_Text ErrorPhone;
+	public InputField nickName;
+	public InputField phoneNumber;
+	public Text ErrorName;
+	public Text ErrorPhone;
 
 	public delegate void ResFromGet(string a);
 	public delegate void ResFromGet_(string a, string name);

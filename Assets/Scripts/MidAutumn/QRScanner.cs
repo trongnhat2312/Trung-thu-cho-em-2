@@ -1,7 +1,9 @@
 using BarcodeScanner;
 using BarcodeScanner.Scanner;
+using Coffee.UIEffects;
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Assertions.Must;
 using UnityEngine.SceneManagement;
@@ -14,8 +16,12 @@ public class QRScanner : MonoBehaviour {
 	public RawImage Image;
 	public AudioSource Audio;
 	private float RestartTime;
+	public Text ListCamera;
+	public Text PlaceNum;
+	public List<GameObject> areaPieces;
 
 	public GameObject ChucmungObj;
+	private bool isChange = false;
 
 	// Disable Screen Rotation on that screen
 	void Awake()
@@ -53,7 +59,12 @@ public class QRScanner : MonoBehaviour {
 	/// </summary>
 	private void StartScanner()
 	{
-		BarcodeScanner.Scan((barCodeType, barCodeValue) => {
+		foreach (WebCamDevice wd in WebCamTexture.devices)
+		{
+			ListCamera.text += wd.name + "-" + wd.isFrontFacing + "\n";
+		}
+
+			BarcodeScanner.Scan((barCodeType, barCodeValue) => {
 			Debug.Log(barCodeType + " -- " + barCodeValue);
 			
 			//if (TextHeader.text.Length > 250)
@@ -92,13 +103,11 @@ public class QRScanner : MonoBehaviour {
 						Debug.Log("Go to main directly: " + PlayerPrefs.GetString(StaticParamClass.PrefCheckinName));
 
 						StartCoroutine(GetData(PlayerPrefs.GetString(StaticParamClass.PrefCheckinNumber)));
-
-						
 					}
 					else
 					{
 						
-						GotoCheckin();
+						GotoCheckin(StaticParamClass.CheckinPlace);
 					}
 
 
@@ -106,7 +115,7 @@ public class QRScanner : MonoBehaviour {
 			} else
 			{
 				//TextHeader.text += "Error barcode: " + barCodeType + " / " + barCodeValue + "\n";
-				Debug.LogError("Error barcode: " + barCodeType + " / " + barCodeValue + "\n");
+				Debug.Log("Error barcode: " + barCodeType + " / " + barCodeValue + "\n");
 				StartScanner();
 			}
 			
@@ -128,6 +137,43 @@ public class QRScanner : MonoBehaviour {
 		});
 	}
 
+	public void ChangeCamera()
+	{
+		isChange = true;
+		ScannerSettings cSetting = BarcodeScanner.Settings;
+		string name = cSetting.WebcamDefaultDeviceName;
+		StartCoroutine(StopCamera(() => {
+			ScannerSettings ss = new ScannerSettings(name);
+			Debug.Log(ss.WebcamDefaultDeviceName);
+			BarcodeScanner = new Scanner(ss);
+			BarcodeScanner.Camera.Play();
+
+			// Display the camera texture through a RawImage
+			BarcodeScanner.OnReady += (sender, arg) => {
+				// Set Orientation & Texture
+				
+				Image.transform.localEulerAngles = BarcodeScanner.Camera.GetEulerAngles();
+				Image.transform.localScale = BarcodeScanner.Camera.GetScale();
+				Image.texture = BarcodeScanner.Camera.Texture;
+
+				// Keep Image Aspect Ratio
+				var rect = Image.GetComponent<RectTransform>();
+				var newHeight = rect.sizeDelta.x * BarcodeScanner.Camera.Height / BarcodeScanner.Camera.Width;
+				rect.sizeDelta = new Vector2(rect.sizeDelta.x, newHeight);
+
+				RestartTime = Time.realtimeSinceStartup;
+			};
+
+			//if (RestartTime != 0 && RestartTime < Time.realtimeSinceStartup)
+			//{
+			//	StartScanner();
+			//	RestartTime = 0;
+			isChange = false;
+			Debug.Log(isChange);
+			//}
+		}));
+	}
+
 
 
 	public void getCheckIn(string a, string name)
@@ -135,7 +181,19 @@ public class QRScanner : MonoBehaviour {
 		StaticParamClass.CheckedIn = a;
 		if (!StaticParamClass.CheckedIn.Contains(StaticParamClass.CheckinPlace.ToString()))
 		{
+			PlaceNum.text = "SỐ " + StaticParamClass.CheckinPlace;
 			ChucmungObj.SetActive(true);
+			for (int i = 0; i < areaPieces.Count; i++)
+			{
+				if (i == StaticParamClass.CheckinPlace)
+				{
+					areaPieces[i].SetActive(true);
+				}
+				else
+				{
+					areaPieces[i].SetActive(false);
+				}
+			}
 		}
 		else
 		{
@@ -163,10 +221,14 @@ public class QRScanner : MonoBehaviour {
 	/// </summary>
 	void Update()
 	{
-		if (BarcodeScanner != null)
+		if(!isChange)
 		{
-			BarcodeScanner.Update();
+			if (BarcodeScanner != null)
+			{
+				BarcodeScanner.Update();
+			}
 		}
+		
 
 		// Check if the Scanner need to be started or restarted
 		if (RestartTime != 0 && RestartTime < Time.realtimeSinceStartup)
@@ -176,9 +238,23 @@ public class QRScanner : MonoBehaviour {
 		}
 	}
 
-	public void GotoCheckin()
+	public void GotoCheckin(int place)
 	{
+		PlaceNum.text = "SÓ " + StaticParamClass.CheckinPlace;
 		ChucmungObj.SetActive(true);
+		
+		for(int i = 0; i < areaPieces.Count; i++)
+		{
+			if(i == place)
+			{
+				areaPieces[i].SetActive(true);
+			} else
+			{
+				areaPieces[i].SetActive(false);
+			}
+		}
+		
+		
 		//StartCoroutine(StopCamera(() => {
 		//	SceneManager.LoadScene("Checkin");
 		//}));
@@ -223,7 +299,7 @@ public class QRScanner : MonoBehaviour {
 	public IEnumerator StopCamera(Action callback)
 	{
 		// Stop Scanning
-		Image = null;
+		//Image = null;
 		BarcodeScanner.Destroy();
 		BarcodeScanner = null;
 
