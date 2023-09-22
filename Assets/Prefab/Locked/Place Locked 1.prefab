@@ -246,6 +246,12 @@ PrefabInstance:
         \u0111\u1EA7y!\nH\xE3y t\xECm m\xE2m c\u1ED7 v\xE0 \"check-in\" \u0111\u1EC3
         nh\u1EADn ph\u1EA7n th\u01B0\u1EDFng nh\xE9!"
       objectReference: {fileID: 0}
+    - target: {fileID: 6550233355722178911, guid: a8a63616c54ae4144a98c8abdd964c6b,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 6271d5e2fe69c9b4ea7d7a4b9949ec06,
+        type: 3}
     - target: {fileID: 6817733577615987617, guid: a8a63616c54ae4144a98c8abdd964c6b,
         type: 3}
       propertyPath: m_AnchoredPosition.x
