@@ -29,7 +29,7 @@ public class MainController : MonoBehaviour
 		//StaticParamClass.IsMapUnlocked[StaticParamClass.CheckinPlace] = true;
 		// test //
 		_isStarEffEnabled = true;
-		_isPopupOpen = true;
+		//_isPopupOpen = true;
 		if (StaticParamClass.GoFromInside)
 		{
 			showMapPieces();
@@ -78,7 +78,7 @@ public class MainController : MonoBehaviour
 		{
 			return;
 		}
-		if (IsAllMapUnlocked() && _isStarEffEnabled && !_isPopupOpen)
+		if (IsAllMapUnlocked() && _isStarEffEnabled)
 		{
 			//Debug.Log("_starLightCount:" + _starLightCount);
 			if (_starLightCount <= 0)
@@ -154,7 +154,7 @@ public class MainController : MonoBehaviour
 	public void ClosePlaceInfo()
 	{
 		SoundBase.Instance.GetComponent<AudioSource>().PlayOneShot(SoundBase.Instance.click);
-		_isPopupOpen = false;
+		//_isPopupOpen = false;
 		MainScreen.SetActive(true);
 		Destroy(PlaceInfo);
 	}
