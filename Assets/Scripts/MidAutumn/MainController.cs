@@ -27,6 +27,12 @@ public class MainController : MonoBehaviour
 		//StaticParamClass.CheckinPlace = (new Random()).Next(StaticParamClass.MAX_PLACE);
 		//StaticParamClass.GoFromInside = true;
 		//StaticParamClass.IsMapUnlocked[StaticParamClass.CheckinPlace] = true;
+		//StaticParamClass.IsMapUnlocked[0] = true;
+		//StaticParamClass.IsMapUnlocked[1] = true;
+		//StaticParamClass.IsMapUnlocked[2] = true;
+		//StaticParamClass.IsMapUnlocked[3] = true;
+		//StaticParamClass.IsMapUnlocked[4] = true;
+		//StaticParamClass.IsMapUnlocked[5] = true;
 		// test //
 		_isStarEffEnabled = true;
 		//_isPopupOpen = true;
@@ -78,36 +84,44 @@ public class MainController : MonoBehaviour
 		{
 			return;
 		}
-		if (IsAllMapUnlocked() && _isStarEffEnabled)
+		if (IsAllMapUnlocked())
 		{
-			//Debug.Log("_starLightCount:" + _starLightCount);
-			if (_starLightCount <= 0)
+			if (_isStarEffEnabled)
 			{
-				starLight.DoTransformToStarLight();
-				_alreadyResetStarLight = false;
-				_starLightCount = StarLightInterval;
-			}
-			else
-			{
-				_starLightCount -= Time.deltaTime;
-				if (_starLightCount <= 2 && !_alreadyResetStarLight)
+				Debug.Log("_starLightCount:" + _starLightCount);
+				if (_starLightCount <= 0)
 				{
-					starLight.ResetBeforeTransform();
-					_alreadyResetStarLight = true;
+					starLight.DoTransformToStarLight();
+					_alreadyResetStarLight = false;
+					_starLightCount = StarLightInterval;
+				}
+				else
+				{
+					//_starLightCount -= Time.deltaTime;
+					//if (_starLightCount <= 1 && !_alreadyResetStarLight)
+					//{
+					//	starLight.ResetBeforeTransform();
+					//	_alreadyResetStarLight = true;
+					//	_isPlayedOnce = true;
+					//}
+					if (_starLightCount > 1)
+					{
+						_starLightCount -= Time.deltaTime;
+					}
+					if (_starLightCount <= 1)
+					{
+						_isPlayedOnce = true;
+					}
 				}
 			}
-		}
-
-		if (Input.touchCount > 0 || Input.GetMouseButtonDown(0))
-		{
-			if (!_alreadyResetStarLight)
+			
+			if ((Input.touchCount > 0 || Input.GetMouseButtonDown(0)) && _isPlayedOnce)
 			{
 				starLight.ResetBeforeTransform();
 				_alreadyResetStarLight = true;
+				_isStarEffEnabled = false;
+
 			}
-
-			_isStarEffEnabled = false;
-
 		}
 	}
 
@@ -199,6 +213,11 @@ public class MainController : MonoBehaviour
 				mapPieces[i].GetComponent<UITransitionEffect>().effectFactor = 0;
 			}
 		}
+		if (IsAllMapUnlocked())
+		{
+			ScanButton.SetActive(false);
+		}
+			
 	}
 
 	[HideInInspector]
@@ -216,9 +235,12 @@ public class MainController : MonoBehaviour
 
 	public StarLightTransformer starLight;
 
+	public GameObject ScanButton;
+
 	public float StarLightInterval = 10f;
 	private float _starLightCount;
 	private bool _alreadyResetStarLight;
 	private bool _isStarEffEnabled = true;
 	private bool _isPopupOpen = true;
+	private bool _isPlayedOnce = false;
 }
