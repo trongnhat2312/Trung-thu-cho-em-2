@@ -52,7 +52,8 @@ public class StarLightTransformer : MonoBehaviour
 
 	public void ResetBeforeTransform()
     {
-        foreach (var part in beforeParts)
+		SoundBase.Instance.GetComponent<AudioSource>().Stop();
+		foreach (var part in beforeParts)
         {
             part.localScale = Vector3.one;
             part.localRotation = Quaternion.identity;
@@ -68,7 +69,8 @@ public class StarLightTransformer : MonoBehaviour
 
 	public async void DoTransformToStarLight()
     {
-        fogBg.gameObject.SetActive(true);
+		SoundBase.Instance.GetComponent<AudioSource>().PlayOneShot(SoundBase.Instance.starPartsCombine);
+		fogBg.gameObject.SetActive(true);
         SetAlpha(fogBg, 0);
         await UniTask.DelayFrame(1);
 
@@ -96,7 +98,12 @@ public class StarLightTransformer : MonoBehaviour
         await UniTask.DelayFrame(1);
         await UniTask.Delay((int)(collectDuration * 1000) - 300);
 
-        starLightObject.gameObject.SetActive(true);
+		SoundBase.Instance.GetComponent<AudioSource>().Stop();
+		SoundBase.Instance.GetComponent<AudioSource>().loop = true;
+		SoundBase.Instance.GetComponent<AudioSource>().clip = SoundBase.Instance.ChiecDenOngSaoPiano;
+		SoundBase.Instance.GetComponent<AudioSource>().Play();
+
+		starLightObject.gameObject.SetActive(true);
         starLightObject.localScale = Vector3.one * 0.01f;
 
         await UniTask.Delay(150);

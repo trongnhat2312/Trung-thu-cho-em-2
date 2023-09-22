@@ -121,6 +121,7 @@ public class MainController : MonoBehaviour
 		}
 		var effect = mapPieces[placeNum].GetComponent<UITransitionEffect>();
 		effect.Hide(false);
+		SoundBase.Instance.GetComponent<AudioSource>().PlayOneShot(SoundBase.Instance.pieceDisappear);
 		yield return new WaitForSeconds(effect.effectPlayer.duration);
 		StaticParamClass.GoFromInside = false;
 		OpenPlaceInfo(placeNum);
@@ -128,6 +129,7 @@ public class MainController : MonoBehaviour
 	}
 	public void OpenPlaceInfo(int placeNum)
 	{
+		SoundBase.Instance.GetComponent<AudioSource>().PlayOneShot(SoundBase.Instance.click);
 		if (StaticParamClass.GoFromInside)
 			return;
 		Debug.Log("place == " + placeNum);
@@ -148,12 +150,14 @@ public class MainController : MonoBehaviour
 
 	public void ClosePlaceInfo()
 	{
+		SoundBase.Instance.GetComponent<AudioSource>().PlayOneShot(SoundBase.Instance.click);
 		MainScreen.SetActive(true);
 		Destroy(PlaceInfo);
 	}
 
 	public void ClickScan()
 	{
+		SoundBase.Instance.GetComponent<AudioSource>().PlayOneShot(SoundBase.Instance.click);
 		if (StaticParamClass.GoFromInside)
 			return;
 		SceneManager.LoadScene("QR Scanner");
