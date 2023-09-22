@@ -128,6 +128,8 @@ public class MainController : MonoBehaviour
 	}
 	public void OpenPlaceInfo(int placeNum)
 	{
+		if (StaticParamClass.GoFromInside)
+			return;
 		Debug.Log("place == " + placeNum);
 		if (placeNum == -1)
 			return;
@@ -152,6 +154,8 @@ public class MainController : MonoBehaviour
 
 	public void ClickScan()
 	{
+		if (StaticParamClass.GoFromInside)
+			return;
 		SceneManager.LoadScene("QR Scanner");
 	}
 
