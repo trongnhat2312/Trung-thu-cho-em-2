@@ -17,6 +17,7 @@ public class QRScanner : MonoBehaviour {
 	public AudioSource Audio;
 	private float RestartTime;
 	public Text ListCamera;
+	public Text PlaceNum;
 	public List<GameObject> areaPieces;
 
 	public GameObject ChucmungObj;
@@ -180,6 +181,7 @@ public class QRScanner : MonoBehaviour {
 		StaticParamClass.CheckedIn = a;
 		if (!StaticParamClass.CheckedIn.Contains(StaticParamClass.CheckinPlace.ToString()))
 		{
+			PlaceNum.text = "SỐ " + StaticParamClass.CheckinPlace;
 			ChucmungObj.SetActive(true);
 			for (int i = 0; i < areaPieces.Count; i++)
 			{
@@ -238,6 +240,7 @@ public class QRScanner : MonoBehaviour {
 
 	public void GotoCheckin(int place)
 	{
+		PlaceNum.text = "SÓ " + StaticParamClass.CheckinPlace;
 		ChucmungObj.SetActive(true);
 		
 		for(int i = 0; i < areaPieces.Count; i++)
