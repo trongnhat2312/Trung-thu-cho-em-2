@@ -73,6 +73,7 @@ public class Checkin : MonoBehaviour
 
 	public void CheckinData()
 	{
+		SoundBase.Instance.GetComponent<AudioSource>().PlayOneShot(SoundBase.Instance.click);
 		string name = nickName.text;
 		string number = phoneNumber.text;
 		// Text validation

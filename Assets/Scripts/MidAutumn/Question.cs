@@ -44,6 +44,9 @@ public class Question : MonoBehaviour
 			count++;
 			//Go to next question
 			GoToNextQuestion(count);
+		} else
+		{
+			ClosePopup();
 		}
 	}
 

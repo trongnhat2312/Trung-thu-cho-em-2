@@ -29,6 +29,7 @@ public class MainController : MonoBehaviour
 		//StaticParamClass.IsMapUnlocked[StaticParamClass.CheckinPlace] = true;
 		// test //
 		_isStarEffEnabled = true;
+		_isPopupOpen = true;
 		if (StaticParamClass.GoFromInside)
 		{
 			showMapPieces();
@@ -72,11 +73,12 @@ public class MainController : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
+		
 		if (StaticParamClass.GoFromInside)
 		{
 			return;
 		}
-		if (IsAllMapUnlocked() && _isStarEffEnabled)
+		if (IsAllMapUnlocked() && _isStarEffEnabled && !_isPopupOpen)
 		{
 			//Debug.Log("_starLightCount:" + _starLightCount);
 			if (_starLightCount <= 0)
@@ -129,6 +131,7 @@ public class MainController : MonoBehaviour
 	}
 	public void OpenPlaceInfo(int placeNum)
 	{
+		
 		SoundBase.Instance.GetComponent<AudioSource>().PlayOneShot(SoundBase.Instance.click);
 		if (StaticParamClass.GoFromInside)
 			return;
@@ -151,6 +154,7 @@ public class MainController : MonoBehaviour
 	public void ClosePlaceInfo()
 	{
 		SoundBase.Instance.GetComponent<AudioSource>().PlayOneShot(SoundBase.Instance.click);
+		_isPopupOpen = false;
 		MainScreen.SetActive(true);
 		Destroy(PlaceInfo);
 	}
@@ -216,4 +220,5 @@ public class MainController : MonoBehaviour
 	private float _starLightCount;
 	private bool _alreadyResetStarLight;
 	private bool _isStarEffEnabled = true;
+	private bool _isPopupOpen = true;
 }

@@ -139,6 +139,7 @@ public class QRScanner : MonoBehaviour {
 
 	public void ChangeCamera()
 	{
+		SoundBase.Instance.GetComponent<AudioSource>().PlayOneShot(SoundBase.Instance.click);
 		isChange = true;
 		ScannerSettings cSetting = BarcodeScanner.Settings;
 		string name = cSetting.WebcamDefaultDeviceName;
@@ -264,6 +265,7 @@ public class QRScanner : MonoBehaviour {
 
 	public void OKButtonChucmung()
 	{
+		SoundBase.Instance.GetComponent<AudioSource>().PlayOneShot(SoundBase.Instance.click);
 		if (PlayerPrefs.HasKey(StaticParamClass.PrefCheckinName) && !PlayerPrefs.GetString(StaticParamClass.PrefCheckinName).Equals(""))
 		{
 			StartCoroutine(Checkin.CheckinPre(
@@ -285,6 +287,7 @@ public class QRScanner : MonoBehaviour {
 
 	public void ClickBack()
 	{
+		SoundBase.Instance.GetComponent<AudioSource>().PlayOneShot(SoundBase.Instance.click);
 		// Try to stop the camera before loading another scene
 		StartCoroutine(StopCamera(() => {
 			//StaticParamClass.GoFromInside = true;
