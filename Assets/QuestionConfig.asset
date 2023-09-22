@@ -1,0 +1,122 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6a79cbfc45f241c588b5f89077e8512, type: 3}
+  m_Name: QuestionConfig
+  m_EditorClassIdentifier: 
+  Categories:
+  - CategoryName: Place1
+    Questions:
+    - Question: "V\xE0o d\u1ECBp T\u1EBFt Trung thu, m\u1ED7i gia \u0111\xECnh ng\u01B0\u1EDDi
+        Vi\u1EC7t \u0111\u1EC1u s\u1EEDa so\u1EA1n l\xE0m g\xEC?"
+      Answer1: "Chu\u1EA9n b\u1ECB m\xE2m c\u1ED7 Trung thu"
+      Answer2: "L\xE0m \u0111\xE8n trung thu"
+      Answer3: "Mua qu\u1EA7n \xE1o m\u1EDBi"
+      Answer4: "Mua b\xE1nh trung thu"
+      CorrectIndex: 0
+    - Question: "S\u1EEDa so\u1EA1n m\xE2m c\u1ED7 Trung thu \u0111\u1EC3 d\xE2ng
+        c\xFAng T\u1ED5 ti\xEAn v\u1EDBi m\u1EE5c \u0111\xEDch?"
+      Answer1: "Mong \u01B0\u1EDBc m\u1ED9t cu\u1ED9c s\u1ED1ng \u1EA5m no, h\u1EA1nh
+        ph\xFAc"
+      Answer2: "\u0110\u1EB7t ni\u1EC1m tin mong cho con c\xE1i \u0111\u1ED7 \u0111\u1EA1t."
+      Answer3: "G\u1EEDi g\u1EAFm nh\u1EEFng mong mu\u1ED1n t\u1ED1t \u0111\u1EB9p
+        trong cu\u1ED9c s\u1ED1ng"
+      Answer4: "C\u1EA3 3 \xFD tr\xEAn \u0111\u1EC1u \u0111\xFAng"
+      CorrectIndex: 3
+    - Question: "B\u1ED9 Ph\u1ED7ng tr\xEAn m\xE2m c\u1ED7 Trung thu \u0111\u01B0\u1EE3c
+        l\xE0m t\u1EEB ch\u1EA5t li\u1EC7u g\xEC?"
+      Answer1: "\u0110\u1EA5t s\xE9t"
+      Answer2: "Gi\u1EA5y b\u1ED3i"
+      Answer3: "G\u1ED7"
+      Answer4: "B\xECa c\u1EE9ng"
+      CorrectIndex: 0
+  - CategoryName: Place2
+    Questions:
+    - Question: "Ai l\xE0 ngh\u1EC7 nh\xE2n \u01B0u t\xFA trong s\u1ED1 c\xE1c ngh\u1EC7
+        nh\xE2n d\u01B0\u1EDBi \u0111\xE2y?"
+      Answer1: "Ngh\u1EC7 nh\xE2n Nguy\u1EC5n V\u0103n H\xF2a"
+      Answer2: "Ngh\u1EC7 nh\xE2n Ph\u1EA1m Nguy\u1EC7t \xC1nh "
+      Answer3: "Ngh\u1EC7 nh\xE2n Nguy\u1EC5n V\u0103n Quy\u1EC1n "
+      Answer4: "Ngh\u1EC7 nh\xE2n Ph\xF9ng \u0110\xECnh Gi\xE1p"
+      CorrectIndex: 2
+    - Question: "Tr\u01B0\u1EDBc n\u0103m 1945, \u0111\xE8n \xF4ng sao c\xF3 m\u1EA5y
+        c\xE1nh?"
+      Answer1: "5 c\xE1nh"
+      Answer2: "6 c\xE1nh"
+      Answer3: "4 c\xE1nh"
+      Answer4: "7 c\xE1nh"
+      CorrectIndex: 1
+    - Question: "\u0110\xE8n k\xE9o qu\xE2n c\xF3 m\u1EA5y c\u1EA1nh?"
+      Answer1: "4 c\u1EA1nh"
+      Answer2: "8 c\u1EA1nh"
+      Answer3: "6 c\u1EA1nh"
+      Answer4: "10 c\u1EA1nh"
+      CorrectIndex: 2
+  - CategoryName: Place 3
+    Questions:
+    - Question: "STEM l\xE0 g\xEC?"
+      Answer1: "M\xF4n h\u1ECDc t\xEDch h\u1EE3p ki\u1EBFn th\u1EE9c t\u1EEB nhi\u1EC1u
+        l\u0129nh v\u1EF1c kh\xE1c nhau, r\xE8n luy\u1EC7n t\u01B0 duy \u0111a chi\u1EC1u"
+      Answer2: "M\xF4n gi\xE1o d\u1EE5c th\u1EC3 ch\u1EA5t "
+      Answer3: "T\u1ED5ng h\u1EE3p c\xE1c m\xF4n h\u1ECDc x\xE3 h\u1ED9i"
+      Answer4: "T\u1ED5ng h\u1EE3p c\xE1c m\xF4n h\u1ECDc t\u1EF1 nhi\xEAn"
+      CorrectIndex: 0
+  - CategoryName: Place 4
+    Questions:
+    - Question: "Nguy\xEAn li\u1EC7u n\xE0o \u0111\xFAng \u0111\u1EC3 d\xF9ng l\xE0m
+        m\u1EB7t n\u1EA1 gi\u1EA5y b\u1ED3i?"
+      Answer1: "Gi\u1EA5y b\xE1o c\u0169, b\u1ED9t h\u1ED3 n\u1EBFp"
+      Answer2: "Gi\u1EA5y b\xECa, keo s\u1EEFa"
+      Answer3: "Nh\u1EF1a, keo s\u1EEFa"
+      Answer4: "Gi\u1EA5y n\u1EBFn, b\u1ED9t h\u1ED3 n\u1EBFp"
+      CorrectIndex: 0
+    - Question: "\u0110i\u1EC7n tho\u1EA1i b\u1EB1ng \u1ED1ng tre \u0111\u01B0\u1EE3c
+        k\u1EBFt n\u1ED1i \xE2m thanh b\u1EB1ng g\xEC?"
+      Answer1: "S\u1EE3i ch\u1EC9"
+      Answer2: "D\xE2y gai"
+      Answer3: "D\xE2y chun"
+      Answer4: "D\xE2y len"
+      CorrectIndex: 0
+    - Question: "T\xE0u th\u1EE7y s\u1EAFt t\xE2y \u0111\u01B0\u1EE3c l\xE0m t\u1EEB
+        nguy\xEAn li\u1EC7u g\xEC? "
+      Answer1: "Th\xE9p"
+      Answer2: "Nh\xF4m"
+      Answer3: Inox
+      Answer4: "V\u1ECF lon"
+      CorrectIndex: 3
+  - CategoryName: Place 5
+    Questions:
+    - Question: "L\u1EC5 c\xFAng T\u1EBFt Trung thu \u1EDF H\xE0n Qu\u1ED1c di\u1EC5n
+        ra v\xE0o th\u1EDDi \u0111i\u1EC3m n\xE0o trong ng\xE0y?"
+      Answer1: "Bu\u1ED5i tr\u01B0a "
+      Answer2: "Bu\u1ED5i t\u1ED1i "
+      Answer3: "T\xF9y theo s\u1EAFp x\u1EBFp c\u1EE7a gia \u0111\xECnh"
+      Answer4: "Bu\u1ED5i s\xE1ng"
+      CorrectIndex: 3
+    - Question: "\u0110\u1ED3 d\xE2ng c\xFAng \u0111\u01B0\u1EE3c b\xE0y bi\u1EC7n
+        tr\xEAn m\xE2m c\u1ED7 v\xE0o ng\xE0y T\u1EBFt Trung thu \u1EDF H\xE0n Qu\u1ED1c
+        c\xF3 \u0111\u1EB7c \u0111i\u1EC3m n\xE0o kh\xE1c bi\u1EC7t v\u1EDBi \u0111\u1ED3
+        \u0111\u01B0\u1EE3c b\xE0y bi\u1EC7n tr\xEAn m\xE2m c\u1ED7 Trung thu \u1EDF
+        Vi\u1EC7t Nam?"
+      Answer1: "T\u1EA5t c\u1EA3 \u0111\u1EC1u \u0111\u01B0\u1EE3c n\u1EA5u ch\xEDn"
+      Answer2: "Hoa qu\u1EA3 \u0111\u01B0\u1EE3c c\u1EAFt b\u1ECF ph\u1EA7n \u0111\u1EA7u"
+      Answer3: "B\xE1nh Songbyeon nhi\u1EC1u m\xE0u s\u1EAFc"
+      Answer4: "Hoa qu\u1EA3 \u0111\u01B0\u1EE3c g\u1ECDt v\xE0 b\xF3c v\u1ECF s\u1EB5n"
+      CorrectIndex: 1
+    - Question: "Nh\u1EEFng m\xF3n \u0103n n\xE0o \u0111\u1EB7c tr\u01B0ng \u0111\u01B0\u1EE3c
+        b\xE0y tr\xEAn m\xE2m c\u1ED7 Trung thu H\xE0n Qu\u1ED1c?"
+      Answer1: "B\xE1nh Songpyeon"
+      Answer2: Kim chi
+      Answer3: "B\xE1nh Trung thu"
+      Answer4: "C\u1EA3 3 \xFD tr\xEAn \u0111\u1EC1u \u0111\xFAng"
+      CorrectIndex: 3
+  - CategoryName: Place 6
+    Questions: []
