@@ -64,9 +64,23 @@ public class Question : MonoBehaviour
 	{
 		if(isCorrect)
 		{
+			for(int i = 0; i < Answers.Length; i++)
+			{
+				if(i != selectedIndex)
+				{
+					Answers[i].SetActive(false);
+				}
+			}
 			ListAnswers[selectedIndex].color = Color.blue;
 		} else
 		{
+			for (int i = 0; i < Answers.Length; i++)
+			{
+				if (i != selectedIndex && i!= correctIndex)
+				{
+					Answers[i].SetActive(false);
+				}
+			}
 			ListAnswers[correctIndex].color = Color.blue;
 			ListAnswers[selectedIndex].color = Color.red;
 		}
@@ -79,6 +93,7 @@ public class Question : MonoBehaviour
 			for(int i = 0; i < ListAnswers.Length; i++)
 			{
 				ListAnswers[i].color = Color.black;
+				Answers[i].SetActive(true);
 			}
 
 			QuestionContent.text = QuestionConfig.Categories[numPlace].Questions[count].Question;

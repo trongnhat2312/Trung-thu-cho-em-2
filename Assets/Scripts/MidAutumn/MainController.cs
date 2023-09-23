@@ -88,7 +88,7 @@ public class MainController : MonoBehaviour
 		{
 			if (_isStarEffEnabled)
 			{
-				Debug.Log("_starLightCount:" + _starLightCount);
+				//Debug.Log("_starLightCount:" + _starLightCount);
 				if (_starLightCount <= 0)
 				{
 					starLight.DoTransformToStarLight();

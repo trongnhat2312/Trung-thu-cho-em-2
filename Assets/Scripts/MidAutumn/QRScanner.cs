@@ -21,6 +21,7 @@ public class QRScanner : MonoBehaviour {
 	public List<GameObject> areaPieces;
 
 	public GameObject ChucmungObj;
+	public GameObject ChucmungComplete;
 	private bool isChange = false;
 
 	// Disable Screen Rotation on that screen
@@ -33,6 +34,7 @@ public class QRScanner : MonoBehaviour {
 	void Start () {
 
 		ChucmungObj.SetActive(false);
+		ChucmungComplete.SetActive(false);
 
 		// Create a basic scanner
 		BarcodeScanner = new Scanner();
@@ -139,7 +141,7 @@ public class QRScanner : MonoBehaviour {
 
 	public void ChangeCamera()
 	{
-		SoundBase.Instance.GetComponent<AudioSource>().PlayOneShot(SoundBase.Instance.click);
+		//SoundBase.Instance.GetComponent<AudioSource>().PlayOneShot(SoundBase.Instance.click);
 		isChange = true;
 		ScannerSettings cSetting = BarcodeScanner.Settings;
 		string name = cSetting.WebcamDefaultDeviceName;
@@ -184,6 +186,7 @@ public class QRScanner : MonoBehaviour {
 		{
 			PlaceNum.text = "SỐ "  + (StaticParamClass.CheckinPlace + 1);
 			SoundBase.Instance.GetComponent<AudioSource>().PlayOneShot(SoundBase.Instance.checkIn);
+			StaticParamClass.CheckedIn += ";" + StaticParamClass.CheckinPlace.ToString();
 			ChucmungObj.SetActive(true);
 			for (int i = 0; i < areaPieces.Count; i++)
 			{
@@ -245,8 +248,8 @@ public class QRScanner : MonoBehaviour {
 		PlaceNum.text = "SỐ " + (StaticParamClass.CheckinPlace + 1);
 		SoundBase.Instance.GetComponent<AudioSource>().PlayOneShot(SoundBase.Instance.checkIn);
 		ChucmungObj.SetActive(true);
-		
-		for(int i = 0; i < areaPieces.Count; i++)
+		StaticParamClass.CheckedIn += ";" + StaticParamClass.CheckinPlace.ToString();
+		for (int i = 0; i < areaPieces.Count; i++)
 		{
 			if(i == place)
 			{
@@ -268,11 +271,23 @@ public class QRScanner : MonoBehaviour {
 		SoundBase.Instance.GetComponent<AudioSource>().PlayOneShot(SoundBase.Instance.click);
 		if (PlayerPrefs.HasKey(StaticParamClass.PrefCheckinName) && !PlayerPrefs.GetString(StaticParamClass.PrefCheckinName).Equals(""))
 		{
-			StartCoroutine(Checkin.CheckinPre(
+			if(StaticParamClass.CheckedIn.Contains("0") &&
+				StaticParamClass.CheckedIn.Contains("1") &&
+				StaticParamClass.CheckedIn.Contains("2") &&
+				StaticParamClass.CheckedIn.Contains("3") &&
+				StaticParamClass.CheckedIn.Contains("4") &&
+				StaticParamClass.CheckedIn.Contains("5"))
+			{
+				ChucmungComplete.SetActive(true);
+				ChucmungObj.SetActive(false);
+			} else
+			{
+				StartCoroutine(Checkin.CheckinPre(
 				PlayerPrefs.GetString(StaticParamClass.PrefCheckinName),
 				PlayerPrefs.GetString(StaticParamClass.PrefCheckinNumber),
 				StaticParamClass.CheckinPlace)
 				);
+			}
 		}
 		else
 		{
@@ -281,6 +296,16 @@ public class QRScanner : MonoBehaviour {
 				SceneManager.LoadScene("Checkin");
 			}));
 		}
+	}
+
+	public void OKButtonComplete()
+	{
+		SoundBase.Instance.GetComponent<AudioSource>().PlayOneShot(SoundBase.Instance.click);
+		StartCoroutine(Checkin.CheckinPre(
+				PlayerPrefs.GetString(StaticParamClass.PrefCheckinName),
+				PlayerPrefs.GetString(StaticParamClass.PrefCheckinNumber),
+				StaticParamClass.CheckinPlace)
+				);
 	}
 
 	#region UI Buttons
