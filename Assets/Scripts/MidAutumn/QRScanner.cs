@@ -35,9 +35,12 @@ public class QRScanner : MonoBehaviour {
 
 		ChucmungObj.SetActive(false);
 		ChucmungComplete.SetActive(false);
-		BarcodeScanner = new Scanner();
+		
+		Console.WriteLine("Out: " + StaticParamClass.GoFromOutside);
 		if (StaticParamClass.GoFromOutside == true)
 		{
+			StaticParamClass.DaCheckRoi = true;
+			Console.WriteLine("DaCheckRoi: " + StaticParamClass.DaCheckRoi);
 			if (PlayerPrefs.HasKey(StaticParamClass.PrefCheckinName) && !PlayerPrefs.GetString(StaticParamClass.PrefCheckinName).Equals(""))
 			{
 				StartCoroutine(GetData(PlayerPrefs.GetString(StaticParamClass.PrefCheckinNumber)));
@@ -49,6 +52,7 @@ public class QRScanner : MonoBehaviour {
 		} else
 		{
 			// Create a basic scanner
+			BarcodeScanner = new Scanner();
 			BarcodeScanner.Camera.Play();
 
 			// Display the camera texture through a RawImage
@@ -66,6 +70,9 @@ public class QRScanner : MonoBehaviour {
 				RestartTime = Time.realtimeSinceStartup;
 			};
 		}
+
+		
+		
 	}
 
 	/// <summary>
@@ -77,8 +84,8 @@ public class QRScanner : MonoBehaviour {
 		{
 			ListCamera.text += wd.name + "-" + wd.isFrontFacing + "\n";
 		}
-
-			BarcodeScanner.Scan((barCodeType, barCodeValue) => {
+		StaticParamClass.DaCheckRoi = true;
+		BarcodeScanner.Scan((barCodeType, barCodeValue) => {
 			Debug.Log(barCodeType + " -- " + barCodeValue);
 			
 			//if (TextHeader.text.Length > 250)
@@ -342,7 +349,11 @@ public class QRScanner : MonoBehaviour {
 	{
 		// Stop Scanning
 		//Image = null;
-		BarcodeScanner.Destroy();
+		if(BarcodeScanner != null)
+		{
+			BarcodeScanner.Destroy();
+		}
+		
 		BarcodeScanner = null;
 
 		// Wait a bit

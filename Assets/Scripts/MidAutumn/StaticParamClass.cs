@@ -19,5 +19,6 @@ public static class StaticParamClass
 	public static bool[] IsMapUnlocked = new bool[MAX_PLACE];
 
 	public static bool GoFromOutside = false;
+	public static bool DaCheckRoi = false;
 
 }
