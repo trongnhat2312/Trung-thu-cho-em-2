@@ -35,25 +35,37 @@ public class QRScanner : MonoBehaviour {
 
 		ChucmungObj.SetActive(false);
 		ChucmungComplete.SetActive(false);
-
-		// Create a basic scanner
 		BarcodeScanner = new Scanner();
-		BarcodeScanner.Camera.Play();
+		if (StaticParamClass.GoFromOutside == true)
+		{
+			if (PlayerPrefs.HasKey(StaticParamClass.PrefCheckinName) && !PlayerPrefs.GetString(StaticParamClass.PrefCheckinName).Equals(""))
+			{
+				StartCoroutine(GetData(PlayerPrefs.GetString(StaticParamClass.PrefCheckinNumber)));
+			}
+			else
+			{
+				GotoCheckin(StaticParamClass.CheckinPlace);
+			}
+		} else
+		{
+			// Create a basic scanner
+			BarcodeScanner.Camera.Play();
 
-		// Display the camera texture through a RawImage
-		BarcodeScanner.OnReady += (sender, arg) => {
-			// Set Orientation & Texture
-			Image.transform.localEulerAngles = BarcodeScanner.Camera.GetEulerAngles();
-			Image.transform.localScale = BarcodeScanner.Camera.GetScale();
-			Image.texture = BarcodeScanner.Camera.Texture;
+			// Display the camera texture through a RawImage
+			BarcodeScanner.OnReady += (sender, arg) => {
+				// Set Orientation & Texture
+				Image.transform.localEulerAngles = BarcodeScanner.Camera.GetEulerAngles();
+				Image.transform.localScale = BarcodeScanner.Camera.GetScale();
+				Image.texture = BarcodeScanner.Camera.Texture;
 
-			// Keep Image Aspect Ratio
-			var rect = Image.GetComponent<RectTransform>();
-			var newHeight = rect.sizeDelta.x * BarcodeScanner.Camera.Height / BarcodeScanner.Camera.Width;
-			rect.sizeDelta = new Vector2(rect.sizeDelta.x, newHeight);
+				// Keep Image Aspect Ratio
+				var rect = Image.GetComponent<RectTransform>();
+				var newHeight = rect.sizeDelta.x * BarcodeScanner.Camera.Height / BarcodeScanner.Camera.Width;
+				rect.sizeDelta = new Vector2(rect.sizeDelta.x, newHeight);
 
-			RestartTime = Time.realtimeSinceStartup;
-		};
+				RestartTime = Time.realtimeSinceStartup;
+			};
+		}
 	}
 
 	/// <summary>

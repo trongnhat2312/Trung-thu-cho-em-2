@@ -22,7 +22,13 @@ public class MainController : MonoBehaviour
 		// Main load. kiem tra xem user da co tai khoan va checkin ở địa điểm nào chưa
 		// Nếu đã có tài khoản: thực hiện checkin/set place num các thứ
 		// Nếu chưa có tài khoản: load checkin scene để nó checkin.
-
+		int pm = Application.absoluteURL.IndexOf("?CheckinPlace");
+		if(pm != -1) {
+			StaticParamClass.GoFromOutside = true;
+			StaticParamClass.CheckinPlace = Int32.Parse(Application.absoluteURL.Split("=")[1]);
+			StaticParamClass.IsMapUnlocked[StaticParamClass.CheckinPlace] = true;
+			SceneManager.LoadScene("QR Scanner");
+		}
 		// test //
 		//StaticParamClass.CheckinPlace = (new Random()).Next(StaticParamClass.MAX_PLACE);
 		//StaticParamClass.GoFromInside = true;

@@ -18,4 +18,6 @@ public static class StaticParamClass
 	public static string CheckedIn = "";
 	public static bool[] IsMapUnlocked = new bool[MAX_PLACE];
 
+	public static bool GoFromOutside = false;
+
 }
