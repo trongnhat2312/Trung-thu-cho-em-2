@@ -141,7 +141,7 @@ public class QRScanner : MonoBehaviour {
 
 	public void ChangeCamera()
 	{
-		//SoundBase.Instance.GetComponent<AudioSource>().PlayOneShot(SoundBase.Instance.click);
+		SoundBase.Instance.GetComponent<AudioSource>().PlayOneShot(SoundBase.Instance.click);
 		isChange = true;
 		ScannerSettings cSetting = BarcodeScanner.Settings;
 		string name = cSetting.WebcamDefaultDeviceName;
