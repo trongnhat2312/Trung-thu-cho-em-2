@@ -257,9 +257,8 @@ PrefabInstance:
     - target: {fileID: 4681055706970796000, guid: a8a63616c54ae4144a98c8abdd964c6b,
         type: 3}
       propertyPath: m_Text
-      value: "S\xE2u trong To\xE0 C\xE1nh Di\u1EC1u, n\u01A1i c\xF3 c\xE1c c\xE2u
-        chuy\u1EC7n k\u1EC3 v\u1EC1 ng\xE0y T\u1EBFt Trung thu! \u0110\u1EBFn kh\xE1m
-        ph\xE1, l\u1EAFng nghe c\xE1c c\xE2u chuy\u1EC7n v\xE0 \"Check-in\" nh\xE9!"
+      value: "Ngo\xE0i tr\u1EDDi, khu Thu\u1EF7 \u0110\xECnh!\n\u0110\u1EBFn v\xE0
+        xem h\xECnh \u1EA3nh c\xE1c con Xi v\u1EABn tr\xEAn m\xE1i ng\xF3i n\xE0o!"
       objectReference: {fileID: 0}
     - target: {fileID: 6550233355722178911, guid: a8a63616c54ae4144a98c8abdd964c6b,
         type: 3}
@@ -270,22 +269,22 @@ PrefabInstance:
     - target: {fileID: 6817733577615987617, guid: a8a63616c54ae4144a98c8abdd964c6b,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 196.00002
+      value: 102.000015
       objectReference: {fileID: 0}
     - target: {fileID: 6817733577615987617, guid: a8a63616c54ae4144a98c8abdd964c6b,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 99
+      value: 163
       objectReference: {fileID: 0}
     - target: {fileID: 8362003927098064998, guid: a8a63616c54ae4144a98c8abdd964c6b,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 233
+      value: 139
       objectReference: {fileID: 0}
     - target: {fileID: 8362003927098064998, guid: a8a63616c54ae4144a98c8abdd964c6b,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 99
+      value: 163
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a8a63616c54ae4144a98c8abdd964c6b, type: 3}

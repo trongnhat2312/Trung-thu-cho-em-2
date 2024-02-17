@@ -246,6 +246,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4681055706970796000, guid: a8a63616c54ae4144a98c8abdd964c6b,
         type: 3}
+      propertyPath: m_Text
+      value: "Ui t\u1EA5t c\u1EA3 \u0111\u1EC1u c\xF3 th\u1EC3 t\u1EF1 v\u1EBD b\u1EE9c
+        trT\u1EA7ng 2, To\xE0 C\xE1nh di\u1EC1u c\xF3 tr\xF2 ch\u01A1i t\u01B0\u01A1ng
+        t\xE1c \"\u0110\xF3n qu\xE0 Trung thu\" v\u1EDBi r\u1EA5t nhi\u1EC1u th\xF4ng
+        \u0111i\u1EC7p \xFD ngh\u0129a l\u1EAFm \u0111\u1EA5y.\n\u0110\u1EBFn ch\u01A1i
+        v\xE0 check-in nh\xE9!"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4681055706970796000, guid: a8a63616c54ae4144a98c8abdd964c6b,
+        type: 3}
       propertyPath: m_FontData.m_FontSize
       value: 40
       objectReference: {fileID: 0}

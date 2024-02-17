@@ -257,16 +257,15 @@ PrefabInstance:
     - target: {fileID: 5541999641889772925, guid: d31ea8968d9164e7f8769ea3803e4da4,
         type: 3}
       propertyPath: m_Text
-      value: "Khu tr\xECnh di\u1EC5n\nl\xE0m \u0111\u1ED3 ch\u01A1i d\xE2n gian"
+      value: "Khu tr\u01B0ng b\xE0y \nng\u01B0\u1EDDi Vi\u1EC7t"
       objectReference: {fileID: 0}
     - target: {fileID: 5564481573256998143, guid: d31ea8968d9164e7f8769ea3803e4da4,
         type: 3}
       propertyPath: m_Text
-      value: "C\xF3 s\u1EF1 xu\u1EA5t hi\u1EC7n c\u1EE7a c\xE1c ngh\u1EC7 nh\xE2n
-        d\xE2n gian, nh\u1EEFng ng\u01B0\u1EDDi gi\u1EEF l\u1EEDa cho T\u1EBFt Trung
-        thu truy\u1EC1n th\u1ED1ng.\nC\xE1c b\u1EA1n c\xF3 c\u01A1 h\u1ED9i tr\u1EA3i
-        nghi\u1EC7m l\xE0m \u0111\u1ED3 ch\u01A1i d\xE2n gian c\xF9ng c\xE1c ngh\u1EC7
-        nh\xE2n."
+      value: "C\xF3 r\u1EA5t nhi\u1EC1u h\xECnh \u1EA3nh Con r\u1ED3ng \u0111\u01B0\u1EE3c
+        th\u1EC3 hi\u1EC7n trong \u0111\u1EDDi s\u1ED1ng: con R\u1ED3ng tr\xEAn gi\u1EA5y
+        s\u1EAFc phong, thuy\u1EC1n R\u1ED3ng, qu\xE2n r\u1ED1i n\u01B0\u1EDBc, chu\xF4ng
+        \u0111\u1ED3ng..."
       objectReference: {fileID: 0}
     - target: {fileID: 5564481573256998143, guid: d31ea8968d9164e7f8769ea3803e4da4,
         type: 3}

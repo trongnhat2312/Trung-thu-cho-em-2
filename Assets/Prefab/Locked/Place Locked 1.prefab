@@ -241,10 +241,9 @@ PrefabInstance:
     - target: {fileID: 4681055706970796000, guid: a8a63616c54ae4144a98c8abdd964c6b,
         type: 3}
       propertyPath: m_Text
-      value: "Qua c\u1ED5ng B\u1EA3o t\xE0ng, r\u1EBD ph\u1EA3i c\xF3 m\u1ED9t c\xE1i
-        c\xE2y to thi\u1EC7t to.\nD\u01B0\u1EDBi g\u1ED1c c\xE2y l\xE0 m\xE2m c\u1ED7
-        \u0111\u1EA7y!\nH\xE3y t\xECm m\xE2m c\u1ED7 v\xE0 \"check-in\" \u0111\u1EC3
-        nh\u1EADn ph\u1EA7n th\u01B0\u1EDFng nh\xE9!"
+      value: "Tr\u01B0\u1EDBc c\u1EEDa to\xE0 c\xE1nh di\u1EC1u l\xE0  \u1EA3nh 1
+        khu ph\u1ED1 c\u1ED5!\nH\xE3y \u0111\u1EBFn \"checkin\" v\xE0 nh\u1EADn ph\u1EA7n
+        th\u01B0\u1EDFng nh\xE9!"
       objectReference: {fileID: 0}
     - target: {fileID: 6550233355722178911, guid: a8a63616c54ae4144a98c8abdd964c6b,
         type: 3}

@@ -262,9 +262,9 @@ PrefabInstance:
     - target: {fileID: 4681055706970796000, guid: a8a63616c54ae4144a98c8abdd964c6b,
         type: 3}
       propertyPath: m_Text
-      value: "T\u1EA7ng 3, To\xE0 C\xE1nh di\u1EC1u, c\xF3 m\u1ED9t m\xE2m c\u1ED7
-        Trung thu ng\u01B0\u1EDDi H\xE0n r\u1EA5t th\xFA v\u1ECB. H\xE3y \u0111\u1EBFn
-        v\xE0 \"Check-in\" nh\xE9!"
+      value: "H\xE3y \u0111\u1EBFn th\u0103m nh\xE0 Vi\u1EC7t, c\xF9ng tham quan
+        ho\u1EA1t \u0111\u1ED9ng th\xE0nh k\xEDnh c\u1EE7a con ch\xE1u v\u1EDBi T\u1ED5
+        ti\xEAn!"
       objectReference: {fileID: 0}
     - target: {fileID: 6550233355722178911, guid: a8a63616c54ae4144a98c8abdd964c6b,
         type: 3}
@@ -275,12 +275,12 @@ PrefabInstance:
     - target: {fileID: 6817733577615987617, guid: a8a63616c54ae4144a98c8abdd964c6b,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 187
+      value: -45
       objectReference: {fileID: 0}
     - target: {fileID: 6817733577615987617, guid: a8a63616c54ae4144a98c8abdd964c6b,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 59
+      value: 188
       objectReference: {fileID: 0}
     - target: {fileID: 7896055226756700956, guid: a8a63616c54ae4144a98c8abdd964c6b,
         type: 3}
@@ -290,12 +290,12 @@ PrefabInstance:
     - target: {fileID: 8362003927098064998, guid: a8a63616c54ae4144a98c8abdd964c6b,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 224
+      value: -8
       objectReference: {fileID: 0}
     - target: {fileID: 8362003927098064998, guid: a8a63616c54ae4144a98c8abdd964c6b,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 58.999992
+      value: 188
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a8a63616c54ae4144a98c8abdd964c6b, type: 3}
