@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Coffee.UIEffects;
 using DG.Tweening;
+using iSTEAM.STEAM.ParallelSentences;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -101,7 +102,9 @@ public class MainController : MonoBehaviour
 				//Debug.Log("_starLightCount:" + _starLightCount);
 				if (_starLightCount <= 0)
 				{
-					starLight.DoTransformToStarLight();
+					//starLight.DoTransformToStarLight();
+					parallelSentence.OnCompleted();
+					SetBaseMenuComponentVisible(false);
 					_alreadyResetStarLight = false;
 					_starLightCount = StarLightInterval;
 				}
@@ -127,11 +130,19 @@ public class MainController : MonoBehaviour
 			
 			if ((Input.touchCount > 0 || Input.GetMouseButtonDown(0)) && _isPlayedOnce)
 			{
-				starLight.ResetBeforeTransform();
+				parallelSentence.ResetBeforeTransform();
 				_alreadyResetStarLight = true;
 				_isStarEffEnabled = false;
 
 			}
+		}
+	}
+
+	void SetBaseMenuComponentVisible(bool isVisible)
+	{
+		foreach (var pGameObject in m_MenuBaseComponents)
+		{
+			pGameObject.SetActive(isVisible);
 		}
 	}
 
@@ -244,9 +255,11 @@ public class MainController : MonoBehaviour
 
 	public GameObject MainScreen;
 
-	public StarLightTransformer starLight;
+	//public StarLightTransformer starLight;
+	public ParallelSentencesController parallelSentence;
 
 	public GameObject ScanButton;
+	public List<GameObject> m_MenuBaseComponents;
 
 	public float StarLightInterval = 10f;
 	private float _starLightCount;

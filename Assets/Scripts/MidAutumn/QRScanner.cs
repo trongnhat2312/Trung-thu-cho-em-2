@@ -11,6 +11,16 @@ using UnityEngine.UI;
 
 public class QRScanner : MonoBehaviour {
 
+	public string[] words = new string[]
+		{
+			"Xuân",
+			"An, Khang",
+			"Đức, Tài, Như, Ý",
+			"Niên",
+			"Thịnh, Vượng",
+			"Phúc, Thọ, Vô, Biên"
+		};
+
 	private IScanner BarcodeScanner;
 	public Text TextHeader;
 	public RawImage Image;
@@ -203,7 +213,8 @@ public class QRScanner : MonoBehaviour {
 		StaticParamClass.CheckedIn = a;
 		if (!StaticParamClass.CheckedIn.Contains(StaticParamClass.CheckinPlace.ToString()))
 		{
-			PlaceNum.text = "SỐ "  + (StaticParamClass.CheckinPlace + 1);
+			//PlaceNum.text = "SỐ "  + (StaticParamClass.CheckinPlace + 1);
+			PlaceNum.text = WordOfPlace(StaticParamClass.CheckinPlace);
 			SoundBase.Instance.GetComponent<AudioSource>().PlayOneShot(SoundBase.Instance.checkIn);
 			StaticParamClass.CheckedIn += ";" + StaticParamClass.CheckinPlace.ToString();
 			ChucmungObj.SetActive(true);
@@ -238,7 +249,10 @@ public class QRScanner : MonoBehaviour {
 		yield return null;
 	}
 
-
+	public string WordOfPlace(int placeId)
+	{
+		return words[placeId];
+	}
 
 	/// <summary>
 	/// The Update method from unity need to be propagated
@@ -264,7 +278,8 @@ public class QRScanner : MonoBehaviour {
 
 	public void GotoCheckin(int place)
 	{
-		PlaceNum.text = "SỐ " + (StaticParamClass.CheckinPlace + 1);
+		//PlaceNum.text = "SỐ " + (StaticParamClass.CheckinPlace + 1);
+		PlaceNum.text = WordOfPlace(StaticParamClass.CheckinPlace);
 		SoundBase.Instance.GetComponent<AudioSource>().PlayOneShot(SoundBase.Instance.checkIn);
 		ChucmungObj.SetActive(true);
 		StaticParamClass.CheckedIn += ";" + StaticParamClass.CheckinPlace.ToString();

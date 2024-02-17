@@ -12,7 +12,7 @@ public static class PlayFabLogin
     {
         if(string.IsNullOrEmpty(PlayFabSettings.staticSettings.TitleId))
 		{
-            PlayFabSettings.staticSettings.TitleId = "E4842";
+            PlayFabSettings.staticSettings.TitleId = "58456";
 		}
         var request = new RegisterPlayFabUserRequest { Username = phone, DisplayName= name, Password="abc12345", RequireBothUsernameAndEmail=false};
         PlayFabClientAPI.RegisterPlayFabUser(request, OnRegisterSuccess, OnRegisterFailure);
