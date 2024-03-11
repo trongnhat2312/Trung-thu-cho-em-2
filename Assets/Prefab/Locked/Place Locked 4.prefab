@@ -257,8 +257,30 @@ PrefabInstance:
     - target: {fileID: 4681055706970796000, guid: a8a63616c54ae4144a98c8abdd964c6b,
         type: 3}
       propertyPath: m_Text
-      value: "Ngo\xE0i tr\u1EDDi, khu Thu\u1EF7 \u0110\xECnh!\n\u0110\u1EBFn v\xE0
-        xem h\xECnh \u1EA3nh c\xE1c con Xi v\u1EABn tr\xEAn m\xE1i ng\xF3i n\xE0o!"
+      value: "Khu Thu\u1EF7 \u0110\xECnh - m\xFAa r\u1ED1i n\u01B0\u1EDBc!\n\u0110\u1EBFn
+        v\xE0 xem h\xECnh \u1EA3nh c\xE1c con Xi v\u1EABn tr\xEAn m\xE1i ng\xF3i
+        n\xE0o!\n(QR \u0111\u01B0\u1EE3c \u0111\u1EB7t \u1EDF bi\u1EC3n v\xE0o khu
+        Thu\u1EF7 \u0110\xECnh)"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4694530443076245090, guid: a8a63616c54ae4144a98c8abdd964c6b,
+        type: 3}
+      propertyPath: m_Text
+      value: "Thu\u1EF7 \u0110\xECnh - M\xFAa r\u1ED1i n\u01B0\u1EDBc"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4694530443076245090, guid: a8a63616c54ae4144a98c8abdd964c6b,
+        type: 3}
+      propertyPath: m_FontData.m_MinSize
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4694530443076245090, guid: a8a63616c54ae4144a98c8abdd964c6b,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 54
+      objectReference: {fileID: 0}
+    - target: {fileID: 4694530443076245090, guid: a8a63616c54ae4144a98c8abdd964c6b,
+        type: 3}
+      propertyPath: m_FontData.m_HorizontalOverflow
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6550233355722178911, guid: a8a63616c54ae4144a98c8abdd964c6b,
         type: 3}

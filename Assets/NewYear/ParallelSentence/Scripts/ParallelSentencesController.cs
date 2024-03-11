@@ -14,6 +14,9 @@ namespace iSTEAM.STEAM.ParallelSentences
         [SerializeField]
         ParallelSentencesSideController rightSide;
 
+        [SerializeField]
+        GameObject bonusGuideRoot;
+
 		private void Update()
 		{
             if (Input.GetKeyDown(KeyCode.P))
@@ -48,6 +51,9 @@ namespace iSTEAM.STEAM.ParallelSentences
             await UniTask.Delay(3000);
 
             rightSide.AppearWords();
+
+            await UniTask.Delay(3600);
+            bonusGuideRoot.gameObject.SetActive(true);
         }
     }
 }

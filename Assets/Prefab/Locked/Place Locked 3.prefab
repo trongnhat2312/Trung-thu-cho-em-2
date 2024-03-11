@@ -259,8 +259,39 @@ PrefabInstance:
       propertyPath: m_Text
       value: "T\u1EA7ng 1, to\xE0 Tr\u1ED1ng \u0111\u1ED3ng, h\xECnh \u1EA3nh con
         R\u1ED3ng \u0111\u01B0\u1EE3c kh\u1EAFc ho\u1EA1 tr\xEAn chi\u1EBFc m\u0169
-        quy\u1EC1n l\u1EF1c - M\u0169 t\u1EA7u c\xE2n (M\u0169 \u0111u\xF4i \xE9n)
-        c\u1EE7a ng\u01B0\u1EDDi M\u01B0\u1EDDng!"
+        quy\u1EC1n l\u1EF1c - M\u0169 ch\u1EA7u (M\u0169 \u0111u\xF4i \xE9n) c\u1EE7a
+        ng\u01B0\u1EDDi M\u01B0\u1EDDng!\n(QR d\xE1n tr\xEAn t\u1EE7 k\xEDnh tr\u01B0ng
+        b\xE0y M\u0169)."
+      objectReference: {fileID: 0}
+    - target: {fileID: 4694530443076245090, guid: a8a63616c54ae4144a98c8abdd964c6b,
+        type: 3}
+      propertyPath: m_Text
+      value: "Khu tr\u01B0ng b\xE0y ng\u01B0\u1EDDi M\u01B0\u1EDDng"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4694530443076245090, guid: a8a63616c54ae4144a98c8abdd964c6b,
+        type: 3}
+      propertyPath: m_FontData.m_BestFit
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4694530443076245090, guid: a8a63616c54ae4144a98c8abdd964c6b,
+        type: 3}
+      propertyPath: m_FontData.m_MaxSize
+      value: 54
+      objectReference: {fileID: 0}
+    - target: {fileID: 4694530443076245090, guid: a8a63616c54ae4144a98c8abdd964c6b,
+        type: 3}
+      propertyPath: m_FontData.m_MinSize
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4694530443076245090, guid: a8a63616c54ae4144a98c8abdd964c6b,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 54
+      objectReference: {fileID: 0}
+    - target: {fileID: 4694530443076245090, guid: a8a63616c54ae4144a98c8abdd964c6b,
+        type: 3}
+      propertyPath: m_FontData.m_HorizontalOverflow
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6550233355722178911, guid: a8a63616c54ae4144a98c8abdd964c6b,
         type: 3}

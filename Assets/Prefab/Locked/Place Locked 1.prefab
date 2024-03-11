@@ -241,9 +241,14 @@ PrefabInstance:
     - target: {fileID: 4681055706970796000, guid: a8a63616c54ae4144a98c8abdd964c6b,
         type: 3}
       propertyPath: m_Text
-      value: "Tr\u01B0\u1EDBc c\u1EEDa to\xE0 c\xE1nh di\u1EC1u l\xE0  \u1EA3nh 1
-        khu ph\u1ED1 c\u1ED5!\nH\xE3y \u0111\u1EBFn \"checkin\" v\xE0 nh\u1EADn ph\u1EA7n
-        th\u01B0\u1EDFng nh\xE9!"
+      value: "Ngay c\u1EA1nh \u0111i\u1EC3m \u0111\xF3n kh\xE1ch l\xE0 1 khu ph\u1ED1
+        c\u1ED5! H\xE3y \u0111\u1EBFn \"checkin\" v\xE0 nh\u1EADn ph\u1EA7n th\u01B0\u1EDFng
+        nh\xE9!"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4694530443076245090, guid: a8a63616c54ae4144a98c8abdd964c6b,
+        type: 3}
+      propertyPath: m_Text
+      value: "\u0110i\u1EC3m \u0111\xF3n ti\u1EBFp"
       objectReference: {fileID: 0}
     - target: {fileID: 6550233355722178911, guid: a8a63616c54ae4144a98c8abdd964c6b,
         type: 3}
@@ -254,22 +259,22 @@ PrefabInstance:
     - target: {fileID: 6817733577615987617, guid: a8a63616c54ae4144a98c8abdd964c6b,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 67
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 6817733577615987617, guid: a8a63616c54ae4144a98c8abdd964c6b,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -143
+      value: -146
       objectReference: {fileID: 0}
     - target: {fileID: 8362003927098064998, guid: a8a63616c54ae4144a98c8abdd964c6b,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 104
+      value: 77
       objectReference: {fileID: 0}
     - target: {fileID: 8362003927098064998, guid: a8a63616c54ae4144a98c8abdd964c6b,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -143
+      value: -146
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a8a63616c54ae4144a98c8abdd964c6b, type: 3}

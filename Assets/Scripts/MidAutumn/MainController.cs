@@ -173,9 +173,14 @@ public class MainController : MonoBehaviour
 		Debug.Log("place == " + placeNum);
 		if (placeNum == -1)
 			return;
-		if (placeNum < 0 || placeNum > StaticParamClass.MAX_PLACE - 1)
+		if (placeNum < 0 || (placeNum > StaticParamClass.MAX_PLACE - 1))
 		{
 			Debug.LogError("Place number out of range [0, MAX_PLACE - 1]");
+			return;
+		}
+		if (IsAllMapUnlocked())
+		{
+			// todo - dont need to show. or must show then close then show completed anim
 			return;
 		}
 		PlaceInfo = Instantiate(PlaceInfoPrefab);
