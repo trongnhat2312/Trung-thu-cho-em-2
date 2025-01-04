@@ -134,11 +134,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 6b7762b0bee7941dca13a94852d74403,
         type: 3}
-    - target: {fileID: 1457741869903728520, guid: d31ea8968d9164e7f8769ea3803e4da4,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1785072734678698265, guid: d31ea8968d9164e7f8769ea3803e4da4,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target

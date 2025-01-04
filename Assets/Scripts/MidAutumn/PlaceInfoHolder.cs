@@ -25,10 +25,7 @@ public class PlaceInfoHolder : MonoBehaviour
 	    var placeInfo = Instantiate(PlaceInfos[i + offset]);
 		placeInfo.transform.SetParent(transform, false);
 		placeInfo.name = "PlaceInfo " + i;
-		if (!isUnlocked)
-		{
-			QuestionButton.gameObject.SetActive(false);
-		}
+        QuestionButton.gameObject.SetActive(isUnlocked);
     }
 
     public void ClosePopup()
