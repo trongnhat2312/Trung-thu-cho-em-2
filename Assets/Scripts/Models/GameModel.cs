@@ -5,5 +5,6 @@ using UnityEngine;
 [CreateAssetMenu(menuName ="Question/Create Questions")]
 public class GameModel : ScriptableObject
 {
+
     public List<CateModel> Categories;
 }

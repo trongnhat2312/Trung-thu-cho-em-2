@@ -71,6 +71,9 @@ public class Checkin : MonoBehaviour
 		SceneManager.LoadScene("Main");
 	}
 
+	/// <summary>
+	/// Gọi khi bấm vào button OK sau khi nhập thông tin
+	/// </summary>
 	public void CheckinData()
 	{
 		SoundBase.Instance.GetComponent<AudioSource>().PlayOneShot(SoundBase.Instance.click);
@@ -102,11 +105,13 @@ public class Checkin : MonoBehaviour
 			PlayerPrefs.SetString(StaticParamClass.PrefCheckinNumber, phoneNumber.text.Trim());
 			// Send data to Azure Prefab and go to main
 
+			// đăng ký
 			PlayFabLogin.RegisterUser(nickName.text.Trim(), phoneNumber.text.Trim());
 
 			Debug.Log("Name: " + PlayerPrefs.GetString("CheckinName"));
 			Debug.Log("Number: " + PlayerPrefs.GetString("CheckinNumber"));
 
+			// load data
 			StartCoroutine(SetGetUserData.GetCheckedinPlace(phoneNumber.text.Trim(), setData));
 		}
 		

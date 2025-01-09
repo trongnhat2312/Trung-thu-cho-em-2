@@ -59,6 +59,8 @@ public static class SetGetUserData
 				if (result.Data != null && result.Data.ContainsKey(username))
 				{
 					StaticParamClass.CheckedIn = result.Data[username];
+
+					// result.Data[username]: là data các địa điểm user đã checkin
 					callback(result.Data[username], username);
 				}
 			},

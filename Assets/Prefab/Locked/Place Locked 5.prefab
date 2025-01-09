@@ -138,10 +138,15 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: ClosePopup
       objectReference: {fileID: 0}
+    - target: {fileID: 1859058402594128471, guid: a8a63616c54ae4144a98c8abdd964c6b,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 435.04
+      objectReference: {fileID: 0}
     - target: {fileID: 2829988592991357445, guid: a8a63616c54ae4144a98c8abdd964c6b,
         type: 3}
       propertyPath: m_Text
-      value: "T\u1EA7ng 3"
+      value: "T\u1EA7ng 1"
       objectReference: {fileID: 0}
     - target: {fileID: 3901927790824488973, guid: a8a63616c54ae4144a98c8abdd964c6b,
         type: 3}
@@ -262,15 +267,27 @@ PrefabInstance:
     - target: {fileID: 4681055706970796000, guid: a8a63616c54ae4144a98c8abdd964c6b,
         type: 3}
       propertyPath: m_Text
-      value: "H\xE3y \u0111\u1EBFn th\u0103m nh\xE0 Vi\u1EC7t, c\xF9ng tham quan
-        ho\u1EA1t \u0111\u1ED9ng ng\xE0y l\u1EC5 T\u1EBFt, l\xF2ng th\xE0nh k\xEDnh
-        c\u1EE7a con ch\xE1u v\u1EDBi T\u1ED5 ti\xEAn!\n(QR \u0111\u01B0\u1EE3c \u0111\u1EB7t
-        \u1EDF c\u1EA1nh c\u1EEDa v\xE0o nh\xE0 ch\xEDnh)"
+      value: "Trong ngh\u1EC7 thu\u1EADt m\xFAa r\u1ED1i d\xE2y truy\u1EC1n th\u1ED1ng
+        c\u1EE7a Myanmar, r\u1EAFn th\u1EA7n Naga l\xE0 m\u1ED9t trong nh\u1EEFng
+        nh\xE2n v\u1EADt quan tr\u1ECDng, th\u01B0\u1EDDng xu\u1EA5t hi\u1EC7n trong
+        c\xE1c v\u1EDF di\u1EC5n k\u1EC3 v\u1EC1 ti\u1EC1n ki\u1EBFp c\u1EE7a \u0110\u1EE9c
+        Ph\u1EADt ho\u1EB7c c\xE1c c\xE2u chuy\u1EC7n th\u1EA7n tho\u1EA1i. "
       objectReference: {fileID: 0}
     - target: {fileID: 4694530443076245090, guid: a8a63616c54ae4144a98c8abdd964c6b,
         type: 3}
       propertyPath: m_Text
-      value: "Nh\xE0 Vi\u1EC7t"
+      value: "R\u1EAFn th\u1EA7n Naga \ntrong ngh\u1EC7 thu\u1EADt m\xFAa r\u1ED1i
+        d\xE2y Myanmar"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4694530443076245090, guid: a8a63616c54ae4144a98c8abdd964c6b,
+        type: 3}
+      propertyPath: m_FontData.m_BestFit
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4694530443076245090, guid: a8a63616c54ae4144a98c8abdd964c6b,
+        type: 3}
+      propertyPath: m_FontData.m_VerticalOverflow
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6550233355722178911, guid: a8a63616c54ae4144a98c8abdd964c6b,
         type: 3}
@@ -281,27 +298,42 @@ PrefabInstance:
     - target: {fileID: 6817733577615987617, guid: a8a63616c54ae4144a98c8abdd964c6b,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 157
+      value: 188
       objectReference: {fileID: 0}
     - target: {fileID: 6817733577615987617, guid: a8a63616c54ae4144a98c8abdd964c6b,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 197
+      value: 37
       objectReference: {fileID: 0}
     - target: {fileID: 7896055226756700956, guid: a8a63616c54ae4144a98c8abdd964c6b,
         type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8174034798240211628, guid: a8a63616c54ae4144a98c8abdd964c6b,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8174034798240211628, guid: a8a63616c54ae4144a98c8abdd964c6b,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 8174034798240211628, guid: a8a63616c54ae4144a98c8abdd964c6b,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -49
+      objectReference: {fileID: 0}
     - target: {fileID: 8362003927098064998, guid: a8a63616c54ae4144a98c8abdd964c6b,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 194
+      value: 225.00002
       objectReference: {fileID: 0}
     - target: {fileID: 8362003927098064998, guid: a8a63616c54ae4144a98c8abdd964c6b,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 197
+      value: 36.999985
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a8a63616c54ae4144a98c8abdd964c6b, type: 3}

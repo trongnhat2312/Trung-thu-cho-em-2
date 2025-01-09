@@ -111,6 +111,102 @@ MonoBehaviour:
   m_ColorMode: 0
   m_BlurMode: 0
   m_AdvancedBlur: 0
+--- !u!1 &4922626518331164437
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6556424029961723538}
+  - component: {fileID: 3985804103623112422}
+  - component: {fileID: 6825092894112697369}
+  - component: {fileID: 4330364286938596035}
+  m_Layer: 5
+  m_Name: Text (Legacy) (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &6556424029961723538
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4922626518331164437}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2239572478515516828}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 20.999994, y: -49}
+  m_SizeDelta: {x: 360, y: 60}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &3985804103623112422
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4922626518331164437}
+  m_CullTransparentMesh: 1
+--- !u!114 &6825092894112697369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4922626518331164437}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 0.21568629, b: 0.21568629, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 991665a374e7c50409135538e1c5ac20, type: 3}
+    m_FontSize: 30
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 2
+    m_MaxSize: 40
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: "T\u1EA7ng 1"
+--- !u!114 &4330364286938596035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4922626518331164437}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 1, g: 1, b: 1, a: 1}
+  m_EffectDistance: {x: 1, y: -1}
+  m_UseGraphicAlpha: 1
 --- !u!1001 &9150024472297118668
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -267,18 +363,18 @@ PrefabInstance:
     - target: {fileID: 5541999641889772925, guid: d31ea8968d9164e7f8769ea3803e4da4,
         type: 3}
       propertyPath: m_Text
-      value: "V\u01B0\u1EDDn Ki\u1EBFn tr\xFAc d\xE2n gian\nNh\xE0 Vi\u1EC7t"
+      value: "R\u1EAFn th\u1EA7n Naga trong ngh\u1EC7 thu\u1EADt m\xFAa r\u1ED1i
+        d\xE2y Myanmar"
       objectReference: {fileID: 0}
     - target: {fileID: 5564481573256998143, guid: d31ea8968d9164e7f8769ea3803e4da4,
         type: 3}
       propertyPath: m_Text
-      value: "Ng\u01B0\u1EDDi Vi\u1EC7t quan ni\u1EC7m ng\u01B0\u1EDDi qu\xE1 c\u1ED1
-        c\xF3 m\u1ED1i quan h\u1EC7 v\xF4 h\xECnh v\u1EDBi ng\u01B0\u1EDDi th\xE2n.
-        B\xE0n th\u1EDD l\xE0 n\u01A1i t\u1ED5 ti\xEAn \u0111\u01B0\u1EE3c m\u1EDDi
-        v\u1EC1 ch\u1EE9ng ki\u1EBFn s\u1EF1 th\xE0nh k\xEDnh v\xE0 l\u1EDDi kh\u1EA5n
-        c\u1EE7a con ch\xE1u v\xE0o c\xE1c ng\xE0y gi\u1ED7, t\u1EBFt, r\u1EB1m,
-        m\u1ED3ng m\u1ED9t. Th\u1EDD c\xFAng t\u1ED5 ti\xEAn l\xE0 m\u1ED9t y\u1EBFu
-        t\u1ED1 g\u1EAFn b\xF3 c\xE1c th\xE0nh vi\xEAn trong gia \u0111\xECnh."
+      value: "Ch\xFAng \u0111\u01B0\u1EE3c coi l\xE0 bi\u1EC3u t\u01B0\u1EE3ng c\u1EE7a
+        s\u1EE9c m\u1EA1nh t\u1EF1 nhi\xEAn v\xE0 c\xF3 kh\u1EA3 n\u0103ng \u0111i\u1EC1u
+        khi\u1EC3n c\xE1c y\u1EBFu t\u1ED1 nh\u01B0 n\u01B0\u1EDBc v\xE0 m\u01B0a.
+        Trong c\xE1c v\u1EDF r\u1ED1i d\xE2y, Naga th\u01B0\u1EDDng \u0111\u01B0\u1EE3c
+        th\u1EC3 hi\u1EC7n v\u1EDBi h\xECnh d\xE1ng uy\u1EC3n chuy\u1EC3n, th\u1EC3
+        hi\u1EC7n s\u1EF1 linh ho\u1EA1t v\xE0 quy\u1EC1n n\u0103ng c\u1EE7a ch\xFAng."
       objectReference: {fileID: 0}
     - target: {fileID: 6666674956039170463, guid: d31ea8968d9164e7f8769ea3803e4da4,
         type: 3}
@@ -293,17 +389,17 @@ PrefabInstance:
     - target: {fileID: 7057111526205689424, guid: d31ea8968d9164e7f8769ea3803e4da4,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 167
+      value: 182
       objectReference: {fileID: 0}
     - target: {fileID: 7057111526205689424, guid: d31ea8968d9164e7f8769ea3803e4da4,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 199
+      value: 24
       objectReference: {fileID: 0}
     - target: {fileID: 8989027111280157107, guid: d31ea8968d9164e7f8769ea3803e4da4,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: -20
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8989027111280157107, guid: d31ea8968d9164e7f8769ea3803e4da4,
         type: 3}
@@ -312,6 +408,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d31ea8968d9164e7f8769ea3803e4da4, type: 3}
+--- !u!224 &2239572478515516828 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 7057111526205689424, guid: d31ea8968d9164e7f8769ea3803e4da4,
+    type: 3}
+  m_PrefabInstance: {fileID: 9150024472297118668}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &5589030427002230133 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3705146691124973241, guid: d31ea8968d9164e7f8769ea3803e4da4,

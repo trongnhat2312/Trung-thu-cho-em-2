@@ -49,14 +49,18 @@ public class QRScanner : MonoBehaviour {
 		Console.WriteLine("Out: " + StaticParamClass.GoFromOutside);
 		if (StaticParamClass.GoFromOutside == true)
 		{
+			// nếu là vào từ bên ngoài => kiểm tra xem login chưa???
 			StaticParamClass.DaCheckRoi = true;
 			Console.WriteLine("DaCheckRoi: " + StaticParamClass.DaCheckRoi);
+
+			// nếu đã lưu Checkin Name vào máy rồi => chỉ việc load data về
 			if (PlayerPrefs.HasKey(StaticParamClass.PrefCheckinName) && !PlayerPrefs.GetString(StaticParamClass.PrefCheckinName).Equals(""))
 			{
 				StartCoroutine(GetData(PlayerPrefs.GetString(StaticParamClass.PrefCheckinNumber)));
 			}
 			else
 			{
+				// nếu chưa lưu Checkin Name vào máy => tạo lại??? 
 				GotoCheckin(StaticParamClass.CheckinPlace);
 			}
 		} else
@@ -208,15 +212,24 @@ public class QRScanner : MonoBehaviour {
 
 
 
+	/// <summary>
+	/// a: là string data các địa điểm user đã checkin
+	/// </summary>
+	/// <param name="a"></param>
+	/// <param name="name"></param>
 	public void getCheckIn(string a, string name)
 	{
 		StaticParamClass.CheckedIn = a;
 		if (!StaticParamClass.CheckedIn.Contains(StaticParamClass.CheckinPlace.ToString()))
 		{
+			// nếu chưa checkin địa điểm này => đây là địa điểm mới!!!
+
 			//PlaceNum.text = "SỐ "  + (StaticParamClass.CheckinPlace + 1);
 			PlaceNum.text = WordOfPlace(StaticParamClass.CheckinPlace);
 			SoundBase.Instance.GetComponent<AudioSource>().PlayOneShot(SoundBase.Instance.checkIn);
 			StaticParamClass.CheckedIn += ";" + StaticParamClass.CheckinPlace.ToString();
+
+			// show chúc mừng đã checkin được địa điểm
 			ChucmungObj.SetActive(true);
 			for (int i = 0; i < areaPieces.Count; i++)
 			{
@@ -232,6 +245,8 @@ public class QRScanner : MonoBehaviour {
 		}
 		else
 		{
+			// nếu đã checkin rồi => update lại data...
+
 			//Checkin checkin = new Checkin();
 			//Debug.Log(checkin);
 			StartCoroutine(Checkin.CheckinPre(
@@ -300,11 +315,18 @@ public class QRScanner : MonoBehaviour {
 		//}));
 	}
 
+	/// <summary>
+	/// Event được gọi khi Close button chúc mừng.
+	/// </summary>
 	public void OKButtonChucmung()
 	{
 		SoundBase.Instance.GetComponent<AudioSource>().PlayOneShot(SoundBase.Instance.click);
+
+		// check lại quá trình, xem đã check in chưa
 		if (PlayerPrefs.HasKey(StaticParamClass.PrefCheckinName) && !PlayerPrefs.GetString(StaticParamClass.PrefCheckinName).Equals(""))
 		{
+			// nếu đã checkin rồi => kiểm tra xem hoàn thành chưa
+
 			if(StaticParamClass.CheckedIn.Contains("0") &&
 				StaticParamClass.CheckedIn.Contains("1") &&
 				StaticParamClass.CheckedIn.Contains("2") &&
@@ -312,10 +334,13 @@ public class QRScanner : MonoBehaviour {
 				StaticParamClass.CheckedIn.Contains("4") &&
 				StaticParamClass.CheckedIn.Contains("5"))
 			{
+				// nếu hoàn thành rồi => mở completed
 				ChucmungComplete.SetActive(true);
 				ChucmungObj.SetActive(false);
 			} else
 			{
+
+				// chea hoàn thành => save data và về Main
 				StartCoroutine(Checkin.CheckinPre(
 				PlayerPrefs.GetString(StaticParamClass.PrefCheckinName),
 				PlayerPrefs.GetString(StaticParamClass.PrefCheckinNumber),

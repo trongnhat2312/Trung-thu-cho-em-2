@@ -252,15 +252,20 @@ PrefabInstance:
     - target: {fileID: 5541999641889772925, guid: d31ea8968d9164e7f8769ea3803e4da4,
         type: 3}
       propertyPath: m_Text
-      value: "Khu tr\u01B0ng b\xE0y\nc\u1EE7a ng\u01B0\u1EDDi M\u01B0\u1EDDng"
+      value: "V\u01B0\u1EDDn Ki\u1EBFn Tr\xFAc - Ghe Ngo"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5541999641889772925, guid: d31ea8968d9164e7f8769ea3803e4da4,
+        type: 3}
+      propertyPath: m_FontData.m_Alignment
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5564481573256998143, guid: d31ea8968d9164e7f8769ea3803e4da4,
         type: 3}
       propertyPath: m_Text
-      value: "Trong v\u0103n h\xF3a c\u1EE7a ng\u01B0\u1EDDi M\u01B0\u1EDDng, h\xECnh
-        \u1EA3nh con R\u1ED3ng l\xE0 bi\u1EC3u t\u01B0\u1EE3ng cho s\u1EE9c m\u1EA1nh,
-        s\u1EF1 quy\u1EC1n qu\xFD. Th\u1EC3 hi\u1EC7n \u1EDF trang ph\u1EE5c, tr\xEAn
-        m\u0169 \u0111\u01B0\u1EE3c th\xEAu hoa v\u0103n..."
+      value: "M\u1ED7i chi\u1EBFc ghe c\xF3 m\u1ED9t v\u1ECB th\u1EA7n b\u1EA3o h\u1ED9
+        cho con ng\u01B0\u1EDDi khi qua s\xF4ng. C\xE1c v\u1ECB th\u1EA7n lu\xF4n
+        b\u1EA3o v\u1EC7 ch\xFAng ta. V\xEC v\u1EADy, h\xE3y lu\xF4n c\xF3 ni\u1EC1m
+        tin tr\u01B0\u1EDBc m\u1ECDi kh\xF3 kh\u0103n nh\xE9!"
       objectReference: {fileID: 0}
     - target: {fileID: 6666674956039170463, guid: d31ea8968d9164e7f8769ea3803e4da4,
         type: 3}
@@ -275,12 +280,17 @@ PrefabInstance:
     - target: {fileID: 7057111526205689424, guid: d31ea8968d9164e7f8769ea3803e4da4,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -25
+      value: 162
       objectReference: {fileID: 0}
     - target: {fileID: 7057111526205689424, guid: d31ea8968d9164e7f8769ea3803e4da4,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 2
+      value: 149
+      objectReference: {fileID: 0}
+    - target: {fileID: 8989027111280157107, guid: d31ea8968d9164e7f8769ea3803e4da4,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d31ea8968d9164e7f8769ea3803e4da4, type: 3}

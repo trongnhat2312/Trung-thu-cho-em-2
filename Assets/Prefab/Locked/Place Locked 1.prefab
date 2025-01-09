@@ -241,8 +241,8 @@ PrefabInstance:
     - target: {fileID: 4681055706970796000, guid: a8a63616c54ae4144a98c8abdd964c6b,
         type: 3}
       propertyPath: m_Text
-      value: "Ngay c\u1EA1nh \u0111i\u1EC3m \u0111\xF3n kh\xE1ch l\xE0 1 khu ph\u1ED1
-        c\u1ED5! H\xE3y \u0111\u1EBFn \"checkin\" v\xE0 nh\u1EADn ph\u1EA7n th\u01B0\u1EDFng
+      value: "\u0110i\u1EC3m \u0111\xF3n ti\u1EBFp \u1EDF ngay c\u1ED5ng B\u1EA3o
+        t\xE0ng! H\xE3y \u0111\u1EBFn \"checkin\" v\xE0 nh\u1EADn ph\u1EA7n th\u01B0\u1EDFng
         nh\xE9!"
       objectReference: {fileID: 0}
     - target: {fileID: 4694530443076245090, guid: a8a63616c54ae4144a98c8abdd964c6b,

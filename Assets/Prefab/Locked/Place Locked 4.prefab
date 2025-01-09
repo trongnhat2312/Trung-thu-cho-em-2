@@ -138,6 +138,21 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: ClosePopup
       objectReference: {fileID: 0}
+    - target: {fileID: 1859058402594128471, guid: a8a63616c54ae4144a98c8abdd964c6b,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 563.95
+      objectReference: {fileID: 0}
+    - target: {fileID: 2829988592991357445, guid: a8a63616c54ae4144a98c8abdd964c6b,
+        type: 3}
+      propertyPath: m_Text
+      value: "T\u1EA7ng 1"
+      objectReference: {fileID: 0}
+    - target: {fileID: 3308633841385410579, guid: a8a63616c54ae4144a98c8abdd964c6b,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -222
+      objectReference: {fileID: 0}
     - target: {fileID: 3901927790824488973, guid: a8a63616c54ae4144a98c8abdd964c6b,
         type: 3}
       propertyPath: m_Sprite
@@ -257,15 +272,24 @@ PrefabInstance:
     - target: {fileID: 4681055706970796000, guid: a8a63616c54ae4144a98c8abdd964c6b,
         type: 3}
       propertyPath: m_Text
-      value: "Khu Thu\u1EF7 \u0110\xECnh - m\xFAa r\u1ED1i n\u01B0\u1EDBc!\n\u0110\u1EBFn
-        v\xE0 xem h\xECnh \u1EA3nh c\xE1c con Xi v\u1EABn tr\xEAn m\xE1i ng\xF3i
-        n\xE0o!\n(QR \u0111\u01B0\u1EE3c \u0111\u1EB7t \u1EDF bi\u1EC3n v\xE0o khu
-        Thu\u1EF7 \u0110\xECnh)"
+      value: "B\u1EE9c tranh n\xE0y kh\u1EAFc h\u1ECDa m\u1ED9t c\u1EA3nh t\u01B0\u1EE3ng
+        \u0111\u1EB7c bi\u1EC7t v\u1EC1 ti\xEAn tri Sulaiman (Solomon) trong \u0111\u1EA1o
+        H\u1ED3i. Solomon \u0111\u01B0\u1EE3c bao quanh b\u1EDFi v\xF4 s\u1ED1 \u0111\u1ED9ng
+        v\u1EADt, t\u1EEB chim mu\xF4ng tr\xEAn tr\u1EDDi \u0111\u1EBFn th\xFA v\u1EADt
+        d\u01B0\u1EDBi \u0111\u1EA5t. H\xECnh \u1EA3nh n\xE0y t\u01B0\u1EE3ng tr\u01B0ng
+        cho quy\u1EC1n n\u0103ng v\xE0 s\u1EF1 cai tr\u1ECB c\u1EE7a \xF4ng \u0111\u1ED1i
+        v\u1EDBi to\xE0n b\u1ED9 th\u1EBF gi\u1EDBi t\u1EF1 nhi\xEAn, m\u1ED9t \xE2n
+        hu\u1EC7 \u0111\u1EB7c bi\u1EC7t t\u1EEB Th\u01B0\u1EE3ng \u0111\u1EBF."
       objectReference: {fileID: 0}
     - target: {fileID: 4694530443076245090, guid: a8a63616c54ae4144a98c8abdd964c6b,
         type: 3}
       propertyPath: m_Text
-      value: "Thu\u1EF7 \u0110\xECnh - M\xFAa r\u1ED1i n\u01B0\u1EDBc"
+      value: "B\u1EE9c tranh nh\xE0 ti\xEAn tri Solomon"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4694530443076245090, guid: a8a63616c54ae4144a98c8abdd964c6b,
+        type: 3}
+      propertyPath: m_FontData.m_BestFit
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4694530443076245090, guid: a8a63616c54ae4144a98c8abdd964c6b,
         type: 3}
@@ -279,8 +303,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4694530443076245090, guid: a8a63616c54ae4144a98c8abdd964c6b,
         type: 3}
+      propertyPath: m_FontData.m_VerticalOverflow
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4694530443076245090, guid: a8a63616c54ae4144a98c8abdd964c6b,
+        type: 3}
       propertyPath: m_FontData.m_HorizontalOverflow
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6550233355722178911, guid: a8a63616c54ae4144a98c8abdd964c6b,
         type: 3}
@@ -291,22 +320,42 @@ PrefabInstance:
     - target: {fileID: 6817733577615987617, guid: a8a63616c54ae4144a98c8abdd964c6b,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 102.000015
+      value: 173
       objectReference: {fileID: 0}
     - target: {fileID: 6817733577615987617, guid: a8a63616c54ae4144a98c8abdd964c6b,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 163
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 7896055226756700956, guid: a8a63616c54ae4144a98c8abdd964c6b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8174034798240211628, guid: a8a63616c54ae4144a98c8abdd964c6b,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8174034798240211628, guid: a8a63616c54ae4144a98c8abdd964c6b,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 8174034798240211628, guid: a8a63616c54ae4144a98c8abdd964c6b,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -46
       objectReference: {fileID: 0}
     - target: {fileID: 8362003927098064998, guid: a8a63616c54ae4144a98c8abdd964c6b,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 139
+      value: 210
       objectReference: {fileID: 0}
     - target: {fileID: 8362003927098064998, guid: a8a63616c54ae4144a98c8abdd964c6b,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 163
+      value: 17.99997
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a8a63616c54ae4144a98c8abdd964c6b, type: 3}

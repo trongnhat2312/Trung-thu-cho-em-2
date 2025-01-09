@@ -103,7 +103,8 @@ public class MainController : MonoBehaviour
 				if (_starLightCount <= 0)
 				{
 					//starLight.DoTransformToStarLight();
-					parallelSentence.OnCompleted();
+					//parallelSentence.OnCompleted();
+					ThachSanhVictory.gameObject.SetActive(true);
 					SetBaseMenuComponentVisible(false);
 					_alreadyResetStarLight = false;
 					_starLightCount = StarLightInterval;
@@ -131,6 +132,7 @@ public class MainController : MonoBehaviour
 			if ((Input.touchCount > 0 || Input.GetMouseButtonDown(0)) && _isPlayedOnce)
 			{
 				parallelSentence.ResetBeforeTransform();
+				ThachSanhVictory.gameObject.SetActive(false);
 				_alreadyResetStarLight = true;
 				_isStarEffEnabled = false;
 
@@ -156,10 +158,11 @@ public class MainController : MonoBehaviour
 			Debug.LogError("Place number out of range [0, MAX_PLACE - 1]");
 			yield break;
 		}
-		var effect = mapPieces[placeNum].GetComponent<UITransitionEffect>();
-		effect.Hide(false);
+		//var effect = mapPieces[placeNum].GetComponent<UITransitionEffect>();
+		//effect.Hide(false);
 		SoundBase.Instance.GetComponent<AudioSource>().PlayOneShot(SoundBase.Instance.pieceDisappear);
-		yield return new WaitForSeconds(effect.effectPlayer.duration);
+		//yield return new WaitForSeconds(effect.effectPlayer.duration);
+		yield return new WaitForSeconds(0.5f);
 		StaticParamClass.GoFromInside = false;
 		OpenPlaceInfo(placeNum);
 
@@ -237,7 +240,24 @@ public class MainController : MonoBehaviour
 		{
 			if (StaticParamClass.IsMapUnlocked[i])
 			{
-				mapPieces[i].GetComponent<UITransitionEffect>().effectFactor = 0;
+				try
+				{
+					mapPieces[i].GetComponent<UITransitionEffect>().effectFactor = 0;
+				}
+				catch (Exception exception)
+				{
+				}
+
+				try
+				{
+					var child = mapPieces[i].transform.GetChild(0);
+					//mapPieces[i].GetComponent<UITransitionEffect>().effectFactor = 0;
+					var image = child.GetComponent<Image>();
+					image.color = Color.white;
+				}
+				catch (Exception exception)
+				{
+				}
 			}
 		}
 		if (IsAllMapUnlocked())
@@ -262,6 +282,7 @@ public class MainController : MonoBehaviour
 
 	//public StarLightTransformer starLight;
 	public ParallelSentencesController parallelSentence;
+	public GameObject ThachSanhVictory;
 
 	public GameObject ScanButton;
 	public List<GameObject> m_MenuBaseComponents;

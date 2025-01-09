@@ -1,0 +1,159 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1218688412522427383
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3110308551321460556}
+  - component: {fileID: 3089825145640159801}
+  m_Layer: 0
+  m_Name: digit_0
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3110308551321460556
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1218688412522427383}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1628745509817070393}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &3089825145640159801
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1218688412522427383}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300002, guid: 9788dace242174696b018954e6f6f393, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 1
+  m_Size: {x: 0.57, y: 0.75}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!1 &1628745509817070395
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1628745509817070393}
+  - component: {fileID: 1628745509817070392}
+  m_Layer: 0
+  m_Name: Number2D
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1628745509817070393
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1628745509817070395}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 3110308551321460556}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1628745509817070392
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1628745509817070395}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db7f7d730057b4790ac922271deba657, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sprites:
+  - {fileID: 21300000, guid: 9788dace242174696b018954e6f6f393, type: 3}
+  - {fileID: 21300002, guid: 9788dace242174696b018954e6f6f393, type: 3}
+  - {fileID: 21300004, guid: 9788dace242174696b018954e6f6f393, type: 3}
+  - {fileID: 21300006, guid: 9788dace242174696b018954e6f6f393, type: 3}
+  - {fileID: 21300008, guid: 9788dace242174696b018954e6f6f393, type: 3}
+  - {fileID: 21300010, guid: 9788dace242174696b018954e6f6f393, type: 3}
+  - {fileID: 21300012, guid: 9788dace242174696b018954e6f6f393, type: 3}
+  - {fileID: 21300014, guid: 9788dace242174696b018954e6f6f393, type: 3}
+  - {fileID: 21300016, guid: 9788dace242174696b018954e6f6f393, type: 3}
+  - {fileID: 21300018, guid: 9788dace242174696b018954e6f6f393, type: 3}
+  - {fileID: 21300020, guid: 9788dace242174696b018954e6f6f393, type: 3}
+  metricPrefixSetup:
+    useMetricPrefix: 1
+    nCharAfterDot: 1
+    dot: {fileID: 21300020, guid: 9788dace242174696b018954e6f6f393, type: 3}
+    kilo: {fileID: 21300022, guid: 9788dace242174696b018954e6f6f393, type: 3}
+    million: {fileID: 21300024, guid: 9788dace242174696b018954e6f6f393, type: 3}
+    billion: {fileID: 21300026, guid: 9788dace242174696b018954e6f6f393, type: 3}
+  aligment: 0
+  _digitSpace: 0
+  color: {r: 1, g: 1, b: 1, a: 1}
+  digitRectTransform:
+    localRot: {x: 0, y: 0, z: 0}
+    localScale: {x: 1, y: 1, z: 1}
+    sizeDelta: {x: 72, y: 75}
+  _useDot: 0
+  _separateWidth: 1
+  _digitContainer: {fileID: 1628745509817070393}
+  _number: 1
+  digitPrefab: {fileID: 0}
+  digitImages:
+  - {fileID: 3089825145640159801}
+  pixelToUnit: 0.01

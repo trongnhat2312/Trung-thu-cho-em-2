@@ -111,6 +111,102 @@ MonoBehaviour:
   m_ColorMode: 0
   m_BlurMode: 0
   m_AdvancedBlur: 0
+--- !u!1 &8385362241885588928
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2101684069645627270}
+  - component: {fileID: 3700755676816677960}
+  - component: {fileID: 8448150322894529995}
+  - component: {fileID: 3729738103669006951}
+  m_Layer: 5
+  m_Name: Text (Legacy) (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2101684069645627270
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8385362241885588928}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 9103936901495226283}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 2.0000305, y: -52}
+  m_SizeDelta: {x: 360, y: 60}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &3700755676816677960
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8385362241885588928}
+  m_CullTransparentMesh: 1
+--- !u!114 &8448150322894529995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8385362241885588928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 0.21568629, b: 0.21568629, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 991665a374e7c50409135538e1c5ac20, type: 3}
+    m_FontSize: 30
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 2
+    m_MaxSize: 40
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: "T\u1EA7ng 2"
+--- !u!114 &3729738103669006951
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8385362241885588928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 1, g: 1, b: 1, a: 1}
+  m_EffectDistance: {x: 1, y: -1}
+  m_UseGraphicAlpha: 1
 --- !u!1001 &2285660281247855099
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -134,6 +230,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 261c56bd24f5f4e8c874fb2f7669e2f0,
         type: 3}
+    - target: {fileID: 1442209726936613192, guid: d31ea8968d9164e7f8769ea3803e4da4,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 496.42
+      objectReference: {fileID: 0}
     - target: {fileID: 1785072734678698265, guid: d31ea8968d9164e7f8769ea3803e4da4,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -257,16 +358,24 @@ PrefabInstance:
     - target: {fileID: 5541999641889772925, guid: d31ea8968d9164e7f8769ea3803e4da4,
         type: 3}
       propertyPath: m_Text
-      value: "Tranh Ho\u1EA1 R\u1ED3ng"
+      value: "T\u01B0\u1EE3ng Krishna c\u01B0\u1EE1i tr\xEAn con qu\u1EF7 r\u1EAFn"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5541999641889772925, guid: d31ea8968d9164e7f8769ea3803e4da4,
+        type: 3}
+      propertyPath: m_FontData.m_Alignment
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5564481573256998143, guid: d31ea8968d9164e7f8769ea3803e4da4,
         type: 3}
       propertyPath: m_Text
-      value: "Th\xF4ng qua ho\u1EA1t \u0111\u1ED9ng t\xF4 m\xE0u - v\u1EBD tranh
-        R\u1ED3ng, ch\xFAng ta \u0111\u01B0\u1EE3c k\u1EBFt n\u1ED1i v\xE0 hi\u1EC3u
-        r\xF5 h\u01A1n v\u1EC1 h\xECnh t\u01B0\u1EE3ng R\u1ED3ng trong d\xE2n gian,
-        v\u1EC1 c\xE2u chuy\u1EC7n Long sinh c\u1EEDu t\u1EED - v\u1EC1 9 ng\u01B0\u1EDDi
-        con c\u1EE7a R\u1ED3ng."
+      value: "S\u1EE9c m\u1EA1nh m\xE0 qu\u1EF7 r\u1EAFn c\xF3, \u0111\xF3 l\xE0
+        th\u1EE9 s\u1EE9c m\u1EA1nh xu\u1EA5t ph\xE1t t\u1EEB nh\u1EEFng suy ngh\u0129,
+        c\u1EA3m x\xFAc ti\xEAu c\u1EF1c c\u1EE7a con ng\u01B0\u1EDDi, l\xE0 s\u1EF1
+        tham lam, s\u1EF1 \u0111\u1ED1 k\u1ECB, th\xF9 h\u1EADn, s\u1EF1 s\u1EE3
+        h\xE3i, b\u1EA5t an, s\u1EF1 ki\xEAu c\u0103ng t\u1EF1 m\xE3n.  Ch\xFAng
+        ta ch\u1EC9 c\xF3 th\u1EC3 \u0111\xE1nh b\u1EA1i n\xF3 khi \u0111\xE1nh b\u1EA1i
+        \u0111\u01B0\u1EE3c nh\u1EEFng c\u1EA3m x\xFAc, suy ngh\u0129 ti\xEAu c\u1EF1c
+        n\xE0y. "
       objectReference: {fileID: 0}
     - target: {fileID: 6666674956039170463, guid: d31ea8968d9164e7f8769ea3803e4da4,
         type: 3}
@@ -288,11 +397,27 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -11
       objectReference: {fileID: 0}
+    - target: {fileID: 8989027111280157107, guid: d31ea8968d9164e7f8769ea3803e4da4,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8989027111280157107, guid: d31ea8968d9164e7f8769ea3803e4da4,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 100
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d31ea8968d9164e7f8769ea3803e4da4, type: 3}
 --- !u!224 &3229952444398616386 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3705146691124973241, guid: d31ea8968d9164e7f8769ea3803e4da4,
+    type: 3}
+  m_PrefabInstance: {fileID: 2285660281247855099}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &9103936901495226283 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 7057111526205689424, guid: d31ea8968d9164e7f8769ea3803e4da4,
     type: 3}
   m_PrefabInstance: {fileID: 2285660281247855099}
   m_PrefabAsset: {fileID: 0}
