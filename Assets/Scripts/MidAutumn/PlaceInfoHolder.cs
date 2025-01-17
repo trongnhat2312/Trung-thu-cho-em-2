@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -18,14 +19,22 @@ public class PlaceInfoHolder : MonoBehaviour
     }
 
 
-    public void OpenPlaceInfo(int i, bool isUnlocked)
+    public void OpenPlaceInfo(int i, bool isUnlocked, Action callback = null)
     {
 	    numPlace = i;
 		int offset = isUnlocked ? StaticParamClass.MAX_PLACE : 0;
 	    var placeInfo = Instantiate(PlaceInfos[i + offset]);
 		placeInfo.transform.SetParent(transform, false);
 		placeInfo.name = "PlaceInfo " + i;
-        QuestionButton.gameObject.SetActive(isUnlocked);
+        QuestionButton.gameObject.SetActive(isUnlocked && i != 0);
+
+        try
+        {
+            placeInfo.GetComponent<PlaceInfo>().Open(callback);
+        }
+        catch (Exception exception)
+        {
+        }
     }
 
     public void ClosePopup()

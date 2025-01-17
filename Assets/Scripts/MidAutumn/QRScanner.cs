@@ -34,6 +34,8 @@ public class QRScanner : MonoBehaviour {
 	public GameObject ChucmungComplete;
 	private bool isChange = false;
 
+	public GameObject PlaceInfoPrefab;
+
 	// Disable Screen Rotation on that screen
 	void Awake()
 	{
@@ -41,11 +43,11 @@ public class QRScanner : MonoBehaviour {
 		Screen.autorotateToPortraitUpsideDown = false;
 	}
 
-	void Start () {
+	void Start() {
 
 		ChucmungObj.SetActive(false);
 		ChucmungComplete.SetActive(false);
-		
+
 		Console.WriteLine("Out: " + StaticParamClass.GoFromOutside);
 		if (StaticParamClass.GoFromOutside == true)
 		{
@@ -53,16 +55,7 @@ public class QRScanner : MonoBehaviour {
 			StaticParamClass.DaCheckRoi = true;
 			Console.WriteLine("DaCheckRoi: " + StaticParamClass.DaCheckRoi);
 
-			// nếu đã lưu Checkin Name vào máy rồi => chỉ việc load data về
-			if (PlayerPrefs.HasKey(StaticParamClass.PrefCheckinName) && !PlayerPrefs.GetString(StaticParamClass.PrefCheckinName).Equals(""))
-			{
-				StartCoroutine(GetData(PlayerPrefs.GetString(StaticParamClass.PrefCheckinNumber)));
-			}
-			else
-			{
-				// nếu chưa lưu Checkin Name vào máy => tạo lại??? 
-				GotoCheckin(StaticParamClass.CheckinPlace);
-			}
+			ProcessScannedQR(true);
 		} else
 		{
 			// Create a basic scanner
@@ -85,9 +78,38 @@ public class QRScanner : MonoBehaviour {
 			};
 		}
 
-		
-		
+
+
 	}
+
+	void ProcessScannedQR(bool fromOpenWeb = false)
+	{
+		// nếu đã lưu Checkin Name vào máy rồi => chỉ việc load data về rồi xử lý
+		if (IsSignedUp())
+		{
+			// đã đăng ký => load data và xử lý sau khi load
+			// Check in and go to Main;
+			Debug.Log("Go to main directly: " + PlayerPrefs.GetString(StaticParamClass.PrefCheckinName));
+
+			StartCoroutine(GetData(PlayerPrefs.GetString(StaticParamClass.PrefCheckinNumber)));
+		}
+		else
+		{
+			// nếu chưa lưu Checkin Name vào máy => là mới => intro => sau đó xem xét để chúc mừng
+			PlaceInfo = Instantiate(PlaceInfoPrefab, root);
+			PlaceInfo.name = "Place Info";
+			PlaceInfo.GetComponent<PlaceInfoHolder>().OpenPlaceInfo(0, StaticParamClass.IsMapUnlocked[0],
+				() =>
+				{
+					GotoCongrats(StaticParamClass.CheckinPlace);
+				});
+		}
+	}
+	[HideInInspector]
+	public GameObject PlaceInfo;
+
+	[SerializeField]
+	public Transform root;
 
 	/// <summary>
 	/// Start a scan and wait for the callback (wait 1s after a scan success to avoid scanning multiple time the same element)
@@ -101,7 +123,7 @@ public class QRScanner : MonoBehaviour {
 		StaticParamClass.DaCheckRoi = true;
 		BarcodeScanner.Scan((barCodeType, barCodeValue) => {
 			Debug.Log(barCodeType + " -- " + barCodeValue);
-			
+
 			//if (TextHeader.text.Length > 250)
 			//{
 			//	TextHeader.text = "";
@@ -131,21 +153,8 @@ public class QRScanner : MonoBehaviour {
 						StaticParamClass.IsMapUnlocked[StaticParamClass.CheckinPlace] = true;
 					}
 
-
-					if (PlayerPrefs.HasKey(StaticParamClass.PrefCheckinName) && !PlayerPrefs.GetString(StaticParamClass.PrefCheckinName).Equals(""))
-					{
-						// Check in and go to Main;
-						Debug.Log("Go to main directly: " + PlayerPrefs.GetString(StaticParamClass.PrefCheckinName));
-
-						StartCoroutine(GetData(PlayerPrefs.GetString(StaticParamClass.PrefCheckinNumber)));
-					}
-					else
-					{
-						
-						GotoCheckin(StaticParamClass.CheckinPlace);
-					}
-
-
+					// xử lý thông tin sau khi nhận QR Code
+					ProcessScannedQR();
 				}
 			} else
 			{
@@ -153,9 +162,9 @@ public class QRScanner : MonoBehaviour {
 				Debug.Log("Error barcode: " + barCodeType + " / " + barCodeValue + "\n");
 				StartScanner();
 			}
-			
-			
-			
+
+
+
 			// Save the place info here -- Redirect to Main or Checkin
 			//int place = (new System.Random()).Next(MainController.MAX_PLACE);
 			//MainController.Instance.curPlace = place;
@@ -166,11 +175,13 @@ public class QRScanner : MonoBehaviour {
 			// Feedback
 			//Audio.Play();
 
-			#if UNITY_ANDROID || UNITY_IOS
+#if UNITY_ANDROID || UNITY_IOS
 			Handheld.Vibrate();
-			#endif
+#endif
 		});
 	}
+
+	
 
 	public void ChangeCamera()
 	{
@@ -187,7 +198,7 @@ public class QRScanner : MonoBehaviour {
 			// Display the camera texture through a RawImage
 			BarcodeScanner.OnReady += (sender, arg) => {
 				// Set Orientation & Texture
-				
+
 				Image.transform.localEulerAngles = BarcodeScanner.Camera.GetEulerAngles();
 				Image.transform.localScale = BarcodeScanner.Camera.GetScale();
 				Image.texture = BarcodeScanner.Camera.Texture;
@@ -211,29 +222,39 @@ public class QRScanner : MonoBehaviour {
 	}
 
 
+	protected bool IsTargetPlace(int placeId)
+	{
+		// fix cứng Tết 2025:
+		// địa điểm số 0 không cần target
+		return placeId != 0;
+	}
+
 
 	/// <summary>
 	/// a: là string data các địa điểm user đã checkin
 	/// </summary>
 	/// <param name="a"></param>
 	/// <param name="name"></param>
-	public void getCheckIn(string a, string name)
+	public void OnDataLoaded(string a, string name)
 	{
 		StaticParamClass.CheckedIn = a;
-		if (!StaticParamClass.CheckedIn.Contains(StaticParamClass.CheckinPlace.ToString()))
+		int currentPlace = StaticParamClass.CheckinPlace;
+		if (!StaticParamClass.CheckedIn.Contains(currentPlace.ToString())
+			&& IsTargetPlace(currentPlace))
 		{
 			// nếu chưa checkin địa điểm này => đây là địa điểm mới!!!
+			// và địa điểm mới này là địa điểm target
 
 			//PlaceNum.text = "SỐ "  + (StaticParamClass.CheckinPlace + 1);
-			PlaceNum.text = WordOfPlace(StaticParamClass.CheckinPlace);
+			PlaceNum.text = WordOfPlace(currentPlace);
 			SoundBase.Instance.GetComponent<AudioSource>().PlayOneShot(SoundBase.Instance.checkIn);
-			StaticParamClass.CheckedIn += ";" + StaticParamClass.CheckinPlace.ToString();
+			StaticParamClass.CheckedIn += ";" + currentPlace.ToString();
 
 			// show chúc mừng đã checkin được địa điểm
 			ChucmungObj.SetActive(true);
 			for (int i = 0; i < areaPieces.Count; i++)
 			{
-				if (i == StaticParamClass.CheckinPlace)
+				if (i == currentPlace)
 				{
 					areaPieces[i].SetActive(true);
 				}
@@ -246,21 +267,18 @@ public class QRScanner : MonoBehaviour {
 		else
 		{
 			// nếu đã checkin rồi => update lại data...
+			// hoặc là địa điểm này không cần phải target (không cần show kết quả).
 
 			//Checkin checkin = new Checkin();
 			//Debug.Log(checkin);
-			StartCoroutine(Checkin.CheckinPre(
-				PlayerPrefs.GetString(StaticParamClass.PrefCheckinName),
-				PlayerPrefs.GetString(StaticParamClass.PrefCheckinNumber),
-				StaticParamClass.CheckinPlace)
-				);
+			SaveDataAndBackToMain();
 		}
 	}
 
 	public IEnumerator GetData(string name)
 	{
 
-		SetGetUserData.GetCheckedinPlace_(name, getCheckIn);
+		SetGetUserData.GetCheckedinPlace_(name, OnDataLoaded);
 		yield return null;
 	}
 
@@ -274,14 +292,14 @@ public class QRScanner : MonoBehaviour {
 	/// </summary>
 	void Update()
 	{
-		if(!isChange)
+		if (!isChange)
 		{
 			if (BarcodeScanner != null)
 			{
 				BarcodeScanner.Update();
 			}
 		}
-		
+
 
 		// Check if the Scanner need to be started or restarted
 		if (RestartTime != 0 && RestartTime < Time.realtimeSinceStartup)
@@ -291,8 +309,27 @@ public class QRScanner : MonoBehaviour {
 		}
 	}
 
-	public void GotoCheckin(int place)
+	public void GotoCongrats(int place)
 	{
+		// nếu không phải target => xử lý khác
+		if (!IsTargetPlace(place))
+		{
+			if (IsSignedUp())
+			{
+				// đã đăng ký => về main luôn
+				SaveDataAndBackToMain();
+			}
+			else
+			{
+				// chưa đăng ký thì đi đăng ký
+				GoToSignUp();
+			}
+			return;
+		}
+
+
+		// show chúc mừng
+
 		//PlaceNum.text = "SỐ " + (StaticParamClass.CheckinPlace + 1);
 		PlaceNum.text = WordOfPlace(StaticParamClass.CheckinPlace);
 		SoundBase.Instance.GetComponent<AudioSource>().PlayOneShot(SoundBase.Instance.checkIn);
@@ -300,7 +337,7 @@ public class QRScanner : MonoBehaviour {
 		StaticParamClass.CheckedIn += ";" + StaticParamClass.CheckinPlace.ToString();
 		for (int i = 0; i < areaPieces.Count; i++)
 		{
-			if(i == place)
+			if (i == place)
 			{
 				areaPieces[i].SetActive(true);
 			} else
@@ -308,8 +345,8 @@ public class QRScanner : MonoBehaviour {
 				areaPieces[i].SetActive(false);
 			}
 		}
-		
-		
+
+
 		//StartCoroutine(StopCamera(() => {
 		//	SceneManager.LoadScene("Checkin");
 		//}));
@@ -323,11 +360,12 @@ public class QRScanner : MonoBehaviour {
 		SoundBase.Instance.GetComponent<AudioSource>().PlayOneShot(SoundBase.Instance.click);
 
 		// check lại quá trình, xem đã check in chưa
-		if (PlayerPrefs.HasKey(StaticParamClass.PrefCheckinName) && !PlayerPrefs.GetString(StaticParamClass.PrefCheckinName).Equals(""))
+		if (IsSignedUp())
 		{
 			// nếu đã checkin rồi => kiểm tra xem hoàn thành chưa
 
-			if(StaticParamClass.CheckedIn.Contains("0") &&
+			if (
+				//StaticParamClass.CheckedIn.Contains("0") &&
 				StaticParamClass.CheckedIn.Contains("1") &&
 				StaticParamClass.CheckedIn.Contains("2") &&
 				StaticParamClass.CheckedIn.Contains("3") &&
@@ -341,30 +379,47 @@ public class QRScanner : MonoBehaviour {
 			{
 
 				// chea hoàn thành => save data và về Main
-				StartCoroutine(Checkin.CheckinPre(
-				PlayerPrefs.GetString(StaticParamClass.PrefCheckinName),
-				PlayerPrefs.GetString(StaticParamClass.PrefCheckinNumber),
-				StaticParamClass.CheckinPlace)
-				);
+				SaveDataAndBackToMain();
 			}
 		}
 		else
 		{
-
-			StartCoroutine(StopCamera(() => {
-				SceneManager.LoadScene("Checkin");
-			}));
+			GoToSignUp();
 		}
 	}
 
-	public void OKButtonComplete()
+	void GoToSignUp()
 	{
-		SoundBase.Instance.GetComponent<AudioSource>().PlayOneShot(SoundBase.Instance.click);
+		StartCoroutine(StopCamera(() => {
+			SceneManager.LoadScene("Checkin");
+		}));
+	}
+
+	bool IsSignedUp()
+	{
+		bool isSavedName = PlayerPrefs.HasKey(StaticParamClass.PrefCheckinName);
+		if (isSavedName)
+		{
+			bool isSavedNameNotNull = !PlayerPrefs.GetString(StaticParamClass.PrefCheckinName).Equals("");
+			return isSavedNameNotNull;
+		}
+		return false;
+	}
+
+	void SaveDataAndBackToMain()
+	{
 		StartCoroutine(Checkin.CheckinPre(
 				PlayerPrefs.GetString(StaticParamClass.PrefCheckinName),
 				PlayerPrefs.GetString(StaticParamClass.PrefCheckinNumber),
 				StaticParamClass.CheckinPlace)
 				);
+	}
+
+	public void OKButtonComplete()
+	{
+		SoundBase.Instance.GetComponent<AudioSource>().PlayOneShot(SoundBase.Instance.click);
+
+		SaveDataAndBackToMain();
 	}
 
 	#region UI Buttons

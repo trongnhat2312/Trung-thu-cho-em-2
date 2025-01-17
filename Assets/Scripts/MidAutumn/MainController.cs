@@ -186,6 +186,7 @@ public class MainController : MonoBehaviour
 			// todo - dont need to show. or must show then close then show completed anim
 			return;
 		}
+
 		PlaceInfo = Instantiate(PlaceInfoPrefab);
 		PlaceInfo.transform.SetParent(MainScreen.transform.parent, false);
 		PlaceInfo.name = "Place Info";
