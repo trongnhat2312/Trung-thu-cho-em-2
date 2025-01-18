@@ -1284,10 +1284,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "B\u1EA1n nh\u1EADn \u0111\u01B0\u1EE3c cu\u1ED1n s\xE1ch th\xF4ng tu\u1EC7
-    t\u1EEB Solomon!\nH\xE3y ghi nh\u1EDB r\u1EB1ng tr\xED tu\u1EC7 th\u1EF1c s\u1EF1
-    l\xE0 nh\xECn m\u1ECDi vi\u1EC7c tr\xEAn th\u1EBF gian n\xE0y b\u1EB1ng t\xECnh
-    y\xEAu th\u01B0\u01A1ng!"
+  m_Text: "B\u1EA1n \u0111\u01B0\u1EE3c th\u1EA7n Naga h\u01B0\u1EDBng d\u1EABn c\xE1ch
+    m\xE0i r\xECu!\nBi\u1EBFt khi\xEAm t\u1ED1n v\xE0 ch\u0103m ch\u1EC9 m\xE0i r\u0169a
+    b\u1EA3n th\xE2n th\xEC s\u1EE9c m\u1EA1nh m\u1EDBi c\xF3 th\u1EC3 n\u1EA3y n\u1EDF!"
 --- !u!222 &376737544
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1556,7 +1555,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "B\u1EA1n nh\u1EADn \u0111\u01B0\u1EE3c chi\u1EBFc Khi\xEAn t\u1EEB c\xE1c
+  m_Text: "B\u1EA1n nh\u1EADn \u0111\u01B0\u1EE3c chi\u1EBFc GheNgo t\u1EEB c\xE1c
     v\u1ECB th\u1EA7n! \nH\xE3y nh\u1EDB r\u1EB1ng m\xECnh lu\xF4n \u0111\u01B0\u1EE3c
     che tr\u1EDF, h\xE3y lu\xF4n c\xF3 Ni\u1EC1m tin v\xE0o nh\u1EEFng \u0111i\u1EC1u
     t\u1ED1t \u0111\u1EB9p nh\xE9!"
@@ -1712,10 +1711,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "B\u1EA1n nh\u1EADn \u0111\u01B0\u1EE3c l\xE1 th\u01B0 ch\u1EC9 d\u1EABn
-    c\u1EE7a th\u1EA7n Krisna!\nH\xE3y nh\u1EDB k\u0129! Trong \u0111\xF3 ch\u1EE9a
-    b\xE0i h\u1ECDc qu\xFD gi\xE1 m\xE0 t\u1EA5t c\u1EA3 ch\xFAng ta c\u1EA7n ph\u1EA3i
-    h\u1ECDc!"
+  m_Text: "B\u1EA1n nh\u1EADn \u0111\u01B0\u1EE3c th\xF4ng \u0111i\u1EC7p t\u1EEB
+    tr\xF2 ch\u01A1i V\u1EBD r\u1EAFn!\nH\xE3y tr\u1EDF th\xE0nh nh\u1EEFng ng\u01B0\u1EDDi
+    anh h\xF9ng nh\xE9!"
 --- !u!222 &584717733
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1783,7 +1781,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 24fc9bb8c929249c3b2036fe1704ae95, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a29f282fad96848e8a742b65ecd3ee26, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1872,10 +1870,10 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "B\u1EA1n nh\u1EADn \u0111\u01B0\u1EE3c L\u1ECD n\u01B0\u1EDBc th\u1EA7n
-    t\u1EEB \xD4ng L\u1ED1t!\nH\xE3y Bi\u1EBFt \u01A1n, Bi\u1EBFt \u0111\u1EE7 v\xEC
-    ch\xFAng ta lu\xF4n nh\u1EADn \u0111\u01B0\u1EE3c r\u1EA5t nhi\u1EC1u t\u1EEB
-    c\xE1c v\u1ECB th\u1EA7n, t\u1EEB m\u1ECDi th\u1EE9 xung quanh!"
+  m_Text: "B\u1EA1n nh\u1EADn \u0111\u01B0\u1EE3c L\u1ECD n\u01B0\u1EDBc t\u1EEB
+    \xD4ng L\u1ED1t!\nH\xE3y Bi\u1EBFt \u01A1n, Bi\u1EBFt \u0111\u1EE7 v\xEC ch\xFAng
+    ta lu\xF4n nh\u1EADn \u0111\u01B0\u1EE3c r\u1EA5t nhi\u1EC1u t\u1EEB c\xE1c v\u1ECB
+    th\u1EA7n, t\u1EEB m\u1ECDi th\u1EE9 xung quanh!"
 --- !u!222 &677065873
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2054,7 +2052,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &833210877
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2564,10 +2562,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "B\u1EA1n nh\u1EADn \u0111\u01B0\u1EE3c l\xE1 th\u01B0 ch\u1EC9 d\u1EABn
-    c\u1EE7a th\u1EA7n Krisna!\nH\xE3y nh\u1EDB k\u0129! Trong \u0111\xF3 ch\u1EE9a
-    b\xE0i h\u1ECDc qu\xFD gi\xE1 m\xE0 t\u1EA5t c\u1EA3 ch\xFAng ta c\u1EA7n ph\u1EA3i
-    h\u1ECDc!"
+  m_Text: "B\u1EA1n nh\u1EADn \u0111\u01B0\u1EE3c th\xF4ng \u0111i\u1EC7p t\u1EEB
+    tr\xF2 ch\u01A1i V\u1EBD r\u1EAFn!\nH\xE3y tr\u1EDF th\xE0nh nh\u1EEFng ng\u01B0\u1EDDi
+    anh h\xF9ng nh\xE9!"
 --- !u!222 &985635779
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3090,7 +3087,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: a29f282fad96848e8a742b65ecd3ee26, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 24fc9bb8c929249c3b2036fe1704ae95, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3367,10 +3364,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "B\u1EA1n nh\u1EADn \u0111\u01B0\u1EE3c r\xECu s\u1EE9c m\u1EA1nh c\u1EE7a
-    th\u1EA7n r\u1EAFn Naga!\nBi\u1EBFt khi\xEAm t\u1ED1n v\xE0 ch\u0103m ch\u1EC9
-    m\xE0i r\u0169a b\u1EA3n th\xE2n th\xEC s\u1EE9c m\u1EA1nh m\u1EDBi c\xF3 th\u1EC3
-    n\u1EA3y n\u1EDF!"
+  m_Text: "B\u1EA1n \u0111\u01B0\u1EE3c th\u1EA7n Krisna d\u1EA1y \u0111\xE0n 1 b\xE0i
+    nh\u1EA1c hay!\nH\xE3y nh\u1EDB k\u0129! Trong \u0111\xF3 ch\u1EE9a b\xE0i h\u1ECDc
+    qu\xFD gi\xE1 m\xE0 t\u1EA5t c\u1EA3 ch\xFAng ta c\u1EA7n ph\u1EA3i h\u1ECDc!"
 --- !u!222 &1412437821
 CanvasRenderer:
   m_ObjectHideFlags: 0

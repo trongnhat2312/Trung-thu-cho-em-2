@@ -15,40 +15,36 @@ MonoBehaviour:
   Categories:
   - CategoryName: "To\xE0 Tr\u1ED1ng \u0110\u1ED3ng - \xD4ng L\u1ED1t"
     Questions:
-    - Question: "Trong \u0111i\u1EC7n th\u1EDD, Thanh x\xE0 - B\u1EA1ch x\xE0 \u0111\u01B0\u1EE3c
-        b\xE0i tr\xED \u1EDF \u0111\xE2u "
-      Answer1: "Ban th\u1EDD b\xEAn tr\xE1i"
-      Answer2: "G\u1EA7m ban th\u1EDD ho\u1EB7c v\u1EAFt tr\xEAn x\xE0 nh\xE0 ho\u1EB7c
-        ban th\u1EDD "
-      Answer3: "Ban th\u1EDD b\xEAn ph\u1EA3i "
-      Answer4: "\u1EDE c\u1EEDa v\xE0o \u0111i\u1EC7n th\u1EDD"
-      CorrectIndex: 1
-    - Question: "Trong \u0111i\u1EC7n th\u1EDD, Thanh x\xE0 - B\u1EA1ch x\xE0 \u0111\u01B0\u1EE3c
-        b\xE0i tr\xED \u1EDF \u0111\xE2u "
-      Answer1: "Ban th\u1EDD b\xEAn tr\xE1i"
-      Answer2: "G\u1EA7m ban th\u1EDD ho\u1EB7c v\u1EAFt tr\xEAn x\xE0 nh\xE0 ho\u1EB7c
-        ban th\u1EDD "
-      Answer3: "Ban th\u1EDD b\xEAn ph\u1EA3i "
-      Answer4: "\u1EDE c\u1EEDa v\xE0o \u0111i\u1EC7n th\u1EDD"
-      CorrectIndex: 1
+    - Question: "\xD4ng \u0110\xF4i hay \xD4ng L\u1ED1t hay Thanh x\xE0, B\u1EA1ch
+        x\xE0 t\u1EE9c r\u1EAFn xanh, r\u1EAFn tr\u1EAFng t\u01B0\u1EE3ng tr\u01B0ng
+        cho \u0111i\u1EC1u g\xEC?"
+      Answer1: "Cho d\xF2ng s\xF4ng, ngu\u1ED3n n\u01B0\u1EDBc g\u1EAFn v\u1EDBi
+        t\xEDn ng\u01B0\u1EE1ng n\xF4ng nghi\u1EC7p v\xE0 th\u1EDD \u0111a th\u1EA7n
+        c\u1EE7a ng\u01B0\u1EDDi Vi\u1EC7t \u0111\u1ED3ng b\u1EB1ng B\u1EAFc B\u1ED9. "
+      Answer2: "Cho \u0111\u1EA1i d\u01B0\u01A1ng, ngu\u1ED3n n\u01B0\u1EDBc g\u1EAFn
+        v\u1EDBi t\xEDn ng\u01B0\u1EE1ng n\xF4ng nghi\u1EC7p v\xE0 th\u1EDD \u0111a
+        th\u1EA7n c\u1EE7a ng\u01B0\u1EDDi M\u01B0\u1EDDng."
+      Answer3: "Cho d\xF2ng su\u1ED1i, ngu\u1ED3n n\u01B0\u1EDBc g\u1EAFn v\u1EDBi
+        t\xEDn ng\u01B0\u1EE1ng n\xF4ng nghi\u1EC7p v\xE0 th\u1EDD \u0111a th\u1EA7n
+        c\u1EE7a ng\u01B0\u1EDDi Th\xE1i. "
+      Answer4: "C\u1EA3 4 \u0111\xE1p \xE1n tr\xEAn"
+      CorrectIndex: 0
   - CategoryName: "To\xE0 Tr\u1ED1ng \u0110\u1ED3ng - \xD4ng L\u1ED1t"
     Questions:
-    - Question: "Trong \u0111i\u1EC7n th\u1EDD, Thanh x\xE0 - B\u1EA1ch x\xE0 \u0111\u01B0\u1EE3c
-        b\xE0i tr\xED \u1EDF \u0111\xE2u "
-      Answer1: "Ban th\u1EDD b\xEAn tr\xE1i"
-      Answer2: "G\u1EA7m ban th\u1EDD ho\u1EB7c v\u1EAFt tr\xEAn x\xE0 nh\xE0 ho\u1EB7c
-        ban th\u1EDD "
-      Answer3: "Ban th\u1EDD b\xEAn ph\u1EA3i "
-      Answer4: "\u1EDE c\u1EEDa v\xE0o \u0111i\u1EC7n th\u1EDD"
-      CorrectIndex: 1
-    - Question: "Trong \u0111i\u1EC7n th\u1EDD, Thanh x\xE0 - B\u1EA1ch x\xE0 \u0111\u01B0\u1EE3c
-        b\xE0i tr\xED \u1EDF \u0111\xE2u "
-      Answer1: "Ban th\u1EDD b\xEAn tr\xE1i"
-      Answer2: "G\u1EA7m ban th\u1EDD ho\u1EB7c v\u1EAFt tr\xEAn x\xE0 nh\xE0 ho\u1EB7c
-        ban th\u1EDD "
-      Answer3: "Ban th\u1EDD b\xEAn ph\u1EA3i "
-      Answer4: "\u1EDE c\u1EEDa v\xE0o \u0111i\u1EC7n th\u1EDD"
-      CorrectIndex: 1
+    - Question: "\xD4ng \u0110\xF4i hay \xD4ng L\u1ED1t hay Thanh x\xE0, B\u1EA1ch
+        x\xE0 t\u1EE9c r\u1EAFn xanh, r\u1EAFn tr\u1EAFng t\u01B0\u1EE3ng tr\u01B0ng
+        cho \u0111i\u1EC1u g\xEC?"
+      Answer1: "Cho d\xF2ng s\xF4ng, ngu\u1ED3n n\u01B0\u1EDBc g\u1EAFn v\u1EDBi
+        t\xEDn ng\u01B0\u1EE1ng n\xF4ng nghi\u1EC7p v\xE0 th\u1EDD \u0111a th\u1EA7n
+        c\u1EE7a ng\u01B0\u1EDDi Vi\u1EC7t \u0111\u1ED3ng b\u1EB1ng B\u1EAFc B\u1ED9. "
+      Answer2: "Cho \u0111\u1EA1i d\u01B0\u01A1ng, ngu\u1ED3n n\u01B0\u1EDBc g\u1EAFn
+        v\u1EDBi t\xEDn ng\u01B0\u1EE1ng n\xF4ng nghi\u1EC7p v\xE0 th\u1EDD \u0111a
+        th\u1EA7n c\u1EE7a ng\u01B0\u1EDDi M\u01B0\u1EDDng."
+      Answer3: "Cho d\xF2ng su\u1ED1i, ngu\u1ED3n n\u01B0\u1EDBc g\u1EAFn v\u1EDBi
+        t\xEDn ng\u01B0\u1EE1ng n\xF4ng nghi\u1EC7p v\xE0 th\u1EDD \u0111a th\u1EA7n
+        c\u1EE7a ng\u01B0\u1EDDi Th\xE1i. "
+      Answer4: "C\u1EA3 4 \u0111\xE1p \xE1n tr\xEAn"
+      CorrectIndex: 0
   - CategoryName: "V\u01B0\u1EDDn Ki\u1EBFn Tr\xFAc - Ghe ngo c\u1EE7a ng\u01B0\u1EDDi
       Khmer"
     Questions:
@@ -59,67 +55,38 @@ MonoBehaviour:
       Answer3: "2 - 3 l\u1EA7n m\u1ED7i n\u0103m "
       Answer4: "M\u1ED7i Th\xE1ng 1 l\u1EA7n"
       CorrectIndex: 1
-    - Question: "M\u1ED7i n\u0103m, chi\u1EBFc Ghe Ngo \u0111\u01B0\u1EE3c h\u1EA1
-        th\u1EE7y m\u1EA5y l\u1EA7n? "
-      Answer1: "Kh\xF4ng \u0111\u01B0\u1EE3c h\u1EA1 th\u1EE7y"
-      Answer2: "1 l\u1EA7n m\u1ED7i n\u0103m "
-      Answer3: "2 - 3 l\u1EA7n m\u1ED7i n\u0103m "
-      Answer4: "M\u1ED7i Th\xE1ng 1 l\u1EA7n"
-      CorrectIndex: 1
-  - CategoryName: "To\xE0 C\xE1nh Di\u1EC1u - T\u1EA7ng 1 - B\u1EE9c tranh Ti\xEAn
-      tri Solomon v\xE0 c\xE1c lo\xE0i v\u1EADt"
-    Questions:
-    - Question: "Lo\xE0i v\u1EADt n\xE0o sau \u0111\xE2y kh\xF4ng c\xF3 trong b\u1EE9c
-        tranh m\xE0 c\xE1c b\u1EA1n v\u1EEBa xem? "
-      Answer1: "Ng\u1EF1a"
-      Answer2: "R\u1EAFn"
-      Answer3: "C\xE1 voi xanh"
-      Answer4: "C\u1EA3 3 lo\xE0i tr\xEAn"
-      CorrectIndex: 2
-    - Question: "Lo\xE0i v\u1EADt n\xE0o sau \u0111\xE2y kh\xF4ng c\xF3 trong b\u1EE9c
-        tranh m\xE0 c\xE1c b\u1EA1n v\u1EEBa xem? "
-      Answer1: "Ng\u1EF1a"
-      Answer2: "R\u1EAFn"
-      Answer3: "C\xE1 voi xanh"
-      Answer4: "C\u1EA3 3 lo\xE0i tr\xEAn"
-      CorrectIndex: 2
   - CategoryName: "To\xE0 C\xE1nh Di\u1EC1u - T\u1EA7ng 1 - R\u1EAFn th\u1EA7n Naga
       c\u1EE7a ng\u01B0\u1EDDi Myanmar"
     Questions:
-    - Question: "Trong ngh\u1EC7 thu\u1EADt m\xFAa r\u1ED1i d\xE2y Myanmar, r\u1EAFn
-        th\u1EA7n Naga th\u01B0\u1EDDng xu\u1EA5t hi\u1EC7n trong ng\u1EEF c\u1EA3nh
-        n\xE0o? "
-      Answer1: "K\u1EC3 chuy\u1EC7n d\xE2n gian v\u1EC1 \u0111\u1ED9ng v\u1EADt"
-      Answer2: "Nh\u1EEFng c\xE2u chuy\u1EC7n ti\u1EC1n ki\u1EBFp c\u1EE7a \u0110\u1EE9c
-        Ph\u1EADt"
-      Answer3: "L\u1EC5 h\u1ED9i truy\u1EC1n th\u1ED1ng m\xF9a xu\xE2n "
-      Answer4: "C\xE1c cu\u1ED9c chi\u1EBFn th\u1EA7n tho\u1EA1i gi\u1EEFa c\xE1c
-        v\u1ECB th\u1EA7n "
-      CorrectIndex: 1
-    - Question: "Trong ngh\u1EC7 thu\u1EADt m\xFAa r\u1ED1i d\xE2y Myanmar, r\u1EAFn
-        th\u1EA7n Naga th\u01B0\u1EDDng xu\u1EA5t hi\u1EC7n trong ng\u1EEF c\u1EA3nh
-        n\xE0o? "
-      Answer1: "K\u1EC3 chuy\u1EC7n d\xE2n gian v\u1EC1 \u0111\u1ED9ng v\u1EADt"
-      Answer2: "Nh\u1EEFng c\xE2u chuy\u1EC7n ti\u1EC1n ki\u1EBFp c\u1EE7a \u0110\u1EE9c
-        Ph\u1EADt"
-      Answer3: "L\u1EC5 h\u1ED9i truy\u1EC1n th\u1ED1ng m\xF9a xu\xE2n "
-      Answer4: "C\xE1c cu\u1ED9c chi\u1EBFn th\u1EA7n tho\u1EA1i gi\u1EEFa c\xE1c
-        v\u1ECB th\u1EA7n "
+    - Question: "Trong c\xE1c v\u1EDF r\u1ED1i d\xE2y, Naga th\u01B0\u1EDDng \u0111\u01B0\u1EE3c
+        th\u1EC3 hi\u1EC7n h\xECnh d\xE1ng nh\u01B0 th\u1EBF n\xE0o? "
+      Answer1: "th\u1EC3 hi\u1EC7n v\u1EDBi h\xECnh d\xE1ng c\u1EE9ng r\u1EAFn, th\u1EC3
+        hi\u1EC7n s\u1EF1 linh ho\u1EA1t v\xE0 quy\u1EC1n n\u0103ng."
+      Answer2: "th\u1EC3 hi\u1EC7n v\u1EDBi h\xECnh d\xE1ng uy\u1EC3n chuy\u1EC3n,
+        th\u1EC3 hi\u1EC7n s\u1EF1 vui nh\u1ED9n."
+      Answer3: "th\u1EC3 hi\u1EC7n v\u1EDBi h\xECnh d\xE1ng uy\u1EC3n chuy\u1EC3n,
+        th\u1EC3 hi\u1EC7n s\u1EF1 linh ho\u1EA1t v\xE0 quy\u1EC1n n\u0103ng."
+      Answer4: "C\u1EA3 3 \u0111\xE1p \xE1n tr\xEAn \u0111\u1EC1u \u0111\xFAng"
+      CorrectIndex: 2
+  - CategoryName: "To\xE0 C\xE1nh Di\u1EC1u - T\u1EA7ng 2 - T\u01B0\u1EE3ng Krishna
+      c\u01B0\u1EE1i tr\xEAn con qu\u1EF7 r\u1EAFn"
+    Questions:
+    - Question: "Th\u1EA7n Krishna \u0111\xE3 ch\u1EBF ng\u1EF1 \u0111\u01B0\u1EE3c
+        qu\u1EF7 r\u1EAFn khi n\xF3 l\xE0m \xF4 u\u1EBF d\xF2ng s\xF4ng th\xE1nh
+        n\xE0o?"
+      Answer1: "S\xF4ng Krishna"
+      Answer2: "S\xF4ng Yamuna"
+      Answer3: "S\xF4ng Nile"
+      Answer4: "T\u1EA5t c\u1EA3 ph\u01B0\u01A1ng \xE1n tr\xEAn"
       CorrectIndex: 1
   - CategoryName: "To\xE0 C\xE1nh Di\u1EC1u - T\u1EA7ng 2 - T\u01B0\u1EE3ng Krishna
       c\u01B0\u1EE1i tr\xEAn con qu\u1EF7 r\u1EAFn"
     Questions:
-    - Question: "Trong c\xE2u chuy\u1EC7n v\u1EC1 Krishna \u0111\xE1nh b\u1EA1i qu\u1EF7
-        r\u1EAFn Kaliya, qu\u1EF7 r\u1EAFn Kaliya \u0111\xE3 m\u1EAFc t\u1ED9i g\xEC? "
-      Answer1: "T\u1EA5n c\xF4ng c\xE1c v\u1ECB th\u1EA7n "
-      Answer2: "B\u1EAFt c\xF3c tr\u1EBB con trong l\xE0ng"
-      Answer3: "\u0110\u1EA7u \u0111\u1ED9c ngu\u1ED3n n\u01B0\u1EDBc s\xF4ng"
+    - Question: "Th\u1EA7n Krishna \u0111\xE3 ch\u1EBF ng\u1EF1 \u0111\u01B0\u1EE3c
+        qu\u1EF7 r\u1EAFn khi n\xF3 l\xE0m \xF4 u\u1EBF d\xF2ng s\xF4ng th\xE1nh
+        n\xE0o?"
+      Answer1: "S\xF4ng Krishna"
+      Answer2: "S\xF4ng Yamuna"
+      Answer3: "S\xF4ng Nile"
       Answer4: "T\u1EA5t c\u1EA3 ph\u01B0\u01A1ng \xE1n tr\xEAn"
-      CorrectIndex: 2
-    - Question: "Trong c\xE2u chuy\u1EC7n v\u1EC1 Krishna \u0111\xE1nh b\u1EA1i qu\u1EF7
-        r\u1EAFn Kaliya, qu\u1EF7 r\u1EAFn Kaliya \u0111\xE3 m\u1EAFc t\u1ED9i g\xEC? "
-      Answer1: "T\u1EA5n c\xF4ng c\xE1c v\u1ECB th\u1EA7n "
-      Answer2: "B\u1EAFt c\xF3c tr\u1EBB con trong l\xE0ng"
-      Answer3: "\u0110\u1EA7u \u0111\u1ED9c ngu\u1ED3n n\u01B0\u1EDBc s\xF4ng"
-      Answer4: "T\u1EA5t c\u1EA3 ph\u01B0\u01A1ng \xE1n tr\xEAn"
-      CorrectIndex: 2
+      CorrectIndex: 1
