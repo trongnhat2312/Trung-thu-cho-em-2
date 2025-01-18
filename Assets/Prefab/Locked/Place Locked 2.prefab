@@ -91,6 +91,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 045a4da069f12f84d86067bc18d9fb2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  listPages: []
+  m_OkButton: {fileID: 0}
+  m_BackButton: {fileID: 0}
+  m_NextButton: {fileID: 0}
   Title: {fileID: 0}
 --- !u!114 &5030133868795381734
 MonoBehaviour:
@@ -257,9 +261,16 @@ PrefabInstance:
     - target: {fileID: 4681055706970796000, guid: a8a63616c54ae4144a98c8abdd964c6b,
         type: 3}
       propertyPath: m_Text
-      value: "T\u1EA7ng 1, to\xE0 Tr\u1ED1ng \u0111\u1ED3ng, \u1EDF \u0110i\u1EC7n
-        th\u1EDD M\u1EABu c\xF3 \xD4ng L\u1ED1t l\xE0 hai v\u1ECB th\u1EA7n bi\u1EC3u
-        t\u01B0\u1EE3ng c\u1EE7a th\u1EE7y th\u1EA7n mi\u1EC1n s\xF4ng n\u01B0\u1EDBc."
+      value: "T\u1EA7ng 1, to\xE0 Tr\u1ED1ng \u0111\u1ED3ng. Thanh X\xE0 - B\u1EA1ch
+        X\xE0, hay c\xF2n g\u1ECDi l\xE0 \xD4ng L\u1ED1t \u1EDF \u0110i\u1EC7n th\u1EDD
+        M\u1EABu l\xE0 hai v\u1ECB th\u1EA7n bi\u1EC3u t\u01B0\u1EE3ng c\u1EE7a thu\u1EF7
+        th\u1EA7n mi\u1EC1n s\xF4ng n\u01B0\u1EDBc. C\xE1c ng\xE0i s\u1EBD cho ch\xFAng
+        ta th\u1EA7n l\u1EF1c t\u1EEB ngu\u1ED3n n\u01B0\u1EDBc thi\xEAng li\xEAng."
+      objectReference: {fileID: 0}
+    - target: {fileID: 4681055706970796000, guid: a8a63616c54ae4144a98c8abdd964c6b,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 39
       objectReference: {fileID: 0}
     - target: {fileID: 4694530443076245090, guid: a8a63616c54ae4144a98c8abdd964c6b,
         type: 3}

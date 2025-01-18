@@ -91,6 +91,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 045a4da069f12f84d86067bc18d9fb2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  listPages: []
+  m_OkButton: {fileID: 0}
+  m_BackButton: {fileID: 0}
+  m_NextButton: {fileID: 0}
   Title: {fileID: 0}
 --- !u!114 &5030133868795381734
 MonoBehaviour:
@@ -269,8 +273,8 @@ PrefabInstance:
       propertyPath: m_Text
       value: "\xD4ng L\u1ED1t l\xE0 hai v\u1ECB th\u1EA7n bi\u1EC3u t\u01B0\u1EE3ng
         c\u1EE7a th\u1EE7y th\u1EA7n mi\u1EC1n s\xF4ng n\u01B0\u1EDBc.\nL\u1ECD n\u01B0\u1EDBc
-        th\u1EA7n c\u1EE7a \xD4ng L\u1ED1t cho ch\xFAng ta b\xE0i h\u1ECDc v\u1EC1
-        L\xF2ng Bi\u1EBFt \u01A1n, Bi\u1EBFt \u0111\u1EE7."
+        c\u1EE7a \xD4ng L\u1ED1t cho ch\xFAng ta b\xE0i h\u1ECDc v\u1EC1 L\xF2ng
+        Bi\u1EBFt \u01A1n, Bi\u1EBFt \u0111\u1EE7."
       objectReference: {fileID: 0}
     - target: {fileID: 5564481573256998143, guid: d31ea8968d9164e7f8769ea3803e4da4,
         type: 3}
@@ -285,7 +289,7 @@ PrefabInstance:
     - target: {fileID: 6795505185537628967, guid: d31ea8968d9164e7f8769ea3803e4da4,
         type: 3}
       propertyPath: m_Text
-      value: "Kho b\xE1u s\u1ED1 2"
+      value: "\u0110\u1ECBa \u0111i\u1EC3m s\u1ED1 2"
       objectReference: {fileID: 0}
     - target: {fileID: 7057111526205689424, guid: d31ea8968d9164e7f8769ea3803e4da4,
         type: 3}

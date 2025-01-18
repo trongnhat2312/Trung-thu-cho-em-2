@@ -91,6 +91,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 045a4da069f12f84d86067bc18d9fb2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  listPages: []
+  m_OkButton: {fileID: 0}
+  m_BackButton: {fileID: 0}
+  m_NextButton: {fileID: 0}
   Title: {fileID: 0}
 --- !u!114 &5030133868795381734
 MonoBehaviour:
@@ -247,20 +251,22 @@ PrefabInstance:
     - target: {fileID: 4681055706970796000, guid: a8a63616c54ae4144a98c8abdd964c6b,
         type: 3}
       propertyPath: m_Text
-      value: "B\u1EE9c t\u01B0\u1EE3ng \u0111\u1EC1 c\u1EADp \u0111\u1EBFn m\u1ED9t
-        trong nh\u1EEFng th\u1EA7n tho\u1EA1i n\u1ED5i ti\u1EBFng nh\u1EA5t trong
-        Hindu gi\xE1o \u0111\xF3 l\xE0 truy\u1EC1n thuy\u1EBFt Krishna \u0111\xE1nh
-        b\u1EA1i con qu\u1EF7 r\u1EAFn Kaliya Naag."
+      value: "M\u1ED9t \u0111\u1ECBa \u0111i\u1EC3m h\u1EBFt s\u1EE9c \u0111\u1EB7c
+        bi\u1EC7t. N\u01A1i m\xE0 ch\xFAng ta \u0111\u01B0\u1EE3c ch\u01A1i tr\xF2
+        ch\u01A1i c\xF4ng ngh\u1EC7, nh\u1EEFng tr\xF2 ch\u01A1i ch\u1EE9a \u0111\u1EF1ng
+        nhi\u1EC1u th\xF4ng \u0111i\u1EC7p v\u0103n ho\xE1 di s\u1EA3n c\u1EE7a \xF4ng
+        cha ta!\nTr\u1EA3i nghi\u1EC7m V\u1EBD r\u1EAFn s\u1EBD th\xFA v\u1ECB l\u1EAFm
+        \u0111\xE2y!"
       objectReference: {fileID: 0}
     - target: {fileID: 4681055706970796000, guid: a8a63616c54ae4144a98c8abdd964c6b,
         type: 3}
       propertyPath: m_FontData.m_FontSize
-      value: 40
+      value: 39
       objectReference: {fileID: 0}
     - target: {fileID: 4694530443076245090, guid: a8a63616c54ae4144a98c8abdd964c6b,
         type: 3}
       propertyPath: m_Text
-      value: "T\u01B0\u1EE3ng Krishna c\u01B0\u1EE1i tr\xEAn con qu\u1EF7 r\u1EAFn"
+      value: "Tr\u1EA3i nghi\u1EC7m N\u0103m r\u1EAFn - V\u1EBD r\u1EAFn"
       objectReference: {fileID: 0}
     - target: {fileID: 4694530443076245090, guid: a8a63616c54ae4144a98c8abdd964c6b,
         type: 3}

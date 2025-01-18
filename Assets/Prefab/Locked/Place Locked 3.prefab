@@ -91,6 +91,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 045a4da069f12f84d86067bc18d9fb2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  listPages: []
+  m_OkButton: {fileID: 0}
+  m_BackButton: {fileID: 0}
+  m_NextButton: {fileID: 0}
   Title: {fileID: 0}
 --- !u!114 &5030133868795381734
 MonoBehaviour:
@@ -257,11 +261,19 @@ PrefabInstance:
     - target: {fileID: 4681055706970796000, guid: a8a63616c54ae4144a98c8abdd964c6b,
         type: 3}
       propertyPath: m_Text
-      value: "l\xE0 m\u1ED9t chi\u1EBFc thuy\u1EC1n \u0111\u1ED9c m\u1ED9c \u0111\u01B0\u1EE3c
-        l\xE0m theo h\xECnh t\u01B0\u1EE3ng t\u1EF1a nh\u01B0 r\u1EAFn.Y\u1EBFu t\u1ED1
-        t\xE2m linh c\xF2n \u0111\u01B0\u1EE3c t\xECm th\u1EA5y trong quan ni\u1EC7m
-        xem m\u1ED7i chi\u1EBFc ghe c\xF3 m\u1ED9t v\u1ECB th\u1EA7n b\u1EA3o h\u1ED9
-        cho con ng\u01B0\u1EDDi khi qua s\xF4ng."
+      value: "Ghe Ngo l\xE0 m\u1ED9t v\u1EADt quan tr\u1ECDng trong \u0111\u1EDDi
+        s\u1ED1ng v\u0103n h\xF3a t\xEDn ng\u01B0\u1EE1ng c\u1EE7a \u0111\u1ED3ng
+        b\xE0o Khmer Nam B\u1ED9. Ghe ngo (Tuk Ng\xF4) kh\u1EDFi nguy\xEAn l\xE0
+        m\u1ED9t chi\u1EBFc thuy\u1EC1n \u0111\u1ED9c m\u1ED9c \u0111\u01B0\u1EE3c
+        l\xE0m theo h\xECnh t\u01B0\u1EE3ng t\u1EF1a nh\u01B0 r\u1EAFn.\nM\u1ED7i
+        chi\u1EBFc ghe c\xF3 m\u1ED9t v\u1ECB th\u1EA7n b\u1EA3o h\u1ED9, ng\u01B0\u1EDDi
+        s\u1EBD cho ch\xFAng ta t\u1EA5m khi\xEAn v\u1EEFng ch\u1EAFc, che ch\u1EDF
+        cho ch\xFAng ta tr\u01B0\u1EDBc m\u1ECDi \u0111\xF2n t\u1EA5n c\xF4ng. "
+      objectReference: {fileID: 0}
+    - target: {fileID: 4681055706970796000, guid: a8a63616c54ae4144a98c8abdd964c6b,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 38
       objectReference: {fileID: 0}
     - target: {fileID: 4694530443076245090, guid: a8a63616c54ae4144a98c8abdd964c6b,
         type: 3}

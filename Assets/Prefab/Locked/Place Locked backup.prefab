@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7347792032906393712}
   - component: {fileID: 5030133868795381734}
   m_Layer: 5
-  m_Name: Place Locked 5
+  m_Name: Place Locked backup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32,7 +32,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 8678390340992992807}
+  - {fileID: 2327713930501009917}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -91,10 +91,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 045a4da069f12f84d86067bc18d9fb2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  listPages: []
-  m_OkButton: {fileID: 0}
-  m_BackButton: {fileID: 0}
-  m_NextButton: {fileID: 0}
   Title: {fileID: 0}
 --- !u!114 &5030133868795381734
 MonoBehaviour:
@@ -115,7 +111,7 @@ MonoBehaviour:
   m_ColorMode: 0
   m_BlurMode: 0
   m_AdvancedBlur: 0
---- !u!1001 &5722224618140577182
+--- !u!1001 &1678445785952262724
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -145,18 +141,23 @@ PrefabInstance:
     - target: {fileID: 1859058402594128471, guid: a8a63616c54ae4144a98c8abdd964c6b,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 435.04
+      value: 563.95
       objectReference: {fileID: 0}
     - target: {fileID: 2829988592991357445, guid: a8a63616c54ae4144a98c8abdd964c6b,
         type: 3}
       propertyPath: m_Text
       value: "T\u1EA7ng 1"
       objectReference: {fileID: 0}
+    - target: {fileID: 3308633841385410579, guid: a8a63616c54ae4144a98c8abdd964c6b,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -222
+      objectReference: {fileID: 0}
     - target: {fileID: 3901927790824488973, guid: a8a63616c54ae4144a98c8abdd964c6b,
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: ab9aaef0d0abf4d72b7fca480e0238fb,
+      objectReference: {fileID: 21300000, guid: a88b364f12e404668bc9280f869ff8c4,
         type: 3}
     - target: {fileID: 3965062061906602937, guid: a8a63616c54ae4144a98c8abdd964c6b,
         type: 3}
@@ -271,27 +272,19 @@ PrefabInstance:
     - target: {fileID: 4681055706970796000, guid: a8a63616c54ae4144a98c8abdd964c6b,
         type: 3}
       propertyPath: m_Text
-      value: "B\u1EE9c t\u01B0\u1EE3ng th\u1EA7n Krishna nh\u1EA3y m\xFAa tr\xEAn
-        \u0111\u1EA7u r\u1EAFn qu\u1EF7 Kaliya. \u0110\xE2y l\xE0 m\u1ED9t trong
-        nh\u1EEFng th\u1EA7n tho\u1EA1i n\u1ED5i ti\u1EBFng nh\u1EA5t Hindu gi\xE1o.\nC\xE2u
-        chuy\u1EC7n Krishna \u0111\xE1nh b\u1EA1i r\u1EAFn qu\u1EF7 Kaliya s\u1EBD
-        cho ch\xFAng ta bi\u1EBFt c\xE1ch \u0111\u1EC3 \u0111\xE1nh b\u1EA1i ch\u1EB1n
-        tin nh\u01B0 th\u1EBF n\xE0o."
-      objectReference: {fileID: 0}
-    - target: {fileID: 4681055706970796000, guid: a8a63616c54ae4144a98c8abdd964c6b,
-        type: 3}
-      propertyPath: m_FontData.m_MaxSize
-      value: 300
-      objectReference: {fileID: 0}
-    - target: {fileID: 4681055706970796000, guid: a8a63616c54ae4144a98c8abdd964c6b,
-        type: 3}
-      propertyPath: m_FontData.m_FontSize
-      value: 36
+      value: "B\u1EE9c tranh n\xE0y kh\u1EAFc h\u1ECDa m\u1ED9t c\u1EA3nh t\u01B0\u1EE3ng
+        \u0111\u1EB7c bi\u1EC7t v\u1EC1 ti\xEAn tri Sulaiman (Solomon) trong \u0111\u1EA1o
+        H\u1ED3i. Solomon \u0111\u01B0\u1EE3c bao quanh b\u1EDFi v\xF4 s\u1ED1 \u0111\u1ED9ng
+        v\u1EADt, t\u1EEB chim mu\xF4ng tr\xEAn tr\u1EDDi \u0111\u1EBFn th\xFA v\u1EADt
+        d\u01B0\u1EDBi \u0111\u1EA5t. H\xECnh \u1EA3nh n\xE0y t\u01B0\u1EE3ng tr\u01B0ng
+        cho quy\u1EC1n n\u0103ng v\xE0 s\u1EF1 cai tr\u1ECB c\u1EE7a \xF4ng \u0111\u1ED1i
+        v\u1EDBi to\xE0n b\u1ED9 th\u1EBF gi\u1EDBi t\u1EF1 nhi\xEAn, m\u1ED9t \xE2n
+        hu\u1EC7 \u0111\u1EB7c bi\u1EC7t t\u1EEB Th\u01B0\u1EE3ng \u0111\u1EBF."
       objectReference: {fileID: 0}
     - target: {fileID: 4694530443076245090, guid: a8a63616c54ae4144a98c8abdd964c6b,
         type: 3}
       propertyPath: m_Text
-      value: "T\u01B0\u1EE3ng Krishna c\u01B0\u1EE1i tr\xEAn con qu\u1EF7 r\u1EAFn"
+      value: "B\u1EE9c tranh nh\xE0 ti\xEAn tri Solomon"
       objectReference: {fileID: 0}
     - target: {fileID: 4694530443076245090, guid: a8a63616c54ae4144a98c8abdd964c6b,
         type: 3}
@@ -300,24 +293,39 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4694530443076245090, guid: a8a63616c54ae4144a98c8abdd964c6b,
         type: 3}
+      propertyPath: m_FontData.m_MinSize
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4694530443076245090, guid: a8a63616c54ae4144a98c8abdd964c6b,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 54
+      objectReference: {fileID: 0}
+    - target: {fileID: 4694530443076245090, guid: a8a63616c54ae4144a98c8abdd964c6b,
+        type: 3}
       propertyPath: m_FontData.m_VerticalOverflow
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4694530443076245090, guid: a8a63616c54ae4144a98c8abdd964c6b,
+        type: 3}
+      propertyPath: m_FontData.m_HorizontalOverflow
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6550233355722178911, guid: a8a63616c54ae4144a98c8abdd964c6b,
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: bc9061572a033444fb01cc5c8f1d00f9,
+      objectReference: {fileID: 21300000, guid: 4451872a201330a438bcff86911f4eb7,
         type: 3}
     - target: {fileID: 6817733577615987617, guid: a8a63616c54ae4144a98c8abdd964c6b,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 188
+      value: 173
       objectReference: {fileID: 0}
     - target: {fileID: 6817733577615987617, guid: a8a63616c54ae4144a98c8abdd964c6b,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 37
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 7896055226756700956, guid: a8a63616c54ae4144a98c8abdd964c6b,
         type: 3}
@@ -337,23 +345,23 @@ PrefabInstance:
     - target: {fileID: 8174034798240211628, guid: a8a63616c54ae4144a98c8abdd964c6b,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -49
+      value: -46
       objectReference: {fileID: 0}
     - target: {fileID: 8362003927098064998, guid: a8a63616c54ae4144a98c8abdd964c6b,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 225.00002
+      value: 210
       objectReference: {fileID: 0}
     - target: {fileID: 8362003927098064998, guid: a8a63616c54ae4144a98c8abdd964c6b,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 36.999985
+      value: 17.99997
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a8a63616c54ae4144a98c8abdd964c6b, type: 3}
---- !u!224 &8678390340992992807 stripped
+--- !u!224 &2327713930501009917 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3965062061906602937, guid: a8a63616c54ae4144a98c8abdd964c6b,
     type: 3}
-  m_PrefabInstance: {fileID: 5722224618140577182}
+  m_PrefabInstance: {fileID: 1678445785952262724}
   m_PrefabAsset: {fileID: 0}
