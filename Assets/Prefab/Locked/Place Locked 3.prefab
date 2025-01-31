@@ -143,6 +143,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: ClosePopup
       objectReference: {fileID: 0}
+    - target: {fileID: 1859058402594128471, guid: a8a63616c54ae4144a98c8abdd964c6b,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 500
+      objectReference: {fileID: 0}
     - target: {fileID: 1870543463908166807, guid: a8a63616c54ae4144a98c8abdd964c6b,
         type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -273,8 +278,7 @@ PrefabInstance:
         m\u1ED9t chi\u1EBFc thuy\u1EC1n \u0111\u1ED9c m\u1ED9c \u0111\u01B0\u1EE3c
         l\xE0m theo h\xECnh t\u01B0\u1EE3ng t\u1EF1a nh\u01B0 r\u1EAFn.\nM\u1ED7i
         chi\u1EBFc ghe c\xF3 m\u1ED9t v\u1ECB th\u1EA7n b\u1EA3o h\u1ED9, ng\u01B0\u1EDDi
-        s\u1EBD cho ch\xFAng ta t\u1EA5m khi\xEAn v\u1EEFng ch\u1EAFc, che ch\u1EDF
-        cho ch\xFAng ta tr\u01B0\u1EDBc m\u1ECDi \u0111\xF2n t\u1EA5n c\xF4ng. "
+        s\u1EBD che ch\u1EDF cho ch\xFAng ta tr\u01B0\u1EDBc m\u1ECDi kh\xF3 kh\u0103n. "
       objectReference: {fileID: 0}
     - target: {fileID: 4681055706970796000, guid: a8a63616c54ae4144a98c8abdd964c6b,
         type: 3}
@@ -331,6 +335,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 215
+      objectReference: {fileID: 0}
+    - target: {fileID: 6618181623357083993, guid: a8a63616c54ae4144a98c8abdd964c6b,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -120
       objectReference: {fileID: 0}
     - target: {fileID: 6817733577615987617, guid: a8a63616c54ae4144a98c8abdd964c6b,
         type: 3}

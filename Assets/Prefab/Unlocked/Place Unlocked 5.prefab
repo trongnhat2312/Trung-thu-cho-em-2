@@ -93,6 +93,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   listPages: []
   m_OkButton: {fileID: 0}
+  m_QRButton: {fileID: 0}
   m_BackButton: {fileID: 0}
   m_NextButton: {fileID: 0}
   Title: {fileID: 0}
@@ -242,7 +243,7 @@ PrefabInstance:
     - target: {fileID: 1442209726936613192, guid: d31ea8968d9164e7f8769ea3803e4da4,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 597.8276
+      value: 1520.06
       objectReference: {fileID: 0}
     - target: {fileID: 1785072734678698265, guid: d31ea8968d9164e7f8769ea3803e4da4,
         type: 3}
@@ -382,14 +383,29 @@ PrefabInstance:
     - target: {fileID: 5564481573256998143, guid: d31ea8968d9164e7f8769ea3803e4da4,
         type: 3}
       propertyPath: m_Text
-      value: "S\u1EE9c m\u1EA1nh m\xE0 qu\u1EF7 r\u1EAFn c\xF3, \u0111\xF3 l\xE0
-        th\u1EE9 s\u1EE9c m\u1EA1nh xu\u1EA5t ph\xE1t t\u1EEB nh\u1EEFng suy ngh\u0129,
-        c\u1EA3m x\xFAc ti\xEAu c\u1EF1c c\u1EE7a con ng\u01B0\u1EDDi, l\xE0 s\u1EF1
-        tham lam, s\u1EF1 \u0111\u1ED1 k\u1ECB, th\xF9 h\u1EADn, s\u1EF1 s\u1EE3
-        h\xE3i, b\u1EA5t an, s\u1EF1 ki\xEAu c\u0103ng t\u1EF1 m\xE3n.  Ch\xFAng
-        ta ch\u1EC9 c\xF3 th\u1EC3 \u0111\xE1nh b\u1EA1i n\xF3 khi \u0111\xE1nh b\u1EA1i
-        \u0111\u01B0\u1EE3c nh\u1EEFng c\u1EA3m x\xFAc, suy ngh\u0129 ti\xEAu c\u1EF1c
-        n\xE0y. "
+      value: "Krishna l\xE0 m\u1ED9t v\u1ECB th\u1EA7n \u1EA4n \u0110\u1ED9 trong
+        \u0111\u1EC1n th\u1EDD Hindu \u0111\u01B0\u1EE3c t\xF4n k\xEDnh v\xE0 ca
+        t\u1EE5ng. Ng\xE0i th\u01B0\u1EDDng xu\u1EA5t hi\u1EC7n trong c\xE1c t\xE1c
+        ph\u1EA9m ngh\u1EC7 thu\u1EADt, \u0111i\xEAu kh\u1EAFc v\xE0 ki\u1EBFn tr\xFAc.
+        Krishna l\xE0 m\u1ED9t trong nhi\u1EC1u hi\u1EC7n th\xE2n (h\xECnh d\u1EA1ng
+        ho\u1EB7c bi\u1EC3u hi\u1EC7n) c\u1EE7a v\u1ECB th\u1EA7n Vishnu. Theo c\xE1c
+        t\xEDn \u0111\u1ED3 Ng\xE0i l\xE0 v\u1ECB th\u1EA7n c\u1EE7a l\xF2ng tr\u1EAFc
+        \u1EA9n, t\xECnh y\xEAu v\xE0 tr\xED tu\u1EC7, mang l\u1EA1i may m\u1EAFn,
+        s\u1EE9c kh\u1ECFe v\xE0 xua \u0111i h\u1EADn th\xF9.\nKrishna xu\u1EA5t
+        hi\u1EC7n d\u01B0\u1EDBi d\u1EA1ng nh\xE2n h\xECnh (gi\u1ED1ng con ng\u01B0\u1EDDi),
+        l\xE0 m\u1ED9t nh\xE2n v\u1EADt nam c\xF3 l\xE0n da m\xE0u xanh. Ng\xE0i
+        m\u1EB7c m\u1ED9t chi\u1EBFc \xE1o m\xE0u v\xE0ng ho\u1EB7c cam, \u0111eo
+        v\u01B0\u01A1ng mi\u1EC7n trang tr\xED b\u1EB1ng l\xF4ng c\xF4ng v\xE0 c\u1EA7m
+        m\u1ED9t c\xE2y s\xE1o.\nT\u01B0\u01A1ng truy\u1EC1n r\u1EB1ng, qu\u1EF7
+        v\u01B0\u01A1ng Kansa nhi\u1EC1u l\u1EA7n sai ti\u1EC3u qu\u1EF7 Bakasura
+        v\xE0 Aghasura h\xF3a ph\xE9p th\xE0nh r\u1EAFn v\xE0 ng\u1EF1a kh\u1ED5ng
+        l\u1ED3, \u0111i gi\u1EBFt ch\u1EBFt Krishna. Nh\u1EEFng Ng\xE0i \u0111\u1EAB
+        ch\u1EBF ng\u1EF1 \u0111\u01B0\u1EE3c nh\u1EEFng con ti\u1EC3u qu\u1EF7,
+        ch\u1EB7n n\xF3 l\xE0m \xF4 u\u1EBF d\xF2ng s\xF4ng th\xE1nh Yamuna, v\xE0
+        kh\u01A1i d\xF2ng ch\u1EA3y tr\u1EDF v\u1EC1 \u0111\u1EA1i d\u01B0\u01A1ng.
+        Ng\xE0i \u0111\u1EE9ng tr\xEAn con r\u1EAFn t\u1EEB nh\xE1nh c\xE2y Kadamba
+        l\u1EDBn, nh\u1EA3y m\xFAa tr\xEAn \u0111\u1EA7u n\xF3, bu\u1ED9c n\xF3 ph\u1EA3i
+        ch\u1ECBu khu\u1EA5t ph\u1EE5c."
       objectReference: {fileID: 0}
     - target: {fileID: 6666674956039170463, guid: d31ea8968d9164e7f8769ea3803e4da4,
         type: 3}

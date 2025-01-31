@@ -7233,6 +7233,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2060888542}
     m_Modifications:
+    - target: {fileID: 2674416037487968268, guid: a70b5410155f63a4ea6bbfbc3388eadd,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4730625508856670081, guid: a70b5410155f63a4ea6bbfbc3388eadd,
         type: 3}
       propertyPath: m_Name
@@ -10774,33 +10779,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2060888542}
     m_Modifications:
-    - target: {fileID: 3729658087386527539, guid: 969ccb6793c109f44af3e1ea0b5d86fd,
-        type: 3}
-      propertyPath: m_Text
-      value: "Krishna l\xE0 m\u1ED9t v\u1ECB th\u1EA7n \u1EA4n \u0110\u1ED9 trong
-        \u0111\u1EC1n th\u1EDD Hindu \u0111\u01B0\u1EE3c t\xF4n k\xEDnh v\xE0 ca
-        t\u1EE5ng. Ng\xE0i th\u01B0\u1EDDng xu\u1EA5t hi\u1EC7n trong c\xE1c t\xE1c
-        ph\u1EA9m ngh\u1EC7 thu\u1EADt, \u0111i\xEAu kh\u1EAFc v\xE0 ki\u1EBFn tr\xFAc.
-        Krishna l\xE0 m\u1ED9t trong nhi\u1EC1u hi\u1EC7n th\xE2n (h\xECnh d\u1EA1ng
-        ho\u1EB7c bi\u1EC3u hi\u1EC7n) c\u1EE7a v\u1ECB th\u1EA7n Vishnu. Theo c\xE1c
-        t\xEDn \u0111\u1ED3 Ng\xE0i l\xE0 v\u1ECB th\u1EA7n c\u1EE7a l\xF2ng tr\u1EAFc
-        \u1EA9n, t\xECnh y\xEAu v\xE0 tr\xED tu\u1EC7, mang l\u1EA1i may m\u1EAFn,
-        s\u1EE9c kh\u1ECFe v\xE0 xua \u0111i h\u1EADn th\xF9.\nKrishna xu\u1EA5t
-        hi\u1EC7n d\u01B0\u1EDBi d\u1EA1ng nh\xE2n h\xECnh (gi\u1ED1ng con ng\u01B0\u1EDDi),
-        l\xE0 m\u1ED9t nh\xE2n v\u1EADt nam c\xF3 l\xE0n da m\xE0u xanh. Ng\xE0i
-        m\u1EB7c m\u1ED9t chi\u1EBFc \xE1o m\xE0u v\xE0ng ho\u1EB7c cam, \u0111eo
-        v\u01B0\u01A1ng mi\u1EC7n trang tr\xED b\u1EB1ng l\xF4ng c\xF4ng v\xE0 c\u1EA7m
-        m\u1ED9t c\xE2y s\xE1o.\nT\u01B0\u01A1ng truy\u1EC1n r\u1EB1ng, qu\u1EF7
-        v\u01B0\u01A1ng Kansa nhi\u1EC1u l\u1EA7n sai ti\u1EC3u qu\u1EF7 Bakasura
-        v\xE0 Aghasura h\xF3a ph\xE9p th\xE0nh r\u1EAFn v\xE0 ng\u1EF1a kh\u1ED5ng
-        l\u1ED3, \u0111i gi\u1EBFt ch\u1EBFt Krishna. Nh\u1EEFng Ng\xE0i \u0111\u1EAB
-        ch\u1EBF ng\u1EF1 \u0111\u01B0\u1EE3c nh\u1EEFng con ti\u1EC3u qu\u1EF7,
-        ch\u1EB7n n\xF3 l\xE0m \xF4 u\u1EBF d\xF2ng s\xF4ng th\xE1nh Yamuna, v\xE0
-        kh\u01A1i d\xF2ng ch\u1EA3y tr\u1EDF v\u1EC1 \u0111\u1EA1i d\u01B0\u01A1ng.
-        Ng\xE0i \u0111\u1EE9ng tr\xEAn con r\u1EAFn t\u1EEB nh\xE1nh c\xE2y Kadamba
-        l\u1EDBn, nh\u1EA3y m\xFAa tr\xEAn \u0111\u1EA7u n\xF3, bu\u1ED9c n\xF3 ph\u1EA3i
-        ch\u1ECBu khu\u1EA5t ph\u1EE5c."
-      objectReference: {fileID: 0}
     - target: {fileID: 4730625508856670081, guid: 969ccb6793c109f44af3e1ea0b5d86fd,
         type: 3}
       propertyPath: m_Name

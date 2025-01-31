@@ -93,6 +93,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   listPages: []
   m_OkButton: {fileID: 0}
+  m_QRButton: {fileID: 0}
   m_BackButton: {fileID: 0}
   m_NextButton: {fileID: 0}
   Title: {fileID: 0}
@@ -138,6 +139,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: b3de7adf893bf40318fd2b884e81a06a,
         type: 3}
+    - target: {fileID: 1442209726936613192, guid: d31ea8968d9164e7f8769ea3803e4da4,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 800
+      objectReference: {fileID: 0}
     - target: {fileID: 1785072734678698265, guid: d31ea8968d9164e7f8769ea3803e4da4,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -266,10 +272,26 @@ PrefabInstance:
     - target: {fileID: 5564481573256998143, guid: d31ea8968d9164e7f8769ea3803e4da4,
         type: 3}
       propertyPath: m_Text
-      value: "M\u1ED7i chi\u1EBFc ghe c\xF3 m\u1ED9t v\u1ECB th\u1EA7n b\u1EA3o h\u1ED9
-        cho con ng\u01B0\u1EDDi khi qua s\xF4ng. C\xE1c v\u1ECB th\u1EA7n lu\xF4n
-        b\u1EA3o v\u1EC7 ch\xFAng ta. V\xEC v\u1EADy, h\xE3y lu\xF4n c\xF3 ni\u1EC1m
-        tin tr\u01B0\u1EDBc m\u1ECDi kh\xF3 kh\u0103n nh\xE9!"
+      value: "Ng\u01B0\u1EDDi Kh\u01A1me th\u1EDD r\u1EAFn th\u1EA7n Naga v\u1EDBi
+        ni\u1EC1m tin th\u1EA7n l\xE0 ng\u01B0\u1EDDi l\xE0m ch\u1EE7 ngu\u1ED3n
+        n\u01B0\u1EDBc, t\u1EA1o ra m\u01B0a thu\u1EADn gi\xF3 h\xF2a. Trong ti\u1EBFng
+        Ph\u1EA1n, Naga c\xF3 ngh\u0129a l\xE0 con r\u1EAFn l\u1EDBn ho\u1EB7c r\u1EAFn
+        h\u1ED5 mang, c\u0169ng l\xE0 t\xEAn g\u1ECDi c\u1EE7a v\u1ECB th\u1EA7n
+        r\u1EAFn trong \u1EA4n \u0110\u1ED9 gi\xE1o. H\xECnh t\u01B0\u1EE3ng r\u1EAFn
+        Nagar th\u01B0\u1EDDng \u0111\u01B0\u1EE3c trang tr\xED trong c\xE1c ch\xF9a,
+        \u0111\u1EC1n th\u1EDD, c\xE1c c\xF4ng tr\xECnh t\xE2m linh\u2026 v\u1EDBi
+        \xFD ngh\u0129a l\xE0 v\u1ECB th\u1EA7n canh gi\u1EEF thi\xEAn nhi\xEAn,
+        c\xF3 kh\u1EA3 n\u0103ng b\u1EA3o v\u1EC7 ngu\u1ED3n n\u01B0\u1EDBc gi\xFAp
+        m\xF9a m\xE0ng t\u1ED1t t\u01B0\u01A1i. \nGhe ngo (tuk ngo) kh\u1EDFi nguy\xEAn
+        l\xE0 m\u1ED9t chi\u1EBFc thuy\u1EC1n \u0111\u1ED9c m\u1ED9c \u0111\u01B0\u1EE3c
+        l\xE0m theo h\xECnh t\u01B0\u1EE3ng t\u1EF1a nh\u01B0 con r\u1EAFn. Y\u1EBFu
+        t\u1ED1 t\xE2m linh c\xF2n \u0111\u01B0\u1EE3c t\xECm th\u1EA5y trong quan
+        ni\u1EC7m xem m\u1ED7i chi\u1EBFc Ghe c\xF3 m\u1ED9t v\u1ECB th\u1EA7n b\u1EA3o
+        h\u1ED9. C\xE1c v\u1ECB th\u1EA7n n\xE0y t\u1EA1o n\xEAn s\u1EE9c m\u1EA1nh
+        c\u1EE7a Ghe c\u0169ng nh\u01B0 \u0111\u1EA3m b\u1EA3o s\u1EF1 an to\xE0n
+        cho ng\u01B0\u1EDDi tham gia \u0111ua. M\u1ED7i n\u0103m, Ghe \u0111\u01B0\u1EE3c
+        h\u1EA1 th\u1EE7y m\u1ED9t l\u1EA7n v\xE0o ng\xE0y l\u1EC5 h\u1ED9i c\xFAng
+        tr\u0103ng (ok om bok) ng\xE0y 15 th\xE1ng 10 \xE2m l\u1ECBch. "
       objectReference: {fileID: 0}
     - target: {fileID: 6666674956039170463, guid: d31ea8968d9164e7f8769ea3803e4da4,
         type: 3}
