@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class Question : MonoBehaviour
 {
+	[SerializeField] GameObject checkCorrectRoot;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -54,7 +56,7 @@ public class Question : MonoBehaviour
 			////Go to next question
 			if(count == maxQuestion)
 			{
-				GoToNext.SetActive(false);
+				//GoToNext.SetActive(false);
 
 			}
 		}
@@ -62,7 +64,17 @@ public class Question : MonoBehaviour
 
 	public void ShowResult(bool isCorrect,int selectedIndex, int correctIndex)
 	{
-		if(isCorrect)
+		try
+		{
+			checkCorrectRoot.gameObject.SetActive(true);
+			checkCorrectRoot.transform.localPosition = Answers[correctIndex].transform.localPosition;
+		}
+		catch (System.Exception exception)
+		{
+		}
+
+		GoToNext.SetActive(true);
+		if (isCorrect)
 		{
 			for(int i = 0; i < Answers.Length; i++)
 			{
@@ -104,8 +116,9 @@ public class Question : MonoBehaviour
 		} else
 		{
 			// Ket thuc
+			ClosePopup();
 		}
-        
+
 		// Set lai hieu ung
 	}
 
