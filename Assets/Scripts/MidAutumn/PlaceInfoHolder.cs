@@ -19,9 +19,10 @@ public class PlaceInfoHolder : MonoBehaviour
     }
 
 
-    public void OpenPlaceInfo(int i, bool isUnlocked, Action callback = null)
+    public void OpenPlaceInfo(int i, bool isUnlocked, Action callback = null, Action openQRCallback = null)
     {
-	    numPlace = i;
+        Debug.Log($"PlaceInfoHolder: open place == {i}");
+        numPlace = i;
 		int offset = isUnlocked ? StaticParamClass.MAX_PLACE : 0;
 	    var placeInfo = Instantiate(PlaceInfos[i + offset]);
 		placeInfo.transform.SetParent(transform, false);
@@ -30,7 +31,7 @@ public class PlaceInfoHolder : MonoBehaviour
 
         try
         {
-            placeInfo.GetComponent<PlaceInfo>().Open(callback);
+            placeInfo.GetComponent<PlaceInfo>().Open(callback, openQRCallback);
         }
         catch (Exception exception)
         {

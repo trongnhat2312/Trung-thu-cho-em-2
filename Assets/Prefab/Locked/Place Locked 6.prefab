@@ -93,6 +93,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   listPages: []
   m_OkButton: {fileID: 0}
+  m_QRButton: {fileID: 5583399686528510102}
   m_BackButton: {fileID: 0}
   m_NextButton: {fileID: 0}
   Title: {fileID: 0}
@@ -132,6 +133,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 7347792032906393712}
+    - target: {fileID: 1870543463908166807, guid: a8a63616c54ae4144a98c8abdd964c6b,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -240
+      objectReference: {fileID: 0}
     - target: {fileID: 3901927790824488973, guid: a8a63616c54ae4144a98c8abdd964c6b,
         type: 3}
       propertyPath: m_Sprite
@@ -278,6 +284,16 @@ PrefabInstance:
       propertyPath: m_FontData.m_VerticalOverflow
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4779873915284139420, guid: a8a63616c54ae4144a98c8abdd964c6b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6618181623357083993, guid: a8a63616c54ae4144a98c8abdd964c6b,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 215
+      objectReference: {fileID: 0}
     - target: {fileID: 7896055226756700956, guid: a8a63616c54ae4144a98c8abdd964c6b,
         type: 3}
       propertyPath: m_IsActive
@@ -301,3 +317,15 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 3482025067309399623}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &5583399686528510102 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9020317765964420817, guid: a8a63616c54ae4144a98c8abdd964c6b,
+    type: 3}
+  m_PrefabInstance: {fileID: 3482025067309399623}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

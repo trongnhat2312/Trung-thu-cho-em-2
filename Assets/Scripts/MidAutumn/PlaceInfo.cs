@@ -27,6 +27,9 @@ public class PlaceInfo : MonoBehaviour
 	Button m_OkButton;
 
 	[SerializeField]
+	Button m_QRButton;
+
+	[SerializeField]
 	Button m_BackButton;
 
 	[SerializeField]
@@ -46,11 +49,30 @@ public class PlaceInfo : MonoBehaviour
 
 	void InitListener()
 	{
+		Debug.Log($"PlaceInfo: place == {name}, Add listener");
+
 		try
 		{
-			m_OkButton.onClick.AddListener(OnOkClicked);
-			m_NextButton.onClick.AddListener(OnNextClicked);
-			m_BackButton.onClick.AddListener(OnBackClicked);
+			if (m_OkButton != null)
+			{
+				m_OkButton.onClick.AddListener(OnOkClicked);
+			}
+			
+			if (m_QRButton != null)
+			{
+				Debug.Log($"PlaceInfo: place == {name}, Add QR Clicked listener");
+				m_QRButton.onClick.AddListener(OnQRClicked);
+			}
+
+			if (m_NextButton != null)
+			{
+				m_NextButton.onClick.AddListener(OnNextClicked);
+			}
+
+			if (m_BackButton != null)
+			{
+				m_BackButton.onClick.AddListener(OnBackClicked);
+			}
 		}
 		catch (Exception exception)
 		{
@@ -69,10 +91,31 @@ public class PlaceInfo : MonoBehaviour
 		}
 	}
 
-	Action m_Callback;
-	public void Open(Action callback)
+	void OnQRClicked()
 	{
+		Debug.Log($"PlaceInfo: place == {name}, On QR Clicked");
+		try
+		{
+			MainController.Instance.ClosePlaceInfo();
+		}
+		catch (Exception exception)
+		{
+		}
+
+		m_OpenQRCallback?.Invoke();
+	}
+
+	Action m_Callback;
+	Action m_OpenQRCallback;
+	public void Open(Action callback, Action openQRCallback = null)
+	{
+		Debug.Log($"PlaceInfo: open place == {name}, callback = {callback != null}, openQRCallback = {openQRCallback != null}");
 		m_Callback = callback;
+		m_OpenQRCallback = openQRCallback;
+		if (m_OpenQRCallback != null && m_QRButton.gameObject != null)
+		{
+			m_QRButton.gameObject.SetActive(true);
+		}
 	}
 
 	int N_Page => listPages != null ? listPages.Count : 0;

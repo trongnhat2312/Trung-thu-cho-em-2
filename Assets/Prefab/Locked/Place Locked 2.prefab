@@ -93,6 +93,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   listPages: []
   m_OkButton: {fileID: 0}
+  m_QRButton: {fileID: 5457633591125835502}
   m_BackButton: {fileID: 0}
   m_NextButton: {fileID: 0}
   Title: {fileID: 0}
@@ -141,6 +142,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: ClosePopup
+      objectReference: {fileID: 0}
+    - target: {fileID: 1870543463908166807, guid: a8a63616c54ae4144a98c8abdd964c6b,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -240
       objectReference: {fileID: 0}
     - target: {fileID: 3901927790824488973, guid: a8a63616c54ae4144a98c8abdd964c6b,
         type: 3}
@@ -261,11 +267,14 @@ PrefabInstance:
     - target: {fileID: 4681055706970796000, guid: a8a63616c54ae4144a98c8abdd964c6b,
         type: 3}
       propertyPath: m_Text
-      value: "T\u1EA7ng 1, to\xE0 Tr\u1ED1ng \u0111\u1ED3ng. Thanh X\xE0 - B\u1EA1ch
-        X\xE0, hay c\xF2n g\u1ECDi l\xE0 \xD4ng L\u1ED1t \u1EDF \u0110i\u1EC7n th\u1EDD
-        M\u1EABu l\xE0 hai v\u1ECB th\u1EA7n bi\u1EC3u t\u01B0\u1EE3ng c\u1EE7a thu\u1EF7
-        th\u1EA7n mi\u1EC1n s\xF4ng n\u01B0\u1EDBc. C\xE1c ng\xE0i s\u1EBD cho ch\xFAng
-        ta th\u1EA7n l\u1EF1c t\u1EEB ngu\u1ED3n n\u01B0\u1EDBc thi\xEAng li\xEAng."
+      value: "T\u1EA7ng 1, to\xE0 Tr\u1ED1ng \u0111\u1ED3ng, \u0110i\u1EC7n th\u1EDD
+        M\u1EABu. Linh v\u1EADt \xD4ng \u0110\xF4i hay \xD4ng L\u1ED1t hay Thanh
+        x\xE0, B\u1EA1ch x\xE0 t\u1EE9c r\u1EAFn xanh, r\u1EAFn tr\u1EAFng \u0111\u01B0\u1EE3c
+        th\u1EDD  tr\xEAn b\u1EE9c c\u1EEDa v\xF5ng c\u1EE7a Ban c\xF4ng \u0111\u1ED3ng
+        Tam ph\u1EE7. R\u1EAFn t\u01B0\u1EE3ng tr\u01B0ng cho d\xF2ng s\xF4ng, ngu\u1ED3n
+        n\u01B0\u1EDBc g\u1EAFn v\u1EDBi t\xEDn ng\u01B0\u1EE1ng n\xF4ng nghi\u1EC7p
+        v\xE0 th\u1EDD \u0111a th\u1EA7n c\u1EE7a ng\u01B0\u1EDDi Vi\u1EC7t \u0111\u1ED3ng
+        b\u1EB1ng B\u1EAFc B\u1ED9."
       objectReference: {fileID: 0}
     - target: {fileID: 4681055706970796000, guid: a8a63616c54ae4144a98c8abdd964c6b,
         type: 3}
@@ -275,7 +284,7 @@ PrefabInstance:
     - target: {fileID: 4694530443076245090, guid: a8a63616c54ae4144a98c8abdd964c6b,
         type: 3}
       propertyPath: m_Text
-      value: "To\xE0 Tr\u1ED1ng \u0110\u1ED3ng - \xD4ng L\u1ED1t"
+      value: "L\u1EC5 L\xEAn \u0111\u1ED3ng"
       objectReference: {fileID: 0}
     - target: {fileID: 4694530443076245090, guid: a8a63616c54ae4144a98c8abdd964c6b,
         type: 3}
@@ -287,12 +296,22 @@ PrefabInstance:
       propertyPath: m_FontData.m_HorizontalOverflow
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4779873915284139420, guid: a8a63616c54ae4144a98c8abdd964c6b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6550233355722178911, guid: a8a63616c54ae4144a98c8abdd964c6b,
         type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: f022c160cf5036543b8b7d38571f8ea7,
         type: 3}
+    - target: {fileID: 6618181623357083993, guid: a8a63616c54ae4144a98c8abdd964c6b,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 215
+      objectReference: {fileID: 0}
     - target: {fileID: 6817733577615987617, guid: a8a63616c54ae4144a98c8abdd964c6b,
         type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -321,3 +340,15 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 3932755054569662527}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &5457633591125835502 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9020317765964420817, guid: a8a63616c54ae4144a98c8abdd964c6b,
+    type: 3}
+  m_PrefabInstance: {fileID: 3932755054569662527}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

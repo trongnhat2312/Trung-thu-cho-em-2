@@ -48,12 +48,12 @@ public class QRScanner : MonoBehaviour {
 		ChucmungObj.SetActive(false);
 		ChucmungComplete.SetActive(false);
 
-		Console.WriteLine("Out: " + StaticParamClass.GoFromOutside);
+		Console.WriteLine($"QRScanner: Out: " + StaticParamClass.GoFromOutside);
 		if (StaticParamClass.GoFromOutside == true)
 		{
 			// nếu là vào từ bên ngoài => kiểm tra xem login chưa???
 			StaticParamClass.DaCheckRoi = true;
-			Console.WriteLine("DaCheckRoi: " + StaticParamClass.DaCheckRoi);
+			Console.WriteLine($"QRScanner: DaCheckRoi: " + StaticParamClass.DaCheckRoi);
 
 			ProcessScannedQR(true);
 		} else
@@ -84,9 +84,12 @@ public class QRScanner : MonoBehaviour {
 
 	void ProcessScannedQR(bool fromOpenWeb = false)
 	{
+		Debug.Log($"QRScanner: process Scanned QR, fromOpenWeb = {fromOpenWeb}");
+
 		// nếu đã lưu Checkin Name vào máy rồi => chỉ việc load data về rồi xử lý
 		if (IsSignedUp())
 		{
+			Debug.Log($"QRScanner: process Scanned QR, IsSignedUp");
 			// đã đăng ký => load data và xử lý sau khi load
 			// Check in and go to Main;
 			Debug.Log("Go to main directly: " + PlayerPrefs.GetString(StaticParamClass.PrefCheckinName));
@@ -95,13 +98,18 @@ public class QRScanner : MonoBehaviour {
 		}
 		else
 		{
+			Debug.Log($"QRScanner: process Scanned QR, NEW => show Intro => Congrat");
+
 			// nếu chưa lưu Checkin Name vào máy => là mới => intro => sau đó xem xét để chúc mừng
+			StaticParamClass.IsMapUnlocked[0] = true;
 			PlaceInfo = Instantiate(PlaceInfoPrefab, root);
 			PlaceInfo.name = "Place Info";
 			PlaceInfo.GetComponent<PlaceInfoHolder>().OpenPlaceInfo(0, StaticParamClass.IsMapUnlocked[0],
 				() =>
 				{
+					Debug.Log($"QRScanner: process Scanned QR, Intro Done => Congrat");
 					GotoCongrats(StaticParamClass.CheckinPlace);
+					Destroy(PlaceInfo);
 				});
 		}
 	}
@@ -311,16 +319,23 @@ public class QRScanner : MonoBehaviour {
 
 	public void GotoCongrats(int place)
 	{
+		Debug.Log($"QRScanner: Goto Congrats! ");
+
 		// nếu không phải target => xử lý khác
 		if (!IsTargetPlace(place))
 		{
+			Debug.Log($"QRScanner: No Target Place {place} => Check Signed up ");
 			if (IsSignedUp())
 			{
+				Debug.Log($"QRScanner: No Target Place {place} => Check Signed up = true => back to main");
+
 				// đã đăng ký => về main luôn
 				SaveDataAndBackToMain();
 			}
 			else
 			{
+				Debug.Log($"QRScanner: No Target Place {place} => Check Signed up = false => Go to sign up");
+
 				// chưa đăng ký thì đi đăng ký
 				GoToSignUp();
 			}
@@ -328,6 +343,7 @@ public class QRScanner : MonoBehaviour {
 		}
 
 
+		Debug.Log($"QRScanner: Is Target Place {place} => show Congrat! of place {StaticParamClass.CheckinPlace}");
 		// show chúc mừng
 
 		//PlaceNum.text = "SỐ " + (StaticParamClass.CheckinPlace + 1);

@@ -261,7 +261,7 @@ PrefabInstance:
     - target: {fileID: 5541999641889772925, guid: d31ea8968d9164e7f8769ea3803e4da4,
         type: 3}
       propertyPath: m_Text
-      value: "To\xE0 Tr\u1ED1ng \u0110\u1ED3ng - \xD4ng L\u1ED1t"
+      value: "L\u1EC5 L\xEAn \u0111\u1ED3ng"
       objectReference: {fileID: 0}
     - target: {fileID: 5541999641889772925, guid: d31ea8968d9164e7f8769ea3803e4da4,
         type: 3}
@@ -271,10 +271,17 @@ PrefabInstance:
     - target: {fileID: 5564481573256998143, guid: d31ea8968d9164e7f8769ea3803e4da4,
         type: 3}
       propertyPath: m_Text
-      value: "\xD4ng L\u1ED1t l\xE0 hai v\u1ECB th\u1EA7n bi\u1EC3u t\u01B0\u1EE3ng
-        c\u1EE7a th\u1EE7y th\u1EA7n mi\u1EC1n s\xF4ng n\u01B0\u1EDBc.\nL\u1ECD n\u01B0\u1EDBc
-        c\u1EE7a \xD4ng L\u1ED1t cho ch\xFAng ta b\xE0i h\u1ECDc v\u1EC1 L\xF2ng
-        Bi\u1EBFt \u01A1n, Bi\u1EBFt \u0111\u1EE7."
+      value: "Trong t\xEDn ng\u01B0\u1EE1ng th\u1EDD m\u1EABu c\u1EE7a ng\u01B0\u1EDDi
+        Vi\u1EC7t, ngo\xE0i th\u1EDD c\xE1c v\u1ECB th\xE1nh tr\xEAn tr\u1EDDi, d\u01B0\u1EDBi
+        \u0111\u1EA5t, d\u01B0\u1EDBi n\u01B0\u1EDBc c\xF2n th\u1EDD nh\xE2n th\u1EA7n
+        l\xE0 ng\u01B0\u1EDDi c\xF3 c\xF4ng v\u1EDBi d\xE2n, v\u1EDBi n\u01B0\u1EDBc
+        v\xE0 linh v\u1EADt. Linh v\u1EADt \xD4ng \u0110\xF4i hay \xD4ng L\u1ED1t
+        hay Thanh x\xE0, B\u1EA1ch x\xE0 t\u1EE9c r\u1EAFn xanh, r\u1EAFn tr\u1EAFng
+        \u0111\u01B0\u1EE3c th\u1EDD  tr\xEAn b\u1EE9c c\u1EEDa v\xF5ng c\u1EE7a
+        Ban c\xF4ng \u0111\u1ED3ng Tam ph\u1EE7. R\u1EAFn t\u01B0\u1EE3ng tr\u01B0ng
+        cho d\xF2ng s\xF4ng, ngu\u1ED3n n\u01B0\u1EDBc g\u1EAFn v\u1EDBi t\xEDn ng\u01B0\u1EE1ng
+        n\xF4ng nghi\u1EC7p v\xE0 th\u1EDD \u0111a th\u1EA7n c\u1EE7a ng\u01B0\u1EDDi
+        Vi\u1EC7t \u0111\u1ED3ng b\u1EB1ng B\u1EAFc B\u1ED9."
       objectReference: {fileID: 0}
     - target: {fileID: 5564481573256998143, guid: d31ea8968d9164e7f8769ea3803e4da4,
         type: 3}

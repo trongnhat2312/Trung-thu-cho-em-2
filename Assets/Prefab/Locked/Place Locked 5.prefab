@@ -93,6 +93,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   listPages: []
   m_OkButton: {fileID: 0}
+  m_QRButton: {fileID: 3623136896092732239}
   m_BackButton: {fileID: 0}
   m_NextButton: {fileID: 0}
   Title: {fileID: 0}
@@ -146,6 +147,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SizeDelta.y
       value: 435.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 1870543463908166807, guid: a8a63616c54ae4144a98c8abdd964c6b,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -240
       objectReference: {fileID: 0}
     - target: {fileID: 2829988592991357445, guid: a8a63616c54ae4144a98c8abdd964c6b,
         type: 3}
@@ -271,12 +277,20 @@ PrefabInstance:
     - target: {fileID: 4681055706970796000, guid: a8a63616c54ae4144a98c8abdd964c6b,
         type: 3}
       propertyPath: m_Text
-      value: "B\u1EE9c t\u01B0\u1EE3ng th\u1EA7n Krishna nh\u1EA3y m\xFAa tr\xEAn
-        \u0111\u1EA7u r\u1EAFn qu\u1EF7 Kaliya. \u0110\xE2y l\xE0 m\u1ED9t trong
-        nh\u1EEFng th\u1EA7n tho\u1EA1i n\u1ED5i ti\u1EBFng nh\u1EA5t Hindu gi\xE1o.\nC\xE2u
-        chuy\u1EC7n Krishna \u0111\xE1nh b\u1EA1i r\u1EAFn qu\u1EF7 Kaliya s\u1EBD
-        cho ch\xFAng ta bi\u1EBFt c\xE1ch \u0111\u1EC3 \u0111\xE1nh b\u1EA1i ch\u1EB1n
-        tin nh\u01B0 th\u1EBF n\xE0o."
+      value: "Krishna l\xE0 m\u1ED9t v\u1ECB th\u1EA7n \u1EA4n \u0110\u1ED9 trong
+        \u0111\u1EC1n th\u1EDD Hindu \u0111\u01B0\u1EE3c t\xF4n k\xEDnh v\xE0 ca
+        t\u1EE5ng. Ng\xE0i l\xE0 v\u1ECB th\u1EA7n c\u1EE7a l\xF2ng tr\u1EAFc \u1EA9n,
+        t\xECnh y\xEAu v\xE0 tr\xED tu\u1EC7, mang l\u1EA1i may m\u1EAFn, s\u1EE9c
+        kh\u1ECFe v\xE0 xua \u0111i h\u1EADn th\xF9. T\u01B0\u01A1ng truy\u1EC1n
+        r\u1EB1ng, qu\u1EF7 v\u01B0\u01A1ng Kansa nhi\u1EC1u l\u1EA7n sai ti\u1EC3u
+        qu\u1EF7 Bakasura v\xE0 Aghasura h\xF3a ph\xE9p th\xE0nh r\u1EAFn v\xE0 ng\u1EF1a
+        kh\u1ED5ng l\u1ED3, \u0111i gi\u1EBFt ch\u1EBFt Krishna. Nh\u1EEFng Ng\xE0i
+        \u0111\u1EAB ch\u1EBF ng\u1EF1 \u0111\u01B0\u1EE3c nh\u1EEFng con ti\u1EC3u
+        qu\u1EF7, ch\u1EB7n n\xF3 l\xE0m \xF4 u\u1EBF d\xF2ng s\xF4ng th\xE1nh Yamuna,
+        v\xE0 kh\u01A1i d\xF2ng ch\u1EA3y tr\u1EDF v\u1EC1 \u0111\u1EA1i d\u01B0\u01A1ng.
+        Ng\xE0i \u0111\u1EE9ng tr\xEAn con r\u1EAFn t\u1EEB nh\xE1nh c\xE2y Kadamba
+        l\u1EDBn, nh\u1EA3y m\xFAa tr\xEAn \u0111\u1EA7u n\xF3, bu\u1ED9c n\xF3 ph\u1EA3i
+        ch\u1ECBu khu\u1EA5t ph\u1EE5c."
       objectReference: {fileID: 0}
     - target: {fileID: 4681055706970796000, guid: a8a63616c54ae4144a98c8abdd964c6b,
         type: 3}
@@ -303,12 +317,22 @@ PrefabInstance:
       propertyPath: m_FontData.m_VerticalOverflow
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4779873915284139420, guid: a8a63616c54ae4144a98c8abdd964c6b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6550233355722178911, guid: a8a63616c54ae4144a98c8abdd964c6b,
         type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: bc9061572a033444fb01cc5c8f1d00f9,
         type: 3}
+    - target: {fileID: 6618181623357083993, guid: a8a63616c54ae4144a98c8abdd964c6b,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 215
+      objectReference: {fileID: 0}
     - target: {fileID: 6817733577615987617, guid: a8a63616c54ae4144a98c8abdd964c6b,
         type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -351,6 +375,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a8a63616c54ae4144a98c8abdd964c6b, type: 3}
+--- !u!114 &3623136896092732239 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9020317765964420817, guid: a8a63616c54ae4144a98c8abdd964c6b,
+    type: 3}
+  m_PrefabInstance: {fileID: 5722224618140577182}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &8678390340992992807 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3965062061906602937, guid: a8a63616c54ae4144a98c8abdd964c6b,
