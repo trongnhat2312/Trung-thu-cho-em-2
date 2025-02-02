@@ -168,7 +168,16 @@ public class MainController : MonoBehaviour
 	{
 		foreach (var pGameObject in m_MenuBaseComponents)
 		{
-			pGameObject.SetActive(isVisible);
+			try
+			{
+				if (pGameObject != null)
+				{
+					pGameObject.SetActive(isVisible);
+				}
+			}
+			catch (Exception exception)
+			{
+			}
 		}
 	}
 
@@ -316,7 +325,7 @@ public class MainController : MonoBehaviour
 	public GameObject MainScreen;
 
 	//public StarLightTransformer starLight;
-	public ParallelSentencesController parallelSentence;
+	//public ParallelSentencesController parallelSentence;
 	public GameObject ThachSanhVictory;
 
 	public GameObject ScanButton;
