@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Unity Web Player | {{{ PRODUCT_NAME }}}</title>
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=no" />
+  <style>
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background: #000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Nền blur toàn màn hình */
+    #unity-background-blur {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+
+      background: {
+          {
+            {
+            BACKGROUND_FILENAME ? 'url(\'Build/'+BACKGROUND_FILENAME.replace(/\'/g, '%27')+'\') center / cover': BACKGROUND_COLOR
+          }
+        }
+      }
+
+      ;
+      background-color: #000;
+      /* fallback khi ảnh chưa load */
+      filter: blur(20px) brightness(0.5);
+      transform: scale(1.1);
+      /* tránh viền blur bị cắt */
+      z-index: 0;
+    }
+
+    /* Giảm blur trên mobile để tăng hiệu năng */
+    @media (max-width: 480px) {
+      #unity-background-blur {
+        filter: blur(10px) brightness(0.5);
+      }
+    }
+
+    /* Container game */
+    #unity-container {
+      position: relative;
+      z-index: 1;
+      background: #000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    /* Canvas game */
+    #unity-canvas {
+      background: {
+          {
+            {
+            BACKGROUND_FILENAME ? 'url(\'Build/'+BACKGROUND_FILENAME.replace(/\'/g, '%27')+'\') center / cover': BACKGROUND_COLOR
+          }
+        }
+      }
+
+      ;
+    }
+  </style>
+  #if SHOW_DIAGNOSTICS
+  <link rel="stylesheet" href="<<<TemplateData/diagnostics.css>>>" />
+  <script src="<<<TemplateData/diagnostics.js>>>" defer></script>
+  #endif
+</head>
+
+<body>
+  <!-- Lớp nền mờ -->
+  <div id="unity-background-blur"></div>
+
+  <!-- Container game -->
+  <div id="unity-container">
+    <canvas id="unity-canvas" width={{{ WIDTH }}} height={{{ HEIGHT }}} tabindex="-1"></canvas>
+  </div>
+
+  #if SHOW_DIAGNOSTICS
+  <div id="unity-footer">
+    <img id="diagnostics-icon" src="TemplateData/webmemd-icon.png" />
+  </div>
+  #endif
+
+  <script src="Build/{{{ LOADER_FILENAME }}}"></script>
+  <script>
+    function resizeCanvas() {
+      const canvas = document.getElementById("unity-canvas");
+      const container = document.getElementById("unity-container");
+      const winWidth = window.innerWidth;
+      const winHeight = window.innerHeight;
+      const gameAspect = 9 / 18; // ngang : dọc
+      const windowAspect = winWidth / winHeight;
+
+      let targetWidth, targetHeight;
+
+      if (isMobile()) {
+        targetWidth = winWidth;
+        targetHeight = winHeight;
+      } else {
+        const gameAspectIpad = 3 / 4; // ngang : dọc
+        if (windowAspect > gameAspect) {
+          // Màn hình rộng hơn game -> full chiều cao
+          targetHeight = winHeight;
+          targetWidth = winHeight * gameAspectIpad;
+        } else {
+          // Màn hình cao hơn game -> full chiều rộng
+          targetWidth = winWidth;
+          targetHeight = winWidth / gameAspectIpad;
+        }
+      }
+
+      container.style.width = targetWidth + "px";
+      container.style.height = targetHeight + "px";
+      canvas.style.width = targetWidth + "px";
+      canvas.style.height = targetHeight + "px";
+
+      console.log(`window.innerWidth = ${winWidth}px, window.innerHeight = ${winHeight}px  ratio = ${windowAspect}`);
+
+    }
+
+    function isMobile() {
+
+      const ua = navigator.userAgent;
+      const isMobileDevice = /Mobile|Android|iPhone|iPod|BlackBerry|IEMobile|Opera Mini|webOS/i.test(ua) && !/Tablet|iPad|PlayBook|Silk|Kindle|Nexus 7|Nexus 9|SM-T|GT-P/i.test(ua);
+      return isMobileDevice;
+    }
+
+
+    // Resize ngay khi trang load
+    window.addEventListener("load", resizeCanvas);
+
+    // Resize khi cửa sổ thay đổi kích thước
+    window.addEventListener("resize", resizeCanvas);
+
+    const canvas = document.querySelector("#unity-canvas");
+
+    createUnityInstance(canvas, {
+      arguments: [],
+      dataUrl: "Build/{{{ DATA_FILENAME }}}",
+      frameworkUrl: "Build/{{{ FRAMEWORK_FILENAME }}}",
+      #if USE_THREADS
+        workerUrl: "Build/{{{ WORKER_FILENAME }}}",
+      #endif
+      #if USE_WASM
+        codeUrl: "Build/{{{ CODE_FILENAME }}}",
+      #endif
+      #if SYMBOLS_FILENAME
+        symbolsUrl: "Build/{{{ SYMBOLS_FILENAME }}}",
+      #endif
+      streamingAssetsUrl: "StreamingAssets",
+      companyName: {{{ JSON.stringify(COMPANY_NAME) }}},
+      productName: {{{ JSON.stringify(PRODUCT_NAME) }}},
+      productVersion: {{{ JSON.stringify(PRODUCT_VERSION) }}},
+      matchWebGLToCanvasSize: true,
+      devicePixelRatio: window.devicePixelRatio,
+    }).then((unityInstance) => {
+        // Resize lại sau khi UnityInstance khởi tạo xong
+        resizeCanvas();
+        #if SHOW_DIAGNOSTICS
+        document.getElementById("diagnostics-icon").onclick = () => {
+          unityDiagnostics.openDiagnosticsDiv(unityInstance.GetMetricsInfo);
+        };
+        #endif
+      }).catch((message) => {
+        alert(message);
+      });
+  </script>
+</body>
+
+</html>
