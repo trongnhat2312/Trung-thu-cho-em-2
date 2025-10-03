@@ -45,7 +45,7 @@ namespace BarcodeScanner
 				}
 			}
 
-			if(index == 0)
+			if(index == 0 && WebCamTexture.devices.Length > 1)
 			{
 				WebcamDefaultDeviceName = WebCamTexture.devices[1].name;
 			} else
