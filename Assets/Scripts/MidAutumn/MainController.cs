@@ -13,7 +13,7 @@ public class MainController : MonoBehaviour
 {
 	public static string SCENENAME_MAIN = "MidAutumn_Main";
 	public static string SCENENAME_CHECKIN = "MidAutumn_Checkin";
-	public static string SCENENAME_QRSCANNER = "MidAutumn_QRScanner"; 
+	public static string SCENENAME_QRSCANNER = "MidAutumn_QRScanner";
 
 	private void Awake()
 	{
@@ -123,48 +123,53 @@ public class MainController : MonoBehaviour
 		}
 		if (IsAllMapUnlocked())
 		{
-			Debug.Log($"MainController: update: all map unlocked => update");
-			if (_isStarEffEnabled)
+			ShowVictoryUI();
+		}
+	}
+
+	protected virtual void ShowVictoryUI()
+	{
+		Debug.Log($"MainController: update: all map unlocked => update");
+		if (_isStarEffEnabled)
+		{
+			//Debug.Log("_starLightCount:" + _starLightCount);
+			if (_starLightCount <= 0)
 			{
-				//Debug.Log("_starLightCount:" + _starLightCount);
-				if (_starLightCount <= 0)
+				Debug.Log($"MainController: update: show Victory");
+				//starLight.DoTransformToStarLight();
+				//parallelSentence.OnCompleted();
+				ThachSanhVictory.gameObject.SetActive(true);
+				SetBaseMenuComponentVisible(false);
+				_alreadyResetStarLight = false;
+				_starLightCount = StarLightInterval;
+			}
+			else
+			{
+				//_starLightCount -= Time.deltaTime;
+				//if (_starLightCount <= 1 && !_alreadyResetStarLight)
+				//{
+				//	starLight.ResetBeforeTransform();
+				//	_alreadyResetStarLight = true;
+				//	_isPlayedOnce = true;
+				//}
+				if (_starLightCount > 1)
 				{
-					Debug.Log($"MainController: update: show Victory");
-					//starLight.DoTransformToStarLight();
-					//parallelSentence.OnCompleted();
-					ThachSanhVictory.gameObject.SetActive(true);
-					SetBaseMenuComponentVisible(false);
-					_alreadyResetStarLight = false;
-					_starLightCount = StarLightInterval;
+					_starLightCount -= Time.deltaTime;
 				}
-				else
+				if (_starLightCount <= 1)
 				{
-					//_starLightCount -= Time.deltaTime;
-					//if (_starLightCount <= 1 && !_alreadyResetStarLight)
-					//{
-					//	starLight.ResetBeforeTransform();
-					//	_alreadyResetStarLight = true;
-					//	_isPlayedOnce = true;
-					//}
-					if (_starLightCount > 1)
-					{
-						_starLightCount -= Time.deltaTime;
-					}
-					if (_starLightCount <= 1)
-					{
-						_isPlayedOnce = true;
-					}
+					_isPlayedOnce = true;
 				}
 			}
+		}
 
-			if ((Input.touchCount > 0 || Input.GetMouseButtonDown(0)) && _isPlayedOnce)
-			{
-				//parallelSentence.ResetBeforeTransform();
-				//ThachSanhVictory.gameObject.SetActive(false);
-				_alreadyResetStarLight = true;
-				_isStarEffEnabled = false;
+		if ((Input.touchCount > 0 || Input.GetMouseButtonDown(0)) && _isPlayedOnce)
+		{
+			//parallelSentence.ResetBeforeTransform();
+			//ThachSanhVictory.gameObject.SetActive(false);
+			_alreadyResetStarLight = true;
+			_isStarEffEnabled = false;
 
-			}
 		}
 	}
 
