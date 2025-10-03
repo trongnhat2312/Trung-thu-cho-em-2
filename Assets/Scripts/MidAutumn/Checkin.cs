@@ -68,7 +68,7 @@ public class Checkin : MonoBehaviour
 
 		SetGetUserData.SetCheckinPlace(title);
 		StaticParamClass.GoFromInside = true;
-		SceneManager.LoadScene("Main");
+		SceneManager.LoadScene(MainController.SCENENAME_MAIN);
 	}
 
 	/// <summary>
@@ -142,7 +142,7 @@ public class Checkin : MonoBehaviour
 
 		SetGetUserData.SetCheckinPlace(title);
 		StaticParamClass.GoFromInside = true;
-		SceneManager.LoadScene("Main");
+		SceneManager.LoadScene(MainController.SCENENAME_MAIN);
 	}
 
 	public static IEnumerator CheckinPre(string name, string number, int place)
@@ -152,7 +152,7 @@ public class Checkin : MonoBehaviour
 		SetGetUserData.GetCheckedinPlace_(number, setData_);
 		yield return null;
 		//Debug.LogError("go continue");
-		//SceneManager.LoadScene("Main");
+		//SceneManager.LoadScene(MainController.SCENENAME_MAIN);
 	}
 }
 

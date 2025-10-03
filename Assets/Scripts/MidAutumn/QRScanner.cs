@@ -364,7 +364,7 @@ public class QRScanner : MonoBehaviour {
 
 
 		//StartCoroutine(StopCamera(() => {
-		//	SceneManager.LoadScene("Checkin");
+		//	SceneManager.LoadScene(MainController.SCENENAME_CHECKIN);
 		//}));
 	}
 
@@ -407,7 +407,7 @@ public class QRScanner : MonoBehaviour {
 	void GoToSignUp()
 	{
 		StartCoroutine(StopCamera(() => {
-			SceneManager.LoadScene("Checkin");
+			SceneManager.LoadScene(MainController.SCENENAME_CHECKIN);
 		}));
 	}
 
@@ -446,7 +446,7 @@ public class QRScanner : MonoBehaviour {
 		// Try to stop the camera before loading another scene
 		StartCoroutine(StopCamera(() => {
 			//StaticParamClass.GoFromInside = true;
-			SceneManager.LoadScene("Main");
+			SceneManager.LoadScene(MainController.SCENENAME_MAIN);
 		}));
 	}
 

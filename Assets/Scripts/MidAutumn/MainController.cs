@@ -11,6 +11,9 @@ using Random = System.Random;
 
 public class MainController : MonoBehaviour
 {
+	public static string SCENENAME_MAIN = "MidAutumn_Main";
+	public static string SCENENAME_CHECKIN = "MidAutumn_Checkin";
+	public static string SCENENAME_QRSCANNER = "MidAutumn_QRScanner"; 
 
 	private void Awake()
 	{
@@ -44,14 +47,15 @@ public class MainController : MonoBehaviour
 
 
 
-		if (pm != -1 && !StaticParamClass.DaCheckRoi) {
+		if (pm != -1 && !StaticParamClass.DaCheckRoi)
+		{
 			Debug.Log($"MainController: First time from Url QR");
 			StaticParamClass.GoFromOutside = true;
 			StaticParamClass.CheckinPlace = Int32.Parse(absoluteURL.Split("=")[1]);
 			StaticParamClass.IsMapUnlocked[StaticParamClass.CheckinPlace] = true;
 			Console.WriteLine("Set out: " + StaticParamClass.GoFromOutside);
 			Console.WriteLine("Set check: " + StaticParamClass.CheckinPlace);
-			SceneManager.LoadScene("QR Scanner");
+			SceneManager.LoadScene(SCENENAME_QRSCANNER);
 		}
 		// test //
 		//StaticParamClass.CheckinPlace = (new Random()).Next(StaticParamClass.MAX_PLACE);
@@ -112,7 +116,7 @@ public class MainController : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-		
+
 		if (StaticParamClass.GoFromInside)
 		{
 			return;
@@ -152,7 +156,7 @@ public class MainController : MonoBehaviour
 					}
 				}
 			}
-			
+
 			if ((Input.touchCount > 0 || Input.GetMouseButtonDown(0)) && _isPlayedOnce)
 			{
 				//parallelSentence.ResetBeforeTransform();
@@ -202,7 +206,7 @@ public class MainController : MonoBehaviour
 	}
 	public void OpenPlaceInfo(int placeNum)
 	{
-		
+
 		SoundBase.Instance.GetComponent<AudioSource>().PlayOneShot(SoundBase.Instance.click);
 		if (StaticParamClass.GoFromInside)
 			return;
@@ -247,7 +251,7 @@ public class MainController : MonoBehaviour
 		StaticParamClass.GoFromOutside = false;
 		if (StaticParamClass.GoFromInside)
 			return;
-		SceneManager.LoadScene("QR Scanner");
+		SceneManager.LoadScene(SCENENAME_QRSCANNER);
 	}
 
 	private void SetUsername()
@@ -308,7 +312,7 @@ public class MainController : MonoBehaviour
 		{
 			ScanButton.SetActive(false);
 		}
-			
+
 	}
 
 	[HideInInspector]
