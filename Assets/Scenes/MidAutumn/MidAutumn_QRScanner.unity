@@ -807,9 +807,10 @@ MonoBehaviour:
   - {fileID: 681297906}
   ChucmungObj: {fileID: 833210876}
   ChucmungComplete: {fileID: 1899763587}
-  PlaceInfoPrefab: {fileID: 0}
+  PlaceInfoPrefab: {fileID: 6891869770857540401, guid: f139d69fed06203459703900b05e5c92,
+    type: 3}
   PlaceInfo: {fileID: 0}
-  root: {fileID: 0}
+  root: {fileID: 717844702}
 --- !u!1 &275538404
 GameObject:
   m_ObjectHideFlags: 0
@@ -1123,6 +1124,7 @@ RectTransform:
   - {fileID: 1901373066}
   - {fileID: 1008896268}
   - {fileID: 1899763588}
+  - {fileID: 717844702}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1427,6 +1429,41 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 705102830}
   m_CullTransparentMesh: 1
+--- !u!1 &717844701
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 717844702}
+  m_Layer: 0
+  m_Name: RootOverall
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &717844702
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 717844701}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 444643682}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &833210876
 GameObject:
   m_ObjectHideFlags: 0
