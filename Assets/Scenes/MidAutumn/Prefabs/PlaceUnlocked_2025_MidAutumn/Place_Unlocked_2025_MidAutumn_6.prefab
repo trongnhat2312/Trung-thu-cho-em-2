@@ -34,7 +34,6 @@ RectTransform:
   m_Children:
   - {fileID: 3229952444398616386}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -148,7 +147,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 9103936901495226283}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -196,7 +194,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "T\u1EA7ng 2"
+  m_Text: "T\u1EA7ng 1"
 --- !u!114 &3729738103669006951
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -217,6 +215,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 6400279886096311889}
     m_Modifications:
     - target: {fileID: 399453252741070098, guid: d31ea8968d9164e7f8769ea3803e4da4,
@@ -365,10 +364,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5288877319426872288, guid: d31ea8968d9164e7f8769ea3803e4da4,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -4926421997096746451, guid: a29e37449b8e2400490f5f10de7373ac,
+        type: 3}
     - target: {fileID: 5541999641889772925, guid: d31ea8968d9164e7f8769ea3803e4da4,
         type: 3}
       propertyPath: m_Text
-      value: "Tr\u1EA3i nghi\u1EC7m c\xF4ng ngh\u1EC7 v\u1EBD R\u1EAFn"
+      value: "Ph\xF2ng Kh\xE1m ph\xE1"
       objectReference: {fileID: 0}
     - target: {fileID: 5541999641889772925, guid: d31ea8968d9164e7f8769ea3803e4da4,
         type: 3}
@@ -378,12 +383,9 @@ PrefabInstance:
     - target: {fileID: 5564481573256998143, guid: d31ea8968d9164e7f8769ea3803e4da4,
         type: 3}
       propertyPath: m_Text
-      value: "C\u1EA3m \u01A1n b\u1EA1n \u0111\xE3 \u0111\u1EBFn \u0111\xE2y v\u1EDBi
-        ch\xFAng m\xECnh ^^ .\nCh\xFAng m\xECnh l\xE0 nh\u1EEFng ng\u01B0\u1EDDi
-        y\xEAu th\xEDch c\xF4ng ngh\u1EC7, y\xEAu th\xEDch v\u0103n ho\xE1 di s\u1EA3n,
-        v\xE0 may m\u1EAFn \u0111\u01B0\u1EE3c c\u01A1 h\u1ED9i l\xE0m ra nh\u1EEFng
-        tr\u1EA3i nghi\u1EC7m n\xE0y.\nH\xE3y enjoy kh\xF4ng gian \u1EDF \u0111\xE2y
-        nh\xE9!"
+      value: "N\u01A1i khuy\u1EBFn kh\xEDch s\u1EED d\u1EE5ng c\xE1c gi\xE1c quan
+        \u0111\u1EC3 kh\xE1m ph\xE1 v\u1EC1 T\u1EBFt Trung Thu. \u0110\u01B0\u1EE3c
+        nghe k\u1EC3 chuy\u1EC7n tranh v\u1EC1 s\u1EF1 t\xEDch Trung thu."
       objectReference: {fileID: 0}
     - target: {fileID: 5564481573256998143, guid: d31ea8968d9164e7f8769ea3803e4da4,
         type: 3}
@@ -403,12 +405,12 @@ PrefabInstance:
     - target: {fileID: 7057111526205689424, guid: d31ea8968d9164e7f8769ea3803e4da4,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 158
+      value: 206
       objectReference: {fileID: 0}
     - target: {fileID: 7057111526205689424, guid: d31ea8968d9164e7f8769ea3803e4da4,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -11
+      value: 69
       objectReference: {fileID: 0}
     - target: {fileID: 8989027111280157107, guid: d31ea8968d9164e7f8769ea3803e4da4,
         type: 3}
@@ -421,6 +423,13 @@ PrefabInstance:
       value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 7057111526205689424, guid: d31ea8968d9164e7f8769ea3803e4da4,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2101684069645627270}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d31ea8968d9164e7f8769ea3803e4da4, type: 3}
 --- !u!224 &3229952444398616386 stripped
 RectTransform:

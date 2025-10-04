@@ -807,7 +807,7 @@ MonoBehaviour:
   - {fileID: 681297906}
   ChucmungObj: {fileID: 833210876}
   ChucmungComplete: {fileID: 1899763587}
-  PlaceInfoPrefab: {fileID: 6891869770857540401, guid: f139d69fed06203459703900b05e5c92,
+  PlaceInfoPrefab: {fileID: 6891869770857540401, guid: bee0c6e6407944a5eaf58b1d04c9a0de,
     type: 3}
   PlaceInfo: {fileID: 0}
   root: {fileID: 717844702}
@@ -960,7 +960,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &377677398
 RectTransform:
   m_ObjectHideFlags: 0
@@ -987,7 +987,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 377677397}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
@@ -2563,7 +2563,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1899763588
 RectTransform:
   m_ObjectHideFlags: 0

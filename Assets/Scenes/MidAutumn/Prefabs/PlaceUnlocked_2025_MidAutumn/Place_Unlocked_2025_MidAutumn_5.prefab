@@ -1,81 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2961339489614493682
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2339368237832316690}
-  - component: {fileID: 7021296577407333042}
-  - component: {fileID: 9200900688174447038}
-  m_Layer: 5
-  m_Name: Icon (4)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &2339368237832316690
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2961339489614493682}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.6600001, y: 0.6600001, z: 0.6600001}
-  m_ConstrainProportionsScale: 1
-  m_Children: []
-  m_Father: {fileID: 6695232560449383220}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -206, y: 156}
-  m_SizeDelta: {x: 540, y: 412}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &7021296577407333042
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2961339489614493682}
-  m_CullTransparentMesh: 1
---- !u!114 &9200900688174447038
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2961339489614493682}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: f80b62ff21c7845ac933d1181b04ade4, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &4730625508856670081
 GameObject:
   m_ObjectHideFlags: 0
@@ -110,7 +34,6 @@ RectTransform:
   m_Children:
   - {fileID: 5589030427002230133}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -224,7 +147,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2239572478515516828}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -272,7 +194,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "T\u1EA7ng 2"
+  m_Text: "T\u1EA7ng 3"
 --- !u!114 &4330364286938596035
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -293,6 +215,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 6400279886096311889}
     m_Modifications:
     - target: {fileID: 399453252741070098, guid: d31ea8968d9164e7f8769ea3803e4da4,
@@ -319,7 +242,12 @@ PrefabInstance:
     - target: {fileID: 1442209726936613192, guid: d31ea8968d9164e7f8769ea3803e4da4,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 1520.06
+      value: 560.06
+      objectReference: {fileID: 0}
+    - target: {fileID: 1457741869903728520, guid: d31ea8968d9164e7f8769ea3803e4da4,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1785072734678698265, guid: d31ea8968d9164e7f8769ea3803e4da4,
         type: 3}
@@ -449,7 +377,7 @@ PrefabInstance:
     - target: {fileID: 5541999641889772925, guid: d31ea8968d9164e7f8769ea3803e4da4,
         type: 3}
       propertyPath: m_Text
-      value: "T\u01B0\u1EE3ng Krishna c\u01B0\u1EE1i tr\xEAn con qu\u1EF7 r\u1EAFn"
+      value: "Ph\xF2ng H\xE0n Qu\u1ED1c"
       objectReference: {fileID: 0}
     - target: {fileID: 5541999641889772925, guid: d31ea8968d9164e7f8769ea3803e4da4,
         type: 3}
@@ -459,29 +387,13 @@ PrefabInstance:
     - target: {fileID: 5564481573256998143, guid: d31ea8968d9164e7f8769ea3803e4da4,
         type: 3}
       propertyPath: m_Text
-      value: "Krishna l\xE0 m\u1ED9t v\u1ECB th\u1EA7n \u1EA4n \u0110\u1ED9 trong
-        \u0111\u1EC1n th\u1EDD Hindu \u0111\u01B0\u1EE3c t\xF4n k\xEDnh v\xE0 ca
-        t\u1EE5ng. Ng\xE0i th\u01B0\u1EDDng xu\u1EA5t hi\u1EC7n trong c\xE1c t\xE1c
-        ph\u1EA9m ngh\u1EC7 thu\u1EADt, \u0111i\xEAu kh\u1EAFc v\xE0 ki\u1EBFn tr\xFAc.
-        Krishna l\xE0 m\u1ED9t trong nhi\u1EC1u hi\u1EC7n th\xE2n (h\xECnh d\u1EA1ng
-        ho\u1EB7c bi\u1EC3u hi\u1EC7n) c\u1EE7a v\u1ECB th\u1EA7n Vishnu. Theo c\xE1c
-        t\xEDn \u0111\u1ED3 Ng\xE0i l\xE0 v\u1ECB th\u1EA7n c\u1EE7a l\xF2ng tr\u1EAFc
-        \u1EA9n, t\xECnh y\xEAu v\xE0 tr\xED tu\u1EC7, mang l\u1EA1i may m\u1EAFn,
-        s\u1EE9c kh\u1ECFe v\xE0 xua \u0111i h\u1EADn th\xF9.\nKrishna xu\u1EA5t
-        hi\u1EC7n d\u01B0\u1EDBi d\u1EA1ng nh\xE2n h\xECnh (gi\u1ED1ng con ng\u01B0\u1EDDi),
-        l\xE0 m\u1ED9t nh\xE2n v\u1EADt nam c\xF3 l\xE0n da m\xE0u xanh. Ng\xE0i
-        m\u1EB7c m\u1ED9t chi\u1EBFc \xE1o m\xE0u v\xE0ng ho\u1EB7c cam, \u0111eo
-        v\u01B0\u01A1ng mi\u1EC7n trang tr\xED b\u1EB1ng l\xF4ng c\xF4ng v\xE0 c\u1EA7m
-        m\u1ED9t c\xE2y s\xE1o.\nT\u01B0\u01A1ng truy\u1EC1n r\u1EB1ng, qu\u1EF7
-        v\u01B0\u01A1ng Kansa nhi\u1EC1u l\u1EA7n sai ti\u1EC3u qu\u1EF7 Bakasura
-        v\xE0 Aghasura h\xF3a ph\xE9p th\xE0nh r\u1EAFn v\xE0 ng\u1EF1a kh\u1ED5ng
-        l\u1ED3, \u0111i gi\u1EBFt ch\u1EBFt Krishna. Nh\u1EEFng Ng\xE0i \u0111\u1EAB
-        ch\u1EBF ng\u1EF1 \u0111\u01B0\u1EE3c nh\u1EEFng con ti\u1EC3u qu\u1EF7,
-        ch\u1EB7n n\xF3 l\xE0m \xF4 u\u1EBF d\xF2ng s\xF4ng th\xE1nh Yamuna, v\xE0
-        kh\u01A1i d\xF2ng ch\u1EA3y tr\u1EDF v\u1EC1 \u0111\u1EA1i d\u01B0\u01A1ng.
-        Ng\xE0i \u0111\u1EE9ng tr\xEAn con r\u1EAFn t\u1EEB nh\xE1nh c\xE2y Kadamba
-        l\u1EDBn, nh\u1EA3y m\xFAa tr\xEAn \u0111\u1EA7u n\xF3, bu\u1ED9c n\xF3 ph\u1EA3i
-        ch\u1ECBu khu\u1EA5t ph\u1EE5c."
+      value: "Ng\u01B0\u1EDDi H\xE0n c\u0169ng c\xF3 ng\xE0y T\u1EBFt Trung Thu nh\u01B0
+        Vi\u1EC7t Nam. T\u1EBFt Trung Thu \u1EDF H\xE0n Qu\u1ED1c \u0111\u01B0\u1EE3c
+        g\u1ECDi l\xE0 Chuseok. \u0110\xE2y l\xE0 m\u1ED9t d\u1ECBp \u0111\u1EC3
+        t\u1EA1 \u01A1n t\u1ED5 ti\xEAn v\xE0 gia \u0111\xECnh sum h\u1ECDp v\u1EDBi
+        \xFD ngh\u0129a m\xF9a m\xE0ng b\u1ED9i thu. V\xE0 \u0111\xE2y l\xE0 m\u1ED9t
+        trong ba ng\xE0y l\u1EC5 l\u1EDBn nh\u1EA5t v\xE0 l\xE0 k\u1EF3 ngh\u1EC9
+        ch\xEDnh th\u1EE9c \u1EDF H\xE0n Qu\u1ED1c \u0111\u1EA5y!"
       objectReference: {fileID: 0}
     - target: {fileID: 6666674956039170463, guid: d31ea8968d9164e7f8769ea3803e4da4,
         type: 3}
@@ -519,6 +431,13 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 7057111526205689424, guid: d31ea8968d9164e7f8769ea3803e4da4,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6556424029961723538}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d31ea8968d9164e7f8769ea3803e4da4, type: 3}
 --- !u!224 &2239572478515516828 stripped
 RectTransform:
@@ -529,12 +448,6 @@ RectTransform:
 --- !u!224 &5589030427002230133 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3705146691124973241, guid: d31ea8968d9164e7f8769ea3803e4da4,
-    type: 3}
-  m_PrefabInstance: {fileID: 9150024472297118668}
-  m_PrefabAsset: {fileID: 0}
---- !u!224 &6695232560449383220 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 2454835962175320312, guid: d31ea8968d9164e7f8769ea3803e4da4,
     type: 3}
   m_PrefabInstance: {fileID: 9150024472297118668}
   m_PrefabAsset: {fileID: 0}

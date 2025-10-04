@@ -283,9 +283,9 @@ PrefabInstance:
     - target: {fileID: 4681055706970796000, guid: a8a63616c54ae4144a98c8abdd964c6b,
         type: 3}
       propertyPath: m_Text
-      value: "M\u1ED9t n\u01A1i th\xFA v\u1ECB, kh\xF4ng ch\u1EC9 \"check-in\", m\xE0
-        c\xF2n \u0111\u01B0\u1EE3c ch\u01A1i, \u0111\u01B0\u1EE3c qu\xE0 n\u1EEFa
-        \u0111\u1EA5y nh\xE9!"
+      value: "S\u1EA3nh tr\u01B0ng b\xE0y, to\xE0 Tr\u1ED1ng \u0110\u1ED3ng. M\u1ED9t
+        n\u01A1i th\xFA v\u1ECB, kh\xF4ng ch\u1EC9 \"check-in\", m\xE0 c\xF2n \u0111\u01B0\u1EE3c
+        ch\u01A1i, \u0111\u01B0\u1EE3c qu\xE0 n\u1EEFa \u0111\u1EA5y nh\xE9!"
       objectReference: {fileID: 0}
     - target: {fileID: 4681055706970796000, guid: a8a63616c54ae4144a98c8abdd964c6b,
         type: 3}
@@ -295,7 +295,7 @@ PrefabInstance:
     - target: {fileID: 4694530443076245090, guid: a8a63616c54ae4144a98c8abdd964c6b,
         type: 3}
       propertyPath: m_Text
-      value: "S\u1EA3nh Tr\u01B0ng b\xE0y - To\xE0 Tr\u1ED1ng \u0110\u1ED3ng"
+      value: "\u0110\xF3n qu\xE0 Trung Thu"
       objectReference: {fileID: 0}
     - target: {fileID: 4694530443076245090, guid: a8a63616c54ae4144a98c8abdd964c6b,
         type: 3}
