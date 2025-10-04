@@ -27,7 +27,8 @@ public class PlaceInfoHolder : MonoBehaviour
 	    var placeInfo = Instantiate(PlaceInfos[i + offset]);
 		placeInfo.transform.SetParent(transform, false);
 		placeInfo.name = "PlaceInfo " + i;
-        QuestionButton.gameObject.SetActive(isUnlocked && i != 0 && i != 5);
+        // QuestionButton.gameObject.SetActive(isUnlocked && i != 0 && i != 5);
+        QuestionButton.gameObject.SetActive(false);
 
         try
         {

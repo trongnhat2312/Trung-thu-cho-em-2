@@ -9,6 +9,20 @@ public class MidAutumnMainSceneController : MainController
     [SerializeField] Text txtComplete;	
     protected bool isAnimCompleted = false;
 
+    void Awake()
+    {
+        Instance = this;
+    }
+
+    protected void Start()
+    {
+        SetupStart();
+    }
+
+    void Update()
+    {
+        DoUpdate();
+    }
 
     protected override async void ShowVictoryUI()
     {

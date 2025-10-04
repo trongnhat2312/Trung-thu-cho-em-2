@@ -9,6 +9,8 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Random = System.Random;
 
+using Cysharp.Threading.Tasks;
+
 public class MainController : MonoBehaviour
 {
 	public static string SCENENAME_MAIN = "MidAutumn_Main";
@@ -26,6 +28,11 @@ public class MainController : MonoBehaviour
 
 	// Start is called before the first frame update
 	void Start()
+	{
+		SetupStart();
+	}
+
+	protected virtual void SetupStart()
 	{
 #if !UNITY_EDITOR
 		debugStartFromUrlQR = false;
@@ -87,8 +94,6 @@ public class MainController : MonoBehaviour
 		}
 
 		_starLightCount = 0;
-
-
 	}
 
 	public IEnumerator GetData(string name)
@@ -116,7 +121,11 @@ public class MainController : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
+		DoUpdate();
+	}
 
+	protected virtual void DoUpdate()
+	{
 		if (StaticParamClass.GoFromInside)
 		{
 			return;
@@ -127,9 +136,42 @@ public class MainController : MonoBehaviour
 		}
 	}
 
-	protected virtual void ShowVictoryUI()
+	protected virtual async void ShowVictoryUI()
 	{
+
 		Debug.Log($"MainController: update: all map unlocked => update");
+		if (!isAnimCompleted)
+		{
+			isAnimCompleted = true;
+			SetupPieceEffectMode();
+			starLightTransformer.DoTransformToStarLight();
+			await UniTask.Delay(2000);
+			txtComplete.gameObject.SetActive(true);
+		}
+
+	}
+
+	void SetupPieceEffectMode()
+	{ 
+		for (int i = 0; i < mapPieces.Count; i++)
+		{
+			int placeNum = i;
+			if (mapPieces != null && mapPieces.Count > placeNum && mapPieces[placeNum] != null)
+			{
+				var effect = mapPieces[placeNum].GetComponent<UITransitionEffect>();
+				if (effect != null)
+				{
+					// effect.Hide(false);
+					// yield return new WaitForSeconds(effect.effectPlayer.duration);
+					effect.effectMode = UITransitionEffect.EffectMode.Fade;
+					effect.effectFactor = 0.36f;
+				}
+			}
+		}
+	}
+
+	void UpdateVersionThachSanh()
+	{
 		if (_isStarEffEnabled)
 		{
 			//Debug.Log("_starLightCount:" + _starLightCount);
@@ -200,10 +242,19 @@ public class MainController : MonoBehaviour
 			Debug.LogError("Place number out of range [0, MAX_PLACE - 1]");
 			yield break;
 		}
-		//var effect = mapPieces[placeNum].GetComponent<UITransitionEffect>();
-		//effect.Hide(false);
+
 		SoundBase.Instance.GetComponent<AudioSource>().PlayOneShot(SoundBase.Instance.pieceDisappear);
-		//yield return new WaitForSeconds(effect.effectPlayer.duration);
+		if (mapPieces != null && mapPieces.Count > placeNum && mapPieces[placeNum] != null)
+		{
+			var effect = mapPieces[placeNum].GetComponent<UITransitionEffect>();
+			if (effect != null)
+			{ 
+				effect.Hide(false);
+			yield return new WaitForSeconds(effect.effectPlayer.duration);
+			}
+		}
+		
+
 		yield return new WaitForSeconds(0.5f);
 		StaticParamClass.GoFromInside = false;
 		OpenPlaceInfo(placeNum);
@@ -226,7 +277,7 @@ public class MainController : MonoBehaviour
 		if (IsAllMapUnlocked())
 		{
 			// todo - dont need to show. or must show then close then show completed anim
-			return;
+			// return;
 		}
 
 		PlaceInfo = Instantiate(PlaceInfoPrefab);
@@ -320,7 +371,7 @@ public class MainController : MonoBehaviour
 
 	}
 
-	[HideInInspector]
+	// [HideInInspector]
 	public GameObject PlaceInfo;
 
 	public Text usernameText;
@@ -346,4 +397,10 @@ public class MainController : MonoBehaviour
 	private bool _isStarEffEnabled = true;
 	private bool _isPopupOpen = true;
 	private bool _isPlayedOnce = false;
+
+
+
+	[SerializeField] StarLightTransformer starLightTransformer;
+	[SerializeField] Text txtComplete;
+	protected bool isAnimCompleted = false;
 }
