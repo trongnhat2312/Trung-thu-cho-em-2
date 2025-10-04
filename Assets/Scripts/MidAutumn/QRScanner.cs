@@ -9,7 +9,10 @@ using UnityEngine.Assertions.Must;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class QRScanner : MonoBehaviour {
+using Cysharp.Threading.Tasks;
+
+public class QRScanner : MonoBehaviour
+{
 
 	public string[] words = new string[]
 		{
@@ -43,7 +46,8 @@ public class QRScanner : MonoBehaviour {
 		Screen.autorotateToPortraitUpsideDown = false;
 	}
 
-	void Start() {
+	void Start()
+	{
 
 		ChucmungObj.SetActive(false);
 		ChucmungComplete.SetActive(false);
@@ -56,14 +60,16 @@ public class QRScanner : MonoBehaviour {
 			Console.WriteLine($"QRScanner: DaCheckRoi: " + StaticParamClass.DaCheckRoi);
 
 			ProcessScannedQR(true);
-		} else
+		}
+		else
 		{
 			// Create a basic scanner
 			BarcodeScanner = new Scanner();
 			BarcodeScanner.Camera.Play();
 
 			// Display the camera texture through a RawImage
-			BarcodeScanner.OnReady += (sender, arg) => {
+			BarcodeScanner.OnReady += (sender, arg) =>
+			{
 				// Set Orientation & Texture
 				Image.transform.localEulerAngles = BarcodeScanner.Camera.GetEulerAngles();
 				Image.transform.localScale = BarcodeScanner.Camera.GetScale();
@@ -101,10 +107,11 @@ public class QRScanner : MonoBehaviour {
 			Debug.Log($"QRScanner: process Scanned QR, NEW => show Intro => Congrat");
 
 			// nếu chưa lưu Checkin Name vào máy => là mới => intro => sau đó xem xét để chúc mừng
-			StaticParamClass.IsMapUnlocked[0] = true;
+			// StaticParamClass.IsMapUnlocked[0] = true;
 			PlaceInfo = Instantiate(PlaceInfoPrefab, root);
 			PlaceInfo.name = "Place Info";
-			PlaceInfo.GetComponent<PlaceInfoHolder>().OpenPlaceInfo(0, StaticParamClass.IsMapUnlocked[0],
+			int id = StaticParamClass.CheckinPlace;
+			PlaceInfo.GetComponent<PlaceInfoHolder>().OpenPlaceInfo(id, StaticParamClass.IsMapUnlocked[id],
 				() =>
 				{
 					Debug.Log($"QRScanner: process Scanned QR, Intro Done => Congrat");
@@ -122,14 +129,16 @@ public class QRScanner : MonoBehaviour {
 	/// <summary>
 	/// Start a scan and wait for the callback (wait 1s after a scan success to avoid scanning multiple time the same element)
 	/// </summary>
-	private void StartScanner()
+	private async void StartScanner()
 	{
+		await UniTask.DelayFrame(3);
 		foreach (WebCamDevice wd in WebCamTexture.devices)
 		{
 			ListCamera.text += wd.name + "-" + wd.isFrontFacing + "\n";
 		}
 		StaticParamClass.DaCheckRoi = true;
-		BarcodeScanner.Scan((barCodeType, barCodeValue) => {
+		BarcodeScanner.Scan((barCodeType, barCodeValue) =>
+		{
 			Debug.Log(barCodeType + " -- " + barCodeValue);
 
 			//if (TextHeader.text.Length > 250)
@@ -164,7 +173,8 @@ public class QRScanner : MonoBehaviour {
 					// xử lý thông tin sau khi nhận QR Code
 					ProcessScannedQR();
 				}
-			} else
+			}
+			else
 			{
 				//TextHeader.text += "Error barcode: " + barCodeType + " / " + barCodeValue + "\n";
 				Debug.Log("Error barcode: " + barCodeType + " / " + barCodeValue + "\n");
@@ -189,7 +199,7 @@ public class QRScanner : MonoBehaviour {
 		});
 	}
 
-	
+
 
 	public void ChangeCamera()
 	{
@@ -197,14 +207,16 @@ public class QRScanner : MonoBehaviour {
 		isChange = true;
 		ScannerSettings cSetting = BarcodeScanner.Settings;
 		string name = cSetting.WebcamDefaultDeviceName;
-		StartCoroutine(StopCamera(() => {
+		StartCoroutine(StopCamera(() =>
+		{
 			ScannerSettings ss = new ScannerSettings(name);
 			Debug.Log(ss.WebcamDefaultDeviceName);
 			BarcodeScanner = new Scanner(ss);
 			BarcodeScanner.Camera.Play();
 
 			// Display the camera texture through a RawImage
-			BarcodeScanner.OnReady += (sender, arg) => {
+			BarcodeScanner.OnReady += (sender, arg) =>
+			{
 				// Set Orientation & Texture
 
 				Image.transform.localEulerAngles = BarcodeScanner.Camera.GetEulerAngles();
@@ -234,7 +246,7 @@ public class QRScanner : MonoBehaviour {
 	{
 		// fix cứng Tết 2025:
 		// địa điểm số 0 không cần target
-		return placeId != 0;
+		return (placeId >= 0 && placeId < 8);
 	}
 
 
@@ -254,7 +266,7 @@ public class QRScanner : MonoBehaviour {
 			// và địa điểm mới này là địa điểm target
 
 			//PlaceNum.text = "SỐ "  + (StaticParamClass.CheckinPlace + 1);
-			PlaceNum.text = WordOfPlace(currentPlace);
+			// PlaceNum.text = WordOfPlace(currentPlace);
 			SoundBase.Instance.GetComponent<AudioSource>().PlayOneShot(SoundBase.Instance.checkIn);
 			StaticParamClass.CheckedIn += ";" + currentPlace.ToString();
 
@@ -347,7 +359,7 @@ public class QRScanner : MonoBehaviour {
 		// show chúc mừng
 
 		//PlaceNum.text = "SỐ " + (StaticParamClass.CheckinPlace + 1);
-		PlaceNum.text = WordOfPlace(StaticParamClass.CheckinPlace);
+		// PlaceNum.text = WordOfPlace(StaticParamClass.CheckinPlace);
 		SoundBase.Instance.GetComponent<AudioSource>().PlayOneShot(SoundBase.Instance.checkIn);
 		ChucmungObj.SetActive(true);
 		StaticParamClass.CheckedIn += ";" + StaticParamClass.CheckinPlace.ToString();
@@ -356,7 +368,8 @@ public class QRScanner : MonoBehaviour {
 			if (i == place)
 			{
 				areaPieces[i].SetActive(true);
-			} else
+			}
+			else
 			{
 				areaPieces[i].SetActive(false);
 			}
@@ -391,7 +404,8 @@ public class QRScanner : MonoBehaviour {
 				// nếu hoàn thành rồi => mở completed
 				ChucmungComplete.SetActive(true);
 				ChucmungObj.SetActive(false);
-			} else
+			}
+			else
 			{
 
 				// chea hoàn thành => save data và về Main
@@ -406,7 +420,8 @@ public class QRScanner : MonoBehaviour {
 
 	void GoToSignUp()
 	{
-		StartCoroutine(StopCamera(() => {
+		StartCoroutine(StopCamera(() =>
+		{
 			SceneManager.LoadScene(MainController.SCENENAME_CHECKIN);
 		}));
 	}
@@ -444,7 +459,8 @@ public class QRScanner : MonoBehaviour {
 	{
 		SoundBase.Instance.GetComponent<AudioSource>().PlayOneShot(SoundBase.Instance.click);
 		// Try to stop the camera before loading another scene
-		StartCoroutine(StopCamera(() => {
+		StartCoroutine(StopCamera(() =>
+		{
 			//StaticParamClass.GoFromInside = true;
 			SceneManager.LoadScene(MainController.SCENENAME_MAIN);
 		}));
@@ -460,11 +476,11 @@ public class QRScanner : MonoBehaviour {
 	{
 		// Stop Scanning
 		//Image = null;
-		if(BarcodeScanner != null)
+		if (BarcodeScanner != null)
 		{
 			BarcodeScanner.Destroy();
 		}
-		
+
 		BarcodeScanner = null;
 
 		// Wait a bit

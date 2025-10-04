@@ -32,7 +32,7 @@ public class MainController : MonoBehaviour
 		SetupStart();
 	}
 
-	protected virtual void SetupStart()
+	protected virtual async void SetupStart()
 	{
 #if !UNITY_EDITOR
 		debugStartFromUrlQR = false;
@@ -52,13 +52,15 @@ public class MainController : MonoBehaviour
 		int pm = absoluteURL.IndexOf("CheckinPlace");
 		Console.WriteLine("Set DaCheckRoi: " + StaticParamClass.DaCheckRoi);
 
-
+		await UniTask.DelayFrame(3);
 
 		if (pm != -1 && !StaticParamClass.DaCheckRoi)
 		{
-			Debug.Log($"MainController: First time from Url QR");
+			Debug.Log($"MainController: First time from Url QR {pm}");
 			StaticParamClass.GoFromOutside = true;
 			StaticParamClass.CheckinPlace = Int32.Parse(absoluteURL.Split("=")[1]);
+
+			Debug.Log($"MainController: First time from Url QR {pm}, {StaticParamClass.CheckinPlace}");
 			StaticParamClass.IsMapUnlocked[StaticParamClass.CheckinPlace] = true;
 			Console.WriteLine("Set out: " + StaticParamClass.GoFromOutside);
 			Console.WriteLine("Set check: " + StaticParamClass.CheckinPlace);
@@ -152,7 +154,7 @@ public class MainController : MonoBehaviour
 	}
 
 	void SetupPieceEffectMode()
-	{ 
+	{
 		for (int i = 0; i < mapPieces.Count; i++)
 		{
 			int placeNum = i;
@@ -248,12 +250,12 @@ public class MainController : MonoBehaviour
 		{
 			var effect = mapPieces[placeNum].GetComponent<UITransitionEffect>();
 			if (effect != null)
-			{ 
+			{
 				effect.Hide(false);
-			yield return new WaitForSeconds(effect.effectPlayer.duration);
+				yield return new WaitForSeconds(effect.effectPlayer.duration);
 			}
 		}
-		
+
 
 		yield return new WaitForSeconds(0.5f);
 		StaticParamClass.GoFromInside = false;
@@ -403,4 +405,9 @@ public class MainController : MonoBehaviour
 	[SerializeField] StarLightTransformer starLightTransformer;
 	[SerializeField] Text txtComplete;
 	protected bool isAnimCompleted = false;
+
+	public void TestCheckin()
+	{ 
+		SceneManager.LoadScene(MainController.SCENENAME_CHECKIN);
+	}
 }

@@ -182,7 +182,10 @@ public class PlaceInfo : MonoBehaviour
 	{
 		try
 		{
-			MainController.Instance.ClosePlaceInfo();
+			if (MainController.Instance != null)
+			{ 
+				MainController.Instance.ClosePlaceInfo();
+			}
 		}
 		catch (Exception exception)
 		{
