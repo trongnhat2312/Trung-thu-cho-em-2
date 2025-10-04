@@ -394,7 +394,7 @@ public class QRScanner : MonoBehaviour
 			// nếu đã checkin rồi => kiểm tra xem hoàn thành chưa
 
 			if (
-				//StaticParamClass.CheckedIn.Contains("0") &&
+				StaticParamClass.CheckedIn.Contains("0") &&
 				StaticParamClass.CheckedIn.Contains("1") &&
 				StaticParamClass.CheckedIn.Contains("2") &&
 				StaticParamClass.CheckedIn.Contains("3") &&
