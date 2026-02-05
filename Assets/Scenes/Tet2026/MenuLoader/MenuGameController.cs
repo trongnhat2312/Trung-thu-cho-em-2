@@ -48,6 +48,69 @@ namespace TreasureHunt.MenuGame
             InitListener();
         }
 
+        void CheckCompletedChallenge()
+        {
+            // if (StaticParamClass.GoFromInside)
+            // {
+            //     return;
+            // }
+            if (IsAllMapUnlocked())
+            {
+                Debug.Log($"MenuGameController: update: all map unlocked => update");
+                if (_isStarEffEnabled)
+                {
+                    //Debug.Log("_starLightCount:" + _starLightCount);
+                    if (_starLightCount <= 0)
+                    {
+                        Debug.Log($"MenuGameController: update: show Victory");
+                        //starLight.DoTransformToStarLight();
+                        //parallelSentence.OnCompleted();
+                        ThachSanhVictory.gameObject.SetActive(true);
+                        SetBaseMenuComponentVisible(false);
+                        _alreadyResetStarLight = false;
+                        _starLightCount = StarLightInterval;
+                    }
+                    else
+                    {
+                        if (_starLightCount > 1)
+                        {
+                            _starLightCount -= Time.deltaTime;
+                        }
+                        if (_starLightCount <= 1)
+                        {
+                            _isPlayedOnce = true;
+                        }
+                    }
+                }
+
+                if ((Input.touchCount > 0 || Input.GetMouseButtonDown(0)) && _isPlayedOnce)
+                {
+                    //parallelSentence.ResetBeforeTransform();
+                    //ThachSanhVictory.gameObject.SetActive(false);
+                    _alreadyResetStarLight = true;
+                    _isStarEffEnabled = false;
+
+                }
+            }
+        }
+
+        void SetBaseMenuComponentVisible(bool isVisible)
+        {
+            foreach (var pGameObject in m_MenuBaseComponents)
+            {
+                try
+                {
+                    if (pGameObject != null)
+                    {
+                        pGameObject.SetActive(isVisible);
+                    }
+                }
+                catch (Exception exception)
+                {
+                }
+            }
+        }
+
         public void ShowMenuUI(string data)
         {
             UpdateMenuState(MenuState.S1_Active);
@@ -76,7 +139,7 @@ namespace TreasureHunt.MenuGame
             int pm = absoluteURL.IndexOf("CheckinPlace");
             Debug.LogError($"MenuGameController pmId {pm}, Set DaCheckRoi: " + StaticParamClass.DaCheckRoi);
 
-            if (pm != -1 && !StaticParamClass.DaCheckRoi)
+            if (pm != -1 && !StaticParamClass.DaCheckRoi && !IsAllMapUnlocked())
             {
                 StaticParamClass.GoFromOutside = true;
                 StaticParamClass.CheckinPlace = Int32.Parse(absoluteURL.Split("=")[1]);
@@ -92,8 +155,8 @@ namespace TreasureHunt.MenuGame
 
             _isStarEffEnabled = true;
             //_isPopupOpen = true;
-                Debug.Log($"MenuGameController: SetupStart Go From InSide?? = {StaticParamClass.GoFromInside}");
-            if (StaticParamClass.GoFromInside)
+            Debug.Log($"MenuGameController: SetupStart Go From InSide?? = {StaticParamClass.GoFromInside}");
+            if (StaticParamClass.GoFromInside && !IsAllMapUnlocked())
             {
                 Debug.Log($"MenuGameController: SetupStart Go From InSide, show map piece, place info...");
                 menuCenter.showMapPieces();
@@ -108,6 +171,7 @@ namespace TreasureHunt.MenuGame
             menuCenter.SetUsername();
 
             _starLightCount = 0;
+            CheckCompletedChallenge();
         }
 
 
@@ -136,11 +200,15 @@ namespace TreasureHunt.MenuGame
         public bool IsAllMapUnlocked()
         {
             bool b = true;
+            if (StaticParamClass.IsMapUnlocked.Length < 6)
+            {
+                return false;
+            }
             for (int i = 0; i < StaticParamClass.IsMapUnlocked.Length; i++)
             {
+                Debug.LogError($"MenuGameController IsALLMapUnlock state {StaticParamClass.IsMapUnlocked[i]}, i: " + i);
                 if (!StaticParamClass.IsMapUnlocked[i])
                 {
-                    //Debug.Log(i);
                     b = false;
                     break;
                 }
@@ -240,7 +308,7 @@ namespace TreasureHunt.MenuGame
             qRTranferData.isGoInside = false;
 
             string jsonData = JsonUtility.ToJson(qRTranferData);
-            Debug.LogError($"MenuGameController OnShowQRScanner GoFromInside {StaticParamClass.GoFromInside }");
+            Debug.LogError($"MenuGameController OnShowQRScanner GoFromInside {StaticParamClass.GoFromInside}");
             OnNeedOpenQRScannerListener?.Invoke(jsonData);
         }
 
@@ -254,9 +322,9 @@ namespace TreasureHunt.MenuGame
 
     }
 
-[Serializable]
+    [Serializable]
     public class QRTranferData
     {
-       public bool isGoInside = false;
+        public bool isGoInside = false;
     }
 }
