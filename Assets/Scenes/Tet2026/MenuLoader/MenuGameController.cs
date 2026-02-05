@@ -26,11 +26,7 @@ namespace TreasureHunt.MenuGame
 
 
         public bool debugStartFromUrlQR = false;
-        public string debugAbsoluteURL = "https://koikinggaming.com/vme/Tet-2025/?CheckinPlace=0";
-
-        public List<GameObject> mapPieces;
-
-        public GameObject MainScreen;
+        public string debugAbsoluteURL = "https://koikinggaming.com/vme/Tet-2025/?CheckinPlace=1";
 
         //public StarLightTransformer starLight;
         //public ParallelSentencesController parallelSentence;
@@ -46,25 +42,19 @@ namespace TreasureHunt.MenuGame
         private bool _isPopupOpen = true;
         private bool _isPlayedOnce = false;
 
-
-
-        [SerializeField] StarLightTransformer starLightTransformer;
-        [SerializeField] Text txtComplete;
-        protected bool isAnimCompleted = false;
-
         #region  Start
         private void Start()
         {
-            InitListener(); 
+            InitListener();
         }
- 
+
         public void ShowMenuUI(string data)
         {
             UpdateMenuState(MenuState.S1_Active);
             menuCenter.ShowUI();
             SetupStart();
         }
-        
+
         protected virtual async void SetupStart()
         {
             await UniTask.DelayFrame(3);
@@ -84,7 +74,7 @@ namespace TreasureHunt.MenuGame
 #endif
 
             int pm = absoluteURL.IndexOf("CheckinPlace");
-            Debug.LogError($"MenuGameController pmId {pm}, Set DaCheckRoi: " + StaticParamClass.DaCheckRoi); 
+            Debug.LogError($"MenuGameController pmId {pm}, Set DaCheckRoi: " + StaticParamClass.DaCheckRoi);
 
             if (pm != -1 && !StaticParamClass.DaCheckRoi)
             {
@@ -102,11 +92,12 @@ namespace TreasureHunt.MenuGame
 
             _isStarEffEnabled = true;
             //_isPopupOpen = true;
+                Debug.Log($"MainController: SetupStart Go From InSide?? = {StaticParamClass.GoFromInside}");
             if (StaticParamClass.GoFromInside)
             {
                 Debug.Log($"MainController: SetupStart Go From InSide, show map piece, place info...");
-                showMapPieces();
-                StartCoroutine(OpenPlaceInfoWithEffect(StaticParamClass.CheckinPlace));
+                menuCenter.showMapPieces();
+                StartCoroutine(menuCenter.OpenPlaceInfoWithEffect(StaticParamClass.CheckinPlace));
             }
             else
             {
@@ -139,44 +130,7 @@ namespace TreasureHunt.MenuGame
                     StaticParamClass.IsMapUnlocked[i] = true;
                 }
             }
-            showMapPieces();
-        }
-
-        public void showMapPieces()
-        {
-            for (int i = 0; i < StaticParamClass.IsMapUnlocked.Length; i++)
-            {
-                if (StaticParamClass.IsMapUnlocked[i])
-                {
-                    try
-                    {
-                        mapPieces[i].GetComponent<UITransitionEffect>().effectFactor = 0;
-                    }
-                    catch (Exception exception)
-                    {
-                    }
-
-                    try
-                    {
-                        //var child = mapPieces[i].transform.GetChild(0);
-                        //mapPieces[i].GetComponent<UITransitionEffect>().effectFactor = 0;
-                        //var image = child.GetComponent<Image>();
-                        //image.color = Color.white;
-                        MapCheckpointBase checkpointBase = mapPieces[i].GetComponent<MapCheckpointBase>();
-                        if (checkpointBase != null)
-                        {
-                            checkpointBase.SetActiveState(true);
-                        }
-                    }
-                    catch (Exception exception)
-                    {
-                    }
-                }
-            }
-            if (IsAllMapUnlocked())
-            {
-                ScanButton.SetActive(false);
-            }
+            menuCenter.showMapPieces();
         }
 
         public bool IsAllMapUnlocked()
@@ -192,71 +146,6 @@ namespace TreasureHunt.MenuGame
                 }
             }
             return b;
-        }
-
-
-        public IEnumerator OpenPlaceInfoWithEffect(int placeNum)
-        {
-            Debug.Log("place == " + placeNum);
-            if (placeNum == -1)
-                yield break;
-            if (placeNum < 0 || placeNum > StaticParamClass.MAX_PLACE - 1)
-            {
-                Debug.LogError("MenuGameController OnpenPlaceInfoWithEffect Place number out of range [0, MAX_PLACE - 1]");
-                yield break;
-            }
-
-            SoundBase.Instance.GetComponent<AudioSource>().PlayOneShot(SoundBase.Instance.pieceDisappear);
-            if (mapPieces != null && mapPieces.Count > placeNum && mapPieces[placeNum] != null)
-            {
-                var effect = mapPieces[placeNum].GetComponent<UITransitionEffect>();
-                if (effect != null)
-                {
-                    effect.Hide(false);
-                    yield return new WaitForSeconds(effect.effectPlayer.duration);
-                }
-            }
-
-
-            yield return new WaitForSeconds(0.5f);
-            StaticParamClass.GoFromInside = false;
-            OpenPlaceInfo(placeNum);
-
-        }
-        public void OpenPlaceInfo(int placeNum)
-        {
-
-            if (StaticParamClass.GoFromInside)
-                return;
-            Debug.LogError("MenuGameController OpenPlaceInfo place == " + placeNum);
-            if (placeNum == -1)
-                return;
-            if (placeNum < 0 || (placeNum > StaticParamClass.MAX_PLACE - 1))
-            {
-                Debug.LogError("MenuGameController OpenPlaceInfo Place number out of range [0, MAX_PLACE - 1]");
-                return;
-            }
-            if (IsAllMapUnlocked())
-            {
-                // todo - dont need to show. or must show then close then show completed anim
-                // return;
-            }
-
-            // PlaceInfo = Instantiate(PlaceInfoPrefab);
-            // PlaceInfo.transform.SetParent(MainScreen.transform.parent, false);
-            // PlaceInfo.name = "Place Info";
-            // PlaceInfo.GetComponent<PlaceInfoHolder>().OpenPlaceInfo(placeNum, StaticParamClass.IsMapUnlocked[placeNum], null, () =>
-            // {
-            //     Debug.Log($"MainController: place == {placeNum}, close and open QR");
-            //     // process open qr here
-            //     ClickScan();
-            // });
-
-
-            //new 
-            int placeId = placeNum;
-            bool isPlaceUnlocked = StaticParamClass.IsMapUnlocked[placeId];
-            ShowPlaceInfo(placeId, isPlaceUnlocked);
         }
         #endregion
 

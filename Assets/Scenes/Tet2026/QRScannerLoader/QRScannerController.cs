@@ -52,16 +52,16 @@ namespace TreasureHunt.QRScanner
             Screen.autorotateToPortraitUpsideDown = false;
         }
 
-		void Start()
-		{
-			btnBack.onClick.AddListener(OnBtnBackClicked);
+        void Start()
+        {
+            btnBack.onClick.AddListener(OnBtnBackClicked);
             btnOkChucmung.onClick.AddListener(OKButtonChucmung);
             btnCompletedChallenge.onClick.AddListener(OKButtonComplete);
             btnChangeCamera.onClick.AddListener(ChangeCamera);
-		}
+        }
 
 
-		public void AddOnCloseQRScannerListener(Action listener)
+        public void AddOnCloseQRScannerListener(Action listener)
         {
             OnCloseQRScannerListener -= listener;
             OnCloseQRScannerListener += listener;
@@ -123,12 +123,12 @@ namespace TreasureHunt.QRScanner
             else
             {
                 // nếu chưa lưu Checkin Name vào máy => là mới => intro => sau đó xem xét để chúc mừng
-                // StaticParamClass.IsMapUnlocked[0] = true;
+                int idPlaceIntro = 0;
+                StaticParamClass.IsMapUnlocked[idPlaceIntro] = true;
                 placeInfo = Instantiate(PlaceInfoPrefab, root);
                 placeInfo.name = "Place Info";
-                int id = StaticParamClass.CheckinPlace;
-                Debug.LogError($"QRScannerController ProcessScannedQR Show place, intro, completed with id = {id}, isIDPlaceUnlock = {StaticParamClass.IsMapUnlocked[id]}");
-                placeInfo.GetComponent<PlaceInfoBase>().OpenPlaceInfo(id, StaticParamClass.IsMapUnlocked[id],
+                Debug.LogError($"QRScannerController ProcessScannedQR Show place, intro, completed with id = {idPlaceIntro}, isIDPlaceUnlock = {StaticParamClass.IsMapUnlocked[idPlaceIntro]}");
+                placeInfo.GetComponent<PlaceInfoBase>().OpenPlaceInfo(idPlaceIntro, StaticParamClass.IsMapUnlocked[idPlaceIntro],
                     () =>
                     {
                         Debug.Log($"QRScannerController ProcessScannedQR, Intro Done => Congrat");
@@ -264,7 +264,7 @@ namespace TreasureHunt.QRScanner
         {
             // fix cứng Tết 2025:
             // địa điểm số 0 không cần target
-            return (placeId >= 0 && placeId < 8);
+            return placeId != 0;
         }
 
 
@@ -284,7 +284,7 @@ namespace TreasureHunt.QRScanner
                 // và địa điểm mới này là địa điểm target
 
                 //PlaceNum.text = "SỐ "  + (StaticParamClass.CheckinPlace + 1);
-                // PlaceNum.text = WordOfPlace(currentPlace);
+                PlaceNum.text = WordOfPlace(currentPlace);
                 SoundBase.Instance.GetComponent<AudioSource>().PlayOneShot(SoundBase.Instance.checkIn);
                 StaticParamClass.CheckedIn += ";" + currentPlace.ToString();
 
@@ -373,7 +373,7 @@ namespace TreasureHunt.QRScanner
             // show chúc mừng
 
             //PlaceNum.text = "SỐ " + (StaticParamClass.CheckinPlace + 1);
-            // PlaceNum.text = WordOfPlace(StaticParamClass.CheckinPlace);
+            PlaceNum.text = WordOfPlace(StaticParamClass.CheckinPlace);
             SoundBase.Instance.GetComponent<AudioSource>().PlayOneShot(SoundBase.Instance.checkIn);
             ChucmungObj.SetActive(true);
             StaticParamClass.CheckedIn += ";" + StaticParamClass.CheckinPlace.ToString();
@@ -408,7 +408,7 @@ namespace TreasureHunt.QRScanner
                 // nếu đã checkin rồi => kiểm tra xem hoàn thành chưa
 
                 if (
-                    StaticParamClass.CheckedIn.Contains("0") &&
+                    // StaticParamClass.CheckedIn.Contains("0") &&
                     StaticParamClass.CheckedIn.Contains("1") &&
                     StaticParamClass.CheckedIn.Contains("2") &&
                     StaticParamClass.CheckedIn.Contains("3") &&
@@ -441,7 +441,7 @@ namespace TreasureHunt.QRScanner
             {
                 // SceneManager.LoadScene(MainController.SCENENAME_CHECKIN);
                 CommonPopupManager.ShowCheckInPopup(() =>
-                { 
+                {
                     Debug.LogError($"QRScannerController GoToSignUp ShowCheckInPopup callback");
                     OnCloseQRScannerListener?.Invoke();
                 });

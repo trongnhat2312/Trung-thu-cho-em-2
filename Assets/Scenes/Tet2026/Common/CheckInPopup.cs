@@ -63,8 +63,10 @@ public class CheckInPopup : MonoBehaviour
 		};
 
 		SetGetUserData.SetCheckinPlace(title);
+
+		Debug.LogError($"CheckInPopup set GoFromInside true");
 		StaticParamClass.GoFromInside = true;
-		SceneManager.LoadScene(MainController.SCENENAME_MAIN);
+		// SceneManager.LoadScene(MainController.SCENENAME_MAIN);
 	}
 
 	/// <summary>
@@ -119,6 +121,17 @@ public class CheckInPopup : MonoBehaviour
 			}
 
 			Debug.LogError($"CheckInPopup CheckInData name = {name}, number = {number} IsValidated callback close popup now");
+
+			Debug.LogError($"CheckInPopup set GoFromInside true");
+			StaticParamClass.GoFromInside = true;
+
+			SetTitleDataRequest title = new SetTitleDataRequest
+			{
+				Key = phoneNumber.text.Trim(),
+				Value = StaticParamClass.CheckedIn + ";" + StaticParamClass.CheckinPlace
+			};
+			SetGetUserData.SetCheckinPlace(title);
+			StaticParamClass.CheckedIn = number;
 			OnClosePopupListener?.Invoke();
 			gameObject.SetActive(false);
 		}
@@ -154,7 +167,7 @@ public class CheckInPopup : MonoBehaviour
 		};
 
 		SetGetUserData.SetCheckinPlace(title);
-		StaticParamClass.GoFromInside = true;
+		// StaticParamClass.GoFromInside = true;
 		isCheckInCallBackDone = true;
 	}
 
@@ -192,6 +205,8 @@ public class CheckInPopup : MonoBehaviour
 		// 	StaticParamClass.GoFromInside = true;
 		// }
 
+		Debug.LogError($"CheckInpopup set GoFromInside false");
+		StaticParamClass.GoFromInside = true;
 		pCallback?.Invoke();
 	}
 	#endregion

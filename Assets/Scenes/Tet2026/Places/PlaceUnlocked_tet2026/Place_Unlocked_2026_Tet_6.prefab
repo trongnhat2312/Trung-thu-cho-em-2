@@ -164,6 +164,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlaceInfo_Root_Unlock_new2026
       objectReference: {fileID: 0}
+    - target: {fileID: 6795505185537628967, guid: 0859b6a056f8847b1b58a5cc2dd99f38,
+        type: 3}
+      propertyPath: m_Text
+      value: "Kho b\xE1u s\u1ED1 6"
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -44,37 +44,37 @@ namespace TreasureHunt.MenuGame
         private void OnBtnPlace1Clicked()
         {
             OnBtnClickedInteract();
-            OnPlaceClicked(1);
+            OnPlaceClicked(0);
         }
 
         private void OnBtnPlace2Clicked()
         {
             OnBtnClickedInteract();
-            OnPlaceClicked(2);
+            OnPlaceClicked(1);
         }
 
         private void OnBtnPlace3Clicked()
         {
             OnBtnClickedInteract();
-            OnPlaceClicked(3);
+            OnPlaceClicked(2);
         }
 
         private void OnBtnPlace4Clicked()
         {
             OnBtnClickedInteract();
-            OnPlaceClicked(4);
+            OnPlaceClicked(3);
         }
 
         private void OnBtnPlace5Clicked()
         {
             OnBtnClickedInteract();
-            OnPlaceClicked(5);
+            OnPlaceClicked(4);
         }
 
         private void OnBtnPlace6Clicked()
         {
             OnBtnClickedInteract();
-            OnPlaceClicked(6);
+            OnPlaceClicked(5);
         }
         #endregion
 

@@ -1,5 +1,6 @@
-using System;
-using System.Collections.Generic;
+
+
+using UnityEngine;
 
 public static class StaticParamClass
 {
@@ -7,7 +8,21 @@ public static class StaticParamClass
 
 	public static string CheckinNumber { get; set; }
 
-	public static int CheckinPlace { get; set; } = -1;
+private static int _checkinPlace = -1;
+
+public static int CheckinPlace
+{
+    get
+    {
+        Debug.LogError($"[CheckinPlace][GET] value = {_checkinPlace}");
+        return _checkinPlace;
+    }
+    set
+    {
+        Debug.LogError($"[CheckinPlace][SET] old = {_checkinPlace}, new = {value}");
+        _checkinPlace = value;
+    }
+}
 
 
 	public static int MAX_PLACE = 6;

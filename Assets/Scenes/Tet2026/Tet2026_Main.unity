@@ -429,8 +429,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 887162540}
-  - component: {fileID: 887162539}
-  - component: {fileID: 887162541}
   m_Layer: 0
   m_Name: Main Controller
   m_TagString: Untagged
@@ -438,43 +436,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
---- !u!114 &887162539
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 887162538}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9abed71450b39b7429296037dbdbc3ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  debugStartFromUrlQR: 1
-  debugAbsoluteURL: https://koikinggaming.com/vme/TrungThu-2025/?CheckinPlace=2
-  PlaceInfo: {fileID: 0}
-  usernameText: {fileID: 0}
-  mapPieces:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  PlaceInfoPrefab: {fileID: 6891869770857540401, guid: bee0c6e6407944a5eaf58b1d04c9a0de,
-    type: 3}
-  MainScreen: {fileID: 0}
-  ThachSanhVictory: {fileID: 0}
-  ScanButton: {fileID: 0}
-  m_MenuBaseComponents:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  StarLightInterval: 10
-  starLightTransformer: {fileID: 0}
-  txtComplete: {fileID: 0}
 --- !u!4 &887162540
 Transform:
   m_ObjectHideFlags: 0
@@ -490,18 +451,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &887162541
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 887162538}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c25c2b29b4f0914296621a555936c01, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &941279377
 GameObject:
   m_ObjectHideFlags: 0

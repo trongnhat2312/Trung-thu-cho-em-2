@@ -1,4 +1,7 @@
 using System;
+using System.Collections;
+using System.Collections.Generic;
+using Coffee.UIEffects;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,6 +12,7 @@ namespace TreasureHunt.MenuGame
         private Action<int, bool> OnNeedShowPlaceInfoListener;
         private Action OnBtnScannerClickedListener;
 
+        public List<GameObject> mapPieces;
         [SerializeField] Text txtUsername;
         [SerializeField] Button btnScanner;
         [SerializeField] MenuRoadMapController menuRoadMap;
@@ -52,6 +56,7 @@ namespace TreasureHunt.MenuGame
 
         private void OnPlaceClicked(int placeId)
         {
+            Debug.LogError($"MenuCenterController OnPlaceClicked {placeId}");
             OpenPlaceInfo(placeId);
         }
 
@@ -65,9 +70,9 @@ namespace TreasureHunt.MenuGame
         public void OpenPlaceInfo(int placeNum)
         {
 
+            Debug.LogError($"MenuCenterController StaticParamClass.GoFromInside {StaticParamClass.GoFromInside}, place == " + placeNum);
             if (StaticParamClass.GoFromInside)
                 return;
-            Debug.Log("place == " + placeNum);
             if (placeNum == -1)
                 return;
             if (placeNum < 0 || (placeNum > StaticParamClass.MAX_PLACE - 1))
@@ -113,5 +118,71 @@ namespace TreasureHunt.MenuGame
             return b;
         }
 
+        public void showMapPieces()
+        {
+            for (int i = 0; i < StaticParamClass.IsMapUnlocked.Length; i++)
+            {
+                if (StaticParamClass.IsMapUnlocked[i])
+                {
+                    try
+                    {
+                        mapPieces[i].GetComponent<UITransitionEffect>().effectFactor = 0;
+                    }
+                    catch (Exception exception)
+                    {
+                    }
+
+                    try
+                    {
+                        //var child = mapPieces[i].transform.GetChild(0);
+                        //mapPieces[i].GetComponent<UITransitionEffect>().effectFactor = 0;
+                        //var image = child.GetComponent<Image>();
+                        //image.color = Color.white;
+                        MapCheckpointBase checkpointBase = mapPieces[i].GetComponent<MapCheckpointBase>();
+                        if (checkpointBase != null)
+                        {
+                            checkpointBase.SetActiveState(true);
+                        }
+                    }
+                    catch (Exception exception)
+                    {
+                    }
+                }
+            }
+            if (IsAllMapUnlocked())
+            {
+                btnScanner.gameObject.SetActive(false);
+            }
+
+        }
+
+        public IEnumerator OpenPlaceInfoWithEffect(int placeNum)
+        {
+            Debug.Log("place == " + placeNum);
+            if (placeNum == -1)
+                yield break;
+            if (placeNum < 0 || placeNum > StaticParamClass.MAX_PLACE - 1)
+            {
+                Debug.LogError("MenuGameController OnpenPlaceInfoWithEffect Place number out of range [0, MAX_PLACE - 1]");
+                yield break;
+            }
+
+            SoundBase.Instance.GetComponent<AudioSource>().PlayOneShot(SoundBase.Instance.pieceDisappear);
+            if (mapPieces != null && mapPieces.Count > placeNum && mapPieces[placeNum] != null)
+            {
+                var effect = mapPieces[placeNum].GetComponent<UITransitionEffect>();
+                if (effect != null)
+                {
+                    effect.Hide(false);
+                    yield return new WaitForSeconds(effect.effectPlayer.duration);
+                }
+            }
+
+
+            yield return new WaitForSeconds(0.5f);
+            StaticParamClass.GoFromInside = false;
+            OpenPlaceInfo(placeNum);
+
+        }
     }
 }
