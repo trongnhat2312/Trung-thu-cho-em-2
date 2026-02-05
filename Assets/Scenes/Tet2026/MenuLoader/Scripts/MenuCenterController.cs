@@ -55,7 +55,8 @@ namespace TreasureHunt.MenuGame
         }
 
         private void OnPlaceClicked(int placeId)
-        {
+        { 
+            StaticParamClass.GoFromInside = false;
             Debug.LogError($"MenuCenterController OnPlaceClicked {placeId}");
             OpenPlaceInfo(placeId);
         }

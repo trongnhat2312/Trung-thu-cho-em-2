@@ -65,7 +65,7 @@ public class CheckInPopup : MonoBehaviour
 		SetGetUserData.SetCheckinPlace(title);
 
 		Debug.LogError($"CheckInPopup set GoFromInside true");
-		StaticParamClass.GoFromInside = true;
+		// StaticParamClass.GoFromInside = true;
 		// SceneManager.LoadScene(MainController.SCENENAME_MAIN);
 	}
 
