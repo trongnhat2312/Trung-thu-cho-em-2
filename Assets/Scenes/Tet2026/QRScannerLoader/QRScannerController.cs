@@ -54,6 +54,7 @@ namespace TreasureHunt.QRScanner
 
         void Start()
         {
+            Debug.LogError($"QRScannerController Start");
             btnBack.onClick.AddListener(OnBtnBackClicked);
             btnOkChucmung.onClick.AddListener(OKButtonChucmung);
             btnCompletedChallenge.onClick.AddListener(OKButtonComplete);

@@ -1,4 +1,5 @@
 using System;
+using TreasureHunt.MenuGame;
 using UnityEngine;
 
 namespace TreasureHunt.QRScanner

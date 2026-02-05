@@ -92,16 +92,16 @@ namespace TreasureHunt.MenuGame
 
             _isStarEffEnabled = true;
             //_isPopupOpen = true;
-                Debug.Log($"MainController: SetupStart Go From InSide?? = {StaticParamClass.GoFromInside}");
+                Debug.Log($"MenuGameController: SetupStart Go From InSide?? = {StaticParamClass.GoFromInside}");
             if (StaticParamClass.GoFromInside)
             {
-                Debug.Log($"MainController: SetupStart Go From InSide, show map piece, place info...");
+                Debug.Log($"MenuGameController: SetupStart Go From InSide, show map piece, place info...");
                 menuCenter.showMapPieces();
                 StartCoroutine(menuCenter.OpenPlaceInfoWithEffect(StaticParamClass.CheckinPlace));
             }
             else
             {
-                Debug.Log($"MainController: SetupStart Go From OutSide... Check Account and user");
+                Debug.Log($"MenuGameController: SetupStart Go From OutSide... Check Account and user");
                 //Check tai khoan
                 StartCoroutine(GetData(PlayerPrefs.GetString(StaticParamClass.PrefCheckinNumber)));
             }
@@ -113,7 +113,7 @@ namespace TreasureHunt.MenuGame
 
         public IEnumerator GetData(string name)
         {
-            Debug.Log($"MainController: do get data by name {name}");
+            Debug.Log($"MenuGameController: do get data by name {name}");
             SetGetUserData.GetCheckedinPlace_(name, getCheckIn);
             yield return null;
         }
@@ -121,12 +121,12 @@ namespace TreasureHunt.MenuGame
         public void getCheckIn(string a, string name)
         {
             StaticParamClass.CheckedIn = a;
-            Debug.Log($"MainController: get Data result: {StaticParamClass.IsMapUnlocked.Length}");
+            Debug.Log($"MenuGameController: get Data result: {StaticParamClass.IsMapUnlocked.Length}");
             for (int i = 0; i < StaticParamClass.MAX_PLACE; i++)
             {
                 if (a.Contains(i.ToString()))
                 {
-                    Debug.Log("MainController: Come here moi dung: " + i);
+                    Debug.Log("MenuGameController: Come here moi dung: " + i);
                     StaticParamClass.IsMapUnlocked[i] = true;
                 }
             }
@@ -234,7 +234,12 @@ namespace TreasureHunt.MenuGame
         private void OnShowQRScanner()
         {
             Debug.LogError($"MenuGameController OnShowQRScanner");
-            string jsonData = "";
+            StaticParamClass.GoFromOutside = false;
+            QRTranferData qRTranferData = new QRTranferData();
+            qRTranferData.isGoInside = false;
+
+            string jsonData = JsonUtility.ToJson(qRTranferData);
+            Debug.LogError($"MenuGameController OnShowQRScanner GoFromInside {StaticParamClass.GoFromInside }");
             OnNeedOpenQRScannerListener?.Invoke(jsonData);
         }
 
@@ -246,5 +251,11 @@ namespace TreasureHunt.MenuGame
 
 
 
+    }
+
+[Serializable]
+    public class QRTranferData
+    {
+       public bool isGoInside = false;
     }
 }
