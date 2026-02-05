@@ -221,6 +221,7 @@ namespace TreasureHunt.MenuGame
         public void OnScanCallbackInPlaceInfo()
         {
             Debug.LogError($"MenuGameController OnScanCallbackInPlaceInfo");
+            StaticParamClass.GoFromOutside = false;
             // ClickScan();
             OnShowQRScanner();
         }
@@ -228,13 +229,13 @@ namespace TreasureHunt.MenuGame
         private void OnBtnScannerInMenuCenterClicked()
         {
             Debug.LogError($"MenuGameController OnBtnScannerInMenuCenterClicked");
+            StaticParamClass.GoFromOutside = false;
             OnShowQRScanner();
         }
 
         private void OnShowQRScanner()
         {
             Debug.LogError($"MenuGameController OnShowQRScanner");
-            StaticParamClass.GoFromOutside = false;
             QRTranferData qRTranferData = new QRTranferData();
             qRTranferData.isGoInside = false;
 
