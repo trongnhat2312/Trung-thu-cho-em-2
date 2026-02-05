@@ -444,7 +444,11 @@ namespace TreasureHunt.QRScanner
                 CommonPopupManager.ShowCheckInPopup(() =>
                 {
                     Debug.LogError($"QRScannerController GoToSignUp ShowCheckInPopup callback");
-                    OnCloseQRScannerListener?.Invoke();
+                    // OnCloseQRScannerListener?.Invoke();
+                    StartCoroutine(StopCamera(() =>
+                    { 
+                        OnCloseQRScannerListener?.Invoke(); 
+                    }));
                 });
             }));
         }
@@ -464,8 +468,11 @@ namespace TreasureHunt.QRScanner
         {
             StartCoroutine(CheckInPopup.CheckinPre(PlayerPrefs.GetString(StaticParamClass.PrefCheckinName), PlayerPrefs.GetString(StaticParamClass.PrefCheckinNumber),
             StaticParamClass.CheckinPlace, () =>
-                    {
-                        OnCloseQRScannerListener?.Invoke();
+                    { 
+                         StartCoroutine(StopCamera(() =>
+                        { 
+                            OnCloseQRScannerListener?.Invoke(); 
+                        }));
                     }));
         }
 
