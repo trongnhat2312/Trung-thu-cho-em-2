@@ -1,8 +1,6 @@
-using System;
-using System.Collections;
+using System; 
 using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine; 
 
 namespace TreasureHunt.Places{
 public class PlaceInfoNew2026 : MonoBehaviour
@@ -42,6 +40,7 @@ placeInfoUIBase.AddOnBtnOkClickedListener(OnOkClicked);
 placeInfoUIBase.AddOnBtnQRClickedListener(OnQRClicked);
 placeInfoUIBase.AddOnBtnBackClickedListener(OnBackClicked);
 placeInfoUIBase.AddOnBtnNextClickedListener(OnNextClicked); 
+placeInfoUIBase.AddOnCloseClickedListener(ClosePopup);
 	}
 
 	void OnOkClicked()
@@ -61,7 +60,7 @@ placeInfoUIBase.AddOnBtnNextClickedListener(OnNextClicked);
 		Debug.Log($"PlaceInfo: place == {name}, On QR Clicked");
 		try
 		{
-			MainController.Instance.ClosePlaceInfo();
+		SoundBase.Instance.GetComponent<AudioSource>().PlayOneShot(SoundBase.Instance.click); 
 		}
 		catch (Exception exception)
 		{

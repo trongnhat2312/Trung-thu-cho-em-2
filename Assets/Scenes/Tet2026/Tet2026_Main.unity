@@ -278,6 +278,7 @@ GameObject:
   - component: {fileID: 690715003}
   - component: {fileID: 690715002}
   - component: {fileID: 690715001}
+  - component: {fileID: 690715004}
   m_Layer: 0
   m_Name: Sound Base
   m_TagString: Untagged
@@ -414,6 +415,14 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!81 &690715004
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 690715000}
+  m_Enabled: 1
 --- !u!4 &839034543 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3909564001799474088, guid: a9c3f2e2bf6a947628856e87b84dd7ee,

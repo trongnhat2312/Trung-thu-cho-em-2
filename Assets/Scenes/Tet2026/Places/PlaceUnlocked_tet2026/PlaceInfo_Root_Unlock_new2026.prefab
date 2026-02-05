@@ -930,8 +930,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TreasureHunt.Places.PaceInfoUIBase
   m_OkButton: {fileID: 399453252741070098}
   m_QRButton: {fileID: 0}
-  m_BackButton: {fileID: 1785072734678698265}
-  m_NextButton: {fileID: 399453252741070098}
+  m_BackButton: {fileID: 0}
+  m_NextButton: {fileID: 0}
+  m_CloseButton: {fileID: 1785072734678698265}
 --- !u!1 &6908245307551326941
 GameObject:
   m_ObjectHideFlags: 0

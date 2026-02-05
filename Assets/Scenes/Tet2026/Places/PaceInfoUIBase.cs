@@ -11,11 +11,13 @@ namespace TreasureHunt.Places
         private Action OnBtnQRClickedListener;
         private Action OnBtnBackClickedListener;
         private Action OnBtnNextClickedListener;
+        private Action OnCloseClickedListener;
 
         [SerializeField] Button m_OkButton;
         [SerializeField] Button m_QRButton;
         [SerializeField] Button m_BackButton;
         [SerializeField] Button m_NextButton;
+        [SerializeField] Button m_CloseButton;
 
         void Start()
         {
@@ -24,13 +26,26 @@ namespace TreasureHunt.Places
 
         void InitListener()
         {
-            m_OkButton.onClick.AddListener(OnBtnOkClicked);
+            if (m_OkButton)
+            {
+                m_OkButton.onClick.AddListener(OnBtnOkClicked);
+            }
             if (m_QRButton != null)
             {
                 m_QRButton.onClick.AddListener(OnBtnQRClicked);
             }
-            m_BackButton.onClick.AddListener(OnBtnBackClicked);
-            m_NextButton.onClick.AddListener(OnBtnNextClicked);
+            if (m_BackButton != null)
+            {
+                m_BackButton.onClick.AddListener(OnBtnBackClicked);
+            }
+            if (m_NextButton != null)
+            {
+                m_NextButton.onClick.AddListener(OnBtnNextClicked);
+            }
+            if(m_CloseButton != null)
+            {
+                m_CloseButton.onClick.AddListener(OnBtnCloseClicked);
+            }
         }
 
         public void AddOnBtnOkClickedListener(Action listener)
@@ -57,6 +72,12 @@ namespace TreasureHunt.Places
             OnBtnNextClickedListener += listener;
         }
 
+        public void AddOnCloseClickedListener(Action listener)
+        {
+            OnCloseClickedListener -= listener;
+            OnCloseClickedListener += listener;
+        }
+
         void OnBtnOkClicked()
         {
             OnBtnOkClickedListener?.Invoke();
@@ -75,6 +96,11 @@ namespace TreasureHunt.Places
         void OnBtnNextClicked()
         {
             OnBtnNextClickedListener?.Invoke();
+        }
+
+        void OnBtnCloseClicked()
+        {
+            OnCloseClickedListener?.Invoke();
         }
 
 

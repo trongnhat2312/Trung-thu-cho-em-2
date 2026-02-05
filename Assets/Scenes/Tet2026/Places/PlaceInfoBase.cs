@@ -48,9 +48,9 @@ namespace TreasureHunt.Places
             int offset = isUnlocked ? StaticParamClass.MAX_PLACE : 0;
             placeInfoGened = Instantiate(PlaceInfos[i + offset]);
             placeInfoGened.transform.SetParent(transform, false);
-            placeInfoGened.name = "PlaceInfo " + i;
-            // QuestionButton.gameObject.SetActive(isUnlocked && i != 0 && i != 5);
-            QuestionButton.gameObject.SetActive(false);
+            placeInfoGened.name = $"{PlaceInfos[i + offset].name}_place_" + i;
+            QuestionButton.gameObject.SetActive(isUnlocked && i != 0 && i != 5);
+            // QuestionButton.gameObject.SetActive(false);
 
             try
             {
@@ -72,6 +72,7 @@ namespace TreasureHunt.Places
 
         private void OnBtnCloseClicked()
         {
+            Destroy(placeInfoGened.gameObject);
             HidePopup();
         }
 
