@@ -25,7 +25,10 @@ namespace TreasureHunt.Places
         void InitListener()
         {
             m_OkButton.onClick.AddListener(OnBtnOkClicked);
-            m_QRButton.onClick.AddListener(OnBtnQRClicked);
+            if (m_QRButton != null)
+            {
+                m_QRButton.onClick.AddListener(OnBtnQRClicked);
+            }
             m_BackButton.onClick.AddListener(OnBtnBackClicked);
             m_NextButton.onClick.AddListener(OnBtnNextClicked);
         }

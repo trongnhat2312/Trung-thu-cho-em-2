@@ -43,7 +43,7 @@ namespace TreasureHunt.Places
         public void OpenPlaceInfo(int i, bool isUnlocked, Action pCloseCallback = null, Action openQRCallback = null)
         {
             OnClosePlaceInfoListener = pCloseCallback;
-            Debug.Log($"PlaceInfoHolder: open place == {i}");
+            Debug.LogError($"PlaceInfoBase: open place == {i}");
             numPlace = i;
             int offset = isUnlocked ? StaticParamClass.MAX_PLACE : 0;
             placeInfoGened = Instantiate(PlaceInfos[i + offset]);
@@ -58,7 +58,7 @@ namespace TreasureHunt.Places
             }
             catch (Exception exception)
             {
-                Debug.LogError($"PlaceInfoHolder OpenPlaceInfo exception: {exception.Message}");
+                Debug.LogError($"PlaceInfoBase OpenPlaceInfo exception: {exception.Message}");
             }
         }
 

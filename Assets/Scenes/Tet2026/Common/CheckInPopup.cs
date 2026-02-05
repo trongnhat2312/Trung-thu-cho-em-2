@@ -97,19 +97,30 @@ public class CheckInPopup : MonoBehaviour
 		}
 		else
 		{
-			int place = StaticParamClass.CheckinPlace;
-			PlayerPrefs.SetString(StaticParamClass.PrefCheckinName, nickName.text.Trim());
-			PlayerPrefs.SetString(StaticParamClass.PrefCheckinNumber, phoneNumber.text.Trim());
-			// Send data to Azure Prefab and go to main
+			try
+			{
+				int place = StaticParamClass.CheckinPlace;
+				PlayerPrefs.SetString(StaticParamClass.PrefCheckinName, nickName.text.Trim());
+				PlayerPrefs.SetString(StaticParamClass.PrefCheckinNumber, phoneNumber.text.Trim());
+				// Send data to Azure Prefab and go to main
 
-			// đăng ký
-			PlayFabLogin.RegisterUser(nickName.text.Trim(), phoneNumber.text.Trim());
+				// đăng ký
+				PlayFabLogin.RegisterUser(nickName.text.Trim(), phoneNumber.text.Trim());
 
-			Debug.Log("Name: " + PlayerPrefs.GetString("CheckinName"));
-			Debug.Log("Number: " + PlayerPrefs.GetString("CheckinNumber"));
+				Debug.Log("Name: " + PlayerPrefs.GetString("CheckinName"));
+				Debug.Log("Number: " + PlayerPrefs.GetString("CheckinNumber"));
 
-			// load data
-			StartCoroutine(SetGetUserData.GetCheckedinPlace(phoneNumber.text.Trim(), setData));
+				// load data
+				StartCoroutine(SetGetUserData.GetCheckedinPlace(phoneNumber.text.Trim(), setData));
+			}
+			catch (Exception e)
+			{
+				Debug.LogError($"CheckInpopup Exception {e.Message}");
+			}
+
+			Debug.LogError($"CheckInPopup CheckInData name = {name}, number = {number} IsValidated callback close popup now");
+			OnClosePopupListener?.Invoke();
+			gameObject.SetActive(false);
 		}
 
 	}
@@ -169,17 +180,17 @@ public class CheckInPopup : MonoBehaviour
 	{
 		float timeDelay = 0;
 		float timeDelayMax = 10;//10s
-		while (timeDelay < timeDelayMax && !isCheckInCallBackDone)
-		{
-			await UniTask.DelayFrame(1);
-			timeDelay += Time.deltaTime;
-		}
+								// while (timeDelay < timeDelayMax && !isCheckInCallBackDone)
+								// {
+								// 	await UniTask.DelayFrame(1);
+								// 	timeDelay += Time.deltaTime;
+								// }
 
-		if (!isCheckInCallBackDone)
-		{
-			Debug.LogError($"CheckInPopup DelayCallbackCheckInPre isCheckInCallBackDone = false => back to main");
-			StaticParamClass.GoFromInside = true;
-		}
+		// if (!isCheckInCallBackDone)
+		// {
+		// 	Debug.LogError($"CheckInPopup DelayCallbackCheckInPre isCheckInCallBackDone = false => back to main");
+		// 	StaticParamClass.GoFromInside = true;
+		// }
 
 		pCallback?.Invoke();
 	}

@@ -5,6 +5,7 @@ using BarcodeScanner;
 using BarcodeScanner.Scanner;
 using Cysharp.Threading.Tasks;
 using TreasureHunt.Common;
+using TreasureHunt.Places;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -29,6 +30,10 @@ namespace TreasureHunt.QRScanner
         public Text TextHeader;
         public RawImage Image;
         public AudioSource Audio;
+        [SerializeField] Button btnBack;
+        [SerializeField] Button btnOkChucmung;
+        [SerializeField] Button btnChangeCamera;
+        [SerializeField] Button btnCompletedChallenge;
         private float RestartTime;
         public Text ListCamera;
         public Text PlaceNum;
@@ -47,7 +52,16 @@ namespace TreasureHunt.QRScanner
             Screen.autorotateToPortraitUpsideDown = false;
         }
 
-        public void AddOnCloseQRScannerListener(Action listener)
+		void Start()
+		{
+			btnBack.onClick.AddListener(OnBtnBackClicked);
+            btnOkChucmung.onClick.AddListener(OKButtonChucmung);
+            btnCompletedChallenge.onClick.AddListener(OKButtonComplete);
+            btnChangeCamera.onClick.AddListener(ChangeCamera);
+		}
+
+
+		public void AddOnCloseQRScannerListener(Action listener)
         {
             OnCloseQRScannerListener -= listener;
             OnCloseQRScannerListener += listener;
@@ -110,21 +124,21 @@ namespace TreasureHunt.QRScanner
             {
                 // nếu chưa lưu Checkin Name vào máy => là mới => intro => sau đó xem xét để chúc mừng
                 // StaticParamClass.IsMapUnlocked[0] = true;
-                PlaceInfo = Instantiate(PlaceInfoPrefab, root);
-                PlaceInfo.name = "Place Info";
+                placeInfo = Instantiate(PlaceInfoPrefab, root);
+                placeInfo.name = "Place Info";
                 int id = StaticParamClass.CheckinPlace;
                 Debug.LogError($"QRScannerController ProcessScannedQR Show place, intro, completed with id = {id}, isIDPlaceUnlock = {StaticParamClass.IsMapUnlocked[id]}");
-                PlaceInfo.GetComponent<PlaceInfoHolder>().OpenPlaceInfo(id, StaticParamClass.IsMapUnlocked[id],
+                placeInfo.GetComponent<PlaceInfoBase>().OpenPlaceInfo(id, StaticParamClass.IsMapUnlocked[id],
                     () =>
                     {
                         Debug.Log($"QRScannerController ProcessScannedQR, Intro Done => Congrat");
                         GotoCongrats(StaticParamClass.CheckinPlace);
-                        Destroy(PlaceInfo);
+                        Destroy(placeInfo);
                     });
             }
         }
         [HideInInspector]
-        public GameObject PlaceInfo;
+        public GameObject placeInfo;
 
         [SerializeField]
         public Transform root;
@@ -205,7 +219,7 @@ namespace TreasureHunt.QRScanner
 
 
 
-        public void ChangeCamera()
+        private void ChangeCamera()
         {
             SoundBase.Instance.GetComponent<AudioSource>().PlayOneShot(SoundBase.Instance.click);
             isChange = true;
@@ -333,7 +347,7 @@ namespace TreasureHunt.QRScanner
             }
         }
 
-        public void GotoCongrats(int place)
+        private void GotoCongrats(int place)
         {
             Debug.LogError($"QRScannerController GotoCongrats isTargetPlace: {IsTargetPlace(place)}");
             // nếu không phải target => xử lý khác
@@ -384,7 +398,7 @@ namespace TreasureHunt.QRScanner
         /// <summary>
         /// Event được gọi khi Close button chúc mừng.
         /// </summary>
-        public void OKButtonChucmung()
+        private void OKButtonChucmung()
         {
             SoundBase.Instance.GetComponent<AudioSource>().PlayOneShot(SoundBase.Instance.click);
 
@@ -427,8 +441,8 @@ namespace TreasureHunt.QRScanner
             {
                 // SceneManager.LoadScene(MainController.SCENENAME_CHECKIN);
                 CommonPopupManager.ShowCheckInPopup(() =>
-                {
-
+                { 
+                    Debug.LogError($"QRScannerController GoToSignUp ShowCheckInPopup callback");
                     OnCloseQRScannerListener?.Invoke();
                 });
             }));
@@ -454,7 +468,7 @@ namespace TreasureHunt.QRScanner
                     }));
         }
 
-        public void OKButtonComplete()
+        private void OKButtonComplete()
         {
             SoundBase.Instance.GetComponent<AudioSource>().PlayOneShot(SoundBase.Instance.click);
 
@@ -463,7 +477,7 @@ namespace TreasureHunt.QRScanner
 
         #region UI Buttons
 
-        public void ClickBack()
+        private void OnBtnBackClicked()
         {
             SoundBase.Instance.GetComponent<AudioSource>().PlayOneShot(SoundBase.Instance.click);
             // Try to stop the camera before loading another scene
