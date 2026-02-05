@@ -1,7 +1,6 @@
 using UnityEngine;
 using System.Collections;
-using UnityEngine.UI;
-using UnityEngine.SceneManagement;
+using UnityEngine.UI; 
 using PlayFab.ServerModels;
 using System;
 using Cysharp.Threading.Tasks;
@@ -99,9 +98,9 @@ public class CheckInPopup : MonoBehaviour
 		}
 		else
 		{
+				int place = StaticParamClass.CheckinPlace;
 			try
 			{
-				int place = StaticParamClass.CheckinPlace;
 				PlayerPrefs.SetString(StaticParamClass.PrefCheckinName, nickName.text.Trim());
 				PlayerPrefs.SetString(StaticParamClass.PrefCheckinNumber, phoneNumber.text.Trim());
 				// Send data to Azure Prefab and go to main
@@ -111,6 +110,9 @@ public class CheckInPopup : MonoBehaviour
 
 				Debug.Log("Name: " + PlayerPrefs.GetString("CheckinName"));
 				Debug.Log("Number: " + PlayerPrefs.GetString("CheckinNumber"));
+
+
+
 
 				// load data
 				StartCoroutine(SetGetUserData.GetCheckedinPlace(phoneNumber.text.Trim(), setData));
@@ -125,6 +127,19 @@ public class CheckInPopup : MonoBehaviour
 			Debug.LogError($"CheckInPopup set GoFromInside true");
 			StaticParamClass.GoFromInside = true;
 
+
+
+			//setup data now 
+			string a = place.ToString();
+			StaticParamClass.CheckedIn = a;
+			for (int i = 0; i < StaticParamClass.MAX_PLACE; i++)
+			{
+				if (a.Contains(i.ToString()))
+				{
+					Debug.Log(i + "--" + StaticParamClass.IsMapUnlocked);
+					StaticParamClass.IsMapUnlocked[i] = true;
+				}
+			}
 			SetTitleDataRequest title = new SetTitleDataRequest
 			{
 				Key = phoneNumber.text.Trim(),
@@ -145,28 +160,28 @@ public class CheckInPopup : MonoBehaviour
 
 	public static void setData_(string a, string name)
 	{
-		StaticParamClass.CheckedIn = a;
+		// StaticParamClass.CheckedIn = a;
 
 		//Debug.Log(StaticParamClass.CheckedIn);
 		//StaticParamClass.IsMapUnlocked = new List<bool>(StaticParamClass.MAX_PLACE);
 
-		for (int i = 0; i < StaticParamClass.MAX_PLACE; i++)
-		{
-			if (a.Contains(i.ToString()))
-			{
-				StaticParamClass.IsMapUnlocked[i] = true;
-			}
-		}
+		// for (int i = 0; i < StaticParamClass.MAX_PLACE; i++)
+		// {
+		// 	if (a.Contains(i.ToString()))
+		// 	{
+		// 		StaticParamClass.IsMapUnlocked[i] = true;
+		// 	}
+		// }
 
 		Debug.Log(StaticParamClass.IsMapUnlocked.Length + "__-" + StaticParamClass.IsMapUnlocked);
 
-		SetTitleDataRequest title = new SetTitleDataRequest
-		{
-			Key = name,
-			Value = StaticParamClass.CheckedIn + ";" + StaticParamClass.CheckinPlace
-		};
+		// SetTitleDataRequest title = new SetTitleDataRequest
+		// {
+		// 	Key = name,
+		// 	Value = StaticParamClass.CheckedIn + ";" + StaticParamClass.CheckinPlace
+		// };
 
-		SetGetUserData.SetCheckinPlace(title);
+		// SetGetUserData.SetCheckinPlace(title);
 		// StaticParamClass.GoFromInside = true;
 		isCheckInCallBackDone = true;
 	}
