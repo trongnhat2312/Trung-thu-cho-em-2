@@ -167,6 +167,7 @@ namespace TreasureHunt.QRScanner
                         GotoCongrats(StaticParamClass.CheckinPlace);
                         Destroy(placeInfo);
                     });
+                fog.gameObject.SetActive(false);
             }
         }
         [HideInInspector]
@@ -307,6 +308,7 @@ namespace TreasureHunt.QRScanner
         /// <param name="name"></param>
         public void OnDataLoaded(string a, string name)
         {
+	        fog.gameObject.SetActive(false);
             StaticParamClass.CheckedIn = a;
             int currentPlace = StaticParamClass.CheckinPlace;
             if (!StaticParamClass.CheckedIn.Contains(currentPlace.ToString())
