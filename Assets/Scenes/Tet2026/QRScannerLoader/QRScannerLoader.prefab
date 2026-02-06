@@ -574,9 +574,10 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "B\u1EA1n \u0111\u01B0\u1EE3c th\u1EA7n Krisna d\u1EA1y \u0111\xE0n 1 b\xE0i
-    nh\u1EA1c hay!\nH\xE3y nh\u1EDB k\u0129! Trong \u0111\xF3 ch\u1EE9a b\xE0i h\u1ECDc
-    qu\xFD gi\xE1 m\xE0 t\u1EA5t c\u1EA3 ch\xFAng ta c\u1EA7n ph\u1EA3i h\u1ECDc!"
+  m_Text: "M\u0169 s\u1EAFt - D\u0168NG C\u1EA2M & T\u1EF0 TIN\nD\u0169ng c\u1EA3m
+    kh\xF4ng ph\u1EA3i l\xE0 kh\xF4ng s\u1EE3 h\xE3i, m\xE0 l\xE0 d\xE1m tin v\xE0o
+    con \u0111\u01B0\u1EDDng m\xECnh \u0111ang \u0111i v\xE0 b\u01B0\u1EDBc ti\u1EBFp
+    khi \u0111\u1EBFn l\u01B0\u1EE3t m\xECnh."
 --- !u!1 &2203176417863518976
 GameObject:
   m_ObjectHideFlags: 0
@@ -795,13 +796,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2439971842690867698}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f8b2ed11d675446c5a49da1ea296d490, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_EffectFactor: 1
-  m_ColorFactor: 0.156
+  m_ColorFactor: 0
   m_BlurFactor: 1
   m_EffectMode: 0
   m_ColorMode: 1
@@ -814,14 +815,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2439971842690867698}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0848bff101191904ead4bb831f7084db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_BlurFactor: 1
   m_Style: 3
-  m_EffectColor: {r: 1, g: 1, b: 0, a: 0.5019608}
+  m_EffectColor: {r: 1, g: 1, b: 0, a: 0}
   m_EffectDistance: {x: 2, y: 2}
   m_UseGraphicAlpha: 1
 --- !u!1 &2609337047084731162
@@ -1637,7 +1638,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 2d1df43cb9b404025bea05b81a3e5846, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0e39b710cfc614ad7b060afa663e0df2, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1725,10 +1726,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "B\u1EA1n nh\u1EADn \u0111\u01B0\u1EE3c L\u1ECD n\u01B0\u1EDBc t\u1EEB
-    \xD4ng L\u1ED1t!\nH\xE3y Bi\u1EBFt \u01A1n, Bi\u1EBFt \u0111\u1EE7 v\xEC ch\xFAng
-    ta lu\xF4n nh\u1EADn \u0111\u01B0\u1EE3c r\u1EA5t nhi\u1EC1u t\u1EEB c\xE1c v\u1ECB
-    th\u1EA7n, t\u1EEB m\u1ECDi th\u1EE9 xung quanh!"
+  m_Text: "\xC1o gi\xE1p s\u1EAFt - B\xCCNH AN & CHE CH\u1EDE\nS\u1EE9c m\u1EA1nh
+    ch\u1EC9 th\u1EF1c s\u1EF1 c\xF3 \xFD ngh\u0129a khi \u0111\u01B0\u1EE3c d\xF9ng
+    \u0111\u1EC3 b\u1EA3o v\u1EC7 v\xE0 che ch\u1EDF."
 --- !u!1 &3951589374305817824
 GameObject:
   m_ObjectHideFlags: 0
@@ -1919,10 +1919,11 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "B\u1EA1n nh\u1EADn \u0111\u01B0\u1EE3c chi\u1EBFc GheNgo t\u1EEB c\xE1c
-    v\u1ECB th\u1EA7n! \nH\xE3y nh\u1EDB r\u1EB1ng m\xECnh lu\xF4n \u0111\u01B0\u1EE3c
-    che tr\u1EDF, h\xE3y lu\xF4n c\xF3 Ni\u1EC1m tin v\xE0o nh\u1EEFng \u0111i\u1EC1u
-    t\u1ED1t \u0111\u1EB9p nh\xE9!"
+  m_Text: "D\xE2y c\u01B0\u01A1ng - CH\u0102M CH\u1EC8 & KI\xCAN NH\u1EAAN\nKh\xF4ng
+    ph\u1EA3i ai \u0111i nhanh h\u01A1n c\u0169ng \u0111\u1EBFn \u0111\xEDch tr\u01B0\u1EDBc.
+    Ch\u0103m ch\u1EC9 v\xE0 ki\xEAn nh\u1EABn gi\xFAp ch\xFAng ta ti\u1EBFn t\u1EEBng
+    b\u01B0\u1EDBc v\u1EEFng v\xE0ng, \u0111\u1EC3 m\u1ED7i h\xE0nh tr\xECnh \u0111\u1EC1u
+    l\xE0 m\u1ED9t qu\xE1 tr\xECnh tr\u01B0\u1EDFng th\xE0nh."
 --- !u!1 &4178254523492239844
 GameObject:
   m_ObjectHideFlags: 0
@@ -2158,9 +2159,10 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "B\u1EA1n nh\u1EADn \u0111\u01B0\u1EE3c th\xF4ng \u0111i\u1EC7p t\u1EEB
-    tr\xF2 ch\u01A1i V\u1EBD r\u1EAFn!\nH\xE3y tr\u1EDF th\xE0nh nh\u1EEFng ng\u01B0\u1EDDi
-    anh h\xF9ng nh\xE9!"
+  m_Text: "Y\xEAn ng\u1EF1a - K\u1EBET N\u1ED0I & Y\xCAU TH\u01AF\u01A0NG\nKhi c\xF3
+    y\xEAu th\u01B0\u01A1ng, h\xE0nh tr\xECnh kh\xF4ng c\xF2n n\u1EB7ng nh\u1ECDc.
+    Khi c\xF3 k\u1EBFt n\u1ED1i, con \u0111\u01B0\u1EDDng n\xE0o c\u0169ng tr\u1EDF
+    n\xEAn \u1EA5m \xE1p h\u01A1n."
 --- !u!1 &4835321118299001148
 GameObject:
   m_ObjectHideFlags: 0
@@ -3128,9 +3130,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "B\u1EA1n nh\u1EADn \u0111\u01B0\u1EE3c th\xF4ng \u0111i\u1EC7p t\u1EEB
-    tr\xF2 ch\u01A1i V\u1EBD r\u1EAFn!\nH\xE3y tr\u1EDF th\xE0nh nh\u1EEFng ng\u01B0\u1EDDi
-    anh h\xF9ng nh\xE9!"
+  m_Text: "Th\u1EA7n l\u1EF1c - NI\u1EC0M TIN & B\u1EE8T PH\xC1 \nKhi ni\u1EC1m tin
+    d\u1EABn l\u1ED1i, con ng\u01B0\u1EDDi s\u1EBD b\u01B0\u1EDBc qua gi\u1EDBi h\u1EA1n
+    c\u1EE7a ch\xEDnh m\xECnh."
 --- !u!1 &6655894801079283354
 GameObject:
   m_ObjectHideFlags: 0
@@ -3622,9 +3624,11 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "B\u1EA1n \u0111\u01B0\u1EE3c th\u1EA7n Naga h\u01B0\u1EDBng d\u1EABn c\xE1ch
-    m\xE0i r\xECu!\nBi\u1EBFt khi\xEAm t\u1ED1n v\xE0 ch\u0103m ch\u1EC9 m\xE0i r\u0169a
-    b\u1EA3n th\xE2n th\xEC s\u1EE9c m\u1EA1nh m\u1EDBi c\xF3 th\u1EC3 n\u1EA3y n\u1EDF!"
+  m_Text: "V\xF3 ng\u1EF1a s\u1EAFt - B\u1EC0N B\u1EC8 & \u0110\u1ED2NG H\xC0NH\nB\u1EC1n
+    b\u1EC9 gi\xFAp ta kh\xF4ng b\u1ECF cu\u1ED9c.\n\u0110\u1ED3ng h\xE0nh gi\xFAp
+    ta kh\xF4ng \u0111\u01A1n \u0111\u1ED9c.\nKhi s\u1EE9c m\u1EA1nh \u0111\u01B0\u1EE3c
+    chia s\u1EBB, con \u0111\u01B0\u1EDDng d\xF9 d\xE0i \u0111\u1EBFn \u0111\xE2u
+    c\u0169ng tr\u1EDF n\xEAn v\u1EEFng v\xE0ng h\u01A1n."
 --- !u!1 &8297025058558561218
 GameObject:
   m_ObjectHideFlags: 0
@@ -3708,7 +3712,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 59}
-  m_SizeDelta: {x: 800, y: 800}
+  m_SizeDelta: {x: 900, y: 900}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5839377000874635895
 CanvasRenderer:
@@ -3731,7 +3735,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 2100000, guid: 6f7e644dde9714ec59dc6892087b037f, type: 2}
-  m_Color: {r: 0, g: 0.6787319, b: 1, a: 1}
+  m_Color: {r: 0.8191527, g: 0.9290446, b: 0.9811321, a: 0.6039216}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

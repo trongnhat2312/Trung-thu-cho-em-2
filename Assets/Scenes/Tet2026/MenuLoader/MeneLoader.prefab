@@ -264,7 +264,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -226}
+  m_AnchoredPosition: {x: 0, y: -256}
   m_SizeDelta: {x: 660, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8160510414845666443
@@ -308,12 +308,13 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "H\xE0nh tr\xECnh tr\u1EDF th\xE0nh ng\u01B0\u1EDDi anh h\xF9ng th\u1EF1c
-    s\u1EF1, l\xE0 h\xE0nh tr\xECnh nu\xF4i d\u01B0\u1EE1ng nh\u1EEFng ph\u1EA9m
-    ch\u1EA5t t\u1ED1t \u0111\u1EB9p b\xEAn trong m\xECnh! Ch\xFAc c\xE1c b\u1EA1n
-    n\u0103m m\u1EDBi nu\xF4i d\u01B0\u1EE1ng nh\u1EEFng ph\u1EA9m ch\u1EA5t n\xE0y,
-    v\xE0 tr\u1EDF th\xE0nh nh\u1EEFng ng\u01B0\u1EDDi anh h\xF9ng tuy\u1EC7t v\u1EDDi
-    nh\xE9! ^^"
+  m_Text: "Ng\xE0y x\u01B0a, Th\xE1nh Gi\xF3ng \u0111\xE1nh gi\u1EB7c \u0111\u1EC3
+    gi\u1EEF n\u01B0\u1EDBc. Ng\xE0y nay, ch\xFAng ta \u0111\u01B0\u1EE3c s\u1ED1ng
+    trong h\xF2a b\xECnh.\nR\xE8n Ng\u1EF1a S\u1EAFt h\xF4m nay kh\xF4ng ph\u1EA3i
+    \u0111\u1EC3 ra tr\u1EADn, m\xE0 \u0111\u1EC3 nh\u1EAFc ch\xFAng ta ki\xEAn tr\xEC
+    h\u01A1n, k\u1EF7 lu\u1EADt h\u01A1n v\xE0 kh\xF4ng b\u1ECF cu\u1ED9c. M\u1ED7i
+    ng\xE0y r\xE8n m\u1ED9t ch\xFAt, Ng\u1EF1a S\u1EAFt trong m\xECnh s\u1EBD ng\xE0y
+    c\xE0ng m\u1EA1nh h\u01A1n."
 --- !u!1 &268540189946959770
 GameObject:
   m_ObjectHideFlags: 0
@@ -2210,7 +2211,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &5395083444772837739
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5862,7 +5863,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -6, y: -108}
+  m_AnchoredPosition: {x: -6, y: -66}
   m_SizeDelta: {x: 240, y: 180}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7219626528583024978

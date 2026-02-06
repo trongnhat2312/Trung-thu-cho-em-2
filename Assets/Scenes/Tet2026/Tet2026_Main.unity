@@ -93,7 +93,8 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 48d295ae845934ddea0dba7f1e9e022b,
+    type: 2}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -195,6 +196,34 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 941279378}
     m_Modifications:
+    - target: {fileID: 751426671200408558, guid: c1e51a988d02ecf4cb9a96739dff10ec,
+        type: 3}
+      propertyPath: m_Text
+      value: "Tranh th\u1EADp v\u1EADt"
+      objectReference: {fileID: 0}
+    - target: {fileID: 1872418647633964360, guid: c1e51a988d02ecf4cb9a96739dff10ec,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 24fc9bb8c929249c3b2036fe1704ae95,
+        type: 3}
+    - target: {fileID: 2090881405422632173, guid: c1e51a988d02ecf4cb9a96739dff10ec,
+        type: 3}
+      propertyPath: m_Text
+      value: "Dao b\u1ED5 cau"
+      objectReference: {fileID: 0}
+    - target: {fileID: 2411888843920482701, guid: c1e51a988d02ecf4cb9a96739dff10ec,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 0e39b710cfc614ad7b060afa663e0df2,
+        type: 3}
+    - target: {fileID: 2632007969789359296, guid: c1e51a988d02ecf4cb9a96739dff10ec,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: a29f282fad96848e8a742b65ecd3ee26,
+        type: 3}
     - target: {fileID: 2816607372818711812, guid: c1e51a988d02ecf4cb9a96739dff10ec,
         type: 3}
       propertyPath: m_Name
@@ -250,6 +279,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6126391352009169417, guid: c1e51a988d02ecf4cb9a96739dff10ec,
+        type: 3}
+      propertyPath: m_Text
+      value: "Ng\u1EF1a v\xF9ng cao"
+      objectReference: {fileID: 0}
+    - target: {fileID: 6779575827705339131, guid: c1e51a988d02ecf4cb9a96739dff10ec,
+        type: 3}
+      propertyPath: m_Text
+      value: "Ng\u1EF1a bay Buraq"
+      objectReference: {fileID: 0}
+    - target: {fileID: 7123653737987799725, guid: c1e51a988d02ecf4cb9a96739dff10ec,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 2d1df43cb9b404025bea05b81a3e5846,
+        type: 3}
     - target: {fileID: 7873024132291946435, guid: c1e51a988d02ecf4cb9a96739dff10ec,
         type: 3}
       propertyPath: m_IsActive
