@@ -7,7 +7,7 @@ using TreasureHunt.MenuGame;
 using TreasureHunt.QRScanner;
 #if UNITY_IOS
 using Unity.Notifications.iOS;
-using Cysharp.Threading.Tasks; 
+using Cysharp.Threading.Tasks;
 #endif
 
 namespace TreasureHunt
@@ -51,7 +51,7 @@ namespace TreasureHunt
         {
             Application.targetFrameRate = 60;
             Time.timeScale = 1.0f;
-            
+
             //only 1 scene -> call setup data
             SetupData("");
         }
@@ -87,7 +87,7 @@ namespace TreasureHunt
         private async void OnFirstLoaded()
         {
             string jsonData = "";
-            //process data firstLoad  
+            //process data firstLoad
             InitMenuRootObj(jsonData);
 
             await UniTask.DelayFrame(1);
@@ -95,7 +95,7 @@ namespace TreasureHunt
             Destroy(objFirstLoad);
         }
 
-        #region Menu 
+        #region Menu
 
         private void InitMenuRootObj(string jsonData)
         {
@@ -143,7 +143,7 @@ namespace TreasureHunt
         #region QR Scanner
         private async void InitQRScannerRootObj(string jsonData)
         {
-            //Debug.LogError("MainSceneController InitMenuRootObj"); 
+            //Debug.LogError("MainSceneController InitMenuRootObj");
             if (QRScannerLoader.Instance == null)
             {
                 objQRScanner = Instantiate(prefabQRScanner);
@@ -157,7 +157,7 @@ namespace TreasureHunt
             //Start setup UI
             qrScannerLoader.SetupDataLoaded(jsonData);
             //Add Listener
-            qrScannerLoader.AddOnCloseQRScannerListener(OnCloseQRScanner); 
+            qrScannerLoader.AddOnCloseQRScannerListener(OnCloseQRScanner);
             //Change ScreenState
             curScreen = ScreenType.S2_QRScanner;
         }
@@ -170,15 +170,16 @@ namespace TreasureHunt
             await UniTask.Delay(200);
             DestroyObjIfExist(objQRScanner);
 
-        } 
+        }
         #endregion
 
 
         private void DestroyObjIfExist(GameObject obj, bool isImmediate = false)
         {
-            Debug.LogError("DestroyObjIfExist objName = " + obj.name);
+            // Debug.LogError("DestroyObjIfExist objName = " + obj.name);
             if (obj != null)
             {
+	            Debug.LogError("DestroyObjIfExist objName = " + obj.name);
                 if (isImmediate)
                 {
                     DestroyImmediate(obj);

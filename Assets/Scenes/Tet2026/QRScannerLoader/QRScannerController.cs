@@ -41,6 +41,7 @@ namespace TreasureHunt.QRScanner
 
         public GameObject ChucmungObj;
         public GameObject ChucmungComplete;
+        public Image fog;
         private bool isChange = false;
 
         public GameObject PlaceInfoPrefab;
@@ -52,13 +53,37 @@ namespace TreasureHunt.QRScanner
             Screen.autorotateToPortraitUpsideDown = false;
         }
 
-        void Start()
+        IEnumerator Start()
         {
-            Debug.LogError($"QRScannerController Start");
+	        DoStart();
+	        Debug.LogError("QRScannerController: Xin quyền Camera");
+	        // Yêu cầu quyền truy cập trước khi khởi tạo scan
+	        if (!Application.HasUserAuthorization(UserAuthorization.WebCam))
+	        {
+		        yield return Application.RequestUserAuthorization(UserAuthorization.WebCam);
+	        }
+
+	        if (Application.HasUserAuthorization(UserAuthorization.WebCam))
+	        {
+		        Debug.LogError("QRScannerController: Đã có quyền Camera");
+		        // Gọi hàm khởi tạo ZXing ở đây
+	        }
+	        else
+	        {
+		        Debug.LogError("QRScannerController: Người dùng từ chối hoặc trình duyệt chặn Camera");
+	        }
+        }
+
+        void DoStart()
+        {
+            Debug.LogError($"QRScannerController: Start");
             btnBack.onClick.AddListener(OnBtnBackClicked);
             btnOkChucmung.onClick.AddListener(OKButtonChucmung);
             btnCompletedChallenge.onClick.AddListener(OKButtonComplete);
-            btnChangeCamera.onClick.AddListener(ChangeCamera);
+            btnChangeCamera.onClick.AddListener(()=>
+            {
+	            ChangeCamera(true);
+            });
         }
 
 
@@ -68,26 +93,32 @@ namespace TreasureHunt.QRScanner
             OnCloseQRScannerListener += listener;
         }
 
-        public void ShowQRScanner()
+        public async void ShowQRScanner()
         {
 
             ChucmungObj.SetActive(false);
             ChucmungComplete.SetActive(false);
+            fog.gameObject.SetActive(true);
+
             Debug.LogError($"QRScannerController ShowQRScanner GoFromOutside = {StaticParamClass.GoFromOutside}");
-            Console.WriteLine($"QRScanner: Out: " + StaticParamClass.GoFromOutside);
+            Debug.LogError($"QRScanner: Out: " + StaticParamClass.GoFromOutside);
             if (StaticParamClass.GoFromOutside == true)
             {
                 // nếu là vào từ bên ngoài => kiểm tra xem login chưa???
                 StaticParamClass.DaCheckRoi = true;
-                Console.WriteLine($"QRScanner: DaCheckRoi: " + StaticParamClass.DaCheckRoi);
+                Debug.LogError($"QRScanner: DaCheckRoi: " + StaticParamClass.DaCheckRoi);
 
                 ProcessScannedQR(true);
             }
             else
             {
+	            await UniTask.DelayFrame(1);
+	            fog.gameObject.SetActive(false);
+	            await UniTask.DelayFrame(5);
                 // Create a basic scanner
                 BarcodeScanner = new Scanner();
                 BarcodeScanner.Camera.Play();
+                // ChangeCamera(false);
 
                 // Display the camera texture through a RawImage
                 BarcodeScanner.OnReady += (sender, arg) =>
@@ -118,7 +149,7 @@ namespace TreasureHunt.QRScanner
             if (IsSignedUp())
             {
                 // đã đăng ký => load data và xử lý sau khi load
-                // Check in and go to Main; 
+                // Check in and go to Main;
                 StartCoroutine(GetData(PlayerPrefs.GetString(StaticParamClass.PrefCheckinNumber)));
             }
             else
@@ -220,7 +251,7 @@ namespace TreasureHunt.QRScanner
 
 
 
-        private void ChangeCamera()
+        private void ChangeCamera(bool playSE = true)
         {
             SoundBase.Instance.GetComponent<AudioSource>().PlayOneShot(SoundBase.Instance.click);
             isChange = true;
@@ -446,8 +477,8 @@ namespace TreasureHunt.QRScanner
                     Debug.LogError($"QRScannerController GoToSignUp ShowCheckInPopup callback");
                     // OnCloseQRScannerListener?.Invoke();
                     StartCoroutine(StopCamera(() =>
-                    { 
-                        OnCloseQRScannerListener?.Invoke(); 
+                    {
+                        OnCloseQRScannerListener?.Invoke();
                     }));
                 });
             }));
@@ -468,10 +499,10 @@ namespace TreasureHunt.QRScanner
         {
             StartCoroutine(CheckInPopup.CheckinPre(PlayerPrefs.GetString(StaticParamClass.PrefCheckinName), PlayerPrefs.GetString(StaticParamClass.PrefCheckinNumber),
             StaticParamClass.CheckinPlace, () =>
-                    { 
+                    {
                          StartCoroutine(StopCamera(() =>
-                        { 
-                            OnCloseQRScannerListener?.Invoke(); 
+                        {
+                            OnCloseQRScannerListener?.Invoke();
                         }));
                     }));
         }

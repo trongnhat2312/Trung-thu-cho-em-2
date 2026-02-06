@@ -78,7 +78,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Ghe Ngo
+  m_Text: "Ng\u1EF1a v\xF9ng cao"
 --- !u!1 &155530091182924594
 GameObject:
   m_ObjectHideFlags: 0
@@ -381,7 +381,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 24fc9bb8c929249c3b2036fe1704ae95, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2d1df43cb9b404025bea05b81a3e5846, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2366,7 +2366,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Th\u1EA7n Krisna"
+  m_Text: "Dao b\u1ED5 cau"
 --- !u!1 &2816607372818711812
 GameObject:
   m_ObjectHideFlags: 0
@@ -2417,7 +2417,7 @@ MonoBehaviour:
   menuState: 0
   menuCenter: {fileID: 163206689614543628}
   menuPopup: {fileID: 4165720881329058753}
-  debugStartFromUrlQR: 1
+  debugStartFromUrlQR: 0
   debugAbsoluteURL: https://koikinggaming.com/vme/Tet-2025/?CheckinPlace=1
   ThachSanhVictory: {fileID: 7873024132291946435}
   ScanButton: {fileID: 4090148591407919114}
@@ -5234,7 +5234,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "L\u1EC5 l\xEAn \u0111\u1ED3ng"
+  m_Text: "Tranh th\u1EADp v\u1EADt"
 --- !u!1 &6538258867667001323
 GameObject:
   m_ObjectHideFlags: 0
@@ -5389,7 +5389,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Game v\u1EBD R\u1EAFn"
+  m_Text: "Ng\u1EF1a bay Buraq"
 --- !u!1 &6930387565686931583
 GameObject:
   m_ObjectHideFlags: 0
@@ -6248,7 +6248,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 85b5450481f614960aa54f8419fde9e6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a29f282fad96848e8a742b65ecd3ee26, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6824,7 +6824,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: a29f282fad96848e8a742b65ecd3ee26, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 24fc9bb8c929249c3b2036fe1704ae95, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6919,7 +6919,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 2d1df43cb9b404025bea05b81a3e5846, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0e39b710cfc614ad7b060afa663e0df2, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -7107,6 +7107,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 937441761124147875}
     m_Modifications:
+    - target: {fileID: 670376306220805440, guid: 509fcd96cf6904b12949a3d9b2eaaec6,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -286
+      objectReference: {fileID: 0}
     - target: {fileID: 1357742801900837124, guid: 509fcd96cf6904b12949a3d9b2eaaec6,
         type: 3}
       propertyPath: m_Pivot.x
