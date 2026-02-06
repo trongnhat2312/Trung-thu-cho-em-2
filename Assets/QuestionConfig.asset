@@ -13,38 +13,40 @@ MonoBehaviour:
   m_Name: QuestionConfig
   m_EditorClassIdentifier: 
   Categories:
-  - CategoryName: "To\xE0 Tr\u1ED1ng \u0110\u1ED3ng - \xD4ng L\u1ED1t"
+  - CategoryName: "Ng\u1EF1a trong v\xE1n in tranh th\u1EADp v\u1EADt"
     Questions:
-    - Question: "\xD4ng \u0110\xF4i hay \xD4ng L\u1ED1t hay Thanh x\xE0, B\u1EA1ch
-        x\xE0 t\u1EE9c r\u1EAFn xanh, r\u1EAFn tr\u1EAFng t\u01B0\u1EE3ng tr\u01B0ng
-        cho \u0111i\u1EC1u g\xEC?"
-      Answer1: "Cho d\xF2ng s\xF4ng, ngu\u1ED3n n\u01B0\u1EDBc g\u1EAFn v\u1EDBi
-        t\xEDn ng\u01B0\u1EE1ng n\xF4ng nghi\u1EC7p v\xE0 th\u1EDD \u0111a th\u1EA7n
-        c\u1EE7a ng\u01B0\u1EDDi Vi\u1EC7t \u0111\u1ED3ng b\u1EB1ng B\u1EAFc B\u1ED9. "
-      Answer2: "Cho \u0111\u1EA1i d\u01B0\u01A1ng, ngu\u1ED3n n\u01B0\u1EDBc g\u1EAFn
-        v\u1EDBi t\xEDn ng\u01B0\u1EE1ng n\xF4ng nghi\u1EC7p v\xE0 th\u1EDD \u0111a
-        th\u1EA7n c\u1EE7a ng\u01B0\u1EDDi M\u01B0\u1EDDng."
-      Answer3: "Cho d\xF2ng su\u1ED1i, ngu\u1ED3n n\u01B0\u1EDBc g\u1EAFn v\u1EDBi
-        t\xEDn ng\u01B0\u1EE1ng n\xF4ng nghi\u1EC7p v\xE0 th\u1EDD \u0111a th\u1EA7n
-        c\u1EE7a ng\u01B0\u1EDDi Th\xE1i. "
-      Answer4: "C\u1EA3 4 \u0111\xE1p \xE1n tr\xEAn"
-      CorrectIndex: 0
-  - CategoryName: "To\xE0 Tr\u1ED1ng \u0110\u1ED3ng - \xD4ng L\u1ED1t"
+    - Question: "Tranh th\u1EADp v\u1EADt th\u01B0\u1EDDng \u0111\u01B0\u1EE3c d\xF9ng
+        \u0111\u1EC3 l\xE0m g\xEC?"
+      Answer1: "Trang tr\xED nh\xE0 c\u1EEDa ng\xE0y T\u1EBFt"
+      Answer2: "C\xFAng M\u1EE5 ho\u1EB7c c\xFAng vong"
+      Answer3: "L\xE0m qu\xE0 l\u01B0u ni\u1EC7m"
+      Answer4: "Minh h\u1ECDa truy\u1EC7n d\xE2n gian "
+      CorrectIndex: 1
+    - Question: "Ng\u01B0\u1EDDi Vi\u1EC7t g\u1EEDi ng\u1EF1a cho th\u1EA7n linh
+        v\xE0 B\xE0 M\u1EE5 v\u1EDBi mong mu\u1ED1n g\xEC?"
+      Answer1: "Th\u1EC3 hi\u1EC7n s\u1EF1 gi\xE0u c\xF3"
+      Answer2: "C\u1EA7u b\xECnh an, hanh th\xF4ng, gi\u1EA3i tr\u1EEB tai \u01B0\u01A1ng
+        cho tr\u1EBB nh\u1ECF"
+      Answer3: "\u0110\u1EC3 trang tr\xED b\xE0n th\u1EDD"
+      Answer4: "L\xE0m \u0111\u1ED3 ch\u01A1i"
+      CorrectIndex: 1
+  - CategoryName: "Ng\u1EF1a trong v\xE1n in tranh th\u1EADp v\u1EADt"
     Questions:
-    - Question: "\xD4ng \u0110\xF4i hay \xD4ng L\u1ED1t hay Thanh x\xE0, B\u1EA1ch
-        x\xE0 t\u1EE9c r\u1EAFn xanh, r\u1EAFn tr\u1EAFng t\u01B0\u1EE3ng tr\u01B0ng
-        cho \u0111i\u1EC1u g\xEC?"
-      Answer1: "Cho d\xF2ng s\xF4ng, ngu\u1ED3n n\u01B0\u1EDBc g\u1EAFn v\u1EDBi
-        t\xEDn ng\u01B0\u1EE1ng n\xF4ng nghi\u1EC7p v\xE0 th\u1EDD \u0111a th\u1EA7n
-        c\u1EE7a ng\u01B0\u1EDDi Vi\u1EC7t \u0111\u1ED3ng b\u1EB1ng B\u1EAFc B\u1ED9. "
-      Answer2: "Cho \u0111\u1EA1i d\u01B0\u01A1ng, ngu\u1ED3n n\u01B0\u1EDBc g\u1EAFn
-        v\u1EDBi t\xEDn ng\u01B0\u1EE1ng n\xF4ng nghi\u1EC7p v\xE0 th\u1EDD \u0111a
-        th\u1EA7n c\u1EE7a ng\u01B0\u1EDDi M\u01B0\u1EDDng."
-      Answer3: "Cho d\xF2ng su\u1ED1i, ngu\u1ED3n n\u01B0\u1EDBc g\u1EAFn v\u1EDBi
-        t\xEDn ng\u01B0\u1EE1ng n\xF4ng nghi\u1EC7p v\xE0 th\u1EDD \u0111a th\u1EA7n
-        c\u1EE7a ng\u01B0\u1EDDi Th\xE1i. "
-      Answer4: "C\u1EA3 4 \u0111\xE1p \xE1n tr\xEAn"
-      CorrectIndex: 0
+    - Question: "Tranh th\u1EADp v\u1EADt th\u01B0\u1EDDng \u0111\u01B0\u1EE3c d\xF9ng
+        \u0111\u1EC3 l\xE0m g\xEC?"
+      Answer1: "Trang tr\xED nh\xE0 c\u1EEDa ng\xE0y T\u1EBFt"
+      Answer2: "C\xFAng M\u1EE5 ho\u1EB7c c\xFAng vong"
+      Answer3: "L\xE0m qu\xE0 l\u01B0u ni\u1EC7m"
+      Answer4: "Minh h\u1ECDa truy\u1EC7n d\xE2n gian "
+      CorrectIndex: 1
+    - Question: "Ng\u01B0\u1EDDi Vi\u1EC7t g\u1EEDi ng\u1EF1a cho th\u1EA7n linh
+        v\xE0 B\xE0 M\u1EE5 v\u1EDBi mong mu\u1ED1n g\xEC?"
+      Answer1: "Th\u1EC3 hi\u1EC7n s\u1EF1 gi\xE0u c\xF3"
+      Answer2: "C\u1EA7u b\xECnh an, hanh th\xF4ng, gi\u1EA3i tr\u1EEB tai \u01B0\u01A1ng
+        cho tr\u1EBB nh\u1ECF"
+      Answer3: "\u0110\u1EC3 trang tr\xED b\xE0n th\u1EDD"
+      Answer4: "L\xE0m \u0111\u1ED3 ch\u01A1i"
+      CorrectIndex: 1
   - CategoryName: "V\u01B0\u1EDDn Ki\u1EBFn Tr\xFAc - Ghe ngo c\u1EE7a ng\u01B0\u1EDDi
       Khmer"
     Questions:

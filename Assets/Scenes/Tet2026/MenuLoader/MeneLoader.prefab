@@ -2417,7 +2417,7 @@ MonoBehaviour:
   menuState: 0
   menuCenter: {fileID: 163206689614543628}
   menuPopup: {fileID: 4165720881329058753}
-  debugStartFromUrlQR: 0
+  debugStartFromUrlQR: 1
   debugAbsoluteURL: https://koikinggaming.com/vme/Tet-2025/?CheckinPlace=1
   ThachSanhVictory: {fileID: 7873024132291946435}
   ScanButton: {fileID: 4090148591407919114}
@@ -7110,7 +7110,7 @@ PrefabInstance:
     - target: {fileID: 670376306220805440, guid: 509fcd96cf6904b12949a3d9b2eaaec6,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -286
+      value: -117
       objectReference: {fileID: 0}
     - target: {fileID: 1357742801900837124, guid: 509fcd96cf6904b12949a3d9b2eaaec6,
         type: 3}
@@ -7220,7 +7220,7 @@ PrefabInstance:
     - target: {fileID: 6891869770857540401, guid: 509fcd96cf6904b12949a3d9b2eaaec6,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

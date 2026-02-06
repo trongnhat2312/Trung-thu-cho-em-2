@@ -59,6 +59,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6400279886096311889}
     m_Modifications:
+    - target: {fileID: 1442209726936613192, guid: 0859b6a056f8847b1b58a5cc2dd99f38,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 989.14
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442209726936613192, guid: 0859b6a056f8847b1b58a5cc2dd99f38,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1858874142168734192, guid: 0859b6a056f8847b1b58a5cc2dd99f38,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -20
+      objectReference: {fileID: 0}
+    - target: {fileID: 2316487576994878220, guid: 0859b6a056f8847b1b58a5cc2dd99f38,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -240
+      objectReference: {fileID: 0}
     - target: {fileID: 3705146691124973241, guid: 0859b6a056f8847b1b58a5cc2dd99f38,
         type: 3}
       propertyPath: m_Pivot.x
@@ -159,6 +179,44 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4582719817051806039, guid: 0859b6a056f8847b1b58a5cc2dd99f38,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5541999641889772925, guid: 0859b6a056f8847b1b58a5cc2dd99f38,
+        type: 3}
+      propertyPath: m_Text
+      value: "Ng\u1EF1a trong tranh th\u1EADp v\u1EADt"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5564481573256998143, guid: 0859b6a056f8847b1b58a5cc2dd99f38,
+        type: 3}
+      propertyPath: m_Text
+      value: "Trong tranh th\u1EADp v\u1EADt c\u1EE7a ng\u01B0\u1EDDi Vi\u1EC7t B\u1EAFc
+        B\u1ED9, ng\u1EF1a in tr\xEAn gi\u1EA5y d\xF3 kh\xF4ng ch\u1EC9 l\xE0 h\xECnh
+        \u1EA3nh quen thu\u1ED9c, m\xE0 c\xF2n l\xE0 l\u1EC5 v\u1EADt g\u1EEDi g\u1EAFm
+        ni\u1EC1m tin.\nNg\u01B0\u1EDDi Vi\u1EC7t quan ni\u1EC7m, \u201Ctr\u1EA7n
+        sao \xE2m v\u1EADy\u201D, g\u1EEDi ng\u1EF1a cho th\u1EA7n linh hay c\xE1c
+        B\xE0 m\u1EE5, t\u1ED5 ti\xEAn \u0111\u1EC3 s\u1EED d\u1EE5ng \u1EDF th\u1EBF
+        gi\u1EDBi b\xEAn kia, qua \u0111\xF3 c\u1EA7u mong b\xECnh an, hanh th\xF4ng,
+        gi\u1EA3i tr\u1EEB tai \u01B0\u01A1ng.\n\nNg\u1EF1a mang theo l\u1EDDi ch\xFAc
+        b\xECnh an.\nNg\u1EF1a \u0111\u01B0\u1EE3c g\u1EEDi \u0111\u1EBFn th\u1EA7n
+        linh \u0111\u1EC3 che ch\u1EDF con ng\u01B0\u1EDDi.\n\nT\u1EEB tinh th\u1EA7n
+        \u1EA5y, Ng\u1EF1a S\u1EAFt kh\xF4ng ch\u1EC9 c\u1EA7n s\u1EE9c m\u1EA1nh,
+        m\xE0 c\u1EA7n m\u1ED9t l\u1EDBp b\u1EA3o h\u1ED9 \u0111\u1EC3 s\u1EE9c m\u1EA1nh
+        \u1EA5y \u0111i \u0111\xFAng h\u01B0\u1EDBng.\n\nV\u1EADt ph\u1EA9m nh\u1EADn
+        \u0111\u01B0\u1EE3c: \xC1o gi\xE1p s\u1EAFt ng\u1EF1a\n"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5564481573256998143, guid: 0859b6a056f8847b1b58a5cc2dd99f38,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 36
+      objectReference: {fileID: 0}
+    - target: {fileID: 5564481573256998143, guid: 0859b6a056f8847b1b58a5cc2dd99f38,
+        type: 3}
+      propertyPath: m_FontData.m_Alignment
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6619215456385704560, guid: 0859b6a056f8847b1b58a5cc2dd99f38,
         type: 3}
       propertyPath: m_NextButton
@@ -172,7 +230,12 @@ PrefabInstance:
     - target: {fileID: 6795505185537628967, guid: 0859b6a056f8847b1b58a5cc2dd99f38,
         type: 3}
       propertyPath: m_Text
-      value: "Kho b\xE1u s\u1ED1 2"
+      value: "Kh\xE1m ph\xE1 s\u1ED1 2"
+      objectReference: {fileID: 0}
+    - target: {fileID: 8989027111280157107, guid: 0859b6a056f8847b1b58a5cc2dd99f38,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 120
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

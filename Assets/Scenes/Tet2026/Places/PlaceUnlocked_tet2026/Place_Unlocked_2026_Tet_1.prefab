@@ -1970,6 +1970,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlaceInfo_Root_Unlock_new2026
       objectReference: {fileID: 0}
+    - target: {fileID: 6795505185537628967, guid: 0859b6a056f8847b1b58a5cc2dd99f38,
+        type: 3}
+      propertyPath: m_Text
+      value: "Tour Ng\u1EF1a"
+      objectReference: {fileID: 0}
     - target: {fileID: 8986741763411534726, guid: 0859b6a056f8847b1b58a5cc2dd99f38,
         type: 3}
       propertyPath: m_IsActive
