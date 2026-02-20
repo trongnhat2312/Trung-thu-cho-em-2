@@ -27,9 +27,9 @@ namespace TreasureHunt.Common
         public static bool IsInited => Instance != null;
 
 
-        [SerializeField] CheckInPopup checkInPopup;
-        [SerializeField] PlaceInfoNew2026 introEventPopup;
+        [SerializeField] CheckInPopup checkInPopup; 
         [SerializeField] RewardPlacePopup rewardPlacePopup;
+        [SerializeField] PlaceInfoBase placeInfoIntro;
         [SerializeField] PlaceInfoBase placeInfo01;
         [SerializeField] PlaceInfoBase placeInfo02;
         [SerializeField] PlaceInfoBase placeInfo03;
@@ -42,13 +42,7 @@ namespace TreasureHunt.Common
         {
             Debug.LogError($"CommonPopupManager ShowCheckInPopup");
             Instance.checkInPopup.ShowPopup(pCallback);
-        }
-
-        public static void ShowIntroEventPopup(Action pCallback)
-        {
-            Debug.LogError($"CommonPopupManager ShowIntroEventPopup");
-            Instance.introEventPopup.Open(pCallback);
-        }
+        } 
 
         public static void ShowRewardPlacePopup(int pIdPlace, Action pCallback)
         {
@@ -56,25 +50,28 @@ namespace TreasureHunt.Common
             Instance.rewardPlacePopup.ShowPopup(pIdPlace, pCallback);
         }
 
-        public static void ShowPlaceInfoPopup(int pIdPlace, bool isUnlocked, Action pCallback)
+        public static void ShowPlaceInfoPopup(int pIdPlace, bool isUnlocked, Action pCallback, Action pCallbackScan = null)
         {
             Debug.LogError($"CommonPopupManager ShowPlaceInfoPopup pIdPlace = {pIdPlace}, isUnlocked = {isUnlocked}");
             switch (pIdPlace)
             {
+                case (int)PlaceID.Place_00_IntroEvent: 
+                    Instance.placeInfoIntro.OpenPlaceInfo(pIdPlace, isUnlocked, pCallback, pCallbackScan);
+                break;
                 case (int)PlaceID.Place_01_Place1:
-                    Instance.placeInfo01.OpenPlaceInfo(pIdPlace, isUnlocked, pCallback);
+                    Instance.placeInfo01.OpenPlaceInfo(pIdPlace, isUnlocked, pCallback, pCallbackScan);
                     break;
                 case (int)PlaceID.Place_02_Place2:
-                    Instance.placeInfo02.OpenPlaceInfo(pIdPlace, isUnlocked, pCallback);
+                    Instance.placeInfo02.OpenPlaceInfo(pIdPlace, isUnlocked, pCallback, pCallbackScan);
                     break;
                 case (int)PlaceID.Place_03_Place3:
-                    Instance.placeInfo03.OpenPlaceInfo(pIdPlace, isUnlocked, pCallback);
+                    Instance.placeInfo03.OpenPlaceInfo(pIdPlace, isUnlocked, pCallback, pCallbackScan);
                     break;
                 case (int)PlaceID.Place_04_Place4:
-                    Instance.placeInfo04.OpenPlaceInfo(pIdPlace, isUnlocked, pCallback);
+                    Instance.placeInfo04.OpenPlaceInfo(pIdPlace, isUnlocked, pCallback, pCallbackScan);
                     break;
                 case (int)PlaceID.Place_05_Place5:
-                    Instance.placeInfo05.OpenPlaceInfo(pIdPlace, isUnlocked, pCallback);
+                    Instance.placeInfo05.OpenPlaceInfo(pIdPlace, isUnlocked, pCallback, pCallbackScan);
                     break;
             }
         }

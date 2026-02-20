@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace TreasureHunt.Data
 {
@@ -9,9 +10,11 @@ namespace TreasureHunt.Data
         public string userName;
         public string phoneNumber;
         public bool isFirstScan = true;
+        public List<int> placeUnlocked = new();
 
         public bool IsCheckInDone => !string.IsNullOrEmpty(userName);
         public bool IsFirstScan => isFirstScan;
+        public string UserName => userName;
 
 
         public void InitFirstData()
@@ -19,6 +22,7 @@ namespace TreasureHunt.Data
             userName = "";
             phoneNumber = "";
             isFirstScan = true;
+            placeUnlocked = new();
         }
 
 
@@ -31,6 +35,25 @@ namespace TreasureHunt.Data
         public void UpdateFirstScaned()
         {
             isFirstScan = false;
+        }
+
+        public void UpdatePlaceUnlocked(int pId)
+        {
+            placeUnlocked.Add(pId);
+        }
+
+        public bool IsPlaceUnlocked(int pId)
+        {
+            bool result = false;
+            foreach (var item in placeUnlocked)
+            {
+                if (item == pId)
+                {
+                    result = true;
+                    break;
+                }
+            }
+            return result;
         }
     }
 

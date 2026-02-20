@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6400279886096311889}
-  - component: {fileID: 7538902999358211609}
+  - component: {fileID: 3835462281388133231}
   m_Layer: 5
-  m_Name: Place_Unlocked_2026_Tet_1
+  m_Name: Place_Unlocked_2026_Tet_6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29,7 +29,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 4612519405348032945}
+  - {fileID: 6291689360198031534}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -37,7 +37,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 900, y: 1280}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &7538902999358211609
+--- !u!114 &3835462281388133231
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -49,9 +49,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e84b17135d38b454fa80672c48907217, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TreasureHunt.Places.PlaceInfoNew2026
-  placeInfoUIBase: {fileID: 2933404517360696696}
+  placeInfoUIBase: {fileID: 4604908666253456487}
   listPages: []
---- !u!1001 &8316361525890277128
+--- !u!1001 &7222579095048197655
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -159,11 +159,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6619215456385704560, guid: 0859b6a056f8847b1b58a5cc2dd99f38,
-        type: 3}
-      propertyPath: m_NextButton
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 6666674956039170463, guid: 0859b6a056f8847b1b58a5cc2dd99f38,
         type: 3}
       propertyPath: m_Name
@@ -172,18 +167,18 @@ PrefabInstance:
     - target: {fileID: 6795505185537628967, guid: 0859b6a056f8847b1b58a5cc2dd99f38,
         type: 3}
       propertyPath: m_Text
-      value: "Kho b\xE1u s\u1ED1 1"
+      value: "Kho b\xE1u s\u1ED1 5"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0859b6a056f8847b1b58a5cc2dd99f38, type: 3}
---- !u!114 &2933404517360696696 stripped
+--- !u!114 &4604908666253456487 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6619215456385704560, guid: 0859b6a056f8847b1b58a5cc2dd99f38,
     type: 3}
-  m_PrefabInstance: {fileID: 8316361525890277128}
+  m_PrefabInstance: {fileID: 7222579095048197655}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
@@ -191,9 +186,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d73827d468904d18b531a037c8f94b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TreasureHunt.Places.PaceInfoUIBase
---- !u!224 &4612519405348032945 stripped
+--- !u!224 &6291689360198031534 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3705146691124973241, guid: 0859b6a056f8847b1b58a5cc2dd99f38,
     type: 3}
-  m_PrefabInstance: {fileID: 8316361525890277128}
+  m_PrefabInstance: {fileID: 7222579095048197655}
   m_PrefabAsset: {fileID: 0}

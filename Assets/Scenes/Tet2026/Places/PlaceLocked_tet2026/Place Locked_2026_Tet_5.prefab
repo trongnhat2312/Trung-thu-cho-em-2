@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6400279886096311889}
-  - component: {fileID: 4621770578583765575}
+  - component: {fileID: 6640806016709820647}
   m_Layer: 5
   m_Name: Place Locked_2026_Tet_5
   m_TagString: Untagged
@@ -29,7 +29,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2805179908379493019}
+  - {fileID: 4453513985877092609}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -37,7 +37,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 816, y: 1060}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &4621770578583765575
+--- !u!114 &6640806016709820647
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -49,9 +49,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e84b17135d38b454fa80672c48907217, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TreasureHunt.Places.PlaceInfoNew2026
-  placeInfoUIBase: {fileID: 6465109141034090747}
+  placeInfoUIBase: {fileID: 4798763106715183969}
   listPages: []
---- !u!1001 &1290486573927229730
+--- !u!1001 &777070702604976824
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -168,24 +168,29 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: bc9061572a033444fb01cc5c8f1d00f9,
+      objectReference: {fileID: 21300000, guid: 4451872a201330a438bcff86911f4eb7,
         type: 3}
+    - target: {fileID: 7634828050123362880, guid: 2f416ace071f0414696d714cc266d211,
+        type: 3}
+      propertyPath: m_Text
+      value: "Kho b\xE1u s\u1ED1 5"
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2f416ace071f0414696d714cc266d211, type: 3}
---- !u!224 &2805179908379493019 stripped
+--- !u!224 &4453513985877092609 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3965062061906602937, guid: 2f416ace071f0414696d714cc266d211,
     type: 3}
-  m_PrefabInstance: {fileID: 1290486573927229730}
+  m_PrefabInstance: {fileID: 777070702604976824}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &6465109141034090747 stripped
+--- !u!114 &4798763106715183969 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5210686970545580505, guid: 2f416ace071f0414696d714cc266d211,
     type: 3}
-  m_PrefabInstance: {fileID: 1290486573927229730}
+  m_PrefabInstance: {fileID: 777070702604976824}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1

@@ -32,6 +32,7 @@ namespace TreasureHunt.Data
 
         public static bool IsFirstScan => userData.IsFirstScan;
 
+        public static string UserName => userData.UserName;
 
         public static void UpdateCheckInData(string userName, string phoneNumber)
         {
@@ -43,6 +44,19 @@ namespace TreasureHunt.Data
         {
             userData.UpdateFirstScaned();
             Instance.SaveUserData();
+        }
+
+
+        public static void UpdatePlaceUnlocked(int pId)
+        {
+            userData.UpdatePlaceUnlocked(pId);
+            Instance.SaveUserData();
+        }
+
+        public static bool IsPlaceUnlocked(int pId)
+        {
+            bool result = userData.IsPlaceUnlocked(pId);
+            return result;
         }
 
         public static bool IsCheckInDone => userData.IsCheckInDone;

@@ -1,11 +1,10 @@
 
 using System;
 using System.Collections;
-using System.Collections.Generic;
-using Coffee.UIEffects;
+using System.Collections.Generic; 
 using Cysharp.Threading.Tasks;
-using UnityEngine;
-using UnityEngine.UI;
+using TreasureHunt.Data;
+using UnityEngine; 
 
 namespace TreasureHunt.MenuGame
 {
@@ -241,6 +240,7 @@ namespace TreasureHunt.MenuGame
 
         private void RefreshUI()
         {
+            menuCenter.RefreshUI();
         }
 
         private void OnPlayButtonClicked(int pLevelPlaying)
@@ -265,19 +265,12 @@ namespace TreasureHunt.MenuGame
 
 
 
-        private void ShowPlaceInfo(int pPlaceId, bool pIsPlaceUnlocked)
+        private void ShowPlaceInfo(int pPlaceId)
         {
-            Debug.LogError($"MenuGameController ShowPlaceInfo pPlaceId {pPlaceId} pIsPlaceUnlocked {pIsPlaceUnlocked}");
+            bool isPlaceUnlocked = DataManager.IsPlaceUnlocked(pPlaceId);
+            Debug.LogError($"MenuGameController ShowPlaceInfo pPlaceId {pPlaceId} pIsPlaceUnlocked {isPlaceUnlocked}");
             //old code show place
-            menuPopup.ShowPlaceInfo1(pPlaceId, pIsPlaceUnlocked, OnBtnCloseInPlaceClicked, OnScanCallbackInPlaceInfo);
-
-            //new code 
-            // switch (pPlaceId)
-            // {
-            //     case 1:
-            //         menuPopup.ShowPlaceInfo1(pPlaceId, pIsPlaceUnlocked, OnBtnCloseInPlaceClicked, OnScanCallbackInPlaceInfo);
-            //         break;
-            // }
+            menuPopup.ShowPlaceInfo(pPlaceId, isPlaceUnlocked, OnBtnCloseInPlaceClicked, OnScanCallbackInPlaceInfo);
         }
 
         private void OnBtnCloseInPlaceClicked()
@@ -288,16 +281,14 @@ namespace TreasureHunt.MenuGame
 
         public void OnScanCallbackInPlaceInfo()
         {
-            Debug.LogError($"MenuGameController OnScanCallbackInPlaceInfo");
-            StaticParamClass.GoFromOutside = false;
+            Debug.LogError($"MenuGameController OnScanCallbackInPlaceInfo"); 
             // ClickScan();
             OnShowQRScanner();
         }
 
         private void OnBtnScannerInMenuCenterClicked()
         {
-            Debug.LogError($"MenuGameController OnBtnScannerInMenuCenterClicked");
-            StaticParamClass.GoFromOutside = false;
+            Debug.LogError($"MenuGameController OnBtnScannerInMenuCenterClicked"); 
             OnShowQRScanner();
         }
 

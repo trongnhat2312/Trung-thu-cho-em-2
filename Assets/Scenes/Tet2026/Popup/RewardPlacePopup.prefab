@@ -535,7 +535,7 @@ GameObject:
   - component: {fileID: 727438301091892884}
   - component: {fileID: 8075693372501370835}
   m_Layer: 0
-  m_Name: Area 1 (2)
+  m_Name: rewardPlace3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -611,7 +611,7 @@ GameObject:
   - component: {fileID: 6514948479364503168}
   - component: {fileID: 7791370982675962364}
   m_Layer: 0
-  m_Name: Area 1 (3)
+  m_Name: Rewardplace4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -845,10 +845,10 @@ MonoBehaviour:
   PlaceNum: {fileID: 1981778685065169916}
   btnOk: {fileID: 6143369879838002526}
   objRewardPlace1: {fileID: 8892131757407923246}
-  objRewardPlace2: {fileID: 7243596494174608162}
-  objRewardPlace3: {fileID: 2460462947648137400}
-  objRewardPlace4: {fileID: 3710948495041254783}
-  objRewardPlace5: {fileID: 6144439677536190282}
+  objRewardPlace2: {fileID: 2460462947648137400}
+  objRewardPlace3: {fileID: 3710948495041254783}
+  objRewardPlace4: {fileID: 6144439677536190282}
+  objRewardPlace5: {fileID: 7243596494174608162}
 --- !u!1 &4294963790411417394
 GameObject:
   m_ObjectHideFlags: 0
@@ -1056,7 +1056,7 @@ GameObject:
   - component: {fileID: 4317282460680755771}
   - component: {fileID: 8213659068674080752}
   m_Layer: 0
-  m_Name: Area 1 (5)
+  m_Name: RewardPlace6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1364,7 +1364,7 @@ GameObject:
   - component: {fileID: 8231447501874343558}
   - component: {fileID: 5588145521357007022}
   m_Layer: 0
-  m_Name: Area 1 (4)
+  m_Name: RewardPlace5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1521,12 +1521,12 @@ GameObject:
   - component: {fileID: 6061774326389091784}
   - component: {fileID: 9115539491869797102}
   m_Layer: 0
-  m_Name: Area 1 (1)
+  m_Name: RewardPlace6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &8381874666006589465
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1980,12 +1980,12 @@ GameObject:
   - component: {fileID: 2865930635507100144}
   - component: {fileID: 4405723771426098879}
   m_Layer: 0
-  m_Name: Area 1
+  m_Name: rewardPlace2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &8888347495499159646
 RectTransform:
   m_ObjectHideFlags: 0

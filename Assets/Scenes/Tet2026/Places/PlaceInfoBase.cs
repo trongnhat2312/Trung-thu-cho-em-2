@@ -9,6 +9,7 @@ namespace TreasureHunt.Places
     {
 
         private Action OnClosePlaceInfoListener;
+        private Action OnScanClickedListener;
 
         [SerializeField] private GameObject Question;
         [SerializeField] private PlaceInfoNew2026 placeInfoUnlock;
@@ -36,9 +37,10 @@ namespace TreasureHunt.Places
         }
         #endregion
 
-        public void OpenPlaceInfo(int pIdPlace, bool isUnlocked, Action pCloseCallback = null)
+        public void OpenPlaceInfo(int pIdPlace, bool isUnlocked, Action pCloseCallback = null, Action openQRCallback = null)
         {
             OnClosePlaceInfoListener = pCloseCallback;
+            OnScanClickedListener = openQRCallback;
             Debug.LogError($"PlaceInfoBase: open place == {pIdPlace}");  
             QuestionButton.gameObject.SetActive(isUnlocked && pIdPlace != 0 && pIdPlace != 5);
 
@@ -46,10 +48,7 @@ namespace TreasureHunt.Places
             placeInfoUnlock.gameObject.SetActive(isUnlocked);
             placeInfo = isUnlocked ? placeInfoUnlock : placeInfoLock;  
             gameObject.SetActive(true);
-            placeInfo.Open(OnBtnCloseClicked, () =>
-            {
-                Debug.LogError($"PlaceInfoBase: open qr == {pIdPlace} NEED CODE MORE");
-            });
+            placeInfo.Open(OnBtnCloseClicked, OnBtnScanClicked);
         }
 
         private async void HidePopup()
@@ -61,6 +60,12 @@ namespace TreasureHunt.Places
         private void OnBtnCloseClicked()
         { 
             HidePopup();
+        }
+
+        private void OnBtnScanClicked()
+        { 
+            OnScanClickedListener?.Invoke();
+            gameObject.SetActive(false); 
         }
 
         private void OnBtnShowQuestionClicked()

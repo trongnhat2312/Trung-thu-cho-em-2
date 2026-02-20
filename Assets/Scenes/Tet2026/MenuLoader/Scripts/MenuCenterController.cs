@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Coffee.UIEffects;
+using TreasureHunt.Data;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,7 +10,7 @@ namespace TreasureHunt.MenuGame
 {
     public class MenuCenterController : MonoBehaviour
     {
-        private Action<int, bool> OnNeedShowPlaceInfoListener;
+        private Action<int> OnNeedShowPlaceInfoListener;
         private Action OnBtnScannerClickedListener;
 
         public List<GameObject> mapPieces;
@@ -25,13 +26,20 @@ namespace TreasureHunt.MenuGame
 
         public void ShowUI()
         {
+            RefreshUI();
+        }
+
+        public void RefreshUI()
+        {
+            showMapPieces();
         }
 
         public void SetUsername()
         {
-            if (PlayerPrefs.HasKey(StaticParamClass.PrefCheckinName))
+            string userName = DataManager.UserName;
+            if (!string.IsNullOrEmpty(userName))
             {
-                txtUsername.text = PlayerPrefs.GetString(StaticParamClass.PrefCheckinName);
+                txtUsername.text = userName;
             }
         }
 
@@ -42,7 +50,7 @@ namespace TreasureHunt.MenuGame
             btnScanner.onClick.AddListener(OnBtnScannerClicked);
         }
 
-        public void AddOnNeedShowPlaceInfoListener(Action<int, bool> pListener)
+        public void AddOnNeedShowPlaceInfoListener(Action<int> pListener)
         {
             OnNeedShowPlaceInfoListener -= pListener;
             OnNeedShowPlaceInfoListener += pListener;
@@ -55,8 +63,7 @@ namespace TreasureHunt.MenuGame
         }
 
         private void OnPlaceClicked(int placeId)
-        { 
-            StaticParamClass.GoFromInside = false;
+        {
             Debug.LogError($"MenuCenterController OnPlaceClicked {placeId}");
             OpenPlaceInfo(placeId);
         }
@@ -72,8 +79,6 @@ namespace TreasureHunt.MenuGame
         {
 
             Debug.LogError($"MenuCenterController StaticParamClass.GoFromInside {StaticParamClass.GoFromInside}, place == " + placeNum);
-            if (StaticParamClass.GoFromInside)
-                return;
             if (placeNum == -1)
                 return;
             if (placeNum < 0 || (placeNum > StaticParamClass.MAX_PLACE - 1))
@@ -87,43 +92,37 @@ namespace TreasureHunt.MenuGame
                 // return;
             }
 
-            // PlaceInfo = Instantiate(PlaceInfoPrefab);
-            // PlaceInfo.transform.SetParent(MainScreen.transform.parent, false);
-            // PlaceInfo.name = "Place Info";
-            // PlaceInfo.GetComponent<PlaceInfoHolder>().OpenPlaceInfo(placeNum, StaticParamClass.IsMapUnlocked[placeNum], null, () =>
-            // {
-            //     Debug.Log($"MainController: place == {placeNum}, close and open QR");
-            //     // process open qr here
-            //     ClickScan();
-            // });
-
-
             //new 
             int placeId = placeNum;
-            bool isPlaceUnlocked = StaticParamClass.IsMapUnlocked[placeId];
-            OnNeedShowPlaceInfoListener?.Invoke(placeId, isPlaceUnlocked);
+            OnNeedShowPlaceInfoListener?.Invoke(placeId);
         }
 
         public bool IsAllMapUnlocked()
         {
-            bool b = true;
-            for (int i = 0; i < StaticParamClass.IsMapUnlocked.Length; i++)
+            bool result = false;
+            try
             {
-                if (!StaticParamClass.IsMapUnlocked[i])
-                {
-                    //Debug.Log(i);
-                    b = false;
-                    break;
-                }
+                bool isPlace1Unlocked = DataManager.IsPlaceUnlocked((int)PlaceID.Place_01_Place1);
+                bool isPlace2Unlocked = DataManager.IsPlaceUnlocked((int)PlaceID.Place_02_Place2);
+                bool isPlace3Unlocked = DataManager.IsPlaceUnlocked((int)PlaceID.Place_03_Place3);
+                bool isPlace4Unlocked = DataManager.IsPlaceUnlocked((int)PlaceID.Place_04_Place4);
+                bool isPlace5Unlocked = DataManager.IsPlaceUnlocked((int)PlaceID.Place_05_Place5);
+                result = isPlace1Unlocked && isPlace2Unlocked && isPlace3Unlocked && isPlace4Unlocked && isPlace5Unlocked;
             }
-            return b;
+            catch (Exception exception)
+            {
+                Debug.LogError($"MenuCenterController IsAllMapUnlocked {exception.Message}");
+            }
+
+            return result;
         }
 
         public void showMapPieces()
         {
             for (int i = 0; i < StaticParamClass.IsMapUnlocked.Length; i++)
             {
-                if (StaticParamClass.IsMapUnlocked[i])
+                bool isPlaceUnlocked = DataManager.IsPlaceUnlocked(i);
+                if (isPlaceUnlocked)
                 {
                     try
                     {
@@ -131,14 +130,11 @@ namespace TreasureHunt.MenuGame
                     }
                     catch (Exception exception)
                     {
+                        Debug.LogError($"MenuCenterController showMapPieces {exception.Message}");
                     }
 
                     try
                     {
-                        //var child = mapPieces[i].transform.GetChild(0);
-                        //mapPieces[i].GetComponent<UITransitionEffect>().effectFactor = 0;
-                        //var image = child.GetComponent<Image>();
-                        //image.color = Color.white;
                         MapCheckpointBase checkpointBase = mapPieces[i].GetComponent<MapCheckpointBase>();
                         if (checkpointBase != null)
                         {
@@ -147,6 +143,7 @@ namespace TreasureHunt.MenuGame
                     }
                     catch (Exception exception)
                     {
+                        Debug.LogError($"MenuCenterController showMapPieces {exception.Message}");
                     }
                 }
             }
@@ -181,7 +178,6 @@ namespace TreasureHunt.MenuGame
 
 
             yield return new WaitForSeconds(0.5f);
-            StaticParamClass.GoFromInside = false;
             OpenPlaceInfo(placeNum);
 
         }
