@@ -154,6 +154,8 @@ namespace TreasureHunt.QRScanner
             }
 
             Debug.LogError($"QRScannerController ProcessScannedQR placeId = {pIdPlace} not need show intro or checkin");
+            //case 2: scan other place (not introEvent)
+            ShowRewardPlacePopup(pIdPlace);
 
             // //step 2: check is login 
             // if (IsSignedUp())
@@ -206,21 +208,43 @@ namespace TreasureHunt.QRScanner
             }
             else
             {
-                //show reward place -> show place info
-                CommonPopupManager.ShowRewardPlacePopup(pIdPlace, () =>
-                {
-                    OnRewardPlaceClosed(pIdPlace);
-                });
+                ShowRewardPlacePopup(pIdPlace);
             }
         }
 
+        private void ShowRewardPlacePopup(int pIdPlace)
+        {
+            //show reward place -> show place info
+            CommonPopupManager.ShowRewardPlacePopup(pIdPlace, () =>
+            {
+                OnRewardPlaceClosed(pIdPlace);
+            });
+        }
+
         private void OnRewardPlaceClosed(int pIdPlace)
+        {
+            bool isCompletedFullEvent = false;
+            if (isCompletedFullEvent)
+            {
+                CommonPopupManager.ShowEventCompletedPopup(() =>
+                {
+                    ShowPlaceInfoPopup(pIdPlace);
+                });
+            }
+            else
+            {
+                ShowPlaceInfoPopup(pIdPlace); 
+            }
+        }
+
+        private void ShowPlaceInfoPopup(int pIdPlace)
         {
             CommonPopupManager.ShowPlaceInfoPopup(pIdPlace, true, () =>
             {
                 DoBackToMenu();
             });
         }
+
 
         private void DoBackToMenu()
         {

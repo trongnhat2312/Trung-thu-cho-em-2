@@ -35,6 +35,7 @@ namespace TreasureHunt.Common
         [SerializeField] PlaceInfoBase placeInfo03;
         [SerializeField] PlaceInfoBase placeInfo04;
         [SerializeField] PlaceInfoBase placeInfo05;
+        [SerializeField] EventCompletedPopup eventCompletedPopup;
 
 
         public static void ShowCheckInPopup(Action pCallback)
@@ -76,6 +77,12 @@ namespace TreasureHunt.Common
                     Instance.placeInfo05.OpenPlaceInfo(pIdPlace, isUnlocked, pCallback);
                     break;
             }
+        }
+
+        public static void ShowEventCompletedPopup(Action pCallback)
+        {
+            Debug.LogError($"CommonPopupManager ShowEventCompletedPopup");
+            Instance.eventCompletedPopup.ShowPopup(pCallback);
         }
     }
 }
