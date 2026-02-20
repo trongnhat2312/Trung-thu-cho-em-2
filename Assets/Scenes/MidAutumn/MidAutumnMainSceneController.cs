@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class MidAutumnMainSceneController : MainController
 {
-    [SerializeField] StarLightTransformer starLightTransformer;
-    [SerializeField] Text txtComplete;	
+    // [SerializeField] StarLightTransformer starLightTransformer;
+    // [SerializeField] Text txtComplete;	
     protected bool isAnimCompleted = false;
 
     void Awake()
@@ -30,9 +30,9 @@ public class MidAutumnMainSceneController : MainController
         {
 
             isAnimCompleted = true;
-            starLightTransformer.DoTransformToStarLight();
-            await UniTask.Delay(2000);
-            txtComplete.gameObject.SetActive(true);
+            // starLightTransformer.DoTransformToStarLight();
+            // await UniTask.Delay(2000);
+            // txtComplete.gameObject.SetActive(true);
         }
     }
 }
