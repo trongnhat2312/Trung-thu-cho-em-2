@@ -276,7 +276,7 @@ PrefabInstance:
     - target: {fileID: 4730625508856670081, guid: 2de96d281c2a945bbbca4f77d72d456d,
         type: 3}
       propertyPath: m_Name
-      value: Place Locked_2026_Tet_5
+      value: Place Locked_2026_Tet_6
       objectReference: {fileID: 0}
     - target: {fileID: 6400279886096311889, guid: 2de96d281c2a945bbbca4f77d72d456d,
         type: 3}
@@ -412,7 +412,7 @@ PrefabInstance:
     - target: {fileID: 4730625508856670081, guid: 77a2c3784d16d48f080402ddc9084632,
         type: 3}
       propertyPath: m_Name
-      value: Place_Unlocked_2026_Tet_5
+      value: Place_Unlocked_2026_Tet_6
       objectReference: {fileID: 0}
     - target: {fileID: 4730625508856670081, guid: 77a2c3784d16d48f080402ddc9084632,
         type: 3}
