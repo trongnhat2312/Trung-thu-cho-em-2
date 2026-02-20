@@ -631,11 +631,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: MeneLoader
       objectReference: {fileID: 0}
-    - target: {fileID: 2816607372818711812, guid: c1e51a988d02ecf4cb9a96739dff10ec,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2816607372818711813, guid: c1e51a988d02ecf4cb9a96739dff10ec,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -685,11 +680,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4384012412468436042, guid: c1e51a988d02ecf4cb9a96739dff10ec,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: 300
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

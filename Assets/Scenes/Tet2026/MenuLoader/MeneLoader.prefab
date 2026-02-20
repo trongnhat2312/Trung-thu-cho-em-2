@@ -721,7 +721,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 300
   m_TargetDisplay: 0
 --- !u!114 &2395123192248253476
 MonoBehaviour:
@@ -2420,7 +2420,6 @@ MonoBehaviour:
   debugStartFromUrlQR: 0
   debugAbsoluteURL: https://koikinggaming.com/vme/Tet-2025/?CheckinPlace=1
   ThachSanhVictory: {fileID: 7873024132291946435}
-  ScanButton: {fileID: 4090148591407919114}
   m_MenuBaseComponents:
   - {fileID: 1011763706973406875}
   - {fileID: 1449351373029567088}

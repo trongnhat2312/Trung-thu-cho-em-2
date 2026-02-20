@@ -1,10 +1,10 @@
 
 using System;
 using System.Collections;
-using System.Collections.Generic; 
+using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
 using TreasureHunt.Data;
-using UnityEngine; 
+using UnityEngine;
 
 namespace TreasureHunt.MenuGame
 {
@@ -30,8 +30,6 @@ namespace TreasureHunt.MenuGame
         //public StarLightTransformer starLight;
         //public ParallelSentencesController parallelSentence;
         public GameObject ThachSanhVictory;
-
-        public GameObject ScanButton;
         public List<GameObject> m_MenuBaseComponents;
 
         public float StarLightInterval = 10f;
@@ -137,83 +135,44 @@ namespace TreasureHunt.MenuGame
 
             int pm = absoluteURL.IndexOf("CheckinPlace");
             Debug.LogError($"MenuGameController pmId {pm}, Set DaCheckRoi: " + StaticParamClass.DaCheckRoi);
-
-            if (pm != -1 && !StaticParamClass.DaCheckRoi && !IsAllMapUnlocked())
-            {
-                StaticParamClass.GoFromOutside = true;
-                StaticParamClass.CheckinPlace = Int32.Parse(absoluteURL.Split("=")[1]);
-                Debug.LogError($"MenuGameController: SetupStart First time from Url QR {pm}, checkInPlace {StaticParamClass.CheckinPlace}");
-
-                StaticParamClass.IsMapUnlocked[StaticParamClass.CheckinPlace] = true;
-                Console.WriteLine("Set out: " + StaticParamClass.GoFromOutside);
-                Console.WriteLine("Set check: " + StaticParamClass.CheckinPlace);
-                Debug.LogError($"MenuGameController: SetupStart setout: {StaticParamClass.GoFromOutside}, setcheck: {StaticParamClass.CheckinPlace}");
-                OnShowQRScanner();
-                return;
-            }
+ 
 
             _isStarEffEnabled = true;
             //_isPopupOpen = true;
             Debug.Log($"MenuGameController: SetupStart Go From InSide?? = {StaticParamClass.GoFromInside}");
-            if (StaticParamClass.GoFromInside && !IsAllMapUnlocked())
+            if (!IsAllMapUnlocked())
             {
                 Debug.Log($"MenuGameController: SetupStart Go From InSide, show map piece, place info...");
                 menuCenter.showMapPieces();
-                StartCoroutine(menuCenter.OpenPlaceInfoWithEffect(StaticParamClass.CheckinPlace));
-            }
-            else
-            {
-                Debug.Log($"MenuGameController: SetupStart Go From OutSide... Check Account and user");
-                //Check tai khoan
-                StartCoroutine(GetData(PlayerPrefs.GetString(StaticParamClass.PrefCheckinNumber)));
-            }
+                // StartCoroutine(menuCenter.OpenPlaceInfoWithEffect(StaticParamClass.CheckinPlace));
+            } 
+
             menuCenter.SetUsername();
 
             _starLightCount = 0;
             CheckCompletedChallenge();
-        }
-
-
-        public IEnumerator GetData(string name)
-        {
-            Debug.Log($"MenuGameController: do get data by name {name}");
-            SetGetUserData.GetCheckedinPlace_(name, getCheckIn);
-            yield return null;
-        }
-
-        public void getCheckIn(string a, string name)
-        {
-            StaticParamClass.CheckedIn = a;
-            Debug.Log($"MenuGameController: get Data result: {StaticParamClass.IsMapUnlocked.Length}");
-            for (int i = 0; i < StaticParamClass.MAX_PLACE; i++)
-            {
-                if (a.Contains(i.ToString()))
-                {
-                    Debug.Log("MenuGameController: Come here moi dung: " + i);
-                    StaticParamClass.IsMapUnlocked[i] = true;
-                }
-            }
-            menuCenter.showMapPieces();
-        }
+        }  
 
         public bool IsAllMapUnlocked()
         {
-            bool b = true;
-            if (StaticParamClass.IsMapUnlocked.Length < 6)
+            bool result = false;
+            try
             {
-                return false;
+                bool isPlace1Unlocked = DataManager.IsPlaceUnlocked((int)PlaceID.Place_01_Place1);
+                bool isPlace2Unlocked = DataManager.IsPlaceUnlocked((int)PlaceID.Place_02_Place2);
+                bool isPlace3Unlocked = DataManager.IsPlaceUnlocked((int)PlaceID.Place_03_Place3);
+                bool isPlace4Unlocked = DataManager.IsPlaceUnlocked((int)PlaceID.Place_04_Place4);
+                bool isPlace5Unlocked = DataManager.IsPlaceUnlocked((int)PlaceID.Place_05_Place5);
+                result = isPlace1Unlocked && isPlace2Unlocked && isPlace3Unlocked && isPlace4Unlocked && isPlace5Unlocked;
             }
-            for (int i = 0; i < StaticParamClass.IsMapUnlocked.Length; i++)
+            catch (Exception exception)
             {
-                Debug.LogError($"MenuGameController IsALLMapUnlock state {StaticParamClass.IsMapUnlocked[i]}, i: " + i);
-                if (!StaticParamClass.IsMapUnlocked[i])
-                {
-                    b = false;
-                    break;
-                }
+                Debug.LogError($"MenuCenterController IsAllMapUnlocked {exception.Message}");
             }
-            return b;
+
+            return result;
         }
+
         #endregion
 
         private void UpdateMenuState(MenuState state)
@@ -241,29 +200,7 @@ namespace TreasureHunt.MenuGame
         private void RefreshUI()
         {
             menuCenter.RefreshUI();
-        }
-
-        private void OnPlayButtonClicked(int pLevelPlaying)
-        {
-            if (IsMenuStatePause)
-            {
-                return;
-            }
-
-            PlayNormalLevel(pLevelPlaying);
-        }
-
-        private void PlayNormalLevel(int pLevelPlaying)
-        {
-            // int maxLevelNormalActived = DataManager.nLevelActive;
-            // MemeType memeTypeIntro = MemeUtils.GetRandomMemeType(DataManager.MEMETypeUnlockeds);
-            // string jsonData =
-            //     IngameLoaderUtils.GenJsonIngameLoaderData(playingLevel, maxLevelNormalActived, memeTypeIntro);
-            // OnPlayNormalLevelListener?.Invoke(jsonData);
-        }
-
-
-
+        }   
 
         private void ShowPlaceInfo(int pPlaceId)
         {
@@ -281,14 +218,14 @@ namespace TreasureHunt.MenuGame
 
         public void OnScanCallbackInPlaceInfo()
         {
-            Debug.LogError($"MenuGameController OnScanCallbackInPlaceInfo"); 
+            Debug.LogError($"MenuGameController OnScanCallbackInPlaceInfo");
             // ClickScan();
             OnShowQRScanner();
         }
 
         private void OnBtnScannerInMenuCenterClicked()
         {
-            Debug.LogError($"MenuGameController OnBtnScannerInMenuCenterClicked"); 
+            Debug.LogError($"MenuGameController OnBtnScannerInMenuCenterClicked");
             OnShowQRScanner();
         }
 
@@ -301,15 +238,7 @@ namespace TreasureHunt.MenuGame
             string jsonData = JsonUtility.ToJson(qRTranferData);
             Debug.LogError($"MenuGameController OnShowQRScanner GoFromInside {StaticParamClass.GoFromInside}");
             OnNeedOpenQRScannerListener?.Invoke(jsonData);
-        }
-
-
-
-
-        bool IsConnectNetwork => Application.internetReachability != NetworkReachability.NotReachable;
-        private bool IsMenuStatePause => menuState == MenuState.S2_Pause;
-
-
+        }  
 
     }
 
