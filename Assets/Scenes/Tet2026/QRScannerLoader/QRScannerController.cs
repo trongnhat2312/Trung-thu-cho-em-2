@@ -1,10 +1,10 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using BarcodeScanner;
 using BarcodeScanner.Scanner;
 using Cysharp.Threading.Tasks;
 using TreasureHunt.Common;
+using TreasureHunt.Data;
 using TreasureHunt.Places;
 using UnityEngine;
 using UnityEngine.UI;
@@ -16,35 +16,16 @@ namespace TreasureHunt.QRScanner
     {
         private Action OnCloseQRScannerListener;
 
-        public string[] words = new string[]
-            {
-            "Xuân",
-            "An, Khang",
-            "Đức, Tài, Như, Ý",
-            "Niên",
-            "Thịnh, Vượng",
-            "Phúc, Thọ, Vô, Biên"
-            };
-
         private IScanner BarcodeScanner;
         public Text TextHeader;
         public RawImage Image;
         public AudioSource Audio;
         [SerializeField] Button btnBack;
-        [SerializeField] Button btnOkChucmung;
         [SerializeField] Button btnChangeCamera;
-        [SerializeField] Button btnCompletedChallenge;
         private float RestartTime;
         public Text ListCamera;
-        public Text PlaceNum;
-        public List<GameObject> areaPieces;
-
-        public GameObject ChucmungObj;
-        public GameObject ChucmungComplete;
         public Image fog;
         private bool isChange = false;
-
-        public GameObject PlaceInfoPrefab;
 
         // Disable Screen Rotation on that screen
         void Awake()
@@ -53,39 +34,64 @@ namespace TreasureHunt.QRScanner
             Screen.autorotateToPortraitUpsideDown = false;
         }
 
-        IEnumerator Start()
-        {
-	        DoStart();
-	        Debug.LogError("QRScannerController: Xin quyền Camera");
-	        // Yêu cầu quyền truy cập trước khi khởi tạo scan
-	        if (!Application.HasUserAuthorization(UserAuthorization.WebCam))
-	        {
-		        yield return Application.RequestUserAuthorization(UserAuthorization.WebCam);
-	        }
-
-	        if (Application.HasUserAuthorization(UserAuthorization.WebCam))
-	        {
-		        Debug.LogError("QRScannerController: Đã có quyền Camera");
-		        // Gọi hàm khởi tạo ZXing ở đây
-	        }
-	        else
-	        {
-		        Debug.LogError("QRScannerController: Người dùng từ chối hoặc trình duyệt chặn Camera");
-	        }
-        }
-
-        void DoStart()
+        void Start()
         {
             Debug.LogError($"QRScannerController: Start");
             btnBack.onClick.AddListener(OnBtnBackClicked);
-            btnOkChucmung.onClick.AddListener(OKButtonChucmung);
-            btnCompletedChallenge.onClick.AddListener(OKButtonComplete);
-            btnChangeCamera.onClick.AddListener(()=>
+            btnChangeCamera.onClick.AddListener(() =>
             {
-	            ChangeCamera(true);
+                ChangeCamera(true);
             });
         }
 
+        /// <summary>
+        /// The Update method from unity need to be propagated
+        /// </summary>
+        void Update()
+        {
+            if (!isChange)
+            {
+                if (BarcodeScanner != null)
+                {
+                    Debug.LogError($"QRScannerController: Update BarcodeScanner NULL = {BarcodeScanner == null}");
+                    BarcodeScanner.Update();
+                }
+            }
+
+            // Check if the Scanner need to be started or restarted
+            if (RestartTime != 0 && RestartTime < Time.realtimeSinceStartup)
+            {
+                StartScanner();
+                RestartTime = 0;
+            }
+        }
+
+        #region request permission
+        private void RequestCameraPermissionIfNeed()
+        {
+            StartCoroutine(DoRequestCameraPermissionIfNeed());
+        }
+
+        private IEnumerator DoRequestCameraPermissionIfNeed()
+        {
+            Debug.LogError("QRScannerController: Xin quyền Camera");
+            // Yêu cầu quyền truy cập trước khi khởi tạo scan
+            if (!Application.HasUserAuthorization(UserAuthorization.WebCam))
+            {
+                yield return Application.RequestUserAuthorization(UserAuthorization.WebCam);
+            }
+
+            if (Application.HasUserAuthorization(UserAuthorization.WebCam))
+            {
+                Debug.LogError("QRScannerController: Đã có quyền Camera");
+                // Gọi hàm khởi tạo ZXing ở đây
+            }
+            else
+            {
+                Debug.LogError("QRScannerController: Người dùng từ chối hoặc trình duyệt chặn Camera");
+            }
+        }
+        #endregion
 
         public void AddOnCloseQRScannerListener(Action listener)
         {
@@ -95,86 +101,93 @@ namespace TreasureHunt.QRScanner
 
         public async void ShowQRScanner()
         {
+            //request camera permission
+            RequestCameraPermissionIfNeed();
 
-            ChucmungObj.SetActive(false);
-            ChucmungComplete.SetActive(false);
             fog.gameObject.SetActive(true);
+            await UniTask.DelayFrame(1);
+            fog.gameObject.SetActive(false);
+            await UniTask.DelayFrame(5);
+            // Create a basic scanner
+            BarcodeScanner = new Scanner();
+            BarcodeScanner.Camera.Play();
+            // ChangeCamera(false);
 
-            Debug.LogError($"QRScannerController ShowQRScanner GoFromOutside = {StaticParamClass.GoFromOutside}");
-            Debug.LogError($"QRScanner: Out: " + StaticParamClass.GoFromOutside);
-            if (StaticParamClass.GoFromOutside == true)
+            // Display the camera texture through a RawImage
+            BarcodeScanner.OnReady += (sender, arg) =>
             {
-                // nếu là vào từ bên ngoài => kiểm tra xem login chưa???
-                StaticParamClass.DaCheckRoi = true;
-                Debug.LogError($"QRScanner: DaCheckRoi: " + StaticParamClass.DaCheckRoi);
+                Debug.LogError("QRScannerController: OnReady");
+                // Set Orientation & Texture
+                Image.transform.localEulerAngles = BarcodeScanner.Camera.GetEulerAngles();
+                Image.transform.localScale = BarcodeScanner.Camera.GetScale();
+                Image.texture = BarcodeScanner.Camera.Texture;
 
-                ProcessScannedQR(true);
-            }
-            else
-            {
-	            await UniTask.DelayFrame(1);
-	            fog.gameObject.SetActive(false);
-	            await UniTask.DelayFrame(5);
-                // Create a basic scanner
-                BarcodeScanner = new Scanner();
-                BarcodeScanner.Camera.Play();
-                // ChangeCamera(false);
+                // Keep Image Aspect Ratio
+                var rect = Image.GetComponent<RectTransform>();
+                var newHeight = rect.sizeDelta.x * BarcodeScanner.Camera.Height / BarcodeScanner.Camera.Width;
+                rect.sizeDelta = new Vector2(rect.sizeDelta.x, newHeight);
 
-                // Display the camera texture through a RawImage
-                BarcodeScanner.OnReady += (sender, arg) =>
-                {
-                    // Set Orientation & Texture
-                    Image.transform.localEulerAngles = BarcodeScanner.Camera.GetEulerAngles();
-                    Image.transform.localScale = BarcodeScanner.Camera.GetScale();
-                    Image.texture = BarcodeScanner.Camera.Texture;
-
-                    // Keep Image Aspect Ratio
-                    var rect = Image.GetComponent<RectTransform>();
-                    var newHeight = rect.sizeDelta.x * BarcodeScanner.Camera.Height / BarcodeScanner.Camera.Width;
-                    rect.sizeDelta = new Vector2(rect.sizeDelta.x, newHeight);
-
-                    RestartTime = Time.realtimeSinceStartup;
-                };
-            }
-
-
-
+                RestartTime = Time.realtimeSinceStartup;
+            };
         }
 
-        void ProcessScannedQR(bool fromOpenWeb = false)
+        void ProcessScannedQR(int pIdPlace, bool fromOpenWeb = false)
         {
-            Debug.LogError($"QRScannerController ProcessScannedQR fromOpenWeb = {fromOpenWeb} isSignedUp = {IsSignedUp()}");
+            Debug.LogError($"QRScannerController ProcessScannedQR pPlaceId = {pIdPlace} fromOpenWeb = {fromOpenWeb} ");
 
-            // nếu đã lưu Checkin Name vào máy rồi => chỉ việc load data về rồi xử lý
-            if (IsSignedUp())
+            int placeId = 0;
+            // placeId = pIdPlace;
+            //step1: check is Intro
+            bool isNeedGuideIntroEvent = DataManager.IsFirstScan;
+            bool isScanIntroPlace = placeId == (int)PlaceID.Place_00_IntroEvent;
+            bool isNeedShowIntro = isNeedGuideIntroEvent || isScanIntroPlace;
+            if (isNeedShowIntro)
             {
-                // đã đăng ký => load data và xử lý sau khi load
-                // Check in and go to Main;
-                StartCoroutine(GetData(PlayerPrefs.GetString(StaticParamClass.PrefCheckinNumber)));
-            }
-            else
-            {
-                // nếu chưa lưu Checkin Name vào máy => là mới => intro => sau đó xem xét để chúc mừng
-                int idPlaceIntro = 0;
-                StaticParamClass.IsMapUnlocked[idPlaceIntro] = true;
-                placeInfo = Instantiate(PlaceInfoPrefab, root);
-                placeInfo.name = "Place Info";
-                Debug.LogError($"QRScannerController ProcessScannedQR Show place, intro, completed with id = {idPlaceIntro}, isIDPlaceUnlock = {StaticParamClass.IsMapUnlocked[idPlaceIntro]}");
-                placeInfo.GetComponent<PlaceInfoBase>().OpenPlaceInfo(idPlaceIntro, StaticParamClass.IsMapUnlocked[idPlaceIntro],
-                    () =>
+                CommonPopupManager.ShowIntroEventPopup(() =>
+                {
+                    bool isSignedUp = IsSignedUp();
+                    if (!isSignedUp)
                     {
-                        Debug.Log($"QRScannerController ProcessScannedQR, Intro Done => Congrat");
-                        GotoCongrats(StaticParamClass.CheckinPlace);
-                        Destroy(placeInfo);
-                    });
-                fog.gameObject.SetActive(false);
+                        ShowCheckInPopup(() =>
+                        {
+                            //back to menu
+                            OnCloseQRScannerListener?.Invoke();
+                        });
+                    }
+                });
+                return;
             }
-        }
-        [HideInInspector]
-        public GameObject placeInfo;
 
-        [SerializeField]
-        public Transform root;
+            // //step 2: check is login 
+            // if (IsSignedUp())
+            // {
+            //     // đã đăng ký => load data và xử lý sau khi load
+            //     // Check in and go to Main;
+            //     StartCoroutine(GetData(PlayerPrefs.GetString(StaticParamClass.PrefCheckinNumber)));
+            // }
+            // else
+            // {
+            //     // nếu chưa lưu Checkin Name vào máy => là mới => intro => sau đó xem xét để chúc mừng
+            //     int idPlaceIntro = 0;
+            //     StaticParamClass.IsMapUnlocked[idPlaceIntro] = true;
+            //     placeInfo = Instantiate(PlaceInfoPrefab, root);
+            //     placeInfo.name = "Place Info";
+            //     Debug.LogError($"QRScannerController ProcessScannedQR Show place, intro, completed with id = {idPlaceIntro}, isIDPlaceUnlock = {StaticParamClass.IsMapUnlocked[idPlaceIntro]}");
+            //     placeInfo.GetComponent<PlaceInfoBase>().OpenPlaceInfo(idPlaceIntro, StaticParamClass.IsMapUnlocked[idPlaceIntro],
+            //         () =>
+            //         {
+            //             Debug.Log($"QRScannerController ProcessScannedQR, Intro Done => Congrat");
+            //             GotoCongrats(StaticParamClass.CheckinPlace);
+            //             Destroy(placeInfo);
+            //         });
+            //     fog.gameObject.SetActive(false);
+            // }
+        }
+
+        private void ShowCheckInPopup(Action pCallback)
+        {
+            CommonPopupManager.ShowCheckInPopup(pCallback);
+        }
 
         /// <summary>
         /// Start a scan and wait for the callback (wait 1s after a scan success to avoid scanning multiple time the same element)
@@ -215,14 +228,17 @@ namespace TreasureHunt.QRScanner
                         //{
                         //	StaticParamClass.CheckinNumber = d.Split("=")[1];
                         //}
+                        int placeId = 0;
+                        Debug.LogError($"QRScannerController StartScanner d = {d}");
                         if (d.Contains("CheckinPlace"))
                         {
-                            StaticParamClass.CheckinPlace = Int32.Parse(d.Split("=")[1]);
-                            StaticParamClass.IsMapUnlocked[StaticParamClass.CheckinPlace] = true;
+                            // StaticParamClass.CheckinPlace = Int32.Parse(d.Split("=")[1]);
+                            // StaticParamClass.IsMapUnlocked[StaticParamClass.CheckinPlace] = true;
+                         placeId = Int32.Parse(d.Split("=")[1]); 
                         }
+                        ProcessScannedQR(placeId);
 
                         // xử lý thông tin sau khi nhận QR Code
-                        ProcessScannedQR();
                     }
                 }
                 else
@@ -231,18 +247,6 @@ namespace TreasureHunt.QRScanner
                     Debug.Log("Error barcode: " + barCodeType + " / " + barCodeValue + "\n");
                     StartScanner();
                 }
-
-
-
-                // Save the place info here -- Redirect to Main or Checkin
-                //int place = (new System.Random()).Next(MainController.MAX_PLACE);
-                //MainController.Instance.curPlace = place;
-                //MainController.Instance.activated[place] = true;
-                ///
-                //RestartTime += Time.realtimeSinceStartup + 1f;
-
-                // Feedback
-                //Audio.Play();
 
 #if UNITY_ANDROID || UNITY_IOS
 			Handheld.Vibrate();
@@ -300,192 +304,6 @@ namespace TreasureHunt.QRScanner
             return placeId != 0;
         }
 
-
-        /// <summary>
-        /// a: là string data các địa điểm user đã checkin
-        /// </summary>
-        /// <param name="a"></param>
-        /// <param name="name"></param>
-        public void OnDataLoaded(string a, string name)
-        {
-	        fog.gameObject.SetActive(false);
-            StaticParamClass.CheckedIn = a;
-            int currentPlace = StaticParamClass.CheckinPlace;
-            if (!StaticParamClass.CheckedIn.Contains(currentPlace.ToString())
-                && IsTargetPlace(currentPlace))
-            {
-                // nếu chưa checkin địa điểm này => đây là địa điểm mới!!!
-                // và địa điểm mới này là địa điểm target
-
-                //PlaceNum.text = "SỐ "  + (StaticParamClass.CheckinPlace + 1);
-                PlaceNum.text = WordOfPlace(currentPlace);
-                SoundBase.Instance.GetComponent<AudioSource>().PlayOneShot(SoundBase.Instance.checkIn);
-                StaticParamClass.CheckedIn += ";" + currentPlace.ToString();
-
-                // show chúc mừng đã checkin được địa điểm
-                ChucmungObj.SetActive(true);
-                for (int i = 0; i < areaPieces.Count; i++)
-                {
-                    if (i == currentPlace)
-                    {
-                        areaPieces[i].SetActive(true);
-                    }
-                    else
-                    {
-                        areaPieces[i].SetActive(false);
-                    }
-                }
-            }
-            else
-            {
-                // nếu đã checkin rồi => update lại data...
-                // hoặc là địa điểm này không cần phải target (không cần show kết quả).
-
-                //Checkin checkin = new Checkin();
-                //Debug.Log(checkin);
-                SaveDataAndBackToMain();
-            }
-        }
-
-        public IEnumerator GetData(string name)
-        {
-
-            SetGetUserData.GetCheckedinPlace_(name, OnDataLoaded);
-            yield return null;
-        }
-
-        public string WordOfPlace(int placeId)
-        {
-            return words[placeId];
-        }
-
-        /// <summary>
-        /// The Update method from unity need to be propagated
-        /// </summary>
-        void Update()
-        {
-            if (!isChange)
-            {
-                if (BarcodeScanner != null)
-                {
-                    BarcodeScanner.Update();
-                }
-            }
-
-
-            // Check if the Scanner need to be started or restarted
-            if (RestartTime != 0 && RestartTime < Time.realtimeSinceStartup)
-            {
-                StartScanner();
-                RestartTime = 0;
-            }
-        }
-
-        private void GotoCongrats(int place)
-        {
-            Debug.LogError($"QRScannerController GotoCongrats isTargetPlace: {IsTargetPlace(place)}");
-            // nếu không phải target => xử lý khác
-            if (!IsTargetPlace(place))
-            {
-                Debug.LogError($"QRScannerController: GotoCongrats No Target Place {place} => Check Signed up ");
-                if (IsSignedUp())
-                {
-                    Debug.LogError($"QRScannerController: GotoCongrats No Target Place {place} => Check Signed up = true => back to main");
-                    // đã đăng ký => về main luôn
-                    SaveDataAndBackToMain();
-                }
-                else
-                {
-                    Debug.LogError($"QRScannerController: GotoCongrats No Target Place {place} => Check Signed up = false => Go to sign up");
-                    // chưa đăng ký thì đi đăng ký
-                    GoToSignUp();
-                }
-                return;
-            }
-
-            Debug.LogError($"QRScannerController: GotoCongrats Is Target Place {place} => show Congrat! of place {StaticParamClass.CheckinPlace}");
-            // show chúc mừng
-
-            //PlaceNum.text = "SỐ " + (StaticParamClass.CheckinPlace + 1);
-            PlaceNum.text = WordOfPlace(StaticParamClass.CheckinPlace);
-            SoundBase.Instance.GetComponent<AudioSource>().PlayOneShot(SoundBase.Instance.checkIn);
-            ChucmungObj.SetActive(true);
-            StaticParamClass.CheckedIn += ";" + StaticParamClass.CheckinPlace.ToString();
-            for (int i = 0; i < areaPieces.Count; i++)
-            {
-                if (i == place)
-                {
-                    areaPieces[i].SetActive(true);
-                }
-                else
-                {
-                    areaPieces[i].SetActive(false);
-                }
-            }
-
-
-            //StartCoroutine(StopCamera(() => {
-            //	SceneManager.LoadScene(MainController.SCENENAME_CHECKIN);
-            //}));
-        }
-
-        /// <summary>
-        /// Event được gọi khi Close button chúc mừng.
-        /// </summary>
-        private void OKButtonChucmung()
-        {
-            SoundBase.Instance.GetComponent<AudioSource>().PlayOneShot(SoundBase.Instance.click);
-
-            // check lại quá trình, xem đã check in chưa
-            if (IsSignedUp())
-            {
-                // nếu đã checkin rồi => kiểm tra xem hoàn thành chưa
-
-                if (
-                    // StaticParamClass.CheckedIn.Contains("0") &&
-                    StaticParamClass.CheckedIn.Contains("1") &&
-                    StaticParamClass.CheckedIn.Contains("2") &&
-                    StaticParamClass.CheckedIn.Contains("3") &&
-                    StaticParamClass.CheckedIn.Contains("4") &&
-                    StaticParamClass.CheckedIn.Contains("5"))
-                {
-                    // nếu hoàn thành rồi => mở completed
-                    ChucmungComplete.SetActive(true);
-                    ChucmungObj.SetActive(false);
-                }
-                else
-                {
-
-                    // chea hoàn thành => save data và về Main
-                    SaveDataAndBackToMain();
-                }
-            }
-            else
-            {
-                GoToSignUp();
-            }
-        }
-
-        void GoToSignUp()
-        {
-            ChucmungComplete.gameObject.SetActive(false);
-            ChucmungObj.gameObject.SetActive(false);
-            Debug.LogError($"QRScannerController GoToSignUp");
-            StartCoroutine(StopCamera(() =>
-            {
-                // SceneManager.LoadScene(MainController.SCENENAME_CHECKIN);
-                CommonPopupManager.ShowCheckInPopup(() =>
-                {
-                    Debug.LogError($"QRScannerController GoToSignUp ShowCheckInPopup callback");
-                    // OnCloseQRScannerListener?.Invoke();
-                    StartCoroutine(StopCamera(() =>
-                    {
-                        OnCloseQRScannerListener?.Invoke();
-                    }));
-                });
-            }));
-        }
-
         bool IsSignedUp()
         {
             bool isSavedName = PlayerPrefs.HasKey(StaticParamClass.PrefCheckinName);
@@ -495,25 +313,6 @@ namespace TreasureHunt.QRScanner
                 return isSavedNameNotNull;
             }
             return false;
-        }
-
-        void SaveDataAndBackToMain()
-        {
-            StartCoroutine(CheckInPopup.CheckinPre(PlayerPrefs.GetString(StaticParamClass.PrefCheckinName), PlayerPrefs.GetString(StaticParamClass.PrefCheckinNumber),
-            StaticParamClass.CheckinPlace, () =>
-                    {
-                         StartCoroutine(StopCamera(() =>
-                        {
-                            OnCloseQRScannerListener?.Invoke();
-                        }));
-                    }));
-        }
-
-        private void OKButtonComplete()
-        {
-            SoundBase.Instance.GetComponent<AudioSource>().PlayOneShot(SoundBase.Instance.click);
-
-            SaveDataAndBackToMain();
         }
 
         #region UI Buttons

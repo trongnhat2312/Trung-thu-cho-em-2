@@ -1,4 +1,6 @@
 using System;
+using TreasureHunt.Places;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace TreasureHunt.Common
@@ -25,11 +27,17 @@ namespace TreasureHunt.Common
 
 
         [SerializeField] CheckInPopup checkInPopup;
+        [SerializeField] PlaceInfoNew2026 introEventPopup;
 
 
         public static void ShowCheckInPopup(Action pCallback)
         {
             Instance.checkInPopup.ShowPopup(pCallback);
+        }
+
+        public static void ShowIntroEventPopup(Action pCallback)
+        {
+            Instance.introEventPopup.Open(pCallback);
         }
     }
 }

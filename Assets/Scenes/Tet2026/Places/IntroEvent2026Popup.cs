@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace TreasureHunt.Places
 {
-	public class PlaceInfoNew2026 : MonoBehaviour
+	public class IntroEvent2026Popup : MonoBehaviour
 	{
 		[Serializable]
 		public class PageData
@@ -19,6 +19,7 @@ namespace TreasureHunt.Places
 			}
 		}
 
+		Action OnClosePopupListener; 
 		[SerializeField] PaceInfoUIBase placeInfoUIBase;
 		[SerializeField] List<PageData> listPages = new List<PageData>();
 
@@ -29,16 +30,12 @@ namespace TreasureHunt.Places
 		{
 			InitListener();
 
-			SelectPage();
-
 			CheckNextBack();
 		}
 
 		void InitListener()
 		{
-			Debug.Log($"PlaceInfo: place == {name}, Add listener");
-			placeInfoUIBase.AddOnBtnOkClickedListener(OnOkClicked);
-			placeInfoUIBase.AddOnBtnQRClickedListener(OnQRClicked);
+			placeInfoUIBase.AddOnBtnOkClickedListener(OnOkClicked); 
 			placeInfoUIBase.AddOnBtnBackClickedListener(OnBackClicked);
 			placeInfoUIBase.AddOnBtnNextClickedListener(OnNextClicked);
 			placeInfoUIBase.AddOnCloseClickedListener(ClosePopup);
@@ -54,31 +51,15 @@ namespace TreasureHunt.Places
 			{
 				ClosePopup();
 			}
-		}
+		} 
 
-		void OnQRClicked()
+		public void ShowPopup(Action callback)
 		{
-			Debug.Log($"PlaceInfo: place == {name}, On QR Clicked");
-			try
-			{
-				SoundBase.Instance.GetComponent<AudioSource>().PlayOneShot(SoundBase.Instance.click);
-			}
-			catch (Exception exception)
-			{
-			}
+			Debug.LogError($"IntroEvent2026Popup  place == {name}, Add listener"); 
+			OnClosePopupListener = callback;  
 
-			m_OpenQRCallback?.Invoke();
-		}
-
-		Action m_Callback;
-		Action m_OpenQRCallback;
-		public void Open(Action callback, Action openQRCallback = null)
-		{
-			Debug.Log($"PlaceInfo: open place == {name}, callback = {callback != null}, openQRCallback = {openQRCallback != null}");
-			m_Callback = callback;
-			m_OpenQRCallback = openQRCallback;
-			bool isOnQRBtn = m_OpenQRCallback != null;
-			placeInfoUIBase.SetONOFFQRBtn(isOnQRBtn);
+			SelectPage(); 
+			gameObject.SetActive(true); 
 		}
 
 		int N_Page => listPages != null ? listPages.Count : 0;
@@ -118,38 +99,15 @@ namespace TreasureHunt.Places
 				}
 				catch (Exception exception)
 				{
+					Debug.LogError($"IntroEvent2026Popup SelectPage exception: {exception.Message}");
 				}
 			}
-		}
-
-		// Update is called once per frame
-		void Update()
-		{
-
-		}
-
-		public void SetPlaceNum(int placeNum)
-		{
-			this.placeNum = placeNum;
-			//Title.text = "Bản đồ số " + (placeNum + 1);
-		}
+		}  
 
 		public void ClosePopup()
 		{
-			try
-			{
-				if (MainController.Instance != null)
-				{
-					MainController.Instance.ClosePlaceInfo();
-				}
-			}
-			catch (Exception exception)
-			{
-			}
-
-			m_Callback?.Invoke();
-		}
-
-		private int placeNum;
+			gameObject.SetActive(false);
+			OnClosePopupListener?.Invoke();
+		} 
 	}
 }

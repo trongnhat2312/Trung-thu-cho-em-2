@@ -1942,7 +1942,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2437007541969126133
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3443,36 +3443,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 712f537a36a12493ab7ca4a85fb5016a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TreasureHunt.QRScanner.QRScannerController
-  words:
-  - "Xu\xE2n"
-  - An, Khang
-  - "\u0110\u1EE9c, T\xE0i, Nh\u01B0, \xDD"
-  - "Ni\xEAn"
-  - "Th\u1ECBnh, V\u01B0\u1EE3ng"
-  - "Ph\xFAc, Th\u1ECD, V\xF4, Bi\xEAn"
   TextHeader: {fileID: 574852485260611782}
   Image: {fileID: 4613508681002299556}
   Audio: {fileID: 9125827775190628117}
   btnBack: {fileID: 6025500091266976272}
-  btnOkChucmung: {fileID: 1776193919522751715}
   btnChangeCamera: {fileID: 9001434423857874982}
-  btnCompletedChallenge: {fileID: 4974193612170482643}
   ListCamera: {fileID: 5278449975367041630}
-  PlaceNum: {fileID: 4126803476725586026}
-  areaPieces:
-  - {fileID: 3820429950969099917}
-  - {fileID: 561333871563980010}
-  - {fileID: 6713952545785142931}
-  - {fileID: 848368210056234771}
-  - {fileID: 5098979999092820272}
-  - {fileID: 1646130477884030134}
-  ChucmungObj: {fileID: 4178254523492239844}
-  ChucmungComplete: {fileID: 1181990019428736651}
   fog: {fileID: 4423478889877252452}
-  PlaceInfoPrefab: {fileID: 6891869770857540401, guid: 509fcd96cf6904b12949a3d9b2eaaec6,
-    type: 3}
-  placeInfo: {fileID: 0}
-  root: {fileID: 6397220665883770957}
 --- !u!1 &7094371777415962958
 GameObject:
   m_ObjectHideFlags: 0
@@ -3952,24 +3929,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 058b6b3f68c66427b90476bafca67d44, type: 3}
---- !u!1 &1181990019428736651 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4294752018873928472, guid: 058b6b3f68c66427b90476bafca67d44,
-    type: 3}
-  m_PrefabInstance: {fileID: 3169764058207622547}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &4974193612170482643 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7996881253707302464, guid: 058b6b3f68c66427b90476bafca67d44,
-    type: 3}
-  m_PrefabInstance: {fileID: 3169764058207622547}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!224 &5406033536473531159 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6988273006168413828, guid: 058b6b3f68c66427b90476bafca67d44,
