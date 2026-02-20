@@ -527,6 +527,8 @@ MonoBehaviour:
   objFirstLoad: {fileID: 1521159725}
   objQRScanner: {fileID: 423623005}
   objMenu: {fileID: 1727585127}
+  debugStartFromUrlQR: 0
+  debugAbsoluteURL: https://koikinggaming.com/vme/Tet-2025/?CheckinPlace=1
 --- !u!1001 &1521159723
 PrefabInstance:
   m_ObjectHideFlags: 0

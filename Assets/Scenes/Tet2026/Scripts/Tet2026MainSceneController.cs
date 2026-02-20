@@ -1,8 +1,9 @@
-using Koi.Scene; 
-using UnityEngine; 
+using Koi.Scene;
+using UnityEngine;
 using TreasureHunt.FirstLoad;
 using TreasureHunt.MenuGame;
 using TreasureHunt.QRScanner;
+using TreasureHunt.Data;
 
 namespace TreasureHunt
 {
@@ -19,6 +20,9 @@ namespace TreasureHunt
         public FirstSceneLoader objFirstLoad;
         public QRScannerLoader objQRScanner;
         public MenuLoader objMenu;
+        public bool debugStartFromUrlQR = false;
+        public string debugAbsoluteURL = "https://koikinggaming.com/vme/Tet-2025/?CheckinPlace=1";
+
 
         private void Start()
         {
@@ -40,7 +44,43 @@ namespace TreasureHunt
 
         private async void OnFirstLoaded()
         {
-            Debug.LogError("MainSceneController OnFirstLoaded");
+
+#if !UNITY_EDITOR
+		debugStartFromUrlQR = false;
+#endif
+
+            // Main load. kiem tra xem user da co tai khoan va checkin ở địa điểm nào chưa
+            // Nếu đã có tài khoản: thực hiện checkin/set place num các thứ
+            // Nếu chưa có tài khoản: load checkin scene để nó checkin.
+            string absoluteURL = Application.absoluteURL;
+#if UNITY_EDITOR
+            if (debugStartFromUrlQR)
+            {
+                absoluteURL = debugAbsoluteURL;
+            }
+#endif
+
+            int pm = absoluteURL.IndexOf("CheckinPlace");
+            Debug.LogError($"Tet2026MainSceneController pmId {pm}");
+
+            bool isHasAccount = DataManager.IsCheckInDone;
+            bool isPlace0IntroUnlocked = DataManager.IsPlaceUnlocked((int) PlaceID.Place_00_IntroEvent);//dung ham nay de check xem da checkin dia dien n chua, voi n la int
+            bool case1Accept = pm != -1 && !isHasAccount;
+            bool case2Accept = pm != -1 && isHasAccount;
+            if (case1Accept)
+            {
+                Debug.LogError($"Tet2026MainSceneController:CASE 1 SetupStart First time from Url QR {pm}, case1Accept: {case1Accept} isHasAccount: {isHasAccount}");
+                InitQRScannerRootObj("");
+                return;
+            }
+            else if (case2Accept)
+            {
+                Debug.LogError($"Tet2026MainSceneController:CASE 1 SetupStart First time from Url QR {pm}, case1Accept: {case1Accept} isHasAccount: {isHasAccount}");
+                InitQRScannerRootObj("");
+                return;
+            }
+
+            Debug.LogError("Tet2026MainSceneController OnFirstLoaded");
             string jsonData = "";
             //process data firstLoad
             InitMenuRootObj(jsonData);
