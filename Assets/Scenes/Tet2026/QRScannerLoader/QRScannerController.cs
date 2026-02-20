@@ -111,6 +111,20 @@ namespace TreasureHunt.QRScanner
             fog.gameObject.SetActive(true);
             await UniTask.DelayFrame(1);
             fog.gameObject.SetActive(false);
+
+            await UniTask.DelayFrame(1);
+
+            if (StaticParamClass.GoFromOutside == true)
+            {
+	            // nếu là vào từ bên ngoài => kiểm tra xem login chưa???
+	            StaticParamClass.DaCheckRoi = true;
+	            Console.WriteLine($"QRScannerController: DaCheckRoi: " + StaticParamClass.DaCheckRoi);
+
+	            ProcessScannedQR(StaticParamClass.CheckinPlace, true);
+	            return;
+            }
+
+
             await UniTask.DelayFrame(5);
             // Create a basic scanner
             BarcodeScanner = new Scanner();
@@ -159,7 +173,7 @@ namespace TreasureHunt.QRScanner
             //case 2: scan other place (not introEvent)
             ShowRewardPlacePopup(pIdPlace);
 
-            // //step 2: check is login 
+            // //step 2: check is login
             // if (IsSignedUp())
             // {
             //     // đã đăng ký => load data và xử lý sau khi load

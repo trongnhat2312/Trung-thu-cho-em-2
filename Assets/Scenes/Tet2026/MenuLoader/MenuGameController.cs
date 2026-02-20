@@ -135,7 +135,22 @@ namespace TreasureHunt.MenuGame
 
             int pm = absoluteURL.IndexOf("CheckinPlace");
             Debug.LogError($"MenuGameController pmId {pm}, Set DaCheckRoi: " + StaticParamClass.DaCheckRoi);
- 
+
+
+            if (pm != -1 && !StaticParamClass.DaCheckRoi && !IsAllMapUnlocked())
+            {
+	            StaticParamClass.GoFromOutside = true;
+	            StaticParamClass.CheckinPlace = Int32.Parse(absoluteURL.Split("=")[1]);
+	            Debug.LogError($"MenuGameController: SetupStart First time from Url QR {pm}, checkInPlace {StaticParamClass.CheckinPlace}");
+
+	            StaticParamClass.IsMapUnlocked[StaticParamClass.CheckinPlace] = true;
+	            Console.WriteLine("Set out: " + StaticParamClass.GoFromOutside);
+	            Console.WriteLine("Set check: " + StaticParamClass.CheckinPlace);
+	            Debug.LogError($"MenuGameController: SetupStart setout: {StaticParamClass.GoFromOutside}, setcheck: {StaticParamClass.CheckinPlace}");
+	            OnShowQRScanner();
+	            return;
+            }
+
 
             _isStarEffEnabled = true;
             //_isPopupOpen = true;
@@ -145,13 +160,13 @@ namespace TreasureHunt.MenuGame
                 Debug.Log($"MenuGameController: SetupStart Go From InSide, show map piece, place info...");
                 menuCenter.showMapPieces();
                 // StartCoroutine(menuCenter.OpenPlaceInfoWithEffect(StaticParamClass.CheckinPlace));
-            } 
+            }
 
             menuCenter.SetUsername();
 
             _starLightCount = 0;
             CheckCompletedChallenge();
-        }  
+        }
 
         public bool IsAllMapUnlocked()
         {
@@ -200,7 +215,7 @@ namespace TreasureHunt.MenuGame
         private void RefreshUI()
         {
             menuCenter.RefreshUI();
-        }   
+        }
 
         private void ShowPlaceInfo(int pPlaceId)
         {
@@ -238,7 +253,7 @@ namespace TreasureHunt.MenuGame
             string jsonData = JsonUtility.ToJson(qRTranferData);
             Debug.LogError($"MenuGameController OnShowQRScanner GoFromInside {StaticParamClass.GoFromInside}");
             OnNeedOpenQRScannerListener?.Invoke(jsonData);
-        }  
+        }
 
     }
 
