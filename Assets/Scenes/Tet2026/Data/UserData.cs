@@ -15,6 +15,8 @@ namespace TreasureHunt.Data
         public bool IsCheckInDone => !string.IsNullOrEmpty(userName);
         public bool IsFirstScan => isFirstScan;
         public string UserName => userName;
+        public string PhoneNumber => phoneNumber;
+        public List<int> PlaceUnlocked => placeUnlocked;
 
 
         public void InitFirstData()

@@ -1,9 +1,11 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using BarcodeScanner;
 using BarcodeScanner.Scanner;
 using Cysharp.Threading.Tasks;
+using PlayFab.ServerModels;
 using TreasureHunt.Common;
 using TreasureHunt.Data;
 using TreasureHunt.Places;
@@ -152,6 +154,7 @@ namespace TreasureHunt.QRScanner
                 {
                     OnIntroPopupClose(pIdPlace);
                 }), null);
+                PushPlayfabCheckInPlace(idPlaceIntro);
                 return;
             }
 
@@ -221,6 +224,38 @@ namespace TreasureHunt.QRScanner
             {
                 OnRewardPlaceClosed(pIdPlace);
             });
+            PushPlayfabCheckInPlace(pIdPlace);
+        }
+
+        private void PushPlayfabCheckInPlace(int pIdPlace)
+        {
+            try
+            {
+                string sPhoneNumber = DataManager.PhoneNumber;
+                string listStringCheckInPlace = "";
+                List<int> listCheckInPlace = DataManager.PlaceUnlocked;
+                for (int i = 0; i < listCheckInPlace.Count; i++)
+                {
+                    bool isFinal = i == listCheckInPlace.Count - 1;
+                    listStringCheckInPlace += listCheckInPlace[i];
+                    if (!isFinal)
+                    {
+                        listStringCheckInPlace += ";";
+                    }
+                }
+
+                SetTitleDataRequest title = new()
+                {
+                    Key = sPhoneNumber,
+                    Value = listStringCheckInPlace
+                };
+
+                SetGetUserData.SetCheckinPlace(title);
+            }
+            catch (Exception e)
+            {
+                Debug.LogError($"PushPlayfabCheckInPlace exception: {e.Message}");
+            }
         }
 
         private void OnRewardPlaceClosed(int pIdPlace)

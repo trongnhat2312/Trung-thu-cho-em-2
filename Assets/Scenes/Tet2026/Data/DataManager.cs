@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace TreasureHunt.Data
@@ -33,6 +34,8 @@ namespace TreasureHunt.Data
         public static bool IsFirstScan => userData.IsFirstScan;
 
         public static string UserName => userData.UserName;
+        public static string PhoneNumber => userData.PhoneNumber;
+        public static List<int> PlaceUnlocked => userData.PlaceUnlocked;
 
         public static void UpdateCheckInData(string userName, string phoneNumber)
         {
