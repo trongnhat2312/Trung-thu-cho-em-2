@@ -139,14 +139,16 @@ namespace TreasureHunt.QRScanner
         {
             Debug.LogError($"QRScannerController ProcessScannedQR pPlaceId = {pIdPlace} fromOpenWeb = {fromOpenWeb} ");
             //step1: check is Intro
-            bool isNeedGuideIntroEvent = DataManager.IsPlaceUnlocked((int)PlaceID.Place_00_IntroEvent);
+            bool isNeedGuideIntroEvent = !DataManager.IsPlaceUnlocked((int)PlaceID.Place_00_IntroEvent);
             bool isScanIntroPlace = pIdPlace == (int)PlaceID.Place_00_IntroEvent;
             bool isNeedShowIntro = isNeedGuideIntroEvent || isScanIntroPlace;
-            // Debug.LogError($"QRScannerController ProcessScannedQR isNeedShowIntro = {isNeedShowIntro}  isScanIntroPlace = {isScanIntroPlace}  isNeedGuideIntroEvent = {isNeedGuideIntroEvent} placeId = {placeId}");
+            Debug.LogError($"QRScannerController ProcessScannedQR isNeedShowIntro = {isNeedShowIntro}  isScanIntroPlace = {isScanIntroPlace}  isNeedGuideIntroEvent = {isNeedGuideIntroEvent} placeId = {pIdPlace}");
             if (isNeedShowIntro)
             {
-                DataManager.UpdatePlaceUnlocked(pIdPlace);
-                CommonPopupManager.ShowPlaceInfoPopup(pIdPlace, true, (() =>
+                //force show intro event
+                int idPlaceIntro = (int)PlaceID.Place_00_IntroEvent;
+                DataManager.UpdatePlaceUnlocked(idPlaceIntro);
+                CommonPopupManager.ShowPlaceInfoPopup(idPlaceIntro, true, (() =>
                 {
                     OnIntroPopupClose(pIdPlace);
                 }), null);
