@@ -251,11 +251,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: QRScannerLoader
       objectReference: {fileID: 0}
-    - target: {fileID: 6955421030446119167, guid: 7a935cad645f7415ebf954c4d83ecbb4,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -685,6 +680,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4384012412468436042, guid: c1e51a988d02ecf4cb9a96739dff10ec,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 300
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

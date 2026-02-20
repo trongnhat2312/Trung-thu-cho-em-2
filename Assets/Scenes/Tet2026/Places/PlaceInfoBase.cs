@@ -1,6 +1,4 @@
-using System;
-using System.Threading.Tasks;
-using Cysharp.Threading.Tasks;
+using System; 
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,16 +10,14 @@ namespace TreasureHunt.Places
 
         private Action OnClosePlaceInfoListener;
 
-        public GameObject[] PlaceInfos;
-
-        public GameObject Question;
+        [SerializeField] private GameObject Question;
+        [SerializeField] private PlaceInfoNew2026 placeInfoUnlock;
+        [SerializeField] private PlaceInfoNew2026 placeInfoLock;
 
         private int numPlace;
-        public Button QuestionButton;
-        public int getNumPlace() { return numPlace; }
-        GameObject placeInfoGened;
-
-
+        [SerializeField] private Button QuestionButton;
+        [Header("PlaceInfo debug")]
+        public PlaceInfoNew2026 placeInfo;
 
         void Start()
         {
@@ -40,39 +36,30 @@ namespace TreasureHunt.Places
         }
         #endregion
 
-        public void OpenPlaceInfo(int i, bool isUnlocked, Action pCloseCallback = null, Action openQRCallback = null)
+        public void OpenPlaceInfo(int pIdPlace, bool isUnlocked, Action pCloseCallback = null)
         {
             OnClosePlaceInfoListener = pCloseCallback;
-            Debug.LogError($"PlaceInfoBase: open place == {i}");
-            numPlace = i;
-            int offset = isUnlocked ? StaticParamClass.MAX_PLACE : 0;
-            placeInfoGened = Instantiate(PlaceInfos[i + offset]);
-            placeInfoGened.transform.SetParent(transform, false);
-            placeInfoGened.name = $"{PlaceInfos[i + offset].name}_place_" + i;
-            QuestionButton.gameObject.SetActive(isUnlocked && i != 0 && i != 5);
-            // QuestionButton.gameObject.SetActive(false);
+            Debug.LogError($"PlaceInfoBase: open place == {pIdPlace}");  
+            QuestionButton.gameObject.SetActive(isUnlocked && pIdPlace != 0 && pIdPlace != 5);
 
-            try
+            placeInfoLock.gameObject.SetActive(!isUnlocked);
+            placeInfoUnlock.gameObject.SetActive(isUnlocked);
+            placeInfo = isUnlocked ? placeInfoUnlock : placeInfoLock;  
+            gameObject.SetActive(true);
+            placeInfo.Open(OnBtnCloseClicked, () =>
             {
-                placeInfoGened.GetComponent<PlaceInfoNew2026>().Open(OnBtnCloseClicked, openQRCallback);
-            }
-            catch (Exception exception)
-            {
-                Debug.LogError($"PlaceInfoBase OpenPlaceInfo exception: {exception.Message}");
-            }
+                Debug.LogError($"PlaceInfoBase: open qr == {pIdPlace} NEED CODE MORE");
+            });
         }
 
         private async void HidePopup()
         {
             OnClosePlaceInfoListener?.Invoke();
-            gameObject.SetActive(false);
-            await UniTask.DelayFrame(3);
-            DestroyImmediate(placeInfoGened);
+            gameObject.SetActive(false); 
         }
 
         private void OnBtnCloseClicked()
-        {
-            Destroy(placeInfoGened.gameObject);
+        { 
             HidePopup();
         }
 

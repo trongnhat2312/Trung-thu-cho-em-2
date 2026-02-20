@@ -138,30 +138,22 @@ namespace TreasureHunt.QRScanner
         async void ProcessScannedQR(int pIdPlace, bool fromOpenWeb = false)
         {
             Debug.LogError($"QRScannerController ProcessScannedQR pPlaceId = {pIdPlace} fromOpenWeb = {fromOpenWeb} ");
-            int placeId = pIdPlace;
             //step1: check is Intro
             bool isNeedGuideIntroEvent = DataManager.IsFirstScan;
-            bool isScanIntroPlace = placeId == (int)PlaceID.Place_00_IntroEvent;
+            bool isScanIntroPlace = pIdPlace == (int)PlaceID.Place_00_IntroEvent;
             bool isNeedShowIntro = isNeedGuideIntroEvent || isScanIntroPlace;
             // Debug.LogError($"QRScannerController ProcessScannedQR isNeedShowIntro = {isNeedShowIntro}  isScanIntroPlace = {isScanIntroPlace}  isNeedGuideIntroEvent = {isNeedGuideIntroEvent} placeId = {placeId}");
             if (isNeedShowIntro)
             {
+                DataManager.UpdateFirstScaned();
                 CommonPopupManager.ShowIntroEventPopup(() =>
                 {
-                    bool isSignedUp = IsSignedUp();
-                    if (!isSignedUp)
-                    {
-                        ShowCheckInPopup(() =>
-                        {
-                            //back to menu
-                            OnCloseQRScannerListener?.Invoke();
-                        });
-                    }
+                    OnIntroPopupClose(pIdPlace);
                 });
                 return;
             }
 
-            Debug.LogError($"QRScannerController ProcessScannedQR placeId = {placeId} not need show intro or checkin");
+            Debug.LogError($"QRScannerController ProcessScannedQR placeId = {pIdPlace} not need show intro or checkin");
 
             // //step 2: check is login 
             // if (IsSignedUp())
@@ -189,11 +181,52 @@ namespace TreasureHunt.QRScanner
             // }
         }
 
+        private void OnIntroPopupClose(int pIdPlace)
+        {
+            bool isSignedUp = DataManager.IsCheckInDone;
+            if (!isSignedUp)
+            {
+                ShowCheckInPopup(() =>
+                {
+                    OnCheckInPopupClosed(pIdPlace);
+                });
+            }
+            else
+            {
+                OnCheckInPopupClosed(pIdPlace);
+            }
+        }
+
+        private void OnCheckInPopupClosed(int pIdPlace)
+        {
+            bool isPlaceIntroEvent = pIdPlace == (int)PlaceID.Place_00_IntroEvent;
+            if (isPlaceIntroEvent)
+            {
+                DoBackToMenu();
+            }
+            else
+            {
+                //show reward place -> show place info
+                CommonPopupManager.ShowRewardPlacePopup(pIdPlace, () =>
+                {
+                    OnRewardPlaceClosed(pIdPlace);
+                });
+            }
+        }
+
+        private void OnRewardPlaceClosed(int pIdPlace)
+        {
+            CommonPopupManager.ShowPlaceInfoPopup(pIdPlace, true, () =>
+            {
+                DoBackToMenu();
+            });
+        }
+
         private void DoBackToMenu()
         {
             StartCoroutine(StopCamera(() =>
-            { 
-                OnCloseQRScannerListener?.Invoke(); 
+            {
+                OnCloseQRScannerListener?.Invoke();
                 gameObject.SetActive(false);
             }));
         }
@@ -317,17 +350,6 @@ namespace TreasureHunt.QRScanner
             // fix cứng Tết 2025:
             // địa điểm số 0 không cần target
             return placeId != 0;
-        }
-
-        bool IsSignedUp()
-        {
-            bool isSavedName = PlayerPrefs.HasKey(StaticParamClass.PrefCheckinName);
-            if (isSavedName)
-            {
-                bool isSavedNameNotNull = !PlayerPrefs.GetString(StaticParamClass.PrefCheckinName).Equals("");
-                return isSavedNameNotNull;
-            }
-            return false;
         }
 
         #region UI Buttons

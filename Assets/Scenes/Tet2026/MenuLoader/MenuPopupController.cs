@@ -13,7 +13,7 @@ namespace TreasureHunt.MenuGame
         public void ShowPlaceInfo1(int pPlaceId, bool pIsPlaceUnlocked, Action pCallback = null, Action pOpenQRCallback = null)
         {
             placeInfoHolderBase.gameObject.SetActive(true);
-            placeInfoHolderBase.OpenPlaceInfo(pPlaceId, pIsPlaceUnlocked, pCallback, pOpenQRCallback);
+            placeInfoHolderBase.OpenPlaceInfo(pPlaceId, pIsPlaceUnlocked, pCallback);
         }
 
         public void ShowScanQR()
