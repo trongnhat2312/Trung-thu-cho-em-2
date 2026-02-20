@@ -32,11 +32,13 @@ namespace TreasureHunt.Common
 
         public static void ShowCheckInPopup(Action pCallback)
         {
+            Debug.LogError($"CommonPopupManager ShowCheckInPopup");
             Instance.checkInPopup.ShowPopup(pCallback);
         }
 
         public static void ShowIntroEventPopup(Action pCallback)
         {
+            Debug.LogError($"CommonPopupManager ShowIntroEventPopup");
             Instance.introEventPopup.Open(pCallback);
         }
     }

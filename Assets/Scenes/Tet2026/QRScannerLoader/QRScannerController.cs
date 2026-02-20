@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Threading.Tasks;
 using BarcodeScanner;
 using BarcodeScanner.Scanner;
 using Cysharp.Threading.Tasks;
@@ -42,6 +43,9 @@ namespace TreasureHunt.QRScanner
             {
                 ChangeCamera(true);
             });
+
+            //request camera permission
+            RequestCameraPermissionIfNeed();
         }
 
         /// <summary>
@@ -53,7 +57,7 @@ namespace TreasureHunt.QRScanner
             {
                 if (BarcodeScanner != null)
                 {
-                    Debug.LogError($"QRScannerController: Update BarcodeScanner NULL = {BarcodeScanner == null}");
+                    // Debug.LogError($"QRScannerController: Update BarcodeScanner NULL = {BarcodeScanner == null}");
                     BarcodeScanner.Update();
                 }
             }
@@ -131,16 +135,15 @@ namespace TreasureHunt.QRScanner
             };
         }
 
-        void ProcessScannedQR(int pIdPlace, bool fromOpenWeb = false)
+        async void ProcessScannedQR(int pIdPlace, bool fromOpenWeb = false)
         {
             Debug.LogError($"QRScannerController ProcessScannedQR pPlaceId = {pIdPlace} fromOpenWeb = {fromOpenWeb} ");
-
-            int placeId = 0;
-            // placeId = pIdPlace;
+            int placeId = pIdPlace;
             //step1: check is Intro
             bool isNeedGuideIntroEvent = DataManager.IsFirstScan;
             bool isScanIntroPlace = placeId == (int)PlaceID.Place_00_IntroEvent;
             bool isNeedShowIntro = isNeedGuideIntroEvent || isScanIntroPlace;
+            // Debug.LogError($"QRScannerController ProcessScannedQR isNeedShowIntro = {isNeedShowIntro}  isScanIntroPlace = {isScanIntroPlace}  isNeedGuideIntroEvent = {isNeedGuideIntroEvent} placeId = {placeId}");
             if (isNeedShowIntro)
             {
                 CommonPopupManager.ShowIntroEventPopup(() =>
@@ -157,6 +160,8 @@ namespace TreasureHunt.QRScanner
                 });
                 return;
             }
+
+            Debug.LogError($"QRScannerController ProcessScannedQR placeId = {placeId} not need show intro or checkin");
 
             // //step 2: check is login 
             // if (IsSignedUp())
@@ -184,6 +189,15 @@ namespace TreasureHunt.QRScanner
             // }
         }
 
+        private void DoBackToMenu()
+        {
+            StartCoroutine(StopCamera(() =>
+            { 
+                OnCloseQRScannerListener?.Invoke(); 
+                gameObject.SetActive(false);
+            }));
+        }
+
         private void ShowCheckInPopup(Action pCallback)
         {
             CommonPopupManager.ShowCheckInPopup(pCallback);
@@ -194,6 +208,7 @@ namespace TreasureHunt.QRScanner
         /// </summary>
         private async void StartScanner()
         {
+            Debug.LogError($"QRScannerController StartScanner");
             await UniTask.DelayFrame(3);
             foreach (WebCamDevice wd in WebCamTexture.devices)
             {
@@ -234,7 +249,7 @@ namespace TreasureHunt.QRScanner
                         {
                             // StaticParamClass.CheckinPlace = Int32.Parse(d.Split("=")[1]);
                             // StaticParamClass.IsMapUnlocked[StaticParamClass.CheckinPlace] = true;
-                         placeId = Int32.Parse(d.Split("=")[1]); 
+                            placeId = Int32.Parse(d.Split("=")[1]);
                         }
                         ProcessScannedQR(placeId);
 
@@ -321,13 +336,7 @@ namespace TreasureHunt.QRScanner
         {
             SoundBase.Instance.GetComponent<AudioSource>().PlayOneShot(SoundBase.Instance.click);
             // Try to stop the camera before loading another scene
-            StartCoroutine(StopCamera(() =>
-            {
-                //StaticParamClass.GoFromInside = true;
-                // SceneManager.LoadScene(MainController.SCENENAME_MAIN);
-                OnCloseQRScannerListener?.Invoke();
-
-            }));
+            DoBackToMenu();
         }
 
         /// <summary>

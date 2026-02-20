@@ -8,17 +8,15 @@ namespace TreasureHunt.Data
 
         private void Awake()
         {
-            if (Instance == null)
+            if (Instance != null && Instance != this)
             {
-                if (transform.parent == null)
-                {
-                    Instance = this;
-                    GameObject.DontDestroyOnLoad(gameObject);
-                }
+                DestroyImmediate(gameObject);
             }
             else
             {
-                GameObject.DestroyImmediate(gameObject);
+                Instance = this;
+                DontDestroyOnLoad(gameObject);
+                LoadData();
             }
         }
 
@@ -33,9 +31,9 @@ namespace TreasureHunt.Data
         public static UserData userData => Instance._userData;
 
         public static bool IsFirstScan => userData.IsFirstScan;
-        
 
-        public static void UpdateCheckInData(string userName, string phoneNumber  )
+
+        public static void UpdateCheckInData(string userName, string phoneNumber)
         {
             userData.UpdateCheckInData(userName, phoneNumber);
             Instance.SaveUserData();
@@ -54,13 +52,13 @@ namespace TreasureHunt.Data
             string json = PlayerPrefs.GetString(USER_DATA_KEY, "");
             if (string.IsNullOrEmpty(json))
             {
-                Debug.LogError("Userdata first create");
+                Debug.LogError("DataManager Userdata first create");
                 Instance._userData = new UserData();
                 Instance._userData.InitFirstData();
             }
             else
             {
-                Debug.LogError("Exist Userdata");
+                Debug.LogError("DataManager Exist Userdata");
                 Instance._userData = JsonUtility.FromJson<UserData>(json);
             }
         }

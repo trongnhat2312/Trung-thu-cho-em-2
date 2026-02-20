@@ -79,6 +79,7 @@ namespace TreasureHunt.Places
 			m_OpenQRCallback = openQRCallback;
 			bool isOnQRBtn = m_OpenQRCallback != null;
 			placeInfoUIBase.SetONOFFQRBtn(isOnQRBtn);
+			gameObject.SetActive(true);
 		}
 
 		int N_Page => listPages != null ? listPages.Count : 0;
@@ -135,19 +136,9 @@ namespace TreasureHunt.Places
 		}
 
 		public void ClosePopup()
-		{
-			try
-			{
-				if (MainController.Instance != null)
-				{
-					MainController.Instance.ClosePlaceInfo();
-				}
-			}
-			catch (Exception exception)
-			{
-			}
-
+		{ 
 			m_Callback?.Invoke();
+			gameObject.SetActive(false);
 		}
 
 		private int placeNum;
