@@ -47,7 +47,7 @@ namespace TreasureHunt.QRScanner
             });
 
             //request camera permission
-            RequestCameraPermissionIfNeed();
+            // RequestCameraPermissionIfNeed();
         }
 
         /// <summary>
@@ -78,19 +78,27 @@ namespace TreasureHunt.QRScanner
             StartCoroutine(DoRequestCameraPermissionIfNeed());
         }
 
+        private bool isUserAuthorAccepted = false;
+
         private IEnumerator DoRequestCameraPermissionIfNeed()
         {
             Debug.LogError("QRScannerController: Xin quyền Camera");
             // Yêu cầu quyền truy cập trước khi khởi tạo scan
+            isUserAuthorAccepted = false;
             if (!Application.HasUserAuthorization(UserAuthorization.WebCam))
             {
                 yield return Application.RequestUserAuthorization(UserAuthorization.WebCam);
+            }
+            else
+            {
+	            isUserAuthorAccepted = true;
             }
 
             if (Application.HasUserAuthorization(UserAuthorization.WebCam))
             {
                 Debug.LogError("QRScannerController: Đã có quyền Camera");
                 // Gọi hàm khởi tạo ZXing ở đây
+                isUserAuthorAccepted = true;
             }
             else
             {
@@ -107,48 +115,69 @@ namespace TreasureHunt.QRScanner
 
         public async void ShowQRScanner()
         {
-            //request camera permission
-            RequestCameraPermissionIfNeed();
+	        fog.gameObject.SetActive(true);
+	        await UniTask.DelayFrame(1);
 
-            fog.gameObject.SetActive(true);
-            await UniTask.DelayFrame(1);
-            fog.gameObject.SetActive(false);
+	        Debug.LogError($"QRScannerController: check go from outside = {StaticParamClass.GoFromOutside}, da check roi = " + StaticParamClass.DaCheckRoi);
 
-            await UniTask.DelayFrame(1);
+	        if (StaticParamClass.GoFromOutside == true)
+	        {
+		        // nếu là vào từ bên ngoài => kiểm tra xem login chưa???
+		        StaticParamClass.DaCheckRoi = true;
+		        Debug.LogError($"QRScannerController: go from outside DaCheckRoi: " + StaticParamClass.DaCheckRoi);
 
-            if (StaticParamClass.GoFromOutside == true)
-            {
-	            // nếu là vào từ bên ngoài => kiểm tra xem login chưa???
-	            StaticParamClass.DaCheckRoi = true;
-	            Console.WriteLine($"QRScannerController: DaCheckRoi: " + StaticParamClass.DaCheckRoi);
+		        ProcessScannedQR(StaticParamClass.CheckinPlace, true);
+		        return;
+	        }
+	        else
+	        {
+		        DoShowQRScanner();
+	        }
 
-	            ProcessScannedQR(StaticParamClass.CheckinPlace, true);
-	            return;
-            }
+        }
 
+        protected async void DoShowQRScanner()
+        {
+	        //request camera permission
+	        RequestCameraPermissionIfNeed();
 
-            await UniTask.DelayFrame(5);
-            // Create a basic scanner
-            BarcodeScanner = new Scanner();
-            BarcodeScanner.Camera.Play();
-            // ChangeCamera(false);
+	        fog.gameObject.SetActive(false);
 
-            // Display the camera texture through a RawImage
-            BarcodeScanner.OnReady += (sender, arg) =>
-            {
-                Debug.LogError("QRScannerController: OnReady");
-                // Set Orientation & Texture
-                Image.transform.localEulerAngles = BarcodeScanner.Camera.GetEulerAngles();
-                Image.transform.localScale = BarcodeScanner.Camera.GetScale();
-                Image.texture = BarcodeScanner.Camera.Texture;
+	        await UniTask.DelayFrame(5);
 
-                // Keep Image Aspect Ratio
-                var rect = Image.GetComponent<RectTransform>();
-                var newHeight = rect.sizeDelta.x * BarcodeScanner.Camera.Height / BarcodeScanner.Camera.Width;
-                rect.sizeDelta = new Vector2(rect.sizeDelta.x, newHeight);
+	        int count = 0;
+	        while (count < 1000 && !isUserAuthorAccepted)
+	        {
+		        count++;
+		        await UniTask.DelayFrame(1);
+	        }
 
-                RestartTime = Time.realtimeSinceStartup;
-            };
+	        if (!isUserAuthorAccepted)
+	        {
+		        return;
+	        }
+
+	        // Create a basic scanner
+	        BarcodeScanner = new Scanner();
+	        BarcodeScanner.Camera.Play();
+	        // ChangeCamera(false);
+
+	        // Display the camera texture through a RawImage
+	        BarcodeScanner.OnReady += (sender, arg) =>
+	        {
+		        Debug.LogError("QRScannerController: OnReady");
+		        // Set Orientation & Texture
+		        Image.transform.localEulerAngles = BarcodeScanner.Camera.GetEulerAngles();
+		        Image.transform.localScale = BarcodeScanner.Camera.GetScale();
+		        Image.texture = BarcodeScanner.Camera.Texture;
+
+		        // Keep Image Aspect Ratio
+		        var rect = Image.GetComponent<RectTransform>();
+		        var newHeight = rect.sizeDelta.x * BarcodeScanner.Camera.Height / BarcodeScanner.Camera.Width;
+		        rect.sizeDelta = new Vector2(rect.sizeDelta.x, newHeight);
+
+		        RestartTime = Time.realtimeSinceStartup;
+	        };
         }
 
         async void ProcessScannedQR(int pIdPlace, bool fromOpenWeb = false)
