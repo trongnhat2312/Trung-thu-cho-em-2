@@ -63,8 +63,13 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: d52b840b2223d4d20aee6e6dfbeb871a,
+      objectReference: {fileID: 21300000, guid: 8b5b8d8d1756f454ea5dd520c54e7d09,
         type: 3}
+    - target: {fileID: 1442209726936613192, guid: 0859b6a056f8847b1b58a5cc2dd99f38,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 939.0553
+      objectReference: {fileID: 0}
     - target: {fileID: 3705146691124973241, guid: 0859b6a056f8847b1b58a5cc2dd99f38,
         type: 3}
       propertyPath: m_Pivot.x
@@ -165,6 +170,35 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5541999641889772925, guid: 0859b6a056f8847b1b58a5cc2dd99f38,
+        type: 3}
+      propertyPath: m_Text
+      value: "Con ng\u1EF1a trong m\xFAa r\u1ED1i d\xE2y"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5541999641889772925, guid: 0859b6a056f8847b1b58a5cc2dd99f38,
+        type: 3}
+      propertyPath: m_FontData.m_MaxSize
+      value: 57
+      objectReference: {fileID: 0}
+    - target: {fileID: 5564481573256998143, guid: 0859b6a056f8847b1b58a5cc2dd99f38,
+        type: 3}
+      propertyPath: m_Text
+      value: "Trong ngh\u1EC7 thu\u1EADt r\u1ED1i d\xE2y truy\u1EC1n th\u1ED1ng Myanmar
+        (Yoke Th\xE9), h\xECnh th\xE0nh t\u1EEB th\u1EBF k\u1EF7 XV v\xE0 \u0111\u1EA1t
+        \u0111\u1EC9nh cao v\xE0o th\u1EBF k\u1EF7 XIX, ng\u1EF1a (Myin) l\xE0 nh\xE2n
+        v\u1EADt ph\u1EE5 tr\u1EE3 quan tr\u1ECDng.\nNg\u1EF1a th\u01B0\u1EDDng g\u1EAFn
+        v\u1EDBi c\xE1c nh\xE2n v\u1EADt ho\xE0ng t\u1EED, t\u01B0\u1EDBng l\u0129nh
+        ho\u1EB7c s\u1EE9 gi\u1EA3 trong c\xE1c t\xEDch truy\u1EC7n l\u1ECBch s\u1EED
+        v\xE0 Ph\u1EADt gi\xE1o, \u0111\u1EA3m nhi\u1EC7m ch\u1EE9c n\u0103ng di
+        chuy\u1EC3n v\xE0 h\u1ED9 t\u1ED1ng, d\u1EABn d\u1EAFt m\u1EA1ch truy\u1EC7n.
+        Con r\u1ED1i h\xECnh ng\u1EF1a c\xF3 \u0111\u01B0\u1EE3c t\u1EA1o h\xECnh
+        t\xE1c \u0111\u01A1n gi\u1EA3n h\u01A1n r\u1ED1i h\xECnh ng\u01B0\u1EDDi
+        nh\u01B0ng \u0111\xF2i h\u1ECFi k\u1EF9 thu\u1EADt \u0111i\u1EC1u khi\u1EC3n
+        ch\xEDnh x\xE1c \u0111\u1EC3 th\u1EC3 hi\u1EC7n \u0111\u1ED9ng t\xE1c \u0111i,
+        ch\u1EA1y v\xE0 d\u1EEBng, ph\u1EA3n \xE1nh vai tr\xF2 thi\u1EBFt y\u1EBFu
+        th\u1EF1c d\u1EE5ng c\u1EE7a ng\u1EF1a trong x\xE3 h\u1ED9i truy\u1EC1n th\u1ED1ng
+        Myanmar"
+      objectReference: {fileID: 0}
     - target: {fileID: 6666674956039170463, guid: 0859b6a056f8847b1b58a5cc2dd99f38,
         type: 3}
       propertyPath: m_Name
@@ -173,7 +207,22 @@ PrefabInstance:
     - target: {fileID: 6795505185537628967, guid: 0859b6a056f8847b1b58a5cc2dd99f38,
         type: 3}
       propertyPath: m_Text
-      value: "Kho b\xE1u s\u1ED1 4"
+      value: "Kho b\xE1u s\u1ED1 3"
+      objectReference: {fileID: 0}
+    - target: {fileID: 7057111526205689424, guid: 0859b6a056f8847b1b58a5cc2dd99f38,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 212
+      objectReference: {fileID: 0}
+    - target: {fileID: 7057111526205689424, guid: 0859b6a056f8847b1b58a5cc2dd99f38,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 82
+      objectReference: {fileID: 0}
+    - target: {fileID: 8989027111280157107, guid: 0859b6a056f8847b1b58a5cc2dd99f38,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

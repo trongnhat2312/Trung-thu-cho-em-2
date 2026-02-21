@@ -63,8 +63,13 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 56c052f8d0e684372b800a8977998aa9,
+      objectReference: {fileID: 21300000, guid: d52b840b2223d4d20aee6e6dfbeb871a,
         type: 3}
+    - target: {fileID: 1442209726936613192, guid: 0859b6a056f8847b1b58a5cc2dd99f38,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 774.9282
+      objectReference: {fileID: 0}
     - target: {fileID: 3705146691124973241, guid: 0859b6a056f8847b1b58a5cc2dd99f38,
         type: 3}
       propertyPath: m_Pivot.x
@@ -165,6 +170,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5541999641889772925, guid: 0859b6a056f8847b1b58a5cc2dd99f38,
+        type: 3}
+      propertyPath: m_Text
+      value: "Dao b\u1ED5 cau h\xECnh ng\u1EF1a"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5564481573256998143, guid: 0859b6a056f8847b1b58a5cc2dd99f38,
+        type: 3}
+      propertyPath: m_Text
+      value: "Dao b\u1ED5 cau c\u1EE7a ng\u01B0\u1EDDi Malay (Malaysia) l\xE0 v\u1EADt
+        d\u1EE5ng g\u1EAFn li\u1EC1n v\u1EDBi t\u1EE5c \u0103n tr\u1EA7u (sirih)
+        - m\u1ED9t th\u1EF1c h\xE0nh v\u0103n h\xF3a quan tr\u1ECDng trong sinh ho\u1EA1t
+        th\u01B0\u1EDDng ng\xE0y v\xE0 c\xE1c nghi l\u1EC5 x\xE3 h\u1ED9i nh\u01B0
+        c\u01B0\u1EDBi h\u1ECFi, ti\u1EBFp kh\xE1ch. B\u1ED9 \u0111\u1ED3 \u0103n
+        tr\u1EA7u g\u1ED3m l\xE1 tr\u1EA7u, cau, v\xF4i v\xE0 dao b\u1ED5 cau. M\u1ED9t
+        s\u1ED1 dao c\xF3 c\xE1n ch\u1EA1m kh\u1EAFc h\xECnh ng\u1EF1a c\xE1ch \u0111i\u1EC7u,
+        mang gi\xE1 tr\u1ECB th\u1EA9m m\u1EF9, s\u1EF1 sang tr\u1ECDng v\xE0 v\u1ECB
+        th\u1EBF x\xE3 h\u1ED9i c\u1EE7a ch\u1EE7 s\u1EDF h\u1EEFu, qua \u0111\xF3
+        ph\u1EA3n \xE1nh n\xE9t v\u0103n h\xF3a \u1EE9ng x\u1EED v\xE0 c\u1EA5u tr\xFAc
+        x\xE3 h\u1ED9i truy\u1EC1n th\u1ED1ng c\u1EE7a c\u1ED9ng \u0111\u1ED3ng Malay."
+      objectReference: {fileID: 0}
     - target: {fileID: 6666674956039170463, guid: 0859b6a056f8847b1b58a5cc2dd99f38,
         type: 3}
       propertyPath: m_Name
@@ -173,7 +198,17 @@ PrefabInstance:
     - target: {fileID: 6795505185537628967, guid: 0859b6a056f8847b1b58a5cc2dd99f38,
         type: 3}
       propertyPath: m_Text
-      value: "Kho b\xE1u s\u1ED1 5"
+      value: "Kho b\xE1u s\u1ED1 4"
+      objectReference: {fileID: 0}
+    - target: {fileID: 7057111526205689424, guid: 0859b6a056f8847b1b58a5cc2dd99f38,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 220
+      objectReference: {fileID: 0}
+    - target: {fileID: 7057111526205689424, guid: 0859b6a056f8847b1b58a5cc2dd99f38,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 51
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

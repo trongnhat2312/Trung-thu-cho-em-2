@@ -232,6 +232,16 @@ PrefabInstance:
       propertyPath: m_Text
       value: "Kh\xE1m ph\xE1 s\u1ED1 2"
       objectReference: {fileID: 0}
+    - target: {fileID: 7057111526205689424, guid: 0859b6a056f8847b1b58a5cc2dd99f38,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -81
+      objectReference: {fileID: 0}
+    - target: {fileID: 7057111526205689424, guid: 0859b6a056f8847b1b58a5cc2dd99f38,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -15
+      objectReference: {fileID: 0}
     - target: {fileID: 8989027111280157107, guid: 0859b6a056f8847b1b58a5cc2dd99f38,
         type: 3}
       propertyPath: m_SizeDelta.y

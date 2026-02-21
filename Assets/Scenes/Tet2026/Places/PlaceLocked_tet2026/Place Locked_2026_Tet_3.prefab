@@ -63,7 +63,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 8b5b8d8d1756f454ea5dd520c54e7d09,
+      objectReference: {fileID: 21300000, guid: c58a95704452a41a7989bfab5c58d41b,
         type: 3}
     - target: {fileID: 3965062061906602937, guid: 2f416ace071f0414696d714cc266d211,
         type: 3}
@@ -170,16 +170,44 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlaceInfo_Root_Lock_new2026
       objectReference: {fileID: 0}
+    - target: {fileID: 4681055706970796000, guid: 2f416ace071f0414696d714cc266d211,
+        type: 3}
+      propertyPath: m_Text
+      value: "T\u1EA7ng 2, t\xF2a Tr\u1ED1ng \u0111\u1ED3ng, \ntr\xEAn hoa v\u0103n
+        th\u1ED5 c\u1EA9m ng\u01B0\u1EDDi L\u1EF1 c\xF3 nh\u1EEFng hoa v\u0103n \u0111\u1EB7c
+        bi\u1EC7t v\xE0 c\xE2u chuy\u1EC7n \u0111\u1EB7c bi\u1EC7t trong \u0111\xF3!\n\u0110\u1EBFn
+        v\xE0 \u0111\xF3n nh\u1EADn th\xF4ng \u0111i\u1EC7p nh\xE9!"
+      objectReference: {fileID: 0}
     - target: {fileID: 6550233355722178911, guid: 2f416ace071f0414696d714cc266d211,
         type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: f022c160cf5036543b8b7d38571f8ea7,
         type: 3}
+    - target: {fileID: 6817733577615987617, guid: 2f416ace071f0414696d714cc266d211,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -61
+      objectReference: {fileID: 0}
+    - target: {fileID: 6817733577615987617, guid: 2f416ace071f0414696d714cc266d211,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 7634828050123362880, guid: 2f416ace071f0414696d714cc266d211,
         type: 3}
       propertyPath: m_Text
-      value: "Kho b\xE1u s\u1ED1 3"
+      value: "Kho b\xE1u s\u1ED1 2"
+      objectReference: {fileID: 0}
+    - target: {fileID: 8362003927098064998, guid: 2f416ace071f0414696d714cc266d211,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -24
+      objectReference: {fileID: 0}
+    - target: {fileID: 8362003927098064998, guid: 2f416ace071f0414696d714cc266d211,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -78,7 +78,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Ng\u1EF1a v\xF9ng cao"
+  m_Text: "Tranh th\u1ED5 c\u1EA9m"
 --- !u!1 &155530091182924594
 GameObject:
   m_ObjectHideFlags: 0
@@ -6918,7 +6918,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 85b5450481f614960aa54f8419fde9e6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0e39b710cfc614ad7b060afa663e0df2, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -7219,7 +7219,7 @@ PrefabInstance:
     - target: {fileID: 6891869770857540401, guid: 509fcd96cf6904b12949a3d9b2eaaec6,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

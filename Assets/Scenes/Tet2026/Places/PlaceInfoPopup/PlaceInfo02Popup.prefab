@@ -56,7 +56,7 @@ MonoBehaviour:
   Question: {fileID: 6891869770857540401, guid: 27171340efa3348ceb77a20d377f40d2,
     type: 3}
   placeInfoUnlock: {fileID: 9193903383878925101}
-  placeInfoLock: {fileID: 383487400610930383}
+  placeInfoLock: {fileID: 6761270692310249512}
   QuestionButton: {fileID: 1714388130461016961}
   placeInfo: {fileID: 0}
 --- !u!222 &1219317251717584654
@@ -273,6 +273,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8370046760259710067}
     m_Modifications:
+    - target: {fileID: 3253812559842755631, guid: 4a2e4fe493cf74904b8d162fd027d08c,
+        type: 3}
+      propertyPath: m_Text
+      value: "Kh\xE1m ph\xE1 s\u1ED1 1"
+      objectReference: {fileID: 0}
     - target: {fileID: 4730625508856670081, guid: 4a2e4fe493cf74904b8d162fd027d08c,
         type: 3}
       propertyPath: m_Name
@@ -419,6 +424,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Place Locked_2026_Tet_2
       objectReference: {fileID: 0}
+    - target: {fileID: 4730625508856670081, guid: b5b6caf13947d42d889992f0453cf639,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6400279886096311889, guid: b5b6caf13947d42d889992f0453cf639,
         type: 3}
       propertyPath: m_Pivot.x
@@ -519,14 +529,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6511093850059519602, guid: b5b6caf13947d42d889992f0453cf639,
+        type: 3}
+      propertyPath: m_Text
+      value: "Kh\xE1m ph\xE1 s\u1ED1 1"
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b5b6caf13947d42d889992f0453cf639, type: 3}
---- !u!114 &383487400610930383 stripped
+--- !u!224 &2850822141468610013 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 6400279886096311889, guid: b5b6caf13947d42d889992f0453cf639,
+    type: 3}
+  m_PrefabInstance: {fileID: 9170027062714903436}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6761270692310249512 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8795548510626231619, guid: b5b6caf13947d42d889992f0453cf639,
+  m_CorrespondingSourceObject: {fileID: 2492356294992616356, guid: b5b6caf13947d42d889992f0453cf639,
     type: 3}
   m_PrefabInstance: {fileID: 9170027062714903436}
   m_PrefabAsset: {fileID: 0}
@@ -536,9 +557,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e84b17135d38b454fa80672c48907217, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TreasureHunt.Places.PlaceInfoNew2026
---- !u!224 &2850822141468610013 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 6400279886096311889, guid: b5b6caf13947d42d889992f0453cf639,
-    type: 3}
-  m_PrefabInstance: {fileID: 9170027062714903436}
-  m_PrefabAsset: {fileID: 0}

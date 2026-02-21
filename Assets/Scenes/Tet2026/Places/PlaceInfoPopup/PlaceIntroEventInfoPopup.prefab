@@ -194,7 +194,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7979061188031492230}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -273,6 +273,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4244158011689222573}
     m_Modifications:
+    - target: {fileID: 3200491432178978553, guid: 4a9db7241133147ba9fead0e28a6d2ad,
+        type: 3}
+      propertyPath: m_Text
+      value: "Tour Ng\u1EF1a VME"
+      objectReference: {fileID: 0}
+    - target: {fileID: 3200491432178978553, guid: 4a9db7241133147ba9fead0e28a6d2ad,
+        type: 3}
+      propertyPath: m_FontData.m_AlignByGeometry
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4730625508856670081, guid: 4a9db7241133147ba9fead0e28a6d2ad,
         type: 3}
       propertyPath: m_Name
@@ -281,7 +291,7 @@ PrefabInstance:
     - target: {fileID: 4730625508856670081, guid: 4a9db7241133147ba9fead0e28a6d2ad,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6400279886096311889, guid: 4a9db7241133147ba9fead0e28a6d2ad,
         type: 3}
@@ -414,6 +424,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4244158011689222573}
     m_Modifications:
+    - target: {fileID: 326808542265356191, guid: 34da6f7175482493ab72f96d6e1f62e5,
+        type: 3}
+      propertyPath: m_Text
+      value: "Tour Ng\u1EF1a VME"
+      objectReference: {fileID: 0}
+    - target: {fileID: 809233543295516080, guid: 34da6f7175482493ab72f96d6e1f62e5,
+        type: 3}
+      propertyPath: m_Text
+      value: "Tour Ng\u1EF1a VME"
+      objectReference: {fileID: 0}
     - target: {fileID: 4730625508856670081, guid: 34da6f7175482493ab72f96d6e1f62e5,
         type: 3}
       propertyPath: m_Name
@@ -422,7 +442,7 @@ PrefabInstance:
     - target: {fileID: 4730625508856670081, guid: 34da6f7175482493ab72f96d6e1f62e5,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6400279886096311889, guid: 34da6f7175482493ab72f96d6e1f62e5,
         type: 3}

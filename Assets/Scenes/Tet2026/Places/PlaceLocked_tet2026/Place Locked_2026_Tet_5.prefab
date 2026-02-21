@@ -63,7 +63,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 56c052f8d0e684372b800a8977998aa9,
+      objectReference: {fileID: 21300000, guid: d52b840b2223d4d20aee6e6dfbeb871a,
         type: 3}
     - target: {fileID: 3965062061906602937, guid: 2f416ace071f0414696d714cc266d211,
         type: 3}
@@ -170,16 +170,42 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlaceInfo_Root_Lock_new2026
       objectReference: {fileID: 0}
+    - target: {fileID: 4681055706970796000, guid: 2f416ace071f0414696d714cc266d211,
+        type: 3}
+      propertyPath: m_Text
+      value: "t\u1EA7ng 1, t\xF2a C\xE1nh di\u1EC1u\nc\xF3 nh\u1EEFng con dao b\u1ED5
+        cau c\u1EE7a ng\u01B0\u1EDDi Malay!"
+      objectReference: {fileID: 0}
     - target: {fileID: 6550233355722178911, guid: 2f416ace071f0414696d714cc266d211,
         type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 4451872a201330a438bcff86911f4eb7,
         type: 3}
+    - target: {fileID: 6817733577615987617, guid: 2f416ace071f0414696d714cc266d211,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 6817733577615987617, guid: 2f416ace071f0414696d714cc266d211,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 39
+      objectReference: {fileID: 0}
     - target: {fileID: 7634828050123362880, guid: 2f416ace071f0414696d714cc266d211,
         type: 3}
       propertyPath: m_Text
-      value: "Kho b\xE1u s\u1ED1 5"
+      value: "Kho b\xE1u s\u1ED1 4"
+      objectReference: {fileID: 0}
+    - target: {fileID: 8362003927098064998, guid: 2f416ace071f0414696d714cc266d211,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 237
+      objectReference: {fileID: 0}
+    - target: {fileID: 8362003927098064998, guid: 2f416ace071f0414696d714cc266d211,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 39
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

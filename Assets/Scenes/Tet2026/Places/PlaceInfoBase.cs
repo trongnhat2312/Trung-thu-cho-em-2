@@ -1,4 +1,4 @@
-using System; 
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -41,12 +41,22 @@ namespace TreasureHunt.Places
         {
             OnClosePlaceInfoListener = pCloseCallback;
             OnScanClickedListener = openQRCallback;
-            Debug.LogError($"PlaceInfoBase: open place == {pIdPlace}");  
+            Debug.LogError($"PlaceInfoBase: open place == {pIdPlace}");
+            numPlace = pIdPlace;
             QuestionButton.gameObject.SetActive(isUnlocked && pIdPlace != 0 && pIdPlace != 5);
 
-            placeInfoLock.gameObject.SetActive(!isUnlocked);
-            placeInfoUnlock.gameObject.SetActive(isUnlocked);
-            placeInfo = isUnlocked ? placeInfoUnlock : placeInfoLock;  
+            if (placeInfoLock != null)
+            {
+	            placeInfoLock.gameObject.SetActive(!isUnlocked);
+            }
+
+            if (placeInfoUnlock != null)
+            {
+	            placeInfoUnlock.gameObject.SetActive(isUnlocked);
+            }
+
+
+            placeInfo = isUnlocked ? placeInfoUnlock : placeInfoLock;
             gameObject.SetActive(true);
             placeInfo.Open(OnBtnCloseClicked, OnBtnScanClicked);
         }
@@ -54,18 +64,18 @@ namespace TreasureHunt.Places
         private async void HidePopup()
         {
             OnClosePlaceInfoListener?.Invoke();
-            gameObject.SetActive(false); 
+            gameObject.SetActive(false);
         }
 
         private void OnBtnCloseClicked()
-        { 
+        {
             HidePopup();
         }
 
         private void OnBtnScanClicked()
-        { 
+        {
             OnScanClickedListener?.Invoke();
-            gameObject.SetActive(false); 
+            gameObject.SetActive(false);
         }
 
         private void OnBtnShowQuestionClicked()
