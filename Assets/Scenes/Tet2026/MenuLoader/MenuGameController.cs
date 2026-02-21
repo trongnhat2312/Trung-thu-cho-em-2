@@ -235,12 +235,15 @@ namespace TreasureHunt.MenuGame
         {
             Debug.LogError($"MenuGameController OnScanCallbackInPlaceInfo");
             // ClickScan();
+            StaticParamClass.GoFromOutside = false;
             OnShowQRScanner();
+
         }
 
         private void OnBtnScannerInMenuCenterClicked()
         {
             Debug.LogError($"MenuGameController OnBtnScannerInMenuCenterClicked");
+            StaticParamClass.GoFromOutside = false;
             OnShowQRScanner();
         }
 
