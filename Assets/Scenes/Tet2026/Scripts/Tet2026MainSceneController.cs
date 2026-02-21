@@ -70,14 +70,14 @@ namespace TreasureHunt
             if (case1Accept)
             {
                 Debug.LogError($"Tet2026MainSceneController:CASE 1 SetupStart First time from Url QR {pm}, case1Accept: {case1Accept} isHasAccount: {isHasAccount}");
-                InitQRScannerRootObj("");
-                return;
+                // InitQRScannerRootObj("");
+                // return;
             }
             else if (case2Accept)
             {
                 Debug.LogError($"Tet2026MainSceneController:CASE 1 SetupStart First time from Url QR {pm}, case1Accept: {case1Accept} isHasAccount: {isHasAccount}");
-                InitQRScannerRootObj("");
-                return;
+                // InitQRScannerRootObj("");
+                // return;
             }
 
             Debug.LogError("Tet2026MainSceneController OnFirstLoaded");
@@ -106,7 +106,7 @@ namespace TreasureHunt
             InitQRScannerRootObj(jsonData);
         }
 
-        #endregion 
+        #endregion
 
         #region QR Scanner
         private async void InitQRScannerRootObj(string jsonData)
@@ -114,6 +114,7 @@ namespace TreasureHunt
             Debug.LogError("MainSceneController InitMenuRootObj");
             mainUIState = MainUIState.S2_QRScanner;
             ActiveUIWithState();
+
             //Start setup UI
             objQRScanner.SetupDataLoaded(jsonData);
             //Add Listener
